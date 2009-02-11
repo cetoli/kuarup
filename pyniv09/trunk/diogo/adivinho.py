@@ -70,7 +70,7 @@ def jogar():
         #random.seed()
         #random.randint(minimo,maximo)
 
-        palpite = (minimo+maximo)/2
+        palpite = (minimo+maximo)/2;
 
         print "\nO meu palpite é %s \n" % palpite
         resposta = raw_input("Diga se acertei.\n Se o numero for maior, digite '>'\n Se for menor , digite '<'\n Ou se acertei, digite '='\n Qual a sua dica? ")
