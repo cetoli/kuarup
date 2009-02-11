@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,6"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="2,1,1,4"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -28,23 +28,23 @@
 </v>
 </v>
 <v t="carlo.20080914080659.3" a="E"
-expanded="carlo.20081219153110.7,"><vh>@thin adivinho.py</vh></v>
+expanded="carlo.20081219153110.7,aluno.20090211135634.6,"><vh>@thin adivinho.py</vh></v>
 </vnodes>
 <tnodes>
-<t tx="aluno.20090206164348.2">def obtem_resposta_voluntario():
-    global resposta 
-    resposta = raw_input ("Diga sua resposta:")
-    return "Você disse: " + resposta</t>
-<t tx="aluno.20090206164348.3">def analisa_resposta():
-    global nao_acertou
-    if (resposta == 'a'):
-        nao_acertou = False
+<t tx="aluno.20090206164348.2">def obtem_resposta_voluntario(self):
+    #global resposta 
+    self.resposta = raw_input ("Resultado do palpite:")
+    return "Você disse: " + self.resposta</t>
+<t tx="aluno.20090206164348.3">def analisa_resposta(self):
+    #global nao_acertou
+    if (self.resposta == 'a'):
+        self.nao_acertou = False
         return ("Acertei sua resposta!");
-    elif (resposta == 's'):
-        muda_palpite_pracima()
+    elif (self.resposta == 's'):
+        self.muda_palpite_pracima()
         return ("Deverei subir o meu palpite!");
-    elif (resposta == 'd'):
-        muda_palpite_prabaixo()
+    elif (self.resposta == 'd'):
+        self.muda_palpite_prabaixo()
         return ("Deverei descer o palpite");
     else:
         return "Comando não reconhecido"</t>
@@ -96,17 +96,17 @@ O Jogo do Adivinho
 * o voluntário diz se o número é maior ou menor que o palpite - Dica
 
 * o diálogo prossegue até que o advinho acerte o palpite - Diálogo</t>
-<t tx="carlo.20090104111700.4">def apresenta_participantes():
+<t tx="carlo.20090104111700.4">def apresenta_participantes(self):
     return "\nEu sou o Jogo do Advinho, você é o voluntário! \n"</t>
-<t tx="carlo.20090104111700.5">def diz_a_regra_do_jogo():    
+<t tx="carlo.20090104111700.5">def diz_a_regra_do_jogo(self):    
     return "Pense um número de 1 a 100 \n" "Diga a se acertei, s para eu subir o palpite e d para eu descer o palpite."
 </t>
-<t tx="carlo.20090104111700.7">def da_um_palpite():
+<t tx="carlo.20090104111700.7">def da_um_palpite(self):
     #import random
     #global palpite
 
     #palpite = random.randint(1,7)
-    return "\nEu acho que você pensou no número " + str(palpite)
+    return "\nEu acho que você pensou no número " + str(self.palpite)
 </t>
 </tnodes>
 </leo_file>
