@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,6"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="2,1,1"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -35,42 +35,39 @@
 </v>
 </v>
 <v t="carlo.20080914080659.3" a="E"
-expanded="carlo.20081219153110.7,"><vh>@thin adivinho.py</vh></v>
+expanded="carlo.20081219153110.7,aluno.20090211133037.12,"><vh>@thin adivinho.py</vh></v>
 </vnodes>
 <tnodes>
-<t tx="aluno.20090211133037.3">def escuta_o_voluntario():
-    global resposta_do_voluntario
-    resposta_do_voluntario = raw_input("diga")
-    return "você disse: " + resposta_do_voluntario</t>
-<t tx="aluno.20090211133037.4">def pense_e_ve_se_acertou():
-    global nao_acertou
-    if resposta_do_voluntario == "a" :
-        nao_acertou = False
+<t tx="aluno.20090211133037.3">def escuta_o_voluntario(self):
+    self.resposta_do_voluntario = raw_input("diga")
+    return "você disse: " + self.resposta_do_voluntario</t>
+<t tx="aluno.20090211133037.4">def pense_e_ve_se_acertou(self):
+    if self.resposta_do_voluntario == "a" :
+        self.nao_acertou = False
         print "acertei" 
     else:
-        muda_palpite()
+        self.muda_palpite()
 
 </t>
-<t tx="aluno.20090211133037.6">def joga_o_jogo_do_adivinho():
-        print apresenta_os_participantes()
-        print diz_a_regra_do_jogo()
-        tenta_varios_palpites()
+<t tx="aluno.20090211133037.6">def joga_o_jogo_do_adivinho(self):
+        print self.apresenta_os_participantes()
+        print self.diz_a_regra_do_jogo()
+        self.tenta_varios_palpites()
 </t>
 <t tx="aluno.20090211133037.7">resposta_do_voluntario = " "
 palpite = 1
 nao_acertou = True</t>
 <t tx="aluno.20090211133037.8"></t>
 <t tx="aluno.20090211133037.9"></t>
-<t tx="aluno.20090211133037.10">def tenta_varios_palpites():
-    while nao_acertou:
-        print diz_o_palpite()
-        print escuta_o_voluntario()
-        pense_e_ve_se_acertou()
+<t tx="aluno.20090211133037.10">def tenta_varios_palpites(self):
+    while self.nao_acertou:
+        print self.diz_o_palpite()
+        print self.escuta_o_voluntario()
+        self.pense_e_ve_se_acertou()
 
 </t>
-<t tx="aluno.20090211133037.11">def muda_palpite():
-    global palpite
-    palpite = palpite + 1</t>
+<t tx="aluno.20090211133037.11">def muda_palpite(self):
+    self.palpite = palpite + 1</t>
 <t tx="carlo.20080914080659.1"></t>
 <t tx="carlo.20080914080659.10">@ @rst-options
 @c
@@ -120,11 +117,11 @@ O Jogo do Adivinho
 
 * o diálogo prossegue até que o advinho acerte o palpite - Diálogo
 </t>
-<t tx="carlo.20090104111700.4">def apresenta_os_participantes():
+<t tx="carlo.20090104111700.4">def apresenta_os_participantes(self):
     return "Eu sou o advinho, você é o voluntário"</t>
-<t tx="carlo.20090104111700.5">def diz_a_regra_do_jogo():
+<t tx="carlo.20090104111700.5">def diz_a_regra_do_jogo(self):
     return "pense um número de 1 a 7", "diga a se acertei, s para eu subir, d para descer"</t>
-<t tx="carlo.20090104111700.7">def diz_o_palpite():
-    return "o meu palpite é " + str (palpite)</t>
+<t tx="carlo.20090104111700.7">def diz_o_palpite(self):
+    return "o meu palpite é " + str (self.palpite)</t>
 </tnodes>
 </leo_file>
