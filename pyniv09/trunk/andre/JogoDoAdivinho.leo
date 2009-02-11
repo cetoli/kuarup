@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,7"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="2,1,6"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -41,15 +41,13 @@ expanded="carlo.20081219153110.7,"><vh>@thin adivinho.py</vh></v>
         nao_acertou = False
         return ("Acertei sua resposta!");
     elif (resposta == 's'):
-        muda_palpite()
+        muda_palpite_pracima()
         return ("Deverei subir o meu palpite!");
     elif (resposta == 'd'):
-        muda_palpite()
+        muda_palpite_prabaixo()
         return ("Deverei descer o palpite");
     else:
-        muda_palpite()
-
-</t>
+        return "Comando não reconhecido"</t>
 <t tx="carlo.20080914080659.1"></t>
 <t tx="carlo.20080914080659.10">@ @rst-options
 @c

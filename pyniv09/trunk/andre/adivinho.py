@@ -73,9 +73,13 @@ def obtem_resposta_voluntario():
 #@nonl
 #@-node:aluno.20090206164348.2:Resposta do Voluntário
 #@+node:aluno.20090211135634.4:Muda Palpite
-def muda_palpite():
+def muda_palpite_pracima():
     global palpite
-    palpite = palpite + 1
+    palpite += 1
+
+def muda_palpite_prabaixo():
+    global palpite
+    palpite -= 1
 #@nonl
 #@-node:aluno.20090211135634.4:Muda Palpite
 #@+node:aluno.20090206164348.3:Pense pra ver se acertou
@@ -85,14 +89,14 @@ def analisa_resposta():
         nao_acertou = False
         return ("Acertei sua resposta!");
     elif (resposta == 's'):
-        muda_palpite()
+        muda_palpite_pracima()
         return ("Deverei subir o meu palpite!");
     elif (resposta == 'd'):
-        muda_palpite()
+        muda_palpite_prabaixo()
         return ("Deverei descer o palpite");
     else:
-        muda_palpite()
-
+        return "Comando não reconhecido"
+#@nonl
 #@-node:aluno.20090206164348.3:Pense pra ver se acertou
 #@+node:aluno.20090211135634.5:Tenta varios palpites
 def tenta_varios_palpites():
