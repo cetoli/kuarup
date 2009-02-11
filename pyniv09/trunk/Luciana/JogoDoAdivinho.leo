@@ -38,7 +38,7 @@ expanded="carlo.20080914080659.5,carlo.20081219153110.7,aluno.20090211132912.6,"
 </t>
 <t tx="aluno.20090206161548.7">def pensa_e_ve_se_acertou(self):
     if self.resposta_do_voluntario == "a" :
-       self.nao_acertou = False
+        self.nao_acertou = False
         print "acertei!Sou demais!!"
     else:
         self.muda_palpite()</t>
