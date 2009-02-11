@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="36" left="10" height="645" width="935"/>
+	<global_window_position top="25" left="0" height="660" width="1024"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,5"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="1,0,5,0,5"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -35,34 +35,31 @@
 </v>
 </v>
 <v t="carlo.20080914080659.3" a="E"
-expanded="carlo.20080914080659.5,carlo.20081219153110.7,"><vh>@thin adivinho.py</vh></v>
+expanded="carlo.20080914080659.5,carlo.20081219153110.7,aluno.20090211141308.17,"><vh>@thin adivinho.py</vh></v>
 </vnodes>
 <tnodes>
-<t tx="aluno.20090206161713.2">def escutaOVoluntario():
-    global respostaVoluntario
-    respostaVoluntario = raw_input("diga!")
-    print "Voce disse:" + respostaVoluntario
+<t tx="aluno.20090206161713.2">def escutaOVoluntario(self):
+    self.respostaVoluntario = raw_input("diga!")
+    print "Voce disse:" + self.respostaVoluntario
 </t>
-<t tx="aluno.20090206161713.3">def pensaEVeSeAcertou():
-    global nao_acertou
-    if respostaVoluntario =="a" : 
+<t tx="aluno.20090206161713.3">def pensaEVeSeAcertou(self):
+    if self.respostaVoluntario =="a" : 
         print "acertei!"
-        nao_acertou=False
+        self.nao_acertou=False
     else:
-        mudaPalpite()</t>
-<t tx="aluno.20090211141308.2">def jogaOJogoDoAdivinho():
-    apresentaOsParticipantes()
-    dizARegraDoJogo()
-    tentaVariosPalpites()
+        self.mudaPalpite()</t>
+<t tx="aluno.20090211141308.2">def jogaOJogoDoAdivinho(self):
+    self.apresentaOsParticipantes()
+    self.dizARegraDoJogo()
+    self.tentaVariosPalpites()
 </t>
 <t tx="aluno.20090211141308.9">respostaDoVoluntario = ""
 palpite = 1
 nao_acertou = True</t>
 <t tx="aluno.20090211141308.12"></t>
 <t tx="aluno.20090211141308.13"></t>
-<t tx="aluno.20090211141308.15">def mudaPalpite():
-    global palpite
-    palpite = palpite + 1</t>
+<t tx="aluno.20090211141308.15">def mudaPalpite(self):
+    self.palpite = self.palpite + 1</t>
 <t tx="carlo.20080914080659.1"></t>
 <t tx="carlo.20080914080659.10">@ @rst-options
 @c
@@ -111,13 +108,13 @@ O Jogo do Adivinho
 * o voluntário diz se o número é maior ou menor que o palpite - Dica
 
 * o diálogo prossegue até que o advinho acerte o palpite - Diálogo</t>
-<t tx="carlo.20090104111700.4">def apresentaOsParticipantes():
+<t tx="carlo.20090104111700.4">def apresentaOsParticipantes(self):
     print "Eu sou o advinho, você é o voluntário"</t>
-<t tx="carlo.20090104111700.5">def dizARegraDoJogo():
+<t tx="carlo.20090104111700.5">def dizARegraDoJogo(self):
     print "pense um número de 1 a 7"
     print "diga a se acertei, s para eu subir e para eu descer."</t>
-<t tx="carlo.20090104111700.7">def dizOPalpite():
-    print "o meu palpite é " + str(palpite)
+<t tx="carlo.20090104111700.7">def dizOPalpite(self):
+    print "o meu palpite é " + str(self.palpite)
     print "diga a se acertei, s para eu subir, d para descer o palpite"</t>
 </tnodes>
 </leo_file>
