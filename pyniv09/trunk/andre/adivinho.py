@@ -49,6 +49,8 @@ def apresenta_participantes():
 #@-node:carlo.20090104111700.4:Participantes
 #@+node:aluno.20090211135634.3:Globais
 resposta = ""
+palpite = 1
+nao_acertou = True
 #@nonl
 #@-node:aluno.20090211135634.3:Globais
 #@+node:carlo.20090104111700.5:Regra do jogo
@@ -57,42 +59,56 @@ def diz_a_regra_do_jogo():
 #@-node:carlo.20090104111700.5:Regra do jogo
 #@+node:carlo.20090104111700.7:Palpite
 def da_um_palpite():
-    import random
-    a = random.randint(1,7)
-    return "\nEu acho que você pensou no número " + str(a)
-#@nonl
+    #import random
+    #global palpite
+
+    #palpite = random.randint(1,7)
+    return "\nEu acho que você pensou no número " + str(palpite)
 #@-node:carlo.20090104111700.7:Palpite
 #@+node:aluno.20090206164348.2:Resposta do Voluntário
-def obtem_resposta_usuario():
+def obtem_resposta_voluntario():
     global resposta 
     resposta = raw_input ("Diga sua resposta:")
     return "Você disse: " + resposta
 #@nonl
 #@-node:aluno.20090206164348.2:Resposta do Voluntário
+#@+node:aluno.20090211135634.4:Muda Palpite
+def muda_palpite():
+    global palpite
+    palpite = palpite + 1
+#@nonl
+#@-node:aluno.20090211135634.4:Muda Palpite
 #@+node:aluno.20090206164348.3:Pense pra ver se acertou
 def analisa_resposta():
+    global nao_acertou
     if (resposta == 'a'):
+        nao_acertou = False
         return ("Acertei sua resposta!");
     elif (resposta == 's'):
+        muda_palpite()
         return ("Deverei subir o meu palpite!");
     elif (resposta == 'd'):
+        muda_palpite()
         return ("Deverei descer o palpite");
     else:
-        return("Não soube identificar sua resposta");
+        muda_palpite()
 
 #@-node:aluno.20090206164348.3:Pense pra ver se acertou
+#@+node:aluno.20090211135634.5:Tenta varios palpites
+def tenta_varios_palpites():
+    while nao_acertou == True:
+        from time import sleep
+        sleep(2)
+
+        print da_um_palpite()
+        print obtem_resposta_voluntario()
+        print analisa_resposta()
+#@-node:aluno.20090211135634.5:Tenta varios palpites
 #@+node:aluno.20090211135634.2:Joga o jogo do advinho
 def joga_adivinha_um_numero():
     print apresenta_participantes()
     print diz_a_regra_do_jogo()
-
-    from time import sleep
-    sleep(3)
-
-    print da_um_palpite()
-    print obtem_resposta_usuario()
-
-    print analisa_resposta()
+    tenta_varios_palpites()
 #@-node:aluno.20090211135634.2:Joga o jogo do advinho
 #@-others
 #@-node:carlo.20081219153110.7:<< Jogo do Adivinho >>
