@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,5"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="2,1,4"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -79,15 +79,20 @@ O Jogo do Adivinho
 
 * o diálogo prossegue até que o advinho acerte o palpite - Diálogo</t>
 <t tx="carlo.20090104111700.4">def apresentaParticipantes():
-    print "\nEu sou o advinho, você é o voluntário"</t>
+    return "\nEu sou o advinho, você é o voluntário"</t>
 <t tx="carlo.20090104111700.5">def apresentaRegras():
-    print "pense um número de %s a %s" % (minimo, maximo)</t>
-<t tx="carlo.20090104111700.7">def jogar()
-    while acertei==False:
-        random.seed()
-        palpite = (minimo+maximo)/2
+    return "pense um número de %s a %s" % (minimo, maximo)</t>
+<t tx="carlo.20090104111700.7">def jogar():
+    global minimo
+    global maximo
+    global palpit
+    global acertei
 
+    while acertei==False:
+        #random.seed()
         #random.randint(minimo,maximo)
+
+        palpite = (minimo+maximo)/2
 
         print "\nO meu palpite é %s \n" % palpite
         resposta = raw_input("Diga se acertei.\n Se o numero for maior, digite '&gt;'\n Se for menor , digite '&lt;'\n Ou se acertei, digite '='\n Qual a sua dica? ")
