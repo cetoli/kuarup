@@ -42,65 +42,68 @@ o meu palpite é 4
 '''
 #@nonl
 #@-node:carlo.20081219153110.8:Documentação
-#@+node:aluno.20090211141308.9:Glossario
-respostaDoVoluntario = ""
-palpite = 1
-nao_acertou = True
+#@+node:aluno.20090211141308.17:A classe Adivinhacao
+class Adivinhacao:
+    #@    @+others
+    #@+node:aluno.20090211141308.9:Glossario
+    respostaDoVoluntario = ""
+    palpite = 1
+    nao_acertou = True
+    #@nonl
+    #@-node:aluno.20090211141308.9:Glossario
+    #@+node:carlo.20090104111700.4:Participantes
+    def apresentaOsParticipantes(self):
+        print "Eu sou o advinho, você é o voluntário"
+    #@nonl
+    #@-node:carlo.20090104111700.4:Participantes
+    #@+node:carlo.20090104111700.5:Regra do jogo
+    def dizARegraDoJogo(self):
+        print "pense um número de 1 a 7"
+        print "diga a se acertei, s para eu subir e para eu descer."
+    #@nonl
+    #@-node:carlo.20090104111700.5:Regra do jogo
+    #@+node:carlo.20090104111700.7:Palpite
+    def dizOPalpite(self):
+        print "o meu palpite é " + str(self.palpite)
+        print "diga a se acertei, s para eu subir, d para descer o palpite"
+    #@nonl
+    #@-node:carlo.20090104111700.7:Palpite
+    #@+node:aluno.20090211141308.16:Tenta Varios Palpites
+    def tentaVariosPalpites(self):
+        while self.nao_acertou:
+            self.dizOPalpite()
+            self.escutaOVoluntario()
+            self.pensaEVeSeAcertou()
+    #@nonl
+    #@-node:aluno.20090211141308.16:Tenta Varios Palpites
+    #@+node:aluno.20090206161713.3:Pensa e ve se acertou
+    def pensaEVeSeAcertou(self):
+        if self.respostaVoluntario =="a" : 
+            print "acertei!"
+            self.nao_acertou=False
+        else:
+            self.mudaPalpite()
+    #@nonl
+    #@-node:aluno.20090206161713.3:Pensa e ve se acertou
+    #@+node:aluno.20090206161713.2:Escuta o voluntario
+    def escutaOVoluntario(self):
+        self.respostaVoluntario = raw_input("diga!")
+        print "Voce disse:" + self.respostaVoluntario
+    #@-node:aluno.20090206161713.2:Escuta o voluntario
+    #@+node:aluno.20090211141308.15:Muda Palpite
+    def mudaPalpite(self):
+        self.palpite = self.palpite + 1
+    #@nonl
+    #@-node:aluno.20090211141308.15:Muda Palpite
+    #@+node:aluno.20090211141308.2:Joga o Jogo do Adivinho
+    def jogaOJogoDoAdivinho(self):
+        self.apresentaOsParticipantes()
+        self.dizARegraDoJogo()
+        self.tentaVariosPalpites()
+    #@-node:aluno.20090211141308.2:Joga o Jogo do Adivinho
+    #@-others
 #@nonl
-#@-node:aluno.20090211141308.9:Glossario
-#@+node:carlo.20090104111700.4:Participantes
-def apresentaOsParticipantes():
-    print "Eu sou o advinho, você é o voluntário"
-#@nonl
-#@-node:carlo.20090104111700.4:Participantes
-#@+node:carlo.20090104111700.5:Regra do jogo
-def dizARegraDoJogo():
-    print "pense um número de 1 a 7"
-    print "diga a se acertei, s para eu subir e para eu descer."
-#@nonl
-#@-node:carlo.20090104111700.5:Regra do jogo
-#@+node:carlo.20090104111700.7:Palpite
-def dizOPalpite():
-    print "o meu palpite é " + str(palpite)
-    print "diga a se acertei, s para eu subir, d para descer o palpite"
-#@nonl
-#@-node:carlo.20090104111700.7:Palpite
-#@+node:aluno.20090211141308.16:Tenta Varios Palpites
-def tentaVariosPalpites():
-    while nao_acertou:
-        dizOPalpite()
-        escutaOVoluntario()
-        pensaEVeSeAcertou()
-#@nonl
-#@-node:aluno.20090211141308.16:Tenta Varios Palpites
-#@+node:aluno.20090206161713.3:Pensa e ve se acertou
-def pensaEVeSeAcertou():
-    global nao_acertou
-    if respostaVoluntario =="a" : 
-        print "acertei!"
-        nao_acertou=False
-    else:
-        mudaPalpite()
-#@nonl
-#@-node:aluno.20090206161713.3:Pensa e ve se acertou
-#@+node:aluno.20090206161713.2:Escuta o voluntario
-def escutaOVoluntario():
-    global respostaVoluntario
-    respostaVoluntario = raw_input("diga!")
-    print "Voce disse:" + respostaVoluntario
-#@-node:aluno.20090206161713.2:Escuta o voluntario
-#@+node:aluno.20090211141308.15:Muda Palpite
-def mudaPalpite():
-    global palpite
-    palpite = palpite + 1
-#@nonl
-#@-node:aluno.20090211141308.15:Muda Palpite
-#@+node:aluno.20090211141308.2:Joga o Jogo do Adivinho
-def jogaOJogoDoAdivinho():
-    apresentaOsParticipantes()
-    dizARegraDoJogo()
-    tentaVariosPalpites()
-#@-node:aluno.20090211141308.2:Joga o Jogo do Adivinho
+#@-node:aluno.20090211141308.17:A classe Adivinhacao
 #@-others
 #@-node:carlo.20081219153110.7:<< Jogo do Adivinho >>
 #@nl
@@ -110,6 +113,7 @@ def _test():
     doctest.testmod()
 
 if __name__ == "__main__":
-    jogaOJogoDoAdivinho()
+    minhaAdivinhacao = Adivinhacao()
+    minhaAdivinhacao.jogaOJogoDoAdivinho()
 #@-node:carlo.20080914080659.3:@thin adivinho.py
 #@-leo
