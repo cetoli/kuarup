@@ -2,7 +2,7 @@
 <?xml-stylesheet ekr_test?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.5">
+<globals body_outline_ratio="0.393798449612">
 	<global_window_position top="27" left="10" height="645" width="935"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
@@ -92,7 +92,7 @@ O Jogo do Adivinho
         #random.seed()
         #random.randint(minimo,maximo)
 
-        palpite = (minimo+maximo)/2
+        palpite = (minimo+maximo)/2;
 
         print "\nO meu palpite é %s \n" % palpite
         resposta = raw_input("Diga se acertei.\n Se o numero for maior, digite '&gt;'\n Se for menor , digite '&lt;'\n Ou se acertei, digite '='\n Qual a sua dica? ")
