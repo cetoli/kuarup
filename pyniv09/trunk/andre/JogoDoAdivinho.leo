@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,5"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="2,1,7"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -31,19 +31,23 @@
 expanded="carlo.20081219153110.7,"><vh>@thin adivinho.py</vh></v>
 </vnodes>
 <tnodes>
-<t tx="aluno.20090206164348.2">def obtem_resposta_usuario():
+<t tx="aluno.20090206164348.2">def obtem_resposta_voluntario():
     global resposta 
     resposta = raw_input ("Diga sua resposta:")
     return "Você disse: " + resposta</t>
 <t tx="aluno.20090206164348.3">def analisa_resposta():
+    global nao_acertou
     if (resposta == 'a'):
+        nao_acertou = False
         return ("Acertei sua resposta!");
     elif (resposta == 's'):
+        muda_palpite()
         return ("Deverei subir o meu palpite!");
     elif (resposta == 'd'):
+        muda_palpite()
         return ("Deverei descer o palpite");
     else:
-        return("Não soube identificar sua resposta");
+        muda_palpite()
 
 </t>
 <t tx="carlo.20080914080659.1"></t>
@@ -100,8 +104,11 @@ O Jogo do Adivinho
     return "Pense um número de 1 a 100 \n" "Diga a se acertei, s para eu subir o palpite e d para eu descer o palpite."
 </t>
 <t tx="carlo.20090104111700.7">def da_um_palpite():
-    import random
-    a = random.randint(1,7)
-    return "\nEu acho que você pensou no número " + str(a)</t>
+    #import random
+    #global palpite
+
+    #palpite = random.randint(1,7)
+    return "\nEu acho que você pensou no número " + str(palpite)
+</t>
 </tnodes>
 </leo_file>
