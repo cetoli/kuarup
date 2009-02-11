@@ -30,6 +30,13 @@ O Jogo do Adivinho
 #@<< Jogo do Adivinho >>
 #@+node:carlo.20081219153110.7:<< Jogo do Adivinho >>
 #@+others
+#@+node:aluno.20090211134413.6:VariaveisUtilizadas
+minimo=0
+maximo=100
+palpite=0
+acertei=False
+#@nonl
+#@-node:aluno.20090211134413.6:VariaveisUtilizadas
 #@+node:carlo.20081219153110.8:Documentação
 '''
 >>> # Apresenta os participantes
@@ -42,31 +49,28 @@ o meu palpite é 4
 '''
 #@nonl
 #@-node:carlo.20081219153110.8:Documentação
-#@+node:aluno.20090211134413.3:VariaveisUtilizadas
-import random
-minimo=0
-maximo=100
-palpite=0
-acertei = False
-#@nonl
-#@-node:aluno.20090211134413.3:VariaveisUtilizadas
 #@+node:carlo.20090104111700.4:Participantes
 def apresentaParticipantes():
-    print "\nEu sou o advinho, você é o voluntário"
+    return "\nEu sou o advinho, você é o voluntário"
 #@nonl
 #@-node:carlo.20090104111700.4:Participantes
 #@+node:carlo.20090104111700.5:Regra do jogo
 def apresentaRegras():
-    print "pense um número de %s a %s" % (minimo, maximo)
+    return "pense um número de %s a %s" % (minimo, maximo)
 #@nonl
 #@-node:carlo.20090104111700.5:Regra do jogo
 #@+node:carlo.20090104111700.7:Joga
-def jogar()
-    while acertei==False:
-        random.seed()
-        palpite = (minimo+maximo)/2
+def jogar():
+    global minimo
+    global maximo
+    global palpit
+    global acertei
 
+    while acertei==False:
+        #random.seed()
         #random.randint(minimo,maximo)
+
+        palpite = (minimo+maximo)/2
 
         print "\nO meu palpite é %s \n" % palpite
         resposta = raw_input("Diga se acertei.\n Se o numero for maior, digite '>'\n Se for menor , digite '<'\n Ou se acertei, digite '='\n Qual a sua dica? ")
@@ -85,9 +89,9 @@ def jogar()
 
 #@-node:carlo.20090104111700.7:Joga
 #@+node:aluno.20090211134413.5:Inicio
-def inicioJogo():
-    apresentaParticipantes()
-    apresentaRegras()
+def iniciarJogo():
+    print apresentaParticipantes()
+    print apresentaRegras()
     jogar()
 #@nonl
 #@-node:aluno.20090211134413.5:Inicio
@@ -100,6 +104,6 @@ def _test():
     doctest.testmod()
 
 if __name__ == "__main__":
-    _test()
+    iniciarJogo()
 #@-node:carlo.20080914080659.3:@thin adivinho.py
 #@-leo
