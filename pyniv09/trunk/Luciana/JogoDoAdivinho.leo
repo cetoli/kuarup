@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,1,6"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="3,1,2,1"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -30,6 +30,8 @@
 </v>
 <v t="carlo.20080914080659.3" a="E"
 expanded="carlo.20080914080659.5,carlo.20081219153110.7,aluno.20090211132912.6,"><vh>@thin adivinho.py</vh></v>
+<v t="aluno.20090213142752.2" a="E"
+expanded="aluno.20090213142752.6,aluno.20090213142752.8,"><vh>@thin adivinhoarvore.py</vh></v>
 </vnodes>
 <tnodes>
 <t tx="aluno.20090206161548.5">def escuta_o_voluntario(self):

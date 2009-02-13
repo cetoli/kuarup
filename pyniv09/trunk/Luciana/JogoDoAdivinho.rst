@@ -61,7 +61,8 @@ Participantes
 
 .. code-block:: Python
 
-	1: print "Eu sou o advinho, você é o voluntário"
+	1: def apresenta_os_participantes(self): 
+	2:     return    "Eu sou advinho, você é o voluntário"
 
 Regra do jogo
 ~~~~~~~~~~~~~
@@ -70,7 +71,9 @@ Regra do jogo
 
 .. code-block:: Python
 
-	1: print "pense um número de 1 a 7"
+	1: def diz_a_regra_do_jogo(self):
+	2:     return "pense um número de 1 a 7"
+	3:     return "diga a se acertei o palpite,s para eu subir o palpite,d para descer o palpite"
 
 Palpite
 ~~~~~~~
@@ -79,5 +82,43 @@ Palpite
 
 .. code-block:: Python
 
-	1: print "o meu palpite é 4"
+	1: def diz_o_palpite(self):
+	2:     return "o meu palpite é " +str(self.palpite)
+
+Escuta a resposta
+~~~~~~~~~~~~~~~~~
+
+**code**:
+
+.. code-block:: Python
+
+	1: def escuta_o_voluntario(self):
+	2:     self.resposta_do_voluntario=raw_input("diga") 
+	3:     return "você disse: "+ self.resposta_do_voluntario
+
+Pensa e ve se acertou
+~~~~~~~~~~~~~~~~~~~~~
+
+**code**:
+
+.. code-block:: Python
+
+	1: def pensa_e_ve_se_acertou(self):
+	2:     if self.resposta_do_voluntario == "a" :
+	3:         self.nao_acertou = False
+	4:         print "acertei!Sou demais!!"
+	5:     else:
+	6:         self.muda_palpite()
+
+joga o jogo do adivinho
+~~~~~~~~~~~~~~~~~~~~~~~
+
+**code**:
+
+.. code-block:: Python
+
+	1: def joga_o_jogo_do_adivinho(self):
+	2:     print self.apresenta_os_participantes()
+	3:     print self.diz_a_regra_do_jogo()
+	4:     self.tenta_varios_palpites()
 
