@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="25" left="0" height="660" width="1024"/>
+	<global_window_position top="25" left="273" height="530" width="548"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="3,1,2,0"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -33,8 +33,10 @@
 </v>
 </v>
 </v>
-<v t="carlo.20080914080659.3" a="E"
+<v t="carlo.20080914080659.3"
 expanded="carlo.20080914080659.5,carlo.20081219153110.7,aluno.20090211133038.8,"><vh>@thin adivinho.py</vh></v>
+<v t="aluno.20090213145550.2" a="E"
+expanded="aluno.20090213145550.3,aluno.20090213145550.5,aluno.20090213145550.8,"><vh>@thin adivinhoarvore.py</vh></v>
 </vnodes>
 <tnodes>
 <t tx="aluno.20090206161612.4">def escuta_o_voluntario(self):
