@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="carlo.20080914080659.1" str_leo_pos="2,1,1,4"><vh>@chapters</vh></v>
+<v t="carlo.20080914080659.1" str_leo_pos="3,1,2,1"><vh>@chapters</vh></v>
 <v t="carlo.20080914080659.10" a="E"><vh>@rst JogoDoAdivinho.rst</vh>
 <v t="carlo.20080914080659.14" a="E"><vh>@rst-no-head Jogo do Adivinho</vh>
 <v t="carlo.20080914080659.16"><vh>@rst-no-head Autor</vh></v>
@@ -28,7 +28,9 @@
 </v>
 </v>
 <v t="carlo.20080914080659.3" a="E"
-expanded="carlo.20081219153110.7,aluno.20090211135634.6,"><vh>@thin adivinho.py</vh></v>
+expanded="carlo.20080914080659.5,carlo.20081219153110.7,aluno.20090211135634.6,"><vh>@thin adivinho.py</vh></v>
+<v t="aluno.20090213133441.2" a="E"
+expanded="aluno.20090213133441.5,aluno.20090213133441.8,"><vh>@thin adivinhoarvore.py</vh></v>
 </vnodes>
 <tnodes>
 <t tx="aluno.20090206164348.2">def obtem_resposta_voluntario(self):

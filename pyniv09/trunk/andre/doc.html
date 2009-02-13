@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.4.1: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>O Jogo do Adivinho</title>
+<meta name="author" content="Seu nome Aqui" />
+<meta name="date" content="2009/02/06 " />
+<meta name="copyright" content="©2009, GPL" />
+<style type="text/css">
+
+/*
+:Author: David Goodger
+:Contact: goodger@users.sourceforge.net
+:Date: $Date: 2005-12-18 01:56:14 +0100 (Sun, 18 Dec 2005) $
+:Revision: $Revision: 4224 $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin-left: 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em ;
+  background-color: #eeeeee }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+tt.docutils {
+  background-color: #eeeeee }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="ui/default/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+
+</div>
+<div id="footer">
+<h1>O Jogo do Adivinho</h1>
+<h2>LABASE - NCE</h2>
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">O Jogo do Adivinho</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td><em>Seu nome Aqui</em></td></tr>
+<tr><th class="docinfo-name">Contact:</th>
+<td>seu email</td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2009/02/06 </td></tr>
+<tr><th class="docinfo-name">Status:</th>
+<td>This is a &quot;work in progress&quot;</td></tr>
+<tr><th class="docinfo-name">Revision:</th>
+<td>1.00</td></tr>
+<tr class="field"><th class="docinfo-name">Home:</th><td class="field-body"><a class="reference" href="http://labase.nce.ufrj.br/">LABASE</a></td>
+</tr>
+<tr><th class="docinfo-name">Copyright:</th>
+<td>©2009, <a class="last reference" href="http://is.gd/3Udt">GPL</a></td></tr>
+</tbody>
+</table>
+<!-- rst3: filename: JogoDoAdivinho.rst -->
+
+</div>
+<div class="slide" id="introdu-o">
+<h1>Introdução</h1>
+<div class="section" id="programando-jogos">
+<h2>Programando Jogos</h2>
+<ul class="simple">
+<li>Descrever em texto o que se quer</li>
+<li>Programar para que outros leiam</li>
+<li>Desenvolver em versões incrementais</li>
+<li>Testar o que se quer programar</li>
+</ul>
+</div>
+</div>
+<div class="slide" id="id1">
+<h1>O Jogo do Adivinho</h1>
+<ul class="simple">
+<li>Observe uma partida de advinha</li>
+<li>Escreva um slide documentando o jogo que advinha</li>
+<li>Inicie criando o jogo mais rudimentar - um palpite</li>
+<li>Escreva um teste para saber se o jogo funciona</li>
+</ul>
+</div>
+<div class="slide" id="descri-o-do-jogo">
+<h1>Descrição do Jogo</h1>
+<ul class="simple">
+<li>o jogo tem um advinho e um voluntário - Participantes</li>
+<li>o advinho pede que se pense um número de 1 a 7 - Regra</li>
+<li>o voluntário pensa em um número - Início</li>
+<li>o advinho dá um palpite - Palpite</li>
+<li>o voluntário diz se o número é maior ou menor que o palpite - Dica</li>
+<li>o diálogo prossegue até que o advinho acerte o palpite - Diálogo</li>
+</ul>
+</div>
+<div class="slide" id="c-digo-do-jogo">
+<h1>Código do Jogo</h1>
+<div class="section" id="participantes">
+<h2>Participantes</h2>
+<p><strong>code</strong>:</p>
+<div class="highlight"><pre><span style="color: #666666">1</span>: <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">apresenta_participantes</span>(<span style="color: #008000">self</span>):
+<span style="color: #666666">2</span>:     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">Eu sou o Jogo do Advinho, você é o voluntário! </span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="regra-do-jogo">
+<h2>Regra do jogo</h2>
+<p><strong>code</strong>:</p>
+<div class="highlight"><pre><span style="color: #666666">1</span>: <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">diz_a_regra_do_jogo</span>(<span style="color: #008000">self</span>):
+<span style="color: #666666">2</span>:     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;Pense um número de 1 a 100 </span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span> <span style="color: #BA2121">&quot;Diga a se acertei, s para eu subir o palpite e d para eu descer o palpite.&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="palpite">
+<h2>Palpite</h2>
+<p><strong>code</strong>:</p>
+<div class="highlight"><pre><span style="color: #666666">1</span>: <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">da_um_palpite</span>(<span style="color: #008000">self</span>):
+<span style="color: #666666">2</span>:     <span style="color: #408080; font-style: italic">#import random</span>
+<span style="color: #666666">3</span>:     <span style="color: #408080; font-style: italic">#global palpite</span>
+<span style="color: #666666">4</span>:
+<span style="color: #666666">5</span>:     <span style="color: #408080; font-style: italic">#palpite = random.randint(1,7)</span>
+<span style="color: #666666">6</span>:     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">Eu acho que você pensou no número &quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>palpite)
+</pre></div>
+</div>
+<div class="section" id="resposta-do-volunt-rio">
+<h2>Resposta do Voluntário</h2>
+<p><strong>code</strong>:</p>
+<div class="highlight"><pre><span style="color: #666666">1</span>: <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">obtem_resposta_voluntario</span>(<span style="color: #008000">self</span>):
+<span style="color: #666666">2</span>:     <span style="color: #408080; font-style: italic">#global resposta</span>
+<span style="color: #666666">3</span>:     <span style="color: #008000">self</span><span style="color: #666666">.</span>resposta <span style="color: #666666">=</span> <span style="color: #008000">raw_input</span> (<span style="color: #BA2121">&quot;Resultado do palpite:&quot;</span>)
+<span style="color: #666666">4</span>:     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;Você disse: &quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>resposta
+</pre></div>
+</div>
+<div class="section" id="pense-pra-ver-se-acertou">
+<h2>Pense pra ver se acertou</h2>
+<p><strong>code</strong>:</p>
+<div class="highlight"><pre><span style="color: #666666">1</span>: <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">analisa_resposta</span>(<span style="color: #008000">self</span>):
+<span style="color: #666666">2</span>:     <span style="color: #408080; font-style: italic">#global nao_acertou</span>
+<span style="color: #666666">3</span>:     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #008000">self</span><span style="color: #666666">.</span>resposta <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;a&#39;</span>):
+<span style="color: #666666">4</span>:         <span style="color: #008000">self</span><span style="color: #666666">.</span>nao_acertou <span style="color: #666666">=</span> <span style="color: #008000">False</span>
+<span style="color: #666666">5</span>:         <span style="color: #008000; font-weight: bold">return</span> (<span style="color: #BA2121">&quot;Acertei sua resposta!&quot;</span>);
+<span style="color: #666666">6</span>:     <span style="color: #008000; font-weight: bold">elif</span> (<span style="color: #008000">self</span><span style="color: #666666">.</span>resposta <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;s&#39;</span>):
+<span style="color: #666666">7</span>:         <span style="color: #008000">self</span><span style="color: #666666">.</span>muda_palpite_pracima()
+<span style="color: #666666">8</span>:         <span style="color: #008000; font-weight: bold">return</span> (<span style="color: #BA2121">&quot;Deverei subir o meu palpite!&quot;</span>);
+<span style="color: #666666">9</span>:     <span style="color: #008000; font-weight: bold">elif</span> (<span style="color: #008000">self</span><span style="color: #666666">.</span>resposta <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;d&#39;</span>):
+<span style="color: #666666">10</span>:         <span style="color: #008000">self</span><span style="color: #666666">.</span>muda_palpite_prabaixo()
+<span style="color: #666666">11</span>:         <span style="color: #008000; font-weight: bold">return</span> (<span style="color: #BA2121">&quot;Deverei descer o palpite&quot;</span>);
+<span style="color: #666666">12</span>:     <span style="color: #008000; font-weight: bold">else</span>:
+<span style="color: #666666">13</span>:         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;Comando não reconhecido&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</body>
+</html>
