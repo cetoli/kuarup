@@ -113,7 +113,7 @@ def _test():
     doctest.testmod()
 
 if __name__ == "__main__":
-    minha_adivinhacao = Adivinhacao()
+    minha_adivinhacao = AdivinhaArvore()
     minha_adivinhacao.joga_o_jogo_do_adivinho()
 #@-node:carlo.20080914080659.3:@thin adivinho.py
 #@-leo
