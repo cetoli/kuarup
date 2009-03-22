@@ -7,9 +7,9 @@ Marujos Pe e Xis
 
 :Author: Txukarrame
 :Contact: `Txucarramae <http://is.gd/n3Dr>`__
-:Date: $Date$
+:Date: 2009-03-12 $Date$
 :Status: This is a "work in progress"
-:Revision: $Revision$
+:Revision: 1.0 $Revision$
 :Home: `LABASE <http://labase.nce.ufrj.br/>`__
 :Copyright: ©2009, `GPL <http://is.gd/3Udt>`__
 """
