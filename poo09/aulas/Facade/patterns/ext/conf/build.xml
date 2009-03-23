@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="maven" name="mavenized" basedir="../">
+
+  <property environment="env"/>
+  <property name="env.MAVEN_HOME" value="/usr/local/maven"/>
+  <property file="build.properties"/>
+  <property name="maven.goal" value="site"/>
+  <property name="maven.project" value="MAVEN_PROJECT_NOT_SET"/>
+  <property name="maven.dir" value="${basedir}"/>
+  <path id="maven.class.path">
+    <fileset dir="${env.MAVEN_HOME}/lib">
+      <include name="forehead*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="verify">
+    <condition property="single">
+      <not>
+        <isset property="maven.post"/>
+      </not>
+    </condition>
+    <condition property="dual">
+      <isset property="maven.post"/>
+    </condition>
+  </target>
+
+  <target name="maven.single" if="single">
+    <echo message="Using MAVEN_HOME=${env.MAVEN_HOME} ${version}"/>
+    <java classname="com.werken.forehead.Forehead"
+        fork="yes" maxmemory="128m" failonerror="true"
+        classpathref="maven.class.path">
+      <arg value="-Dproject.currentVersion=${version}" />
+      <arg value="-d" />
+      <arg value="${maven.dir}" />
+      <arg value="${maven.goal}" />
+      <sysproperty key="maven.home" value="${env.MAVEN_HOME}" />
+      <sysproperty key="tools.jar"
+          value="${env.JAVA_HOME}/lib/tools.jar" />
+      <sysproperty key="forehead.conf.file"
+          value="${env.MAVEN_HOME}/bin/forehead.conf" />
+          <!-- persuade maven to use anthill's version
+          <sysproperty key="project.currentVersion" value="${version}"/>
+          <sysproperty key="pom.currentVersion" value="${version}"/>
+          <sysproperty key="maven.final.name"
+            value="${maven.project}-${version}"/>
+          -->
+      	  <!-- deploy the site into anthill
+          <sysproperty key="maven.site.deploy.method" value="fs"/>
+          <sysproperty key="pom.siteDirectory" value="${deployDir}"/>
+           -->
+    </java>
+  </target>
+  <target name="maven.dual" if="dual">
+    <echo message="Using MAVEN_HOME=${env.MAVEN_HOME} ${version}"/>
+    <java classname="com.werken.forehead.Forehead"
+        fork="yes" maxmemory="128m" failonerror="true"
+        classpathref="maven.class.path">
+      <arg value="-Dproject.currentVersion=${version}" />
+      <arg value="-d" />
+      <arg value="${maven.dir}" />
+      <arg value="${maven.goal}" />
+      <arg value="${maven.post}" />
+      <sysproperty key="maven.home" value="${env.MAVEN_HOME}" />
+      <sysproperty key="tools.jar"
+          value="${env.JAVA_HOME}/lib/tools.jar" />
+      <sysproperty key="forehead.conf.file"
+          value="${env.MAVEN_HOME}/bin/forehead.conf" />
+          <!-- persuade maven to use anthill's version 
+          <sysproperty key="project.currentVersion" value="${version}"/>
+          <sysproperty key="pom.currentVersion" value="${version}"/>
+          <sysproperty key="maven.final.name"
+            value="${maven.project}-${version}"/>
+          -->
+          <!-- deploy the site into anthill
+          <sysproperty key="maven.site.deploy.method" value="fs"/>
+          <sysproperty key="pom.siteDirectory" value="${deployDir}"/>
+           -->
+    </java>
+  </target>
+  <target name="maven" depends="verify,maven.dual,maven.single"/>
+    <!-- Target: prepare -->
+  <target description="Make executable" name="executable">
+    <exec dir="${basedir}"
+        executable="chmod"
+        os="Linux"
+        timeout="2000">
+      <arg line="775 slider.py"/>
+    </exec>
+
+  </target>
+    <!-- Target Names -->
+  <property environment="env"/>
+    <!--  property name="destination" value="${env.WEB_ROOT}/cursos/poo/aulas" / -->
+  <property name="destination" value="${user.home}/www/cursos/sood/aulas" />
+  <property name="origin" location="docs/aulas" />
+  <property name="slider" location="/var/resin/bin/slider.py" />
+  <property name="style" value="../../images"/>
+
+    <!-- Target: slider -->
+  <target
+      description="runs slider builder"
+      name="slider">
+    <echo message="${destination}"/>
+    <echo message="${slider}"/>
+    <echo message="${origin}"/>
+    <exec dir="${origin}"
+        executable="${slider}"
+        os="Linux"
+        timeout="200000">
+      <arg line="${destination}/ ${style}"/>
+    </exec>
+  </target>
+
+  <target name="publish">
+    <copy todir="${destination}">
+      <fileset dir="${origin}">
+        <exclude name="**/*.apt"/>
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/.svn/**"/>
+        <exclude name="**/*.xml"/>
+      </fileset>
+    </copy>
+  </target>
+    <!-- Target: all -->
+  <target depends="slider,publish" name="all"/>
+
+</project>
