@@ -1,0 +1,230 @@
+ 							      ---------
+				     Padrão de Projeto - Builder
+							      ---------
+						        Rodrigo Santos Borges
+						        ---------
+						        21/03/2009
+						   
+
+Padrão de Projeto - Builder
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Rodrigo Santos Borges>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+	
+Definição
+
+ [Nome] Builder - É um tipo de padrão criacional. Em português, significa construtor e, pode-se associar aos tijolos que, quando empilhados corretamente, formam uma edificação.
+  
+ [Intento] Similar ao abstract factory. Ele cria objetos complexos de forma mais simplificada e o abstract factory cria um conjunto de classes. 
+ 
+ Abstrai os passos de construção do objeto de forma que implementações diferentes desses passos possam permitir objetos diferentes. Separando, assim, a construção da representação do objeto.
+ 
+
+Descrição do Padrão
+
+* Motivação
+
+	[[1]] Separar a construção de um objeto complexo de sua respectiva representação, e desta maneira, a partir dessa mesma construção, produzir representações diferentes. 
+	
+	[[2]] Mover a lógica de construção de uma classe para um objeto externo, a fim de reduzir a complexidade da mesma e permitir a construção gradual de objetos-alvo a partir dessa classe.
+	
+	[[3]] Cada Builder específico é independente de outros e do resto do programa. Isso melhora a modularidade e faz a adição de outros Builder relativamente simples.
+	
+	[[4]] Como cada Builder constrói o produto final passo-a-passo, dependendo dos dados, você tem mais controle sobre o produto final construído.
+
+    A criação de qualquer objeto com uma complexidade grande indica a possibilidade da implementação do padrão Builder.
+
+* Aplicabilidade
+	
+	[[1]] Quando o algoritmo de criação de um objeto deve ser independente das suas partes constituintes e da maneira como ele é “montado”.
+	
+	[[2]] Para que o processo de construção permita diferentes representações para o objeto que está sendo construído.
+	
+	[[3]] Na simplificação de um objeto complexo, separando a sua “construção” da sua “constituição”. 
+
+ ~~ "Quais são as situações em que o padrão de projeto pode ser aplicado? Quais são os exemplos de projetos deficientes que o padrão pode tratar?  Como você pode reconhecer estas situações?"
+
+*Uma situação aplicável
+	
+	Teremos dois tipos de objetos complexos, um chamado "Apartamento" e outro chamado "Casa", pois cada um desses objetos tem particularidades em sua criação, ou seja, implementam diferentemente os métodos de sua construção. 
+ 
+
+Estrutura
+
+ {{{figuras/diagBuilder.png} Diagrama de classes do padrão Builder}}
+
+Participantes
+
+*---------------------+------------------------------+----------------------------+
+|Nome do Participante | Responsabilidades            | Colaborações           		|
+*---------------------+------------------------------+----------------------------+
+|Director         		| Constrói um determinado      | Acessa a interface     		|
+|											|objeto.											 |Builder											|
+*---------------------+------------------------------+----------------------------+
+|Builder         		  | Define uma interface abstrata| Implementada pelas		  		|
+|											|para a criação das partes do	 |implementações da						|
+|											|objeto-produto.	 						 |ContreteBuilder.						|
+*---------------------+------------------------------+----------------------------+
+|ConcreteBuilder   		| Constrói um determinado      | Implementa a interface 		|
+|											|objeto.											 |Builder e fornece ao 				|
+|											| 			 											 |cliente um método para a		|
+|											| 			 											 |recuperação do produto. 		|
+*---------------------+------------------------------+----------------------------+
+|Product   						| Representar o objeto complexo| Inclui classes que definem	|
+|											|em construção.								 |partes constituintes. 			|
+*---------------------+------------------------------+----------------------------+
+
+Conseqüências
+
+	* Abstração dos passos de construção do objeto, permitindo que implementações diferentes gerem objetos diferentes. 
+	
+	* Separação entre a construção e a representação do objeto.
+	
+	* Esconde os detalhes de como o produto é montado.
+
+	~~ "Como é que o padrão apoia os seus objetivos?  Quais são as soluções de compromisso quais os resultados ao se usar o padrão? Qual o aspecto da estrutura do sistema é possível variar independentemente?"
+
+Implementação
+
+ Se bem planejado não apresenta desvantagem.
+ 
+ É necessário que a interface da classe Builder seja bem planejada para que evite problemas com o padrão.
+ 
+ ~~ "Que armadilhas, dicas, técnicas você deve estar ciente ao aplicar o padrão?  Existem problemas específicos de linguagem de implementação?"
+
+Exemplo de Código
+	
+ Implementação da Classe Builder
+ 
++------------------------------------------------------------------------------+
+	// Interface para a criação dos objetos ("Builder")
+	public Interface ConstrucaoBuilder
+ {
+    protected ConstrucaoBuilder dados[];
+ 
+    public void ConstroiParedes ();
+	  public void ConstroiJanelas ();
+    public void DefineNumero ();
+ 
+	}
++------------------------------------------------------------------------------+
+
+Implementação Classe diretora
+
++------------------------------------------------------------------------------+
+	
+	public class Construtora
+	{
+    public void Construir (ConstrucaoBuilder construcao)
+		{
+			construcao.constroiJanelas ();
+      construcao.constroiParedes ();
+      construcao.defineNumero ();
+		}
+	}
++------------------------------------------------------------------------------+
+	
+Implementação Classe Concrete Builder
+	
++------------------------------------------------------------------------------+
+	// Casa e apartamento são as "ConcreteBuilder"
+	public class Apartamento implements ConstrucaoBuilder
+	{  
+ 
+		public void constroiJanelas ()
+		{
+      dados = new ConstrucaoBuilder[10];
+      dados.Add ("Janelas", "2");
+    }
+ 
+    public void constroiParedes ()
+		{
+      dados.Add ("Paredes", "12");
+    }
+ 
+    public void defineNumero ()
+		{
+        dados.Add ("Número", "A-56");
+    }
+ 
+    public void visualizarConstrucao ()
+		{
+        System.out.print ("APARTAMENTO:");
+        foreach (d in dados)
+					System.out.print ("{0}: {1}", d.Key, d.Value);
+        
+        System.out.println ("");
+    }
+ 
+	}
++------------------------------------------------------------------------------+
+	
+Implementação Classe Concrete Builder (continuação) e da classe cliente
+	
++------------------------------------------------------------------------------+
+	public class Casa implements ConstrucaoBuilder
+	{
+	....
+	}
+
+	// Código cliente
+	public class Principal
+	{
+		public static void main (String[] args)
+		{
+			Construtora construtora= new Construtora ();
+			Apartamento apto= new Apartamento ();
+			Casa casa= new Casa ();
+			
+			construtora.construir(apto);
+			construtora.construir(casa);
+			
+			apto.visualizarConstrucao();
+			casa.visualizarConstrucao();    
+		}
+	}
++------------------------------------------------------------------------------+
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+ [[1]] Num GED (Sistema de Gerenciamento Eletrônico de Documentos) quando o usuário escolhe o tipo de documento a ser criado e clica em salvar, uma concrete builder relativa ao tipo de documento pode ser chamada e começar a criar este objeto complexo por seus pedaços.
+ 
+ [[2]] Um sistema de controle de acesso que use roletas e terminais com porta ou cancela precisa criar um objeto para cada equipamento diferente em sua inicialização. Para isso, pode usar o padrão e gerar as classes necessárias.
+ 
+
+* Padrões Relacionados e Referências
+
+	Interface - O padrão Builder usa o padrão Interface para esconder a classe atual do objeto que ela constrói.
+	
+	Composite - O objeto construído pelo Builder é tipicamente um Composite.
+	
+	Factory Method - O padrão Builder usa o padrão Factory para decidir que classe concreta instanciar para construir o tipo de objeto desejado.
+	
+	Layered Initialization - O padrão Builder usa o padrão Layered Initialization para criar objetos que constroem o tipo de objeto desejado.
+
+	
+Referência
+
+	http://www.java2s.com/Code/Java/Design-Pattern/BuilderPatternExample.htm
+		
+	http://www.linhadecodigo.com.br/Artigo.aspx?id=523
+	
+	http://www.java2s.com/Code/Java/Design-Pattern/Builder-Pattern.htm
+	
+
+
+
+
+
