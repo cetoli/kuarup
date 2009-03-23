@@ -1,0 +1,234 @@
+							      ---------
+				     Padrão de Projeto - Iterator
+							      ---------
+						        André de Abrantes D. P. e Souza
+						        ---------
+						        24/03/2009
+						   
+
+Padrão de Projeto Iterator
+
+-----
+
+
+
+
+-----
+
+	<<Autor: André de Abrantes D. P. e Souza>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+Definição (1)
+
+* Definição do GoF
+ 
+ Provê uma maneira de acessar os elementos de um objeto de agregação seqüencialmente sem expôr sua representação interna
+
+Definição (2)
+
+* Em outras palavras
+
+ *Servem para trabalhar com diferentes tipos de coleção
+
+ *Acessam membros de uma maneira padronizada
+
+ *Sem conhecimento dos detalhes de implementação
+
+Aplicações
+
+* Especialmente importantes quando coleção é composta de
+
+ * Diferentes sub-coleções
+ 
+ * Hashes
+ 
+ * Árvores
+ 
+ * etc
+ 
+Visão de uma coleção (1)
+
+* Visão inicial
+
+ {{figuras/it1.png}}
+ 
+Visão de uma coleção (2)
+
+* Estrutura interna pode ser complicada
+
+ {{{figuras/it2.png}Árvore rubro-negra}}
+
+Visão de uma coleção (3)
+
+* Visão com uso de iterators
+
+ {{figuras/it3.png}}
+
+Métodos
+
+* Métodos clássicos de um Iterator
+
+ * first
+ 
+ * next*
+ 
+ * hasNext*
+ 
+ * currentItem
+ 
+ * remove*
+
+ \*presentes na interface Java.util.Iterator
+
+Exemplo (1)
+
++---+
+template <class Item>
+class List {
+public:
+....List(long size = DEFAULT_LIST_CAPACITY);
+....long Count() const;
+....Item& Get(long index) const;
+....// ...
+};
++---+
+
+Exemplo (2)
+
++--+
+template <class Item>
+class Iterator {
+public:
+....virtual void first() = 0;
+....virtual void next() = 0;
+....virtual bool isDone() const = 0;
+....virtual Item currentItem() const = 0;
+protected:
+....Iterator();
+};
++--+
+
+Exemplo (3)
+
++--+
+template <class Item>
+class ListIterator : public Iterator<Item> {
+public:
+....ListIterator(const List<Item>* aList);
+....virtual void first();
+....virtual void next();
+....virtual bool isDone() const;
+....virtual Item currentItem() const;
+private:
+....const List<Item>* _list;
+....long _current;
+};
++--+
+
+Exemplo (4)
+
++--+
+template <class Item>
+ListIterator<Item>::ListIterator (const List<Item> *aList) : _list(aList), _current(0) {
+}
+
+template <class Item>
+void ListIterator<Item>::first () {
+...._current = 0;
+}
+
+template <class Item>
+void ListIterator<Item>::next () {
+...._current++;
+}
++--+
+
+Exemplo (5)
+
++--+
+template <class Item>
+bool ListIterator<Item>::isDone () const {
+....return _current >= _list->Count();
+}
+
+template <class Item>
+Item ListIterator<Item>::currentItem () const {
+....if (isDone()) {
+........throw IteratorOutOfBounds;
+....}
+....return _list->Get(_current);
+}
++--+
+
+Exemplo (6)
+
++--+
+void PrintEmployees (List<Employee> *list) {
+....Iterator<Employee> it(list);
+....for (it.first(); !it.isDone(); it.next()) {
+........it.currentItem().Print();
+....}
+}
++--+
+
+Iterators - Linguagens
+
+* Presente em liguagens como
+
+ * C++
+ 
+ * C#
+ 
+ * Java
+ 
+ * PHP
+ 
+ * Ruby
+ 
+ * ...
+
+Traverse
+
+ * Método do tipo Traverse pode ser usado para executar código em todos os elementos de um conjunto
+ 
++--+
+template <class Item>
+void FilteringListTraverser<Item>::Traverse () {
+....bool result = false;
+....for (it.first();
+........!it.isDone();
+........it.next()) {
+........if (TestItem(it.currentItem())) {
+............result = ProcessItem(it.currentItem());
+............if (result == false)
+................break;
+........}
+....}
+....return result;
+}
++--+
+
+Considerações
+
+* Iterators reversos
+
+ * Nem sempre iterators podem andar nas duas direções
+
+* Iterators depois de remoção
+
+ * Sanidade depende da estrutura
+
+ * Reorganização de uma árvore pode invalidar um operator
+ 
+Referências
+ 
+  [[1]] Design Patterns - Elements of Reusable Object-Oriented Software
+  
+  [[1]] Design Patterns for Dummies
+
+
