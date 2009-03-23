@@ -1,0 +1,209 @@
+ 							      ---------
+				     Padrão de Projeto - Prototype
+							      ---------
+						        Rodrigo Santos Borges
+						        ---------
+						        21/03/2009
+						   
+
+Padrão de Projeto - Prototype
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Rodrigo Santos Borges>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+
+Definição
+
+ [Nome] Prototype - É um tipo de padrão criacional.
+ 
+ [Intento] Esse padrão cria objetos a partir de objetos já prontos. Seu funcionamento é similar ao da divisão celular.
+
+
+Descrição do Padrão
+
+*Motivação
+
+	Imagine uma consulta pesada ao banco de dados que gere a lista de alunos de um curso e o sistema necessite listar várias vezes os alunos deste curso.
+	
+*Aplicabilidade
+
+	Esse padrão deve ser aplicado quando o objeto a ser criado é custoso, demorado ou complexo. Nesse caso, clonar a instância é mais vantajoso.
+	
+	Assim, ele substitui a abstract factory para remover a necessidade de uma subclasse criadora. Contudo, pode, até, se aliar aquele padrão para complementá-lo.
+	
+	Alguns designs com alto uso de decorate e composite também podem se beneficiar do prototype.
+
+
+Estrutura
+
+ {{{figuras/diagClassePrototype.png} Diagrama de classes do padrão Prototype}}
+
+
+Participantes
+
+*---------------------+------------------------------+------------------------+
+|Nome do Participante | Responsabilidades            | Colaborações           |
+*---------------------+------------------------------+------------------------+
+|Cliente              | Solicita ao protótipo uma 	 | Possui uma referência  |
+|				              |cópia. 											 |para o protótipo.  			|
+*---------------------+------------------------------+------------------------+
+|Prototype            | Especifica a interface para  | É implementado pelas  	|
+|				              |clonar a si próprio. 				 |subclasses.  						|
+*---------------------+------------------------------+------------------------+
+|Concrete Prototype   | Implementa o método clone. 	 | Implementa a classe		|
+|				              |				 											 |Prototype.  						|
+*---------------------+------------------------------+------------------------+
+
+
+Conseqüências
+
+ [[1]] Ele se apóia na idéia de que é mais simples clonar um objeto do que criar um novo.
+		
+ [[2]] Como resultado do seu uso temos:
+	
+  [[A]] Objeto sendo criado mais rapidamente ou de forma menos complexa.
+		
+  [[B]] Adição e remoção de produtos em tempo de execução.
+		
+  [[C]] Especificação de novos objetos pela alteração de valores e não pela adição de uma subclasse.
+		
+  [[D]] Redução do número de subclasses.
+	
+  [[E]] Oculta as classes concretas do cliente.
+		
+  [[F]] Configura uma aplicação com classes dinamicamente.
+
+Implementação
+
+ [[1]] Iteração com outros padrões.
+ 
+ [[2]] Pode haver problemas quando os objetos a serem clonados tiverem referência circular.
+ 
+ [[3]] Cuidado com variáveis de objeto armazendas por referência e por ponteiro (usuários C++).
+ 
+ [[4]] Java: Constantes não estáticas e que sejam inicializadas após a declaração não são copiadas.
+
+Implementação - Código
+ 
+ [[A]] Em Java 
+ 
+  [[1]] objNovo= (Classe) obj.clone ();
+
+  [[2]] As classes a serem clonadas devem implementar a interface Cloneable
+			
+ [[B]] Em C++: Existem 2 implementações:
+ 
+  [[1]] Consiste em usar a cópia de construtores.
+		
+	[[2]] Consiste em criar um método clone e clonar "na mão" os valores.
+		
+ [[C]] Em PHP (versão 5 em diante): __clone()
+		
+ [[D]] Em python é necessário criar um método para clonar
+
+Exemplo de Código e Uso
+
+	* Implementação da Classe Prototype
+	
++------------------------------------------------------------------------------+
+		public class Cookie implements Cloneable {
+		 
+				@Override
+				public Cookie clone() {
+						Cookie copy;
+						try {
+								copy = (Cookie) super.clone();
+						} catch (CloneNotSupportedException unexpected) {
+								throw new AssertionError(unexpected);
+						}
+		 
+						//In an actual implementation of this pattern you might now change references to
+						//the expensive to produce parts from the copies that are held inside the prototype.
+		 
+						return copy;
+				}
+		}
+
++------------------------------------------------------------------------------+
+ 
+ 
+Implementação da Classe Concrete Prototype
+
++------------------------------------------------------------------------------+
+		/**
+		 * Concrete Prototypes to clone
+		 */
+		public class CoconutCookie extends Cookie { }
+
++------------------------------------------------------------------------------+
+
+
+Implementação da Classe Cliente
+
++------------------------------------------------------------------------------+
+		/**
+		 * Client Class
+		 */
+		public class CookieMachine {
+		 
+				private Cookie cookie; // Could have been a private Cloneable cookie.
+		 
+				public CookieMachine(Cookie cookie) {
+						this.cookie = cookie;
+				}
+		 
+				public Cookie makeCookie() {
+						return (Cookie) cookie.clone();
+				}
+		 
+				public static void main(String args[]) {
+						Cookie tempCookie = null;
+						Cookie prot = new CoconutCookie();
+						CookieMachine cm = new CookieMachine(prot);
+						for (int i = 0; i < 100; i++)
+								tempCookie = cm.makeCookie();
+				}
+		}
++------------------------------------------------------------------------------+
+
+  
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+ [[1]] Imaginemos um cenário em que temos um conjunto de contratos de financiamento. O contrato por si tem 3 propriedades: valor financiado, taxa e prazo. Criamos então um contrato para a “Vanessa” e outro para a “Maria Albertina“. Quando quisermos utilizar os contratos, pedimos ao protótipo para nos dar uma cópia (clone) dele mesmo.
+ 
+ [[2]] Usando um programa de tratamento de imagem, o usuário abre um arquivo 2 vezes para tratar as imagens como camadas de uma outra imagem. O programa pode copiar o objeto que representa a imagem para que evite o custo de ir ao disco ler a imagem.
+
+ ~~ "Exemplos do padrão encontrado em sistemas reais. Incluir, pelo menos, dois exemplos de diferentes domínios."
+
+* Padrões Relacionados e Referências
+
+	Conforme dito antes, os padrões abaixo se relacionam com o prototype. São eles:
+	
+	Abstract factory - criando-se uma lista de protótipos, a fábrica pode retornar a cópia de um dos protótipos da lista.
+	
+	Decorator - com uma grande quantidade de classes com decorator e uma complexidade, é possível usar o padrão.
+	
+	Memento - com a função de guardar um estado anterior, o memento pode ser implementado copiando o objeto atual e alterando-o. Se as alterações não forem confirmadas, basta descartar o objeto-cópia e manter o original.
+   
+Referências
+ 
+  [[1]] http://en.wikipedia.org/wiki/Prototype_pattern
+  
+  [[2]] http://www.guj.com.br/content/articles/patterns/prototype_pattern_guj.pdf
+	
+  [[3]] http://www.developer.com/java/other/article.php/626041
+
+
+	
