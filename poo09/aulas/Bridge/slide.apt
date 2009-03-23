@@ -1,0 +1,160 @@
+								---------
+							Padrão de Projeto - Bridge
+							       ---------
+						        Alexandre Neves Louzada
+						               ---------
+						              24/03/2009
+						   
+
+Padrão de Projeto Bridge
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Alexandre Neves Louzada>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+ [Nome] Bridge
+  
+ [Intento] Desacopla uma abstração de sua implementação de modo que elas possam variar independentemente.
+
+ [Também conhecido como] Handle-Body
+
+Descrição do Padrão
+
+*Motivação
+
+  O uso de herança para permitir diversas implementações de uma abstração pode não ser suficientemente flexível;
+
+  Interface e implementação ficam definitivamente ligadas e não podem ser usadas de modo independente;
+
+  Modificar a abstração afeta em geral as implementações;
+
+  O uso de herança para permitir diversas implementações de uma abstração pode não ser suficientemente flexível;
+
+  Interface e implementação ficam definitivamente ligadas e não podem ser usadas de modo independente;
+
+  Modificar a abstração afeta em geral as implementações.
+
+Exemplo
+
+ Um código cliente deve ser capaz de criar um código de uma “janela”, sem se comprometer com um tipo
+ específico de “janela” (e.g., Xwindow, IBM Presentation Manager, etc.);
+
+ O padrão Bridge cria uma hierarquia para as interfaces de “janela” e uma hierarquia para cada implementação
+ de “janela” específica de uma plataforma. A segunda hierarquia deriva de uma classe raiz WindowImp.
+
+* Exemplo
+
+ {{{figuras/figura1.jpg}descreva o diagrama textualmente aqui}}
+
+Aplicabilidade
+
+ Para evitar um conexão permanente entre abstração e implementação;
+
+ Para estender abstrações e suas implementações através de subclasses de modo independente;
+
+ para evitar que mudanças na implementação atinjam os clientes;
+
+ Para evitar proliferação de classes (muitas classes de diferentes artefatos para diferentes ambientes em uma única hierarquia).
+
+* Aplicabilidade
+
+ {{{figuras/figura2.jpg}descreva o diagrama textualmente aqui}}
+
+Participantes
+
+* Abstraction:
+
+	* Define a interface da abstração;
+
+	* Mantém uma referência para o objeto Implementor;
+
+* RefinedAbstraction:
+
+	* Estende a interface definida pela abstração;
+
+* Implementor:
+
+	* Define a interface para as classes de implementação;
+ 
+	* Não precisa ser igual e normalmente é diferente da interface da abstração;
+
+	* A interface da implementação define apenas operações primitivas, enquanto a interface da abstração define operações de alto nível baseadas nas operações primitivas.
+
+* ConcreteImplementor:
+
+	* Implementa a interface Implementor.
+
+
+
+
+
+Colaborações
+
+ Abstrações encaminham requisições dos clientes aos objetos implementadores.
+
+
+Consequências
+
+	* Separa interface de implementação;
+   
+	* Melhora as hierarquias de abstração e implementação;
+
+	* Esconde detalhes de implementação dos clientes.
+
+
+Implementação (aspectos)
+
+* Apenas um Implementor:
+
+	* É um caso degenerado do Bridge;
+
+	* Não precisa criar uma classe Implementor abstrata;
+
+	* Ainda assim é útil por separar interface da implementação;
+
+* Quando, como e onde decidir qual classe Implementor deve ser instanciada?
+
+	* No construtor da abstração, se ela conhece todas as implementações;
+
+	* Possivelmente com base em parâmetros passados ao construtor;
+
+	* Usar uma implementação default cambiável com o uso;
+
+	* Usar uma AbstractFactory.
+
+Padrões Relacionados:
+
+   Um Abstract Factory pode criar e configurar um padrão Bridge específico;
+
+   O padrão Adapter é dirigido para fazer classes não relacionadas trabalharem juntas.
+   Isso acontece em geral depois de finalizado o projeto dos sistemas.
+
+   Bridge, por outro lado, é usado desde o início em um projeto para que abstrações e
+   implementações variem de modo independente.
+
+Referências
+ 
+  [[1]] Use a Cabeça! Padrões de Projetos - FREEMAN 2ª Edição
+  
+  [[1]] Padrões de Projeto - Editora Bookman\
+  Erich Gamma, Ralph Johnson, John Vlissides 
+
+
+
+
+
+
