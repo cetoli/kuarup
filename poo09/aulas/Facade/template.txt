@@ -1,0 +1,169 @@
+							      ---------
+				          Padrão de Projeto - Template Method
+							      ---------
+						  Humberto Ferreira Ramos Junior
+						            ---------
+						           20/03/2008
+						   
+
+Padrão de Projeto Template Method
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Humberto Ferreira Ramos Junior>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+*Nome
+
+ Template Method.
+ 
+*Intento
+
+ O Template Method define o esqueleto de um algoritmo dentro de um método, transferindo alguns de seus passos para as subclasses. 
+
+*Também conhecido como ...
+
+ Alguém conhece outro nome?
+
+Descrição do Padrão
+
+*Motivação
+
+ Exemplo: Preparando Café e Chá !?!?!
+
+*-----------------------------------*---------------------------------*   
+| Receita de café                   |        Receita de Chá           |
+*-----------------------------------*---------------------------------*  
+| 1- Fever um pouco de água         |1- Fever um pouco de água        | 
+| 2- Mistura o café na água fervente|2- Mistura o chá na água fervente|
+| 3- Servir a bebida na xícara      |3- Servir a bebida na xícara     | 
+| 4- Acrescentar açucar e leite     |4- Acrescentar limão             |
+*-----------------------------------*---------------------------------*  
+
+*Aplicabilidade
+
+ O Template Method permite que as subclasses redefinam certos passos de um algoritmo sem alterar a estrutura do próprio algoritmo. 
+ Ou seja, o padrão consiste na elaboração de um gabarito para um algoritmo.
+
+* Uma situação aplicável
+
+  - Para implementar as partes invariantes de um algoritmo, uma vez que o método deixa subclasses implementar o comportamento que pode variar.
+
+  - Quando o comportamento comum entre subclasses deve ser fatorada e localizados em uma classe comum para evitar a duplicação do código.
+
+  - Controlar ações nas subclasses. Você pode definir um método chamado "gancho"(Hook) em pontos específicos para permitir que subclasses se conectem ao algoritmo caso assim o desejem. 
+
+Estrutura
+
+ {{{../ext/images/diagrama.jpg}descreva o diagrama textualmente aqui}}
+
+
+
+Participantes
+
+*ClasseAbstrata 
+
+     - Define operações abstratas que subclasses concretas utilizam para implementar certas etapas do algoritmo.
+ 
+     - Implementa um Template Method definindo o esqueleto de um algoritmo.
+
+*ClasseConcreta 
+
+     - Implementa as operações abstratas para desempenhar as etapas do algoritmo que tenham comportamento específico a esta subclasse. 
+
+*Colaborações
+
+     - ClasseConcreta depende de ClasseAbstrata para implementar as partes invariantes do algoritmo. 
+
+Conseqüências
+
+* Como consequência, observamos que... 
+
+   [[1]] Constitue uma das técnicas básicas de reuso de código.
+
+   [[2]] Os métodos descritos na Superclasse deve sofrer sobrescrita nas subclasses.
+
+   [[3]] O Método leva a uma inversão no controle. Normalmente escrevemos o código "de cima" e chamamos partes comun "em baixo". aqui é o contrário !!!
+
+Implementação
+
+*Algumas dicas... 
+
+   [[1]] É importante minimizar o número de operações abstratas que devem sofrer sobrescrita para completar o algoritmo.
+
+   [[2]] Métodos abstratos que devem sofrer sobrescrita devem ter algo de comum no nome.
+
+
+Exemplo de Código e Uso
+ 
+------------------------------------------------------
+- SuperClasse abstrata 
+public abstract class CaffeineBeverage {
+   final void prepareRecipe(){
+   boilWater(); 
+   brew();
+   pourincup();
+   addCodiments();
+ } 
+ abstract void brew(); 
+ abstract void addCodiments();
+ void  boilWater() {
+    System.out.println("Boiling water");
+ }
+  void  pourincup() {
+    System.out.println("Pouring into cup");
+ }
+- Classe Tea
+ public class tea extends CaffeineBeverage {
+ void  brewr() {
+    System.out.println("Steeping the tea");
+ }
+  void  pourincup() {
+    System.out.println("Adding lemon");
+ }
+- Classe Café
+ public class coffee extends CaffeineBeverage {
+ void  brewr() {
+    System.out.println("Dripping coffee though filter");
+ }
+  void  pourincup() {
+    System.out.println("Adding Sugar and milk");
+ }
+-------------------------------------------------------
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+ São particularmente importantes em frameworks e bibliotecas de classes para o fatoramento de comportamento comum.
+
+* Padrões Relacionados e Referências
+
+ O Template Method encapsula comportamentos intercambiáveis e usa delegação para decidir qual comportamento deve ser utilizado.
+
+ No Strategy as subclasses decidem como os passos serão implementados.
+
+ O Método Factory permite que as subclasses decidam quais classes concretas serão implementadas.
+
+ 
+* Referências
+ 
+ [[1]]Freeman & Freeman, Use a Cabeça (Head First - 2a. Rev)
+  
+ [[2]]http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/pat/template.htm 
+
+
+
