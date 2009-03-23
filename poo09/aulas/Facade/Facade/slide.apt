@@ -66,14 +66,14 @@ Padrão de Projeto Facade
 * Uma situação aplicável
 
  [Diagrama sem fachada]
- {{{./peixeSemFachada.jpg}Exemplo de um código sem fachada}}
+ {{{figura/peixeSemFachada.jpg}Exemplo de um código sem fachada}}
 
 6-Estrutura
 
 * Uma situação aplicável - continuação
  
  [Diagrama com fachada]
- {{{./facadePeixe.jpg}Exemplo de um código com fachada}}
+ {{{figura/facadePeixe.jpg}Exemplo de um código com fachada}}
 
 7-ClasseFacade
 
@@ -202,7 +202,7 @@ class ClientePeixeComFachada{
 
  
  [Fachada]
-{{{fachada.jpg}}}
+{{{figura/fachada.jpg}}}
 
 
 11-Outro Exemplo
@@ -210,7 +210,7 @@ class ClientePeixeComFachada{
 *Home Theater Sem Fachada
  
  [Difícil para o Usuário]
-{{{homeTheaterSemFachada.jpg}}}
+{{{figura/homeTheaterSemFachada.jpg}}}
 
 
 12-[...]Outro Exemplo
@@ -218,7 +218,7 @@ class ClientePeixeComFachada{
 *Home Theater Com Fachada
 
  [Facilitando e Consquistando o Usuário]
-{{{HomeTheaterComFachada.jpg}}}
+{{{figura/HomeTheaterComFachada.jpg}}}
 
 
 13-Desafio
