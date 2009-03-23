@@ -1,0 +1,117 @@
+							      ---------
+				     Padrão de Projeto - Flyweight
+							      ---------
+						        Marcos de Castro Pinto
+						        ---------
+						        22/03/2009
+						   
+
+Padrão de Projeto Flyweight
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Marcos de Castro Pinto>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+ [Nome] FLYWEIGHT
+ 
+ [Intento] Usar compartilhamento para suportar eficientemente grandes quantidades de objetos de granularidade fina.
+
+ [Também conhecido como] Peso-mosca.
+
+Descrição do Padrão
+
+*Motivação
+
+ Imagine a criação de um objeto para cada caractere em um documento gerado por um editor de texto. Mesmo documentos de tamanhos modestos podem requerer milhares de objetos-caracteres, o que consumiria uma grande quantidade de memória, podendo incorrer em um custo inaceitável em tempo de execução.
+.
+
+*Aplicabilidade
+
+ A eficiência do padrão Flyweight dependerá muito de como e onde ele é utilizado.  Aplicaremos o padrão Flyweight quando todas as condições a seguir forem verdadeiras
+
+    * Aplicação com grande número de objetos, custos de armazemamento altos por causa da grande quantidade de memória, a maioria dos estados dos objetos pode se tornar extrínseca, muitos grupos de objetos podem ser substituídos por relativamente poucos objetos compartilhados, a aplicação não depende da identidade dos objetos 
+
+
+Estrutura
+
+ {{{../ext/images/semin_5.jpg}Flyweight - estrutura}}
+
+Participantes
+
+ As classes e / ou objetos participantes no padrão de projeto e as suas responsabilidades.Como os participantes colaboram para executar suas responsabilidades.
+
+*---------------------+------------------------------+------------------------+
+|Nome do Participante | Responsabilidades            | Colaborações           |
+*---------------------+------------------------------+------------------------+
+|Flyweight           | Declara uma interface | -  |
+*---------------------+------------------------------+------------------------+
+*---------------------+------------------------------+------------------------+
+|ConcreteFlyweight           | implementa a interface de Flyweight | -  |
+*---------------------+------------------------------+------------------------+-------------------+------------------------+*---------------------+------------------------------+------------------------+
+|UnsharedConcreteFlyweight           | Subclasses de Flyweight não compartilhadas |  -  |
+*---------------------+------------------------------+------------------------+-------------------+------------------------+*---------------------+------------------------------+------------------------+
+|FlyweightFactory           | Cria e gerencia Flyweights | Fornece instância  |
+*---------------------+------------------------------+------------------------+-------------------+------------------------+*---------------------+------------------------------+------------------------+
+|Client           | Mantém referência para Flyweights | -  |
+*---------------------+------------------------------+------------------------+-------------------+------------------------+
+
+
+
+
+
+Conseqüências
+
+ Os Flyweights podem introduzir custos de tempo de execução associados com a transferência, procura e/ou computação de estados extrínsecos, especialmente se esses anteriormente estavam armazenados como um estado intrínseco.  Entretanto, esses custos são compensados pela economia de espaço, a qual aumanta na medida que mais flyweights são compartilhados.  A economia de armazenamento é função de vários fatores:
+
+       
+   [[1]] A redução do número total de instâncias obtida com o compartilhamento.
+
+   [[1]] A quantidade de estados intrínsecos por objeto.    
+
+   [[1]] Se o estado extrínseco é armazenado ou computado. 
+
+Exemplo de Código e Uso
+
+ {{{../ext/images/exemplo.jpg}Exemplo de código}}
+ 
+------------------------------------------------------
+-------------------------------------------------------
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+ [[1]] O Editor de documentos DOC foi concebido para demostração do conceito dos Flyweight. Esse editor constroí uma instância de Glyph para cada caractere de um estilo particular, definindo seus atributos gráficos; daí o estado intrínseco de um caractere consistir no código do caractere e sua informação de estilo. Isto significa que somente a posição é extrínseca.   
+ 
+ [[1]] Objetos de Layout para elementos de interface de usuário (barras de rolamento, menus, botões – conhecidos coletivamente como widgets).  Para cada widget há uma classe Layout correspondente, o que duplica o número de objetos de interface para o usuário.  Para evitar essa sobrecarga, os objetos Layout são implementados como Flyweights.
+ 
+
+* Padrões Relacionados e Referências
+
+ 
+  Composite: O Flyweight é frequentemente combinado este padrão para implementar uma estrutura hierárquica lógica.      
+
+ State e Strategy: frequentemente é melhor implementar estes padrões como Flyweights  
+ 
+* Referências
+ 
+  [[1]] Padrões de projeto – Editora Bookman
+  
+  [[1]] Padrões de projeto – série Use a Cabeça! – Editora Altabooks
+
+
+ 
