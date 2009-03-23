@@ -1,0 +1,317 @@
+                              ---------
+                              Padrão de Projeto - Strategy
+                              ---------
+                              Helio Mendes Salmon
+                              ---------
+                              24/03/2009
+						   
+
+
+
+Padrão de Projeto "Strategy"
+
+-----
+
+
+
+-----
+
+   <<Autor: Helio Mendes Salmon>>
+	
+   <<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+   <<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+
+
+
+Apresentação do Padrão
+
+*Nome 
+
+ Strategy.
+ 
+*Intento 
+
+ "Este padrão define uma família de algoritmos, encapsula cada um deles e os torna intercambiáveis. Ele deixa o 
+algoritmo variar independentemente dos clientes que o utilizam." [2]
+
+*Também conhecido como
+
+ "Policy".
+
+
+
+
+
+
+
+
+Descrição do Padrão
+
+*Motivação
+ 
+ Separar o código que muda daquele que não muda.
+
+ Alterar comportamentos de classes em tempo de execução.
+
+ Herdar nem sempre é a solução. Dar prioridade à composição.
+
+
+*Aplicabilidade
+
+ O padrão Strategy pode ser usado quando:
+
+ [[1]] muitas classes relacionadas diferem apenas em seu comportamento. Classes Strategy provêem um caminho para configurar
+a classe com um dos vários comportamentos possíveis por meio de composição e não da herança.
+
+ [[2]] uma classe define muitos comportamentos e estes aparecem como declarações condicionais múltiplas. Estas condições podem ser separadas em famílias e substituídas por classes Strategy.
+
+ [[3]] as classes não vão precisar conhecer nenhum detalhe de implementação para seus comportamentos.
+
+
+
+
+
+
+
+
+
+Estrutura
+
+ {{{figuras/strategy.jpg}Diagrama do padrão Strategy}}
+
+
+
+
+
+
+
+
+
+Participantes
+
+
+*---------------------+-------------------------------------------+-----------------------------------------+
+|Nome do Participante | Responsabilidades                         | Colaborações                            |
+*---------------------+-------------------------------------------+-----------------------------------------+
+|Strategy             |  Declara uma interface comum a todos      | Interage com Context para implementar   | 
+|                     | os algoritmos suportados.                 |o algoritmo escolhido.                   |
+*---------------------+-------------------------------------------+-----------------------------------------+
+|ConcreteStrategy     | Implementa o algoritmo usando a interface | Clientes do Context podem escolher uma  |
+|                     | da Strategy.                              |classe da família de ConcreteStrategy.   |
+*---------------------+-------------------------------------------+-----------------------------------------+
+|Context              | Mantém uma referência para um             | Repassa os pedidos de seus clientes     |
+|                     | objeto Strategy.                          |para seu Strategy.                       |
+*---------------------+-------------------------------------------+-----------------------------------------+
+
+
+
+Conseqüências
+
+ 
+*Positivas:
+       
+   [[1]] Separar famílias de algoritmos relacionados: os algoritmos são separados por famílias, facilitando seu reuso. 
+
+   [[2]] Priorizar a composição: em vez de herdar um comportamento, as classes obtêm seu comportamento ao serem compostas com o objeto de comportamento (Princípio de projeto).
+
+   [[3]] Eliminar declarações condicionais: este padrão oferece uma alternativa a declarações condicionais no código.
+
+   [[4]] Implementações diferentes: Estratégias permitem a implementação de comportamentos de formas diferentes, possibilitando sua troca em tempo de execução.
+
+*Negativas: 
+
+   [[5]] Clientes precisam saber sobre as diferentes estratégias para poder escolher uma...
+
+   [[6]] Sobrecarga de comunicação entre Context e Strategy: a interface do Strategy é compartilhado por todas as classes  ConcreteStrategy...
+
+   [[7]] Aumento do número de objetos: uma classe nova para cada tipo de comportamento...
+
+
+
+
+Implementação
+
+   [[1]] Interfaces de Strategy e Context: Context deve passar as informações para as operações do Strategy como parâmetros. Isso manterá o Strategy e o Context desacoplados.
+
+
+
+
+Exemplo de Código e Uso
+
+ {{{figuras/pato.jpg}Diagrama do padrão Strategy}}
+
+*Classe abstrata Pato
+ 
+------------------------------------------------------
+public abstract class Duck {
+   
+   FlyBehavior flyBehavior;
+   QuackBehavior quackBehavior;
+
+   public Duck() {
+   }
+ 
+   public void setFlyBehavior (FlyBehavior fb) {
+      flyBehavior = fb;
+   }
+ 
+   public void setQuackBehavior(QuackBehavior qb) {
+      quackBehavior = qb;
+   }
+ 
+   abstract void display();
+ 
+   public void performFly() {
+      flyBehavior.fly();
+   }
+ 
+   public void performQuack() {
+      quackBehavior.quack();
+   }
+ 
+   public void swim() {
+      System.out.println("All ducks float, even decoys!");
+   }
+
+}
+-------------------------------------
+
+*Classe Pato selvagem
+
+---------------------------------
+
+public class MallardDuck extends Duck {
+   
+   public MallardDuck() {
+      quackBehavior = new Quack();
+      flyBehavior = new FlyWithWings();
+   }
+
+}
+
+-------------------------------------
+
+*Classe Pato de borracha
+
+---------------------------------
+
+public class RubberDuck extends Duck {
+   
+   public RubberDuck() {
+      flyBehavior = new FlyNoWay();
+      quackBehavior = new Squeak();
+   }
+
+}
+
+-------------------------------------
+
+*Interface de comportamento de vôo
+
+---------------------------------
+
+public interface FlyBehavior {
+
+   public void fly();
+
+}
+
+-------------------------------------
+
+*Implementação de comportamento de vôo
+
+---------------------------------
+
+public class FlyWithWings implements FlyBehavior {
+
+   public void fly() {
+      System.out.println("I'm flying!!");
+   }
+
+}
+
+-------------------------------------
+
+*Implementação de comportamento de vôo
+
+---------------------------------
+
+public class FlyNoWay implements FlyBehavior {
+
+   public void fly() {
+      System.out.println("I can't fly");
+   }
+
+}
+
+-------------------------------------
+
+*Interface de som emitido pelo pato
+
+---------------------------------
+
+public interface QuackBehavior {
+
+   public void quack();
+
+}
+
+-------------------------------------
+
+*Implementação de som emitido pelo pato
+
+---------------------------------
+
+public class Quack implements QuackBehavior {
+
+   public void quack() {
+      System.out.println("Quack");
+   }
+
+}
+
+-------------------------------------
+
+*Implementação de som emitido pelo pato
+
+---------------------------------
+
+public class Squeak implements QuackBehavior {
+
+   public void quack() {
+      System.out.println("Squeak");
+   }
+
+}
+
+-------------------------------------------------------
+
+
+
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+ Borland's Object Windows - usam este padrão em caixas de diálogos.
+
+ RApp - é um sistema para layout de circuitos integrados.
+
+* Padrões Relacionados e Referências
+ 
+ Flyweight - Objetos Strategy costumam ser bons "flyweights".
+
+ O flyweight economiza memória pois reduz o número de objetos instanciados durante a execução. 
+ 
+* Referências
+ 
+  [[1]] Use a Cabeça - Padrões de Projeto
+  
+  [[1]] Design Patterns - Elements of Reusable Object Oriented Software
+
+
