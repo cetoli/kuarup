@@ -1,0 +1,174 @@
+							      ---------
+				     Padrão de Projeto - Singleton
+							      ---------
+						        Márcio Reis Teixeira
+						        ---------
+						        24/03/2009
+						   
+
+Padrão de Projeto Singleton
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Márcio Reis Teixeira>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+ [Nome] Singleton
+  
+ [Intento] Utilizado para instanciar apenas um único objeto, fornecendo um ponto global de acesso a ele.
+
+ [Também conhecido como] Solteiro, Único
+
+Descrição do Padrão
+
+*Motivação
+
+ Imagine que eu queira instanciar um único objeto para controlar a configuração de registro?
+
+*Aplicabilidade
+
+ O padrão Singleton é uma convenção para garantir que um e apenas um objeto seja instanciado para uma dada classe. Exemplos:
+
+	* Caixa de diálogo;
+	
+	* Configuração de registro;
+
+	* Drivers de dispositivos para impressora.
+
+Pensando sobre o Padrão Singleton - Parte I
+
+* E se instanciarmos mais de um objeto?
+ 
+* Problemas:
+
+	* Comportamento inadequado do programa;
+ 
+	* Uso excessivo de recursos;
+ 
+	* Resultados inconsistentes.
+
+Pensando sobre o Padrão Singleton - Parte II
+
+* Eu não poderia então usar o new() apenas uma única vez???
+
+ {{{figuras/pensando.jpg}descreva o diagrama textualmente aqui}}
+
+Pensando sobre o Padrão Singleton - Parte III
+
+* E se eu quisesse utilizar variáveis globais???
+
+*-------------------------+---------------------------+
+|<<Variáveis Globais>>    | <<Padrão Singleton>>      |
+*-------------------------+---------------------------+
+|Objeto criado ao iniciar | Objeto pode ser criado    |
+|o aplicativo. Se tiver   | somente quando necessário |
+|muitos recursos, pesará  |                           |    
+|desnecessariamente       |                           |
+*---------------------+-------------------------------+
+ 
+Criando e Compreendendo o Singleton - Parte I
+
+* Analisemos os códigos abaixo:
+ 
+ <<Construtor Público...Beleza!!!>>
+ 
+ {{{figuras/codigo1.jpg}descreva o diagrama textualmente aqui}}
+ 
+ <<Construtor Privado...O que fazer???>>
+ 
+ {{{figuras/codigo2.jpg}descreva o diagrama textualmente aqui}}
+  
+  <<Agora temos a mesma questão do ovo e da galinha...>>
+
+Criando e Compreendendo o Singleton - Parte II
+
+* Podemos resolver usando um método estático, isto é, método da classe:
+ 
+ {{{figuras/codigo3.jpg}descreva o diagrama textualmente aqui}}
+ 
+ <<Ufa...!! Agora podemos criar uma única instância, MAS ...>>
+ 
+ <<Como podemos garantir que será somente uma?>>
+
+Criando e Compreendendo o Singleton - Parte III
+
+* O que fazer:
+ 
+	* Criar uma variável estática (de classe) para conter a única instância criada;
+	
+	* Depois é só testar se essa variável já foi iniciada quando uma nova instância for solicitada.
+
+Exemplo de Código e Uso
+
+* Vejamos a implementação clássica do padrão Singleton:
+
+ {{{figuras/codigo4.jpg}descreva o diagrama textualmente aqui}}
+
+Estrutura
+
+* Vejamos o Diagrama de Classe:
+
+ {{{figuras/diagrama.jpg}descreva o diagrama textualmente aqui}}
+
+Conseqüências
+     
+* Benefícios
+
+   [[1]] A classe possui total controle sobre sua instância e seu acesso à ela
+
+   [[1]] Ao invés de somente uma instância, você pode definir, por exemplo, um limite de 3 instâncias;
+   
+   [[1]] outros...
+
+
+Cuidados na Implementação
+
+* Quando a aplicação possuir vários segmentos, poderá ocorrer, mesmo que seja um fato muito raro,
+que mais de um objeto seja criado. Nesse caso, deve-se:
+
+   [[1]] Não fazer nada se não for crítico para o aplicativo
+
+   [[2]] Usar synchronized para proteger os dados contra corrupção
+
+	* << public static synchronized Singleton getInstance() \{>>
+
+   [[3]] Criar uma instância rapidamente
+   
+	* << private static Singleton uniqueInstance = new Singleton();>>   
+
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+	* Toolkit para construção de interfaces de usuário InterViews
+	
+	* Relacionamento entre classes e suas metaclasses
+
+* Padrões Relacionados e Referências
+
+ AbstractFactory, Builder e Prototype
+ 
+* Referências
+ 
+  [[1]] Use a Cabeça! Padrões de Projetos - FREEMAN 2ª Edição
+  
+  [[1]] Padrões de Projeto - Editora Bookman\
+  Erich Gamma, Ralph Johnson, John Vlissides 
+  
+  
+
+
