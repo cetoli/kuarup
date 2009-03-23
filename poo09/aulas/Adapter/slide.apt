@@ -1,0 +1,119 @@
+											      ---------
+				     Padrão de Projeto - Adapter
+							      ---------
+						        Carlos Eduardo F. de Azevedo
+						        ---------
+						        24/03/2009
+						   
+
+Padrão de Projeto - Adapter
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Carlos Eduardo F. de Azevedo>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+ [Nome] Adapter
+  
+ [Intento] Converter a interface de uma classe para uma outra interface que o cliente espera encontrar. O adaptador permite que classes incompatíveis trabalhem em conjunto.
+
+ [Também conhecido como] Wrapper e Translator 
+
+Descrição do Padrão
+
+*Motivação
+
+ Algumas vezes, uma classe de um tookit, projetada para ser reutilizada, não é reutilizável por que sua inteface não corresponde à interface especifica de um domínio requerida por uma aplicação.
+
+ Link: {{motivacao_ex.htm}}
+
+
+*Aplicabilidade
+
+	*Quando Usamos
+
+		*Desejamos utilizar uma classe existente, e sua interface não combina com o que precisamos;
+
+		*Desejamos criar uma classe reutilizável que coopere com classes que apresentam interfaces incompatíveis.
+
+
+Exemplo real - Parte 1
+ 
+ *Exemplo 1\
+ {{{figuras/exemplo1.jpg}descreva o exemplo}}
+
+Exemplo real - Parte 2
+
+ *Exemplo 1\
+ {{{figuras/exemplo2.jpg}descreva o exemplo}}
+
+Estrutura
+
+ {{{figuras/estrutura.jpg}descreva o diagrama textualmente aqui}}
+
+Participantes
+
+	*Cliente - Colabora com objetos compatíveis com a interface do alvo.
+
+	*Alvo (classe Duck) - Define a interface específica do dominio que o Cliente usa.
+
+	*Adaptado (Classe Turkey) -  Adapta a interface para o alvo.
+
+	*Adaptador - Define uma interface existente que necessita ser adaptada.
+
+Exemplo 2 - Classe pato
+
+ Se anda e grasna como um pato, talvez seja um peru envelopado num adaptador de pato...
+
+ {{{figuras/codigo1.jpg}descreva o diagrama textualmente aqui}}
+
+
+ {{{figuras/codigo2.jpg}descreva o diagrama textualmente aqui}}
+
+Exemplo 2 - Classe peru
+
+ {{{figuras/codigo3.jpg}descreva o diagrama textualmente aqui}}
+
+
+ {{{figuras/codigo4.jpg}descreva o diagrama textualmente aqui}}
+
+Se os objetos do tipo Pato estiverem em falta e quisermos usar o Peru em seu lugar....
+
+ {{{figuras/duvida.jpg}descreva o diagrama textualmente aqui}}
+
+Escrevendo um adaptador
+
+ {{{figuras/codigo5.jpg}descreva o diagrama textualmente aqui}}
+
+Testando o adaptador
+
+ {{{figuras/codigo6.jpg}descreva o diagrama textualmente aqui}}
+
+Usos Conhecidos e Relacionamentos
+
+
+* Padrões Relacionados e Referências
+
+ *Bridge - Desacopla uma abstração de sua implementação de forma que as duas possam mudar independentemente uma da outra. 
+
+ *Decorator - Adiciona responsabilidades a um objeto, dinamicamente. Decoradores provêem uma alternativa flexível à herança para estender funcionalidade.
+ 
+Referências
+ 
+  [[1]] Use a Cabeça! Padrões de Projetos - FREEMAN 2ª Edição
+  
+  [[1]] Padrões de Projeto - Editora Bookman\
+  Erich Gamma, Ralph Johnson, John Vlissides 
