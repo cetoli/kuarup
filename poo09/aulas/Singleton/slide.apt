@@ -64,7 +64,7 @@ Pensando sobre o Padrão Singleton - Parte II
 
 * Eu não poderia então usar o new() apenas uma única vez???
 
- {{{figuras/pensando.jpg}descreva o diagrama textualmente aqui}}
+ {{{figuras/pensando.jpg}Pensando sobre o Singleton}}
 
 Pensando sobre o Padrão Singleton - Parte III
 
@@ -85,11 +85,11 @@ Criando e Compreendendo o Singleton - Parte I
  
  <<Construtor Público...Beleza!!!>>
  
- {{{figuras/codigo1.jpg}descreva o diagrama textualmente aqui}}
+ {{{figuras/codigo1.jpg}Exemplo de Codigo}}
  
  <<Construtor Privado...O que fazer???>>
  
- {{{figuras/codigo2.jpg}descreva o diagrama textualmente aqui}}
+ {{{figuras/codigo2.jpg}Exemplo de Codigo}}
   
   <<Agora temos a mesma questão do ovo e da galinha...>>
 
@@ -97,7 +97,7 @@ Criando e Compreendendo o Singleton - Parte II
 
 * Podemos resolver usando um método estático, isto é, método da classe:
  
- {{{figuras/codigo3.jpg}descreva o diagrama textualmente aqui}}
+ {{{figuras/codigo3.jpg}Exemplo de Codigo}}
  
  <<Ufa...!! Agora podemos criar uma única instância, MAS ...>>
  
@@ -115,13 +115,13 @@ Exemplo de Código e Uso
 
 * Vejamos a implementação clássica do padrão Singleton:
 
- {{{figuras/codigo4.jpg}descreva o diagrama textualmente aqui}}
+ {{{figuras/codigo4.jpg}Exemplo de Codigo}}
 
 Estrutura
 
 * Vejamos o Diagrama de Classe:
 
- {{{figuras/diagrama.jpg}descreva o diagrama textualmente aqui}}
+ {{{figuras/diagrama.jpg}Diagrama de Classe}}
 
 Conseqüências
      
