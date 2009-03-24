@@ -29,6 +29,8 @@ Os tubaroes brancos sao perigosos...
 '''
 
 from visual import *
+from SerMarinho import *
+from Eixo import *
 
 TITLE = 'Tutubarao!'
 
@@ -68,6 +70,7 @@ Classe base de qualquer ser marinho
 
 '''
 
+"""
 class SerMarinho():
 
     def __init__(self, escala= 1, **qualquel_outro_parametro):
@@ -79,6 +82,7 @@ class SerMarinho():
         self.desenha(escala)
 
     def desenha(self): pass
+"""
 
 '''
 
@@ -244,6 +248,11 @@ class Tubarao(SerMarinho):
 
         guelra6 = cylinder (frame = self.esqueleto, pos=(4*escala,0,-5.5*escala), axis=(0.1,0,-0.1),radius=3*escala, color=color.gray(0.5))
 
+
+    def girar (self, angulo, eixoRotacao):
+        eixo= Eixo ()
+        anguloRad= eixo.converterGrausRadiano (angulo)
+        self.esqueleto.rotate (angle= anguloRad, axis= eixoRotacao)
 '''
 
 Nao mexa aqui!
