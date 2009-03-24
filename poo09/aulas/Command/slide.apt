@@ -1,0 +1,316 @@
+							      ---------
+				     Padrão de Projeto - Command
+							      ---------
+						        Thiago Silva de Souza
+						        ---------
+						        24/03/2009
+						   
+
+Padrão de Projeto Command
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Thiago Silva de Souza>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+ [Nome] Command
+ 
+ [Intento] Encapsular uma solicitação como um objeto, desta forma permitindo (GoF):
+
+       
+   [[1]] parametrizar clientes com diferentes solicitações;
+       
+   [[1]] enfileirar ou fazer o registro (<log>) de solicitações;
+       
+   [[1]] suportar operações que podem ser desfeitas.
+
+
+ [Também conhecido como] Action, Transaction.
+
+Descrição do Padrão
+
+*Motivação
+
+ Desacoplar o cliente que invoca uma operação do objeto que implementa a operação.
+
+*Aplicabilidade
+
+ Deve-se usar o padrão <Command> quando for necessário (GoF):
+
+    * parametrizar objetos por uma ação a ser executada;
+
+    * especificar, enfileirar e executar solicitações em tempos diferentes;
+
+    * suportar desfazer operações;
+
+    * suportar o registro (<logging>) de mudanças de maneira que possam ser reaplicadas no caso de uma queda de sistema;
+
+    * estruturar um sistema em torno de operações de alto nível construídas sobre operações primitivas.
+
+Estrutura
+
+ {{{figuras/command.jpg}Modelo do padrão Command}}
+
+Participantes
+
+*---------------------+------------------------------+------------------------+
+|Nome do Participante | Responsabilidades            | Colaborações           |
+*---------------------+------------------------------+------------------------+
+|<Command>           | Declara uma interface para a execução de uma operação | -  |
+*---------------------+------------------------------+------------------------+
+|CommandoConcreto           | Define uma vinculação entre um objeto Receptor e uma ação. Implementa <execute()> através da invocação da(s) correspondente(s) operação(ões) no Receptor | Invoca operações no seu Receptor para executar a solicitação.  Quando se deseja que os comandos sejam desfeitos, ComandoConcreto armazena estados para desfazer o comando antes de invocar <execute()>  |
+*---------------------+------------------------------+------------------------+
+|Cliente           | Cria um objeto ComandoConcreto e estabelece o seu receptor | Cria um objeto ComandoConcreto e especifica o seu receptor  |
+*---------------------+------------------------------+------------------------+
+|Invocador           | Solicita ao <Command> a execução da solicitação | Armazena o objeto ComandoConcreto. Emite uma solicitação chamando <execute()> no <Command>.  |
+*---------------------+------------------------------+------------------------+
+|Receptor           | Sabe como executar as operações associadas a uma solicitação. Qualquer classe pode funcionar como um Receptor | -  |
+*---------------------+------------------------------+------------------------+
+
+
+Conseqüências
+
+ O padrão <Command> tem as seguintes conseqüências (GoF):
+
+       
+   [[1]] <Command> desacopla o objeto que invoca a operação daquele que sabe como executá-la.
+
+   [[1]] <Commands> são objetos de primeira classe, ou seja, podem ser manipulados e estendidos como qualquer outro objeto.
+       
+   [[1]] É possível criar comandos compostos - os chamados <MacroCommands>.
+       
+   [[1]] É fácil acrescentar novos <Commands> porque não há a necessidade de mudar classes existentes.
+
+
+Implementação
+
+ Os seguintes aspectos devem ser considerados ao implementar o padrão <Command> (GoF):
+
+   [[1]] Quão inteligente deveria ser um comando?
+
+   [[1]] Suporte a operações de desfazer (<undo>) e refazer (<redo>).
+
+   [[1]] Evitar o acúmulo de erros no processo de desfazer.
+
+   [[1]] Usar <templates> C++.
+
+Exemplo de Código e Uso (1)
+
+ Controle remoto para acender e apagar uma lâmpada.
+ 
+ {{{figuras/controle.jpg}Controle Remoto Tabajara}}
+
+Exemplo de Código e Uso (2)
+
+ Solução baseada em estruturas condicionais:
+ 
+------------------------------------------------------
+public void actionPerformed(ActionEvent evento) {
+  if (evento.getSource() == onLampada)
+  {
+    this.tfComando.setText("Lâmpada ligada");
+  }
+  if (evento.getSource() == offLampada)
+  {
+    this.tfComando.setText("Lâmpada desligada");
+  }
+  if (evento.getSource() == desfazer)
+  {
+    this.tfComando.setText("Operação não suportada");
+  }
+}
+-------------------------------------------------------
+
+Exemplo de Código e Uso (3)
+
+ Aplicando o padrão Command ao controle remoto.
+ 
+ {{{figuras/controleCommand.jpg}Aplicando o padrão Command ao controle remoto}}
+
+Exemplo de Código e Uso (4)
+
+ Classe Lampada (Receptor)
+ 
+------------------------------------------------------
+package model;
+
+/*A classe Receptor*/
+
+public class Lampada {
+
+	public Lampada() {
+	}
+
+	public String acender() {
+		return "Lâmpada acesa";
+	}
+
+	public String apagar() {
+		return "Lâmpada apagada";
+	}
+}
+-------------------------------------------------------
+
+Exemplo de Código e Uso (5)
+
+ Interface <Command>
+ 
+------------------------------------------------------
+package control;
+
+/*a interface Command*/
+
+public interface Command
+{
+	public void execute(); // assinatura do método execute()
+}
+-------------------------------------------------------
+
+Exemplo de Código e Uso (6)
+
+ Classe AcenderLampadaCommand
+ 
+------------------------------------------------------
+package control;
+
+import model.Lampada;
+
+/*Comando concreto para acender a lâmpada*/
+
+public class AcenderLampadaCommand implements Command {
+
+	private Lampada lamp;
+
+	public AcenderLampadaCommand(Lampada lampada) {
+		this.lamp = lampada;
+	}
+
+	public void execute() {
+		lamp.acender();
+	}
+}
+-------------------------------------------------------
+
+Exemplo de Código e Uso (7)
+
+ Classe ApagarLampadaCommand
+ 
+------------------------------------------------------
+package control;
+
+import model.Lampada;
+
+/*Comando concreto para apagar a lâmpada*/
+
+public class ApagarLampadaCommand implements Command {
+
+	private Lampada lamp;
+
+	public ApagarLampadaCommand(Lampada lampada) {
+		this.lamp = lampada;
+	}
+
+	public void execute() {
+		lamp.apagar();
+	}
+}
+-------------------------------------------------------
+
+Exemplo de Código e Uso (8)
+
+ Classe ControleRemoto (Invocador)
+ 
+------------------------------------------------------
+package control;
+
+/*A classe Invocador*/
+public class ControleRemoto {
+
+	private Command flipUpCommand;
+	private Command flipDownCommand;
+
+	public ControleRemoto(Command flipUpCmd, Command flipDownCmd) {
+		this.flipUpCommand = flipUpCmd;
+		this.flipDownCommand = flipDownCmd;
+	}
+
+	public void flipUp() {
+		flipUpCommand.execute();
+	}
+
+	public void flipDown() {
+		flipDownCommand.execute();
+	}
+}
+-------------------------------------------------------
+
+Exemplo de Código e Uso (9)
+
+ Classe ControleRemotoControl (Cliente)
+ 
+------------------------------------------------------
+package control;
+
+import model.Lampada;
+
+/*A classe cliente*/
+public class ControleRemotoControl {
+
+	public void ControleRemotoControl() {
+		Lampada l = new Lampada();
+		Command switchUp = new AcenderLampadaCommand(l);
+		Command switchDown = new ApagarLampadaCommand(l);
+
+		ControleRemoto s = new ControleRemoto(switchUp, switchDown);
+
+		s.flipUp();
+		s.flipDown();
+	}
+}
+-------------------------------------------------------
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+    * Talvez o primeiro exemplo do padrão <Command> tenha aparecido em um artigo de Lieberman (1985).
+
+    * A classe <<javax.swing.AbstractAction>> implementa o padrão <Command>.
+
+    * As <Actions> do framework web <<Struts>> são, na verdade, <Commands>.
+
+    * O <<XWork>> é um framework <open source> que implementa o padrão de projeto <Command>. Ele pode ser utilizado tanto por aplicações web quanto por aplicações desktop.
+
+
+* Padrões Relacionados e Referências
+
+    * Um <Composite> pode ser usado para implementar <MacroCommands>.
+
+    * Um <Memento> pode manter estados que o comando necessita para desfazer o seu efeito.
+
+    * Um comando que deve ser copiado antes de ser colocado na lista histórica de comandos funciona como um <Prototype>.
+
+    * A estratégia mais utilizada para implementar o <<J2EE Pattern>> <Front Controller> utiliza o padrão <Command>.
+
+ 
+* Referências
+ 
+  [[1]] Gamma, E. et al. Padrões de Projeto: soluções reutilizáveis de software orientado a objetos. Porto Alegre: Bookman, 2000.
+  
+  [[1]] Freeman, E. et al. Use a cabeça! Padrões de Projetos. 2 ed. Rio de Janeiro, 2009.
+  
+  [[1]] Souza, W. C. A.; Lima, L. C. Explicando Padrões de Projeto - Parte 4. Java Magazine, ano VI, ed. 65, janeiro, 2009.
+
