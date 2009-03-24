@@ -1,0 +1,268 @@
+							      ---------
+				     Padrão de Projeto VISITOR
+							      ---------
+						        Carlos Felippe Cardoso de Resende
+						        ---------
+						        24/03/2009
+						   
+
+Padrão de Projeto VISITOR
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Carlos Felippe Cardoso de Resende>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+	  
+	
+	
+Apresentação do Padrão
+
+	
+
+
+          
+*VISITOR
+
+	*representa uma operação  a ser realizada em uma estrutura de um objeto
+	
+	*É uma solução para ajudar a separar o algoritmo (regra de negócio) da estrutura de dados. 
+ 	
+
+*-----*
+ {{{./images/exemplo_taxi.gif} }} 	
+*-----*
+
+
+Motivação
+
+
+	*Problema
+	
+		*Representar operações especializadas que devem ser executadas sobre os elementos de uma estrutura.
+
+
+       *Solução usual
+       
+		*Implementar operação especializada em cada elemento da estrutura.
+
+
+       *Solução usando "Patterns" (Visitor)
+		
+		*Elaboração de um padrão que possibilite a adição de novas operações especializadas de forma que não haja a necessidade da modificação de diversos elementos da estrutura.
+
+
+       *Como?
+
+		*Separação do comportamento da estrutura!!!
+
+      *O padrão Visitor permite que novas operações sejam definidas sem a necessidade de modificar o código da árvore dos elementos (objetos) em que opera. 
+		
+	
+*-----*
+ {{{./images/pensador.jpg} }} 	
+*-----*
+	
+
+
+
+
+Aplicabilidade
+
+	*Quando se têm muitas classes de objetos com interfaces distintas e quer-se realizar operações nesses objetos que dependam das suas classes concretas;
+
+	*Quando a estrutura de objetos é utilizada por diversas aplicações
+	
+		*Cada aplicação com seu Visitor apropriado;
+	
+		*Possibilidade de reuso de Visitors comuns;
+
+	*Quando se quer evitar a poluição da classe com operações não-relacionadas e que são utilizadas em vários objetos;
+
+	*Quando a estrutura que define os objetos é praticamente estática e as operações realizadas neles estão em constante mudança
+
+		*<A situação inversa não se aplica>
+
+
+
+Estrutura Básica- Diagrama 1
+
+*-----*
+ {{{./images/visitor.png} }} 	
+*-----*
+
+Colaborações - Diagrama 2
+
+*-----*
+ {{{./images/diagramaVisitor.png} }} 	
+*-----*
+
+
+
+Participantes
+
+
+*---------------------+------------------------------+
+|Nome do Participante | Responsabilidades            |
+*---------------------+------------------------------+
+|Visitor           | declara uma operação de <<visita>> para cada elemento da estrutura do objeto |
+*---------------------+------------------------------+------------------------+
+|ConcreteVisitor   | implementa <<cada>> operação de <<visita>> declarada no Visitor | 
+*---------------------+------------------------------+------------------------+
+|Element   | define uma operação de <<accept>> que recebe um visitor como argumento | 
+*---------------------+------------------------------+------------------------+
+|ConcreteElement   | implementa a operação de <<accept>> que recebe um visitor como argumento | 
+*---------------------+------------------------------+------------------------+
+|ObjectStructure   | enumera seus elementos (que podem ser um Composite, ou simplesmente uma "collection")| 
+*---------------------+------------------------------+------------------------+
+
+
+Conseqüências - Vantagens
+
+       
+   [[1]] Adicionar uma nova operação se torna muito simples.
+   
+   	[[1]] Para uma nova funcionalidade, simplesmente adicione um novo Visitor
+   	
+   	[[2]] Entretanto, se o código para essas operações ficasse espalhado entre diversas classes, teríamos que alterar cada uma!!!
+
+
+   [[2]] Agrupamento lógico-comportamental de operações
+   
+   	[[1]]Comportamentos não ficam espalhados e sim agrupados por Visitor;
+   	
+   	[[2]]Comportamentos não relacionados ficam em Visitors distintos
+   	
+   
+   [[3]] Visitação de objetos pertencentes a hierarquias distintas
+	
+	[[1]]Note que um Iterador não conseguiria esta façanha 
+
+   
+   [[4]] Acúmulo de estados
+   	
+   	[[1]]A não-utilização do Visitor, força o desenvolvedor a guardar o estado em um objeto e passando por parâmetro 
+
+
+Consequencias - Desvantagens
+
+	[[1]]A adição de classes ConcreteElement pode ser trabalhosa
+		
+		[[1]]Cada ConcreteVisitor tem que ser mudado para adicionar a nova operação
+	       
+	        [[2]] Dependência entre Visitante e Visitado
+	
+	[[2]]Quebra do encapsulamento
+	
+		[[1]]Como a operação encontra-se dentro de um Visitor e não em um ConcreteElement, este pode necessitar expor uma maior quantidade de interfaces para que o Visitor o acesse
+
+
+
+Exemplo: Jogo usando IA
+
+*-----*
+ {{{./images/motorIA.png} }} 	
+*-----*
+
+
+
+Implementação
+
+
+   [[1]] Double Dispatch
+   
+   	* Em linguagens comuns (C++, Smalltalk, Java), o método chamado depende da mensagem e do objeto receptor
+   	
+   	* Algumas linguagens,(tais como CLOS) oferecem Double Dispatch, em que o método chamado depende da mensagem e de dois outros objetos
+    
+    	* Visitor simula Double Dispatch, pois a operação realizada  depende do tipo do Visitor e do tipo elemento visitado
+    	
+    		*Em vez de usar binding dinâmico simples colocando a operação na interface do Elemento, juntam-se as operações num Visitor e usamos accept() para realizar um nível a mais de dispatch em tempo de execução
+    		
+   [[2]] Quem é responsável pode varrer a estrutura de objetos?
+
+    	* Um Visitor deve visitar todos os elementos de uma estrutura
+       
+        * Quem tem a responsabilidade de realizar a varredura da estrutura e chamar accept() em cada elemento?
+        	
+        	*A iteração pode ser feita na estrutura de objetos
+                	
+                	* Itera-se sobre os elementos, chamando accept() para cada um
+                
+                	*Num Composite, o accept() de um elemento composto pode chamar accept() dos filhos
+                
+               *Podemos usar um iterador, fora da estrutura de objetos
+                
+               		*Se o iterador for externo, é o cliente que faz a varredura
+               		
+               		*Se o iterador for interno, é o próprio iterador que chama accept()
+               		
+               			*Equivalente a fazer a estrutura se responsável pela iteração
+               			
+                      		 * Porém, neste caso, o iterador pode chamar o Visitor diretamente, em cujo caso não haverá double dispatch
+          	
+          	
+                *A iteração pode ser feita no próprio Visitor, mas, neste caso, cada Visitor vai ter que repetir o código de varredura
+                	
+                	*Às vezes é necessário fazer isso se a varredura depender do resultado das operações realizadas pelo Visitor
+
+
+
+
+Exemplo de Código e Uso (1)
+
+*-----*
+  {{{./images/exemploCodigo1.jpg} }} 	
+*-----*
+
+
+Exemplo de Código e Uso (2)
+
+*-----*
+ {{{./images/exemploCodigo2.jpg} }} 	
+*-----*
+
+Exemplo de Código e Uso (3)
+
+*-----*
+ {{{./images/exemploCodigo3.jpg} }} 	
+*-----*
+
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+ [[1]] O Sistema Integrado de Gestão Acadêmica (SIGA-UFRJ) utiliza Visitors para, por exemplo, prover a validação do cadastro de uma nova pessoa física no sistema, o que permitirá ou não a sua persistência em banco.
+ 
+ [[2]] Uso em compiladores (como o Smalltalk-80), que basicamente usava o padrão em algoritmos que fazem a análise do código-fonte 
+ 
+ 
+* Padrões Relacionados e Referências
+
+ [[1]] Composite
+ 
+ [[2]] Interpreter
+ 
+ 
+ 
+* Referências
+ 
+  [[1]] Erich Gamma et al. Design Patterns - Elements of Reusable Object-Oriented Software
+  
+  [[2]] http://en.wikipedia.org/wiki/Visitor_pattern
+  
+  [[3]] http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/pat/visitor.htm
+  
+  [[4]] http://www.yann-gael.gueheneuc.net/Work/Teaching/Documents/Design+Pattern+Visitor.ppt.pdf
+
