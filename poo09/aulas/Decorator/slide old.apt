@@ -62,6 +62,11 @@ Descrição do Padrão
    
    *quando a utilização de herança para estender funcionalidades gera uma explosão de subclasses para atender às diversas combinações.
  
+* Uma situação aplicável
+
+  Suponha que para um grupo de usuários de um sistema (administradores), o menu possa ser acessado, e para os demais usuários (visitantes) o menu não esteja visível. Podemos utilizar um objeto MenuDecorator com esta finalidade. Compomos tal objeto com o objeto que representa o que será impresso na tela para produzir este resultado.
+
+  
 
 Estrutura
 
@@ -112,7 +117,7 @@ Implementação
    
    [[1]] <Utilizar o padrão Strategy em casos de Component pesado:> O padrão Decorator altera o exterior de um objeto. Em casos onde a classe Component é pesada, o uso de Decorator se torna oneroso, fazendo com que o padrão Strategy seja uma alternativa melhor. Nesta nova abordagem, parte do comportamento de Component é repassado para um objeto strategy independente, reduzindo o custo. 
 
-Exemplo de Código e Uso I
+Exemplo de Código e Uso
 
     Component
 
@@ -140,8 +145,7 @@ public class TextView implements VisualComponent {
     }
 }
 -----
-
-Exemplo de Código e Uso II
+=====
 
     Decorator
     
@@ -207,8 +211,7 @@ public class ScrollDecorator extends Decorator {
     }
 }
 -----
-
-Exemplo de Código e Uso III
+=====
 
     Class Window
     
@@ -270,7 +273,7 @@ Usos Conhecidos e Relacionamentos
     
         *widgets
 
-*Padrões Relacionados
+*Padrões Relacionados e Referências
 
   *Adapter
     
@@ -288,7 +291,7 @@ Usos Conhecidos e Relacionamentos
     
     Os dois padrões visam realizar mudanças em objetos: Decorator altera o exterior do objeto enquanto Strategy altera seu interior.
  
-Referências
+*Referências
  
   [[1]] GAMMA, E., HELM, R., JOHNSON, R. e VLISSIDES, J., Padrões de Projeto Soluções reutilizáveis de software orientado a objetos, Bookman, 1995.
   
