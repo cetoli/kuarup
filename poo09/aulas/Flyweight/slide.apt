@@ -48,7 +48,7 @@ Descrição do Padrão
 
 Estrutura
 
- {{{../ext/images/semin_5.jpg}Flyweight - estrutura}}
+ {{{Flyweight/semin_5.jpg}Flyweight - estrutura}}
 
 Participantes
 
@@ -86,7 +86,7 @@ Conseqüências
 
 Exemplo de Código e Uso
 
- {{{../ext/images/exemplo.jpg}Exemplo de código}}
+ {{{ Flyweight/exemplo.jpg}Exemplo de código}}
  
 ------------------------------------------------------
 -------------------------------------------------------
