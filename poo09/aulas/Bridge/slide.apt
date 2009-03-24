@@ -28,7 +28,7 @@ Apresentação do Padrão
 
  [Nome] Bridge
   
- [Intento] Desacopla uma abstração de sua implementação de modo que elas possam variar independentemente.
+ [Itento] Desacopla uma abstração de sua implementação de modo que elas possam variar independentemente.
 
  [Também conhecido como] Handle-Body
 
@@ -42,11 +42,6 @@ Descrição do Padrão
 
   Modificar a abstração afeta em geral as implementações;
 
-  O uso de herança para permitir diversas implementações de uma abstração pode não ser suficientemente flexível;
-
-  Interface e implementação ficam definitivamente ligadas e não podem ser usadas de modo independente;
-
-  Modificar a abstração afeta em geral as implementações.
 
 Exemplo
 
