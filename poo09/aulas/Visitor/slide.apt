@@ -179,17 +179,17 @@ Exemplo: Jogo usando IA
 Implementação
 
 
-   [[1]] Double Dispatch
+   [[1]] Princípio "<Open-Closed>"	
+
+   [[2]] Double Dispatch
    
    	* Em linguagens comuns (C++, Smalltalk, Java), o método chamado depende da mensagem e do objeto receptor
-   	
-   	* Algumas linguagens,(tais como CLOS) oferecem Double Dispatch, em que o método chamado depende da mensagem e de dois outros objetos
     
     	* Visitor simula Double Dispatch, pois a operação realizada  depende do tipo do Visitor e do tipo elemento visitado
     	
     		*Em vez de usar binding dinâmico simples colocando a operação na interface do Elemento, juntam-se as operações num Visitor e usamos accept() para realizar um nível a mais de dispatch em tempo de execução
     		
-   [[2]] Quem é responsável pode varrer a estrutura de objetos?
+   [[3]] Quem é responsável pode varrer a estrutura de objetos?
 
     	* Um Visitor deve visitar todos os elementos de uma estrutura
        
@@ -207,7 +207,7 @@ Implementação
                		
                		*Se o iterador for interno, é o próprio iterador que chama accept()
                		
-               			*Equivalente a fazer a estrutura se responsável pela iteração
+               			*Equivalente a fazer a estrutura ser responsável pela iteração
                			
                       		 * Porém, neste caso, o iterador pode chamar o Visitor diretamente, em cujo caso não haverá double dispatch
           	
