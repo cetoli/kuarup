@@ -26,10 +26,6 @@ class Mar:
 	def __init__ (self):
 		self.cenario= display (title='Oceano',width=700, height=500,center= (0.5,0,0),x=0, y=0, background=color.blue)
 		#self.cenario= display (title='Oceano',width=150, height=150,center= (0.5,0,0),x=0, y=0, background=color.blue)
-		#self.cenario.autoscale= 1
-		#self.cenario.scale= (0.8,0.8,1.5)
-		#self.cenario.scale= (1.5,1.5,1.5)
-   		#self.cenario.x, self.cenario.y =0,0
    		self.cenario.select ()
    		self.cenario.visible = 1
         #self.quadro = 0
@@ -58,42 +54,24 @@ class Mar:
 	def getAnimal (self, pos):
 		return self.animais.__getitem__(pos)
 
-	"""
-		Premissas:
-		pos da batida= (10, 5, 6) => 		posBatida.append (posAguaViva[0] + (4 * self.ESCALA_AGUA_VIVA)/2)
-											posBatida.append (posAguaViva[1])
-											posBatida.append (posAguaViva[2] + (4 * self.ESCALA_AGUA_VIVA)/2)
 
-
-
-	"""
 
 	def baterAguaViva (self, posBatida):
-		#print "pos peixe %f %f %f\n" % (self.animais[0].esqueleto.pos[0], self.animais[0].esqueleto.pos[1], self.animais[0].esqueleto.pos[2])
-		#print "pos agua viva %f %f %f\n" % (self.animais[1].esqueleto.pos[0], self.animais[1].esqueleto.pos[1], self.animais[1].esqueleto.pos[2])
-		print "pos batida %f %f %f\n" % (posBatida[0], posBatida[1], posBatida[2])
-
 		# Vai de encontro com a agua viva
 		self.animais[0].nadarPara (posBatida)
 		rate (self.taxa)
-		print "pos FINAL do peixe %f %f %f\n" % (self.animais[0].esqueleto.pos[0], self.animais[0].esqueleto.pos[1], self.animais[0].esqueleto.pos[2])
 
 	def aguaVivaIndoBocaTubarao (self, posFinalAguaViva):
 		# seta a velocidade para 2X maior que o normal
 		self.animais[1].setVelocidadeNado (1.3)
 
-		#print "pos agua viva antes %f %f %f\n" % (self.animais[1].esqueleto.pos[0], self.animais[1].esqueleto.pos[1], self.animais[1].esqueleto.pos[2])
-
 		# Voa para a boca do tubarao
 		self.animais[1].nadarPara (posFinalAguaViva)
-
-		print "agua viva na boca \n"
 
 	def peixeFugir (self, pos1Peixe, posFinalPeixe):
 		self.animais[0].nadarPara (pos1Peixe)
 		self.animais[0].girarPara (-30, -10, Eixo.EIXO_Y)
 		rate (self.taxa)
-		print "final\n"
 		self.animais[0].nadarPara (posFinalPeixe)
 
 	def tubaraoTossir (self, pos):
@@ -112,16 +90,12 @@ class Mar:
 			# danca para um lado
 			angulo= listaAngulo[0]
 
-			print "angulo %f\n" % (angulo)
-
 			self.animais[0].girar (angulo, Eixo.EIXO_Y)
 			self.tubaraoTossir (0)
 			rate (self.taxa/2)
 
 			# danca para o outro lado
 			angulo= listaAngulo[1]
-
-			print "angulo %f\n" % (angulo)
 
 			self.animais[0].girar (angulo, Eixo.EIXO_Y)
 			self.tubaraoTossir (1)
@@ -222,7 +196,6 @@ class Mar:
 
 		# faz uma graca
 		self.fazerGraca ()
-		print "Fugir!\n"
 
 		self.peixeFugir (pos1Peixe, posFugaPeixe)
 
@@ -230,129 +203,6 @@ class Mar:
 
 		self.animais[0].setVelocidade (3)
 		self.animais[0].nadarPara (posFinalPeixe)
-
-
-		#print "pos final AV %f %f %f\n" % (posAguaVivaBoca[0], posAguaVivaBoca[1], posAguaVivaBoca[2])
-		#print "pos agua viva depois %f %f %f\n" % (self.animais[1].esqueleto.pos[0], self.animais[1].esqueleto.pos[1], self.animais[1].esqueleto.pos[2])
-
-		print "pos final peixe %f %f %f\n" % (self.animais[0].esqueleto.pos[0], self.animais[0].esqueleto.pos[1], self.animais[0].esqueleto.pos[2])
-
-		print "\n------\nTUBARAO %f %f %f\n" % (self.animais[2].esqueleto.pos[0], self.animais[2].esqueleto.pos[1], self.animais[2].esqueleto.pos[2])
-
-
-
-		"""
-	def nadarDireita (self, animal):
-		movimento= 0
-		# se movimenta em um sentido
-		while movimento < self.QTD_PASSOS_RETA:
-			incremento= Ponto (1, 0, 0)
-			animal.nadar (incremento)
-			rate (self.taxa)
-
-			movimento+= 1
-
-	def virarParaEsquerda (self, animal):
-		incremento= list ()
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 1) * (5/100), 0, 0))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 2) * (5/100), 0, 2/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 3) * (5/100), 0, 3/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 4) * (5/100), 0, -3/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 5) * (5/100), 0, -1/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 6) * (5/100), 0, -1/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-
-		eixo= Eixo ()
-		angulo= eixo.converterGrausRadiano (330)
-
-		movimento= 0
-		while movimento < self.QTD_PASSOS_CURVA_ALEATORIA:
-			#incremento= Ponto (1/6, 0, 0)
-			animal.nadar (incremento[movimento])
-			animal.girar (angulo, Eixo.EIXO_Y)
-			rate (self.taxa)
-
-			movimento+= 1
-
-	def nadarEsquerda (self, animal):
-		movimento= 0
-		while movimento < self.QTD_PASSOS_RETA:
-			incremento= Ponto (-1, 0, 0)
-			animal.nadar (incremento)
-			rate (self.taxa)
-
-			movimento+= 1
-
-	def virarParaDireita (self, animal):
-		incremento= list ()
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 1) * (- 5/100), 0, 0))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 2) * (- 5/100), 0, 2/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 3) * (- 5/100), 0, 3/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 4) * (- 5/100), 0, -3/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 5) * (- 5/100), 0, -1/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-		incremento.append (Ponto ( (self.QTD_PASSOS_CURVA_ALEATORIA - 6) * (- 5/100), 0, -1/self.QTD_PASSOS_CURVA_ALEATORIA * self.RAIO_CURVA))
-
-		eixo= Eixo ()
-		angulo= eixo.converterGrausRadiano (30)
-
-		movimento= 0
-		while movimento < 6:
-			#incremento= Ponto (-1/6, 0, 0)
-			animal.nadar (incremento[movimento])
-			animal.girar (angulo, Eixo.EIXO_Y)
-			rate (self.taxa)
-
-			movimento+= 1
-
-
-	def nadarAleatoriamente (self):
-		qtd= self.getQtdAnimais ()
-		print "pos= %d\n" % (qtd)
-
-		animal= self.getAnimal (0)
-		print "esqueleto inicial: %f | %f  | %f\n" % (animal.esqueleto.pos[0], animal.esqueleto.pos[1], animal.esqueleto.pos[2])
-
-		# inicializa dando um espaco de diferenca
-		cont= 0
-		while cont < qtd:
-			animal= self.getAnimal (cont)
-			incremento= Ponto (1, 0, 0)
-			animal.nadar (incremento)
-			rate (self.taxa)
-			cont+= 1
-
-
-		while 1:
-			cont= 0
-			while cont < qtd:
-				animal= self.getAnimal (cont)
-
-				print "---------- RETO 1 ----------- \n"
-				self.nadarDireita (animal)
-
-
-				print "---------- Girando 1 ----------- \n"
-				# vira o animal
-				self.virarParaEsquerda (animal)
-
-				print "---------- RETO 2 ----------- \n"
-				self.nadarEsquerda (animal)
-
-
-
-				print "---------- Girando 2 ----------- \n"
-				# vira o animal
-				self.virarParaDireita (animal)
-
-				cont+= 1
-
-			#break
-
-if __name__ == "__main__":
-	mar= Mar ()
-	mar.popular ()
-
-	#mar.nadarAleatoriamente ()
-            """
 
 if __name__ == "__main__":
 	mar= Mar ()

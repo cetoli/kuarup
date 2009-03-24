@@ -13,7 +13,7 @@ class SerMarinho:
         self.escala= escala
         self.velocidade= self.VELOCIDADE_NADO
 
-        print "Construtor: X %f Y %f Z %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
+#        print "Construtor: X %f Y %f Z %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
 
         self.posicao= Ponto (0,0,0) #Ponto (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
 
@@ -62,7 +62,7 @@ class SerMarinho:
         y= self.esqueleto.pos[1]
         z= self.esqueleto.pos[2]
 
-        print "Nadando XFINAL %f %f %f\n" % (xFinal, yFinal, zFinal)
+#        print "Nadando XFINAL %f %f %f\n" % (xFinal, yFinal, zFinal)
 
         while (x != xFinal) | (y != yFinal) | (z != zFinal):
             xTemp= xFinal - x
@@ -72,7 +72,7 @@ class SerMarinho:
             maior= self.buscarMaiorNumero (xTemp, yTemp, zTemp)
 
             self.nadar ( Ponto (xTemp/maior, yTemp/maior, zTemp/maior))
-            print "Nadando  %f %f %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
+#            print "Nadando  %f %f %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
 
             x, y, z= self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2]
 
