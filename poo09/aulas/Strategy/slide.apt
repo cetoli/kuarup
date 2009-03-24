@@ -143,7 +143,20 @@ Implementação
 
 Exemplo de Código e Uso
 
- {{{figuras/pato.jpg}Diagrama do padrão Strategy}}
+  O simulador precisa de patos voando:
+  {{{figuras/pato1.jpg}Diagrama do padrão Strategy}}
+
+  Patos de borracha não voam!
+  {{{figuras/pato2.jpg}Diagrama do padrão Strategy}}
+ 
+  Patos de madeira não voam nem grasnam!
+  {{{figuras/pato3.jpg}Diagrama do padrão Strategy}}
+
+  Código duplicado nas subclasses!
+  {{{figuras/pato4.jpg}Diagrama do padrão Strategy}}
+
+  O padrão Strategy resolve o problema:
+  {{{figuras/pato-strategy.jpg}Diagrama do padrão Strategy}}
 
 *Classe abstrata Pato
  
