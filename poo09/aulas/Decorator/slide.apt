@@ -112,6 +112,7 @@ Implementação
    
    [[1]] <Utilizar o padrão Strategy em casos de Component pesado:> O padrão Decorator altera o exterior de um objeto. Em casos onde a classe Component é pesada, o uso de Decorator se torna oneroso, fazendo com que o padrão Strategy seja uma alternativa melhor. Nesta nova abordagem, parte do comportamento de Component é repassado para um objeto strategy independente, reduzindo o custo. 
 
+
 Exemplo de Código e Uso I
 
     Component
@@ -125,6 +126,7 @@ package decorator;
 }
 -----
 =====
+    
     ConcreteComponent
     
 -----
@@ -160,7 +162,8 @@ public class Decorator implements VisualComponent {
     }
 }
 -----
-=====
+
+Exemplo de Código e Uso III
 
     ConcreteDecorator
 
@@ -186,8 +189,13 @@ public class BorderDecorator extends Decorator {
            em torno do VisualComponent */
     }
 }
+-----
 
+Exemplo de Código e Uso IV
 
+     ConcreteDecorator
+     
+-----
 
 package decorator;
 
@@ -208,7 +216,7 @@ public class ScrollDecorator extends Decorator {
 }
 -----
 
-Exemplo de Código e Uso III
+Exemplo de Código e Uso V
 
     Class Window
     
@@ -270,7 +278,7 @@ Usos Conhecidos e Relacionamentos
     
         *widgets
 
-*Padrões Relacionados
+Padrões Relacionados
 
   *Adapter
     
