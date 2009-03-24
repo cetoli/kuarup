@@ -1,0 +1,182 @@
+							      ---------
+				     Padrão de Projeto - Abstract Factory
+							      ---------
+						        Gustavo Taveira
+						        ---------
+						        24/03/2009
+						   
+
+Padrão de Projeto Abstract Factory
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Gustavo Taveira>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+ [Nome] <Abstract Factory> 
+ 
+ [Intento] Fornecer uma interface para a criação de famílias de produtos relacionados ou dependentes, sem especificar suas classes concretas.
+
+ [Também conhecido como] <Kit>.
+
+Descrição do Padrão
+
+*Motivação
+
+ Imagine um <toolkit> para construção de interfaces gráficas com suporte amúltiplas plataformas, como Mac OS X e Windows Vista, onde cada um deles possui suas peculiaridades e padões para botões, scrollbars, editboxes e etc.
+ Para ser portátil entre os vários sistemas operacionais, uma aplicação não deve ser rigidamente codificada usando um padrão para sua interface gráfica.
+
+ Podemos resolver isso com o uso do padrão <Abstract Factory> gerando uma classe abstrata <<<GUIFactory>>> e outras duas classes que implementarão a primeira: <<<OSXFactory>>> e <<<WinFactory>>>, respectivamente.
+ Estas serão as responsáveis pela criação da família de produtos correta para seu sistema operacional.
+
+*Aplicabilidade
+
+    * Quando usar o padrão <Abstract Factory>?
+
+        * Quando um sistema deve ser independente de como seus produtos são criados, compostos ou representados.
+
+        * Quando um sistema deve ser configurado com uma entre diversas famílias de produtos.
+
+        * Quando uma família de produtos for projetada para ser usada em conjunto e vecê necessita garantir esta restrição.
+
+        * Quando você precisa fornecer uma biblioteca de produtos e quer revelar apenas suas interfaces, não suas implementações.
+
+Estrutura
+
+*Diagrama de Classes
+
+ {{{figuras/AbstractFactory01.jpg}Diagrama de classes}}
+
+*Participantes
+
+*-------------------------+----------------------------------------------------------------------+
+|<<Nome do Participante>> | <<Responsabilidades>>                                                |
+*-------------------------+----------------------------------------------------------------------+
+|AbstractFactory          | declara interfaces para criação de produtos abstratos                |
+*-------------------------+----------------------------------------------------------------------+
+|ConcreteFactory          | implementa AbstractFactory, criando produtos conretos                |
+*-------------------------+----------------------------------------------------------------------+
+|AbstractProduct          | declara interfaces para um tipo de produto                           |
+*-------------------------+----------------------------------------------------------------------+
+|ConcreteProduct          | implementa AbstractProduct definindo o produto a ser criado          |
+*-------------------------+----------------------------------------------------------------------+
+|Client                   | utiliza apenas as operações disponibilizadas pelas classes abstratas |
+*-------------------------+----------------------------------------------------------------------+
+
+*Colaboração entre os participantes
+
+   [[1]] Normalmente uma única instância de uma classe <<ConcreteFactory>> é criada em tempo de execução.
+
+   [[2]] Essa <<ConcreteFactory>> cria objetos tendo uma implementação particular.
+
+   [[3]] Para criar produtos diferentes, clientes devem usar uma <<ConcreteFactory>> diferente.
+
+   [[4]] Uma <<AbstractFactory>> depende de suas subclasses <<ConcreteFactory>> para criar produtos.
+
+Consequências
+
+*Vantagens
+       
+   [[1]] Isola as classes concretas.
+
+   [[2]] Facilita a troca de famílias de produtos.
+
+   [[1]] Promove a consistência entre produtos.
+
+*Desvantagem
+
+   [[1]] É difícil suportar novos tipos de produtos.
+
+
+Exemplo: Suporte a diferentes plataformas
+
+*Modelo do Exemplo
+
+ {{{figuras/AbstractFactory02.jpg}Modelo do Exemplo}}
+
+*Código-fonte
+ 
+------------------------------------------------------
+abstract class GUIFactory
+ {
+    public abstract Button createButton();
+ }
+
+ class OSXFactory extends GUIFactory
+ {
+     public Button createButton()  {
+         return new OSXButton();
+     }
+ }
+
+ class WinFactory extends GUIFactory
+ {
+     public Button createButton()  {
+         return new WinButton();
+     }
+  }
+
+ abstract class Button
+ {
+     public abstract void paint();
+ }
+
+ class OSXButton extends Button
+ {
+     public void paint()  {
+        System.out.println("Lucky me! I am a Mac OS X button :)");
+     }
+ }
+ class WinButton extends Button
+ {
+     public void paint()  {
+        System.out.println("What a shame! I am a Windows Vista button :(");
+     }
+ }
+
+ public class Cliente
+ {
+     public static void main(String[] args)
+     {
+         GUIFactory factory = new OSXFactory();
+
+         Button button = factory.createButton();
+         button.paint();
+     }
+ }
+-------------------------------------------------------
+
+Usos Conhecidos e Relacionamentos
+
+*Casos de Uso
+
+ [Ferramenta Financeira] Dependendo do país muda a moeda, as taxas de corretagem, impostos e etc. Ao usar o <<AbstractFactory>>, é possível abstrair em qual país as operações estão sendo realizadas e a <<ConcreteFactory>>, que será instanciada dependendo do país, será responsável por fazer todos os calculos corretamente.
+
+ [Aplicativo Multi-plataforma] Dependendo da plataforma onde o aplicativo está rodando a correta <<ConcreteFactory>> é instanciada para a geração de todos os elementos da interface gráfica de forma com que eles fiquem compatíveis com os demais aplicatios do sistema operacional. Ex: <<<java.awt>>>
+
+*Padrões Relacionados
+
+ As classes <<AbstractFactory>> são frequentemente implementadas com <Factory Method>, mas também podem ser implementadas usando <Prototype>. Além disso, uma <<ConcreteFactory>> é frequentemente um <Singleton>.
+ 
+Referências
+ 
+  [[1]] <<Design Patterns>> - <<<Gamma, E., Helm, R., Johnson, R., Vlissides, J.>>>
+  
+  [[2]] <<http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/pat/abstractfactory.htm>>
+
+  [[3]] <<http://www.apwebco.com/gofpatterns/creational/AbstractFactory.html>>
+
+
