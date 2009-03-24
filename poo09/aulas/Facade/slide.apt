@@ -202,7 +202,7 @@ class ClientePeixeComFachada{
 
  
  [Fachada]
-{{{figuras/fachada.jpg}}}
+{{{figuras/fachada.jpg}Diagrama geral do padrao fachada}}
 
 
 11-Outro Exemplo
@@ -210,7 +210,7 @@ class ClientePeixeComFachada{
 *Home Theater Sem Fachada
  
  [Difícil para o Usuário]
-{{{figuras/hometheatersemfachada.jpg}}}
+{{{figuras/homeTheaterSemFachada.jpg}home theater sem fachada}}
 
 
 12-[...]Outro Exemplo
@@ -218,7 +218,7 @@ class ClientePeixeComFachada{
 *Home Theater Com Fachada
 
  [Facilitando e Consquistando o Usuário]
-{{{figuras/hometheatercomfachada.jpg}}}
+{{{figuras/HomeTheaterComFachada.jpg}home theater com fachada}}
 
 
 13-Desafio
