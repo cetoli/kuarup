@@ -1,0 +1,304 @@
+							    ---------
+				                Padrão de Projeto - Decorator
+							    ---------
+						        Diego Mury Gomes de Lima
+						        ---------
+						        20/03/2009
+						   
+
+Padrão de Projeto Decorator
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Diego Mury Gomes de Lima>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+*Nome
+
+ Decorator
+ 
+*Intenção
+
+ Adicionar responsabilidades a um objeto dinamicamente, oferecendo uma alternativa flexível ao uso de herança para extender funcionalidades. 
+ 
+*Também conhecido como
+
+ Wrapper
+ 
+
+Descrição do Padrão
+
+*Motivação
+
+ Em algumas situações queremos adicionar responsabilidades a objetos específicos de forma transparente, ou seja, sem afetar outros objetos.
+ Podemos acrescentar responsabilidades através da herança, porém, estaremos utilizando uma abordagem inflexível, realizando as atribuições estaticamente (em tempo de compilação).
+ O uso de objetos chamados decoradores (decorators), que ao decorarem (envolverem) o primeiro objeto farão com que tenha as funcionalidades desejadas, torna o projeto flexível.
+ Os objetos decorators repassam solicitações e seguem a interface do objeto decorado, tornando sua presença transparente e fazendo com que seja possível a combinação de um número ilimitado de responsabilidades adicionais.
+ 
+*Aplicabilidade
+
+ Use o padrão Decorator:
+ 
+   *para adicionar responsabilidades a objetos individuais de forma dinâmica e transparente, ou seja, sem afetar outros objetos;
+
+   []
+   
+   *em caso de responsabilidades que podem ser retiradas;
+
+   []
+   
+   *quando a utilização de herança para estender funcionalidades gera uma explosão de subclasses para atender às diversas combinações.
+ 
+* Uma situação aplicável
+
+  Suponha que para um grupo de usuários de um sistema (administradores), o menu possa ser acessado, e para os demais usuários (visitantes) o menu não esteja visível. Podemos utilizar um objeto MenuDecorator com esta finalidade. Compomos tal objeto com o objeto que representa o que será impresso na tela para produzir este resultado.
+
+  
+
+Estrutura
+
+ {{{figuras/diagrama.jpg}Representação gráfica das classes do padrão Decorator}}
+ 
+
+Participantes
+
+*----------------------+---------------------------------+---------------------------+
+| NOME DO PARTICIPANTE | RESPONSABILIDADES               | COLABORAÇÕES              |
+*----------------------+---------------------------------+---------------------------+
+| Component            | Define a interface para objetos |                           |
+|                      | que podem ter responsabilidades |                           |
+|                      | acrescentadas dinamicamente     |                           |
+*----------------------+---------------------------------+---------------------------+
+| ConcreteComponent    | Define o objeto ao qual vamos   |                           |
+|                      | adicionar dinamicamente um novo |                           |
+|                      | comportamento                   |                           |
+*----------------------+---------------------------------+---------------------------+
+| Decorator            | Implementa a mesma interface do | Repassa solicitações para |
+|                      | componente que irá decorar e    | o seu objeto Component.   |
+|                      | mantém uma referência para um   | Pode executar operações   |
+|                      | Objeto Component                | adicionais antes e depois |
+|                      |                                 | de repassar a solicitação |
+*----------------------+---------------------------------+---------------------------+
+| ConcreteDecorator    | Acrescenta responsabilidades ao |                           |
+|                      | componente                      |                           |
+*----------------------+---------------------------------+---------------------------+ 
+
+Conseqüências
+       
+   [[1]] <Maior flexibilidade do que a herança estática:> O uso de herança implica na necessidade da existência de uma classe para cada responsabilidade adicional, tornando o sistema complexo. O padrão Decorator permite a agregação de responsabilidades, em tempo de execução, através da associação de objetos. Com isso a combinação de responsabilidades se torna flexível e trivial.
+   
+   [[1]] <Adição de responsabilidade por demanda:> Utilizando a abordagem "use quando for necessário" as funcionalidades vão sendo adicionadas gradativamente, fazendo com que seja possível ter somente as responsabilidades necessárias.
+   
+   [[1]] <Transparência para o cliente:> O decorador não é identico ao seu componente, dessa forma não se pode depender da identidade dos objetos quando se utiliza decoradores.
+   
+   [[1]] <Aumento do número de objetos pequenos:> Uma abordagem que utiliza Decorator possui geralmente uma enorme quantidade de objetos semelhantes, tornando difícil sua depuração.
+
+
+Implementação
+
+   [[1]] <Estabelecer conformidade entre as interfaces:> É necessário que haja conformidade entre a interface do objeto decorador e a interface do componente que ele decora.
+   
+   [[1]] <Omitir Decorator:> Em casos em que existe apenas um tipo de reponsabilidade a ser adicionada, a classe abstrata Decorator pode ser omitida.
+   
+   [[1]] <Manter Component simples:> Para que haja conformidade de interface, componentes e decoradores devem descender de uma classe Component comum. O objetivo desta classe é definir a interface, transferindo para as subclasses o responsabilidade de armazenamento de dados. Uma classe Component complexa torna os decoradores pesados e aumenta a probabilidade das subclasses possuirem características que não necessitam.
+   
+   [[1]] <Utilizar o padrão Strategy em casos de Component pesado:> O padrão Decorator altera o exterior de um objeto. Em casos onde a classe Component é pesada, o uso de Decorator se torna oneroso, fazendo com que o padrão Strategy seja uma alternativa melhor. Nesta nova abordagem, parte do comportamento de Component é repassado para um objeto strategy independente, reduzindo o custo. 
+
+Exemplo de Código e Uso
+
+    Component
+
+-----
+
+package decorator;
+
+    public interface VisualComponent {
+    public void draw();
+}
+-----
+=====
+    ConcreteComponent
+    
+-----
+
+package decorator;
+
+public class TextView implements VisualComponent {
+    public TextView() {
+    }
+
+    public void draw() {
+        //Código para desenhar o TextView
+    }
+}
+-----
+=====
+
+    Decorator
+    
+-----
+
+package decorator;
+                  
+public class Decorator implements VisualComponent {
+    protected VisualComponent vc;
+    public Decorator(VisualComponent vc) {
+        this.vc = vc;
+    }
+
+    public void draw() {
+        vc.draw();    // delega
+    }
+}
+-----
+=====
+
+    ConcreteDecorator
+
+-----
+
+package decorator;
+
+public class BorderDecorator extends Decorator {
+    private int width;
+
+    public BorderDecorator(VisualComponent vc, int width) {
+        super(vc);
+        this.width = width;
+    }
+
+    public void draw() {
+        super.draw();
+        drawBorder();
+    }
+
+    private void drawBorder() {
+        /* Codigo para desenhar a borda
+           em torno do VisualComponent */
+    }
+}
+
+
+
+package decorator;
+
+public class ScrollDecorator extends Decorator {
+    public ScrollDecorator(VisualComponent vc) {
+        super(vc);
+    }
+
+    public void draw() {
+        super.draw();
+        drawScrollBar();
+    }
+
+    private void drawScrollBar() {
+        /* Codigo para desenhar a scrollbar
+           em torno do VisualComponent */
+    }
+}
+-----
+=====
+
+    Class Window
+    
+-----
+
+package decorator;
+
+public class Window {
+    private VisualComponent contents;
+
+    public void setContents(VisualComponent vc) {
+        contents = vc;
+    }
+}
+-----
+=====
+
+    Main
+    
+-----
+
+package decorator;
+
+public class Program {
+    public static void main(String[] args) {
+        Window w = new Window();
+        w.setContents(new BorderDecorator(new ScrollDecorator(new TextView()), 1));
+    }
+}
+-----
+
+Usos Conhecidos e Relacionamentos
+
+*Casos de Uso
+
+    *JavaIO:
+ 
+    {{figuras/JavaIO.jpg}}
+    
+        *InputStream é o Component abstrato;
+        
+        []
+        
+        *FilterInputStream é o Decorator abstrato;
+        
+        []
+        
+        *FileInputStream, StringBufferInputStream e ByteArrayInputStream agem como como os ConcreteComponents e serão englobados pelos decoradores;
+        
+        []
+        
+        *PushBackInputStream, BufferedInputStream, DataInputStream e LineNumberInputStream são os ConcreteDecorators.
+    
+        []
+        
+        []
+    
+    *Diversos toolkits de interfaces gráficas:
+    
+        *widgets
+
+*Padrões Relacionados e Referências
+
+  *Adapter
+    
+    O padrão Adapter muda a interface do objeto, gerando uma interface completamente nova, enquanto o Decorator altera somente as responsabilidades do objeto.
+ 
+  []
+  
+  *Composite
+    
+    O padrão Decorator pode ser visto como um Composite simplificado com apenas um Component. Além disso o Decorator acrescenta responsabilidades extras, enquanto o Composite compõe os objetos em estrutura de árvore.
+    
+  []
+  
+  *Strategy
+    
+    Os dois padrões visam realizar mudanças em objetos: Decorator altera o exterior do objeto enquanto Strategy altera seu interior.
+ 
+*Referências
+ 
+  [[1]] GAMMA, E., HELM, R., JOHNSON, R. e VLISSIDES, J., Padrões de Projeto Soluções reutilizáveis de software orientado a objetos, Bookman, 1995.
+  
+  [[1]] FREEMAN E., Use a Cabeça Padrão de Projetos, Alta Books, 2004
+  
+  [[1]] {{http://jeandannemann.spaces.live.com/blog/cns!3E6F577BC0EEBF9A!187.entry}}
+  
+  [[1]] {{https://disciplinas.dcc.ufba.br/pastas/MAT161/2006.2%20(antes%20do%20CurriculoNovo)/Projeto/apss2-3.PadroesDeProjeto-Decorator.ppt}}
+
+
