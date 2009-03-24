@@ -43,7 +43,6 @@ Descrição do Padrão
 
 *Aplicabilidade
 
-	*Quando Usamos
 
 		*Desejamos utilizar uma classe existente, e sua interface não combina com o que precisamos;
 
@@ -102,10 +101,10 @@ Testando o adaptador
 
  {{{figuras/codigo6.jpg}descreva o diagrama textualmente aqui}}
 
-Usos Conhecidos e Relacionamentos
+Relacionamentos
 
 
-* Padrões Relacionados e Referências
+* Padrões Relacionados
 
  *Bridge - Desacopla uma abstração de sua implementação de forma que as duas possam mudar independentemente uma da outra. 
 
