@@ -1,0 +1,88 @@
+								---------
+							Padrão de Projeto - Factory Method
+							       ---------
+								Leandro Oliveira Gomes
+						             ---------
+						              24/03/2009
+						   
+
+Padrão de Projeto Factory Method
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Leandro Oliveira Gomes>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+
+Apresentação do Padrão
+
+ [Nome] Factory Method
+  
+ [Qual o seu objetivo] Definir uma interface para criar objetos de forma a deixar subclasses decidirem qual classe instanciar
+	Factory Method deixa que subclasses façam a instanciação
+ 
+
+ [Também conhecido como] virtual constructor
+
+Descrição do Padrão
+	Define uma interface para criação de um objeto, no entanto, permite escolher que classes iremos instanciar
+
+Diagrama de Classes
+*Diagrama
+	{{{figuras/factoryMethod.jpg}Diagrama de classes do Factory Method}}
+
+	O Factory Method é uma versão simplificada do Abstract Factory.
+	O Factory Method é responsável pela criação de produtos de uma família enquanto o Abstract Factory lida com multiplas famílias de produtos.
+	
+Participantes
+	* Product
+    		Define a interface dos objetos que o Factory method cria
+	* ConcreteProduct
+    		Implementa a interface Product, para criar produtos concretos
+	* Creator
+		Declara o Factory Method, que retorna \
+		um objeto do tipo Product
+   	* ConcreteCreator:
+    		Sobreescreve o Factory Method para retornar uma instância de um ConcreteProduct
+
+Quando Usar?
+	* Quando uma classe (o criador) não pode antecipar a classe dos objetos que deve criar
+	* Quando uma classe quer que suas subclasses especifiquem os objetos criados
+	* Quando classes delegam responsabilidade para uma entre várias subclasses de apoio \
+	e queremos localizar num ponto único a conhecimento de qual subclasse está sendo usada
+
+Exemplo
+	* Uma empresa de logística atua com serviços intermodais, ou seja, utiliza várias modalidades de transporte para que a carga seja entregue a seu destinatário.
+	* A empresa atua nos seguintes modais: Marítimo, Ferroviário, Rodoviário
+	* Toda carga transportada deve seguir com um documento denominado Conhecimento de Transporte. Cada modal tem um tipo de Conhecimento.
+		* Marítimo -> CTAC
+		* Ferroviário -> Despacho(CTFC)
+		* Rodoviário -> CTRC
+	* Os documentos servem para descrever a mesma situação, mas dependendo do modal,\
+		os cálculos de impostos e informações necessárias são diferentes.
+
+Exemplo
+
+*Exemplo
+	{{{figuras/exemplo_factoryMethod.JPG}Diagrama de classes do exemplo de logística}}
+
+*Implementação: Produto
+	{{{figuras/conhecimentoEmbarque.JPG}Produto}}
+
+*Implementação: Produtos Concretos
+	{{{figuras/ctac.JPG}CTAC}}
+	
+	{{{figuras/ctrc.JPG}CTRC}}
+		
+	{{{figuras/despacho.JPG}Despacho}}
+	
+*Implementação: Creator
+	{{{figuras/conhecimentoFactory.JPG}Creator}}
