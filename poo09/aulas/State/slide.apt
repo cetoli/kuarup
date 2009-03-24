@@ -1,0 +1,148 @@
+							      ---------
+				     Padrão de Projeto - State
+							      ---------
+						        Carlos Henrique Pinto Rodriguez
+						        ---------
+						        24/03/2009
+						   
+
+Padrão de Projeto State
+
+-----
+
+
+
+
+-----
+
+	<<Autor: Carlos Henrique Pinto Rodriguez>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+Apresentação do Padrão
+
+*Nome
+
+ State
+
+*Intento 
+
+ Permite que um objeto altere seu comportamento quando seu estado interno mudar. O objeto parecerá ter mudado sua classe.
+
+*Também conhecido como 
+
+ Objects for States
+
+
+Descrição do Padrão
+
+*Motivação
+
+ Alguns objetos têm a necessidade de mudar seu comportamento ao longo do tempo.
+
+*Aplicabilidade
+
+   Usar o Pattern State em um dos seguintes casos
+
+      * O comportamento de um objeto depende do seu estado e ele deve mudar de comportamento em tempo de execução dependendo daquele estado
+
+      * Operações possuem muito código condicional relacionado ao estado do objeto
+
+
+Estrutura
+
+ {{{figuras/state.jpg}Diagrama do Design Pattern State}}
+
+Participantes
+
+*---------------------+------------------------------------------------------+------------------------------------------+
+|Nome do Participante | Responsabilidades                                    | Colaborações                             |
+*---------------------+------------------------------------------------------+------------------------------------------+
+|Context              | Define as funções de interesse aos clientes          | Repassa os eventos recebidos             |
+|                     | Mantém as instâncias dos objetos de estado           | aos objetos de Estado                    |
+*---------------------+------------------------------------------------------+------------------------------------------+
+|State                | Define uma interface para encapsular o comportamento | Permite que o Context saiba como se      |
+|                     | associado a um determinado estado do Context         | comunicar com os estados sem conhecê-los |
+*---------------------+------------------------------------------------------+------------------------------------------+
+|ConcreteState        | Cada ConcreteState implementa o comportamento de um  | Encapsula o comportamento de um estado   |
+|                     | determinado estado do Context                        | associado ao Context                     |
+*---------------------+------------------------------------------------------+------------------------------------------+
+
+
+Conseqüências
+
+   [[1]] Comportamentos específicos de estados ficam localizados separadamente em diferentes estados - o State Pattern coloca todo o comportamente relacionado a um estado em um objeto, permitindo que novas transições e estados sejam adicionados facilmente
+
+   [[2]] Faz com que as transições de estados sejam explícitas - um estado não é definido mais pela configuração das variáveis do Context. Além disso, elimina a possibilidade do Context assumir um estado inconsistente
+
+   [[3]] Objetos de Estado podem ser compartilhados - se os Objetos de Estado não possuem variáveis de instância eles podem ser compartilhados por vários Contexts
+
+
+Implementação
+
+   [[1]] Quem define as transições de estado? 
+   
+   	* Pode ser o Context ou o State, mas normalmente é mais flexível que sejam definidas pelos estados, o que facilita que o código seja modificado ou extendido. No entando, isso gera dependência entre subclasses
+
+   [[2]] Transições definidas por uma tabela
+   
+   	* é possível representar as transições através de uma tabela que cruze todos os estados com todos os estados. 
+   
+		* Vantagem: é possível mudar os critérios de transições alterando somente dados numa tabela em vez de código	
+
+		* Desvantagens: pior desempenho e menos legível
+   	
+   [[3]] Criando e destruindo objetos de Estado - há 2 opções:
+   
+   	* Criar um estado somente quando ele for usado e destruí-lo depois do uso
+   	
+   		* útil quando o Context muda de estado raramente
+   	
+   	* Criar todos os estados inicialmente e nunca destruí-los
+   	
+   		* melhor opção quando o Context muda de estado muito rapidamente
+
+
+Exemplo - Estados de um Peixe
+
+ {{{figuras/estados.jpg}Estados do Peixe}}
+ 
+Exemplo - Diagrama de Classes
+
+ {{{figuras/diagrama_de_classes.jpg}Diagrama de Classes}}
+ 
+Exemplo - Classe Peixe
+
+ {{{figuras/peixe_classe.jpg}Classe Peixe}}
+
+Exemplo - Estado Concreto
+
+ {{{figuras/estado_concreto_classe.jpg}Estado Concreto}}
+
+
+Usos Conhecidos e Relacionamentos
+
+* Casos de Uso
+
+ Protocolos de conexão TCP - a conexão pode assumir vários estados
+ 
+ Softwares de desenho - editor muda de estado dependendo da Ferramenta escolhida
+
+* Padrões Relacionados e Referências
+
+ Flyweigth - explica quando e como Objetos de Estado podem ser compartilhados
+
+ Singleton - estados frequentemente Singletons
+ 
+* Referências
+ 
+  [[1]] Design Patterns: Elements of Reusable Object-Oriented Software
+  
+  [[2]] Head First - Design Patterns
+
+
