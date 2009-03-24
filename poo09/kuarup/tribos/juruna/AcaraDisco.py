@@ -60,7 +60,7 @@ class PeixeAcaraDisco (SerMarinho) :
 
     def nadar (self, pontoEixo):
         eixo= pontoEixo.getVetor ()
-        incremento= vector (self.VELOCIDADE_NADO * eixo[0], self.VELOCIDADE_NADO * eixo[1], self.VELOCIDADE_NADO * eixo[2])
+        incremento= vector (self.velocidade * eixo[0], self.velocidade * eixo[1], self.velocidade * eixo[2])
         self.esqueleto.pos+= incremento
         self.barbatanaPeitoral.mexer ()
 
@@ -70,10 +70,13 @@ class PeixeAcaraDisco (SerMarinho) :
 
        # self.cauda.mexer (sentidoPositivo)
 
-    def girar (self, angulo, eixo):
-        self.esqueleto.rotate (angle= angulo, axis= eixo)
+    def girar (self, angulo, eixoRotacao):
+        eixo= Eixo ()
+        anguloRad= eixo.converterGrausRadiano (angulo)
+        self.esqueleto.rotate (angle= anguloRad, axis= eixoRotacao)
         self.barbatanaPeitoral.mexer ()
 
+    """
     def buscarMaiorNumero (self, x, y, z):
         if x < 0:
             x*= (-1)
@@ -120,6 +123,7 @@ class PeixeAcaraDisco (SerMarinho) :
                 if y == yFinal:
                     if z == zFinal:
                         return
+    """
 # -----------------------------------------------------------------
 class CorpoAcaraDisco:
     corpo= None

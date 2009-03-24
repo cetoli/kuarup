@@ -18,6 +18,7 @@
 
 from visual import *
 from Ponto import *
+from SerMarinho import *
 
 TITLE = 'AguaViva'
 
@@ -51,6 +52,8 @@ class Cenario:
 
 '''
 
+"""
+" ""
 class SerMarinho():
 
     VELOCIDADE_NADO= 0.5
@@ -71,6 +74,8 @@ class SerMarinho():
         self.desenha(escala)
 
     def desenha(self):pass
+" ""
+"""
 
 '''
 
