@@ -1,0 +1,204 @@
+							          ---------
+				          Padrão de Projeto - Observer
+							          ---------
+						  André Sion F. Muniz Corrêa
+						            ---------
+						           20/03/2008
+						   
+
+Padrão de Projeto Observer
+
+-----
+
+
+
+
+-----
+
+	<<Autor: André Sion Fernandes Muniz Corrêa>>
+	
+	<<Curso: Programação Orientada a Objetos 2009 - PPGI>>
+	
+	<<Professor: Carlo Emmanoel Tolla de Oliveira>>
+
+  
+
+
+2-Apresentação do Padrão
+
+
+ [Nome] Observer
+ 
+ [Intento] Define uma dependência um-para-muitos entre objetos de modo que, quando um objeto modifica de estado, todos os seus depedentes são notificados e atualizados automaticamente. 
+
+ [Também conhecido como] Publish/Subscribe, Event Generator ou Dependents.
+
+
+3-Descrição do Padrão
+
+
+* Motivação
+
+ [Reflexão] Como garantir que objetos que dependem de um outro objeto percebam as mudanças naquele objeto único referenciado?
+
+     Os observadores (Observers) devem conhecer o objeto de interesse.
+     
+     O objeto de interesse (Subject), ou como são conhecidos Observables, atualizam os Observers utilizando uma interface comum.
+
+ 		 Há uma série de nomes para o objeto que é observado, são eles:
+
+     "Subject" (GoF);
+     "Observable" (java.util);
+     "Source" ou "Event Source" (java.swing e java.beans);
+     Provedor de informação (Bill Venners);
+     Gerador de eventos (Bill Venners).
+
+     E para o objeto observador:
+
+     Observer (GoF e java.util);
+     Listener (java.swing).
+ 
+ Exemplo: Como projetar um sistema que modele um telefone e todos os objetos que poderiam estar interessados quando ele toca?
+
+*-------------------*-----------------------*   
+|  Os objetos interessados poderiam ser:    |
+*-------------------*-----------------------*
+| Pessoas que estejam perto (na mesma sala) |
+| Uma secretária eletrônica                 |
+| Um FAX                                    |
+| Um dispositivo de escuta clandestina      |
+*-------------------*-----------------------*  
+
+4-Aplicabilidade
+
+ O padrão Observer pode ser usado quando uma abstração tem dois aspectos, um dependente do outro. Encapsular tais aspectos em objetos separados permite que variem e sejam reusados separadamente. 
+
+		*Controlador de Jogo
+	
+5-Estrutura
+
+* Uma situação aplicável
+
+ Os taxistas de uma determinada região resolveram informatizar o sistema de chamadas via telefone da seguinte maneira: a telefonista recebe um pedido de taxi e digita os dados do cliente na central. 
+ ao enviar o pedido, todos os taxis (munidos de um computador) receberão uma notificação com os dados.
+ 
+ Ao ter a central como objeto único o responsável notificará os taxis de que há um novo cliente disponível. A central será o objeto observado. Os taxis serão, então, os observadores.
+ 
+ {{{figuras/asposfig01.jpg} Relação um-para-muitos entre central e os taxis}}
+
+6-Estrutura - Continuação
+
+* Uma situação aplicável (continuação)
+ 
+ Ao invés de considerá-los observada e observadores, eles serão nomeados como subject e observers, respectivamente.
+
+7-Implementação
+
+ Java tem várias implementações do Padrão Observer, neste exemplo criaremos duas interfaces que serão implementadas pelos objetos subject e observer
+ 
+ Fragmentos de código de como implementar o padrão em Java. 
+ 
+------------------------------------------------------
+//Interface Subject (Observada)
+package patternobserver;
+import cliente.cliente;
+public interface subject {
+        public void addobserver(observer o);
+        public void removeobserver(observer o);
+        public void notifyobservers(cliente corrida);
+}
+//interface Observer (Observadores)
+package patternobserver;
+import cliente.cliente;
+public interface observer {
+        public void update(cliente corrida);
+}
+// Classe centralcomponent (subject - observador), 
+public class centralcomponent extends jinternalframe implements subject{
+        private arraylist<observer> observers = new arraylist<observer>();
+        public centralcomponent(){
+               super("central *subject*");
+               initcomponents();
+        }
+        public void initcomponents(){
+               genericfielddescriptor descriptor = xmldescriptorfactory.getfielddescriptor(cliente.class, "/clienteform.xml", "clienteform");
+               final jbeanpanel<cliente> panel = new jbeanpanel<cliente>(cliente.class, "nova solicitação:", descriptor);
+               panel.setpreferredsize(new dimension(300,180));
+               applicationaction validationactions = actionchainfactory.createchainactions(
+                       new validationaction(panel), new applicationaction(){
+                               public void execute() {
+                                      cliente cliente = new cliente();
+                                      panel.populatebean(cliente);
+                                      notifyobservers(cliente);
+                               }
+                       });
+               jactbutton btnenviar = new jactbutton("solicitar>>>", validationactions);
+               jactbutton btnlimpar = new jactbutton("limpar", new applicationaction(){
+                       public void execute() {
+                               panel.cleanform();
+                       }
+               });
+
+               jpanel panelbuttons = new jpanel();
+               panelbuttons.add(btnlimpar);
+               panelbuttons.add(btnenviar);
+                     
+               super.setdefaultcloseoperation(jinternalframe.dispose_on_close);
+               super.setlayout(new borderlayout());
+               super.add(panel, borderlayout.north);
+               super.add(panelbuttons, borderlayout.south);
+               super.pack();
+               super.setvisible(true);
+        }
+        public void addobserver(observer o) {
+               observers.add(o);
+        }
+        public void removeobserver(observer o) {
+               observers.remove(o);
+        }
+        public void notifyobservers(cliente corrida) {
+               iterator<observer> it = observers.iterator();
+               while(it.hasnext()){
+                       observer observer = it.next();
+                       observer.update(corrida);
+               }
+        }
+}
+-------------------------------------------------------
+
+8-Interface gráfica do sistema de gerência de taxis
+
+   {{{figuras/asposfig02.jpg}}}
+
+9-Conseqüências
+
+ Alguns pontos são importantes:
+
+   [[1]]  Os Subjects, ou como são conhecidos Observables, atualizam os Observers usando uma interface comum.
+
+   [[2]]  Os Observers são levemente ligados já que Observable não sabe nada sobre eles, exceto que eles implementam a interface Observer.
+
+   [[3]]  Fácil adicionar observadores sem modificar o observável ou os outros observadores.
+
+   [[4]]  Suporte a comunicação broadcast.
+
+
+9-Conclusão
+
+   Conseguiram uma implementação que separa o protocolo e a definição dos comportamentos do padrão, facilitando a
+sua manutenção e reutilização. sem alterar uma única linha de código na definição das classes participantes.
+  
+10-Referências
+ 
+ [[1]]Padrões de Projeto, Use a Cabeça, O'Relly, AltaBooks. (Head First - 2005)
+  
+ [[2]]Artigo - O Padrão Observer e Swing, Java Magazine, DevMedia (06/2007).
+
+ [[3]]http://pt.wikipedia.org/wiki/Observer
+
+
+                                               Muito Obrigado! 
+                                               
+                                               
+
+							   
