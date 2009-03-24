@@ -76,54 +76,7 @@ class PeixeAcaraDisco (SerMarinho) :
         self.esqueleto.rotate (angle= anguloRad, axis= eixoRotacao)
         self.barbatanaPeitoral.mexer ()
 
-    """
-    def buscarMaiorNumero (self, x, y, z):
-        if x < 0:
-            x*= (-1)
 
-        if y < 0:
-            y*= (-1)
-
-        if z < 0:
-            z*= (-1)
-
-        maior= x
-        if y > maior:
-            maior= y
-
-        if z > maior:
-            maior= z
-
-        return maior
-
-    def nadarPara (self, posicaoFinal):
-        xFinal= posicaoFinal[0]
-        yFinal= posicaoFinal[1]
-        zFinal= posicaoFinal[2]
-
-        x= self.esqueleto.pos[0]
-        y= self.esqueleto.pos[1]
-        z= self.esqueleto.pos[2]
-
-        print "Nadando XFINAL %f %f %f\n" % (xFinal, yFinal, zFinal)
-
-        while (x != xFinal) | (y != yFinal) | (z != zFinal):
-            xTemp= xFinal - x
-            yTemp= yFinal - y
-            zTemp= zFinal - z
-
-            maior= self.buscarMaiorNumero (xTemp, yTemp, zTemp)
-
-            self.nadar ( Ponto (xTemp/maior, yTemp/maior, zTemp/maior))
-            print "Nadando  %f %f %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
-
-            x, y, z= self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2]
-
-            if x == xFinal:
-                if y == yFinal:
-                    if z == zFinal:
-                        return
-    """
 # -----------------------------------------------------------------
 class CorpoAcaraDisco:
     corpo= None
@@ -227,14 +180,7 @@ class CaudaAcaraDisco:
         self.caudaCima.rotate (angle= angulo, axis= Eixo.EIXO_Y)
         self.caudaBaixo.rotate (angle= angulo, axis= Eixo.EIXO_Y)
 
-"""
-        if sentidoPositivo == false:
-            posicaoBaixo= (posicaoBaixo[0]* (-1), posicaoBaixo[1], posicaoBaixo[2])
-            posicaoCima= (posicaoCima[0] * (-1), posicaoCima[1], posicaoCima[2])
 
-        self.caudaCima.pos= posicaoCima
-        self.caudaBaixo.pos= posicaoBaixo
-"""
 # -----------------------------------------------------------------
 class BocaAcaraDisco:
     labioSuperior= None
@@ -282,18 +228,12 @@ class OlhosAcaraDisco:
         y= posicao.getY ()
         z= posicao.getZ ()
 
-        #self.retinaDir= sphere(pos=(6.5,0.1,-9.4),radius=0.08,color=color.black)
         self.retinaDir= sphere (frame= self.esqueleto, pos= (x+(1.5*self.escala), y+(0.1*self.escala), z+(0.6*self.escala)),radius=0.08*self.escala,color=color.black)
-        #self.olhoDir= sphere(pos=(6.5,0.1,-9.5),radius=0.12,color=(0.8,0.8,0.8))
         self.olhoDir= sphere (frame= self.esqueleto, pos= (x+(1.5*self.escala), y+(0.1*self.escala), z+(0.5*self.escala)),radius=0.12*self.escala,color=(0.8,0.8,0.8))
-        #self.envoltaOlhoDir= sphere(pos=(6.5,0.1,-9.6),radius=0.18,color=color.yellow)
         self.envoltaOlhoDir= sphere (frame= self.esqueleto, pos= (x+(1.5*self.escala), y+(0.1*self.escala), z+(0.4*self.escala)),radius=0.18*self.escala,color=color.yellow)
 
-        #self.retinaEsq= sphere(pos=(6.5,0.1,-10.6),radius=0.08,color=color.black)
         self.retinaEsq= sphere (frame= self.esqueleto, pos= (x+(1.5*self.escala), y+(0.1*self.escala), z-(0.6*self.escala)), radius=0.08*self.escala,color=color.black)
-        #self.olhoEsq= sphere(pos=(6.5,0.1,-10.5),radius=0.12,color=(0.8,0.8,0.8))
         self.olhoEsq= sphere (frame= self.esqueleto, pos= (x+(1.5*self.escala), y+(0.1*self.escala), z-(0.5*self.escala)), radius=0.12*self.escala,color=(0.8,0.8,0.8))
-        #self.envoltaOlhoEsq= sphere(pos=(6.5,0.1,-10.4),radius=0.18,color=color.yellow)
         self.envoltaOlhoEsq= sphere (frame= self.esqueleto, pos= (x+(1.5*self.escala), y+(0.1*self.escala), z-(0.4*self.escala)), radius=0.18*self.escala, color=color.yellow)
 
 
@@ -301,14 +241,12 @@ class OlhosAcaraDisco:
 class BarbatanaDorsal:
     barbatanaDorsal= None
 
-    #textura= None
     escala= None
     esqueleto= None
 
     def __init__ (self, escala, esqueleto):
         self.escala= escala
         self.esqueleto= esqueleto
-        #self.textura= texturaCorpo
 
     def desenhar (self, posicao):
         x= posicao.getX ()
@@ -351,7 +289,6 @@ class BarbatanaPeitoralAcaraDisco:
     barbatanaDir= None
     barbatanaEsq= None
 
-    #textura= None
     escala= None
     esqueleto= None
 
@@ -374,12 +311,9 @@ class BarbatanaPeitoralAcaraDisco:
         z= posicao.getZ ()
         eixo= Eixo ()
 
-        #self.barbatanaDir= pyramid(pos=(5.2,0,-9.2), size=(0.5,0.9,0), axys=(0,1,0),color=color.yellow)
         self.barbatanaDir= pyramid (frame= self.esqueleto, pos= (x+(0.2*self.escala), y, z+(0.8*self.escala)), size=(0.5*self.escala,0.9*self.escala,0*self.escala), axis=(-1,-1,0), color=color.yellow)
-        #self.barbatanaDir.rotate (angle=0.5236, axis=Eixo.EIXO_X)
         self.barbatanaDir.rotate (angle=eixo.converterGrausRadiano (self.GRAUS_BARBATANA_DIR), axis=Eixo.EIXO_X)
 
-        #self.barbatanaEsq= pyramid(pos=(5.2,0,-10.8), size=(0.5,0.9,0),axis=(-1,-1,0),color=color.yellow)
         self.barbatanaEsq= pyramid (frame= self.esqueleto, pos= (x+(0.2*self.escala), y, z-(0.8*self.escala)), size=(0.5*self.escala,0.9*self.escala,0*self.escala),axis=(-1,-1,0),color=color.yellow)
         self.barbatanaEsq.rotate (angle= eixo.converterGrausRadiano (self.GRAUS_BARBATANA_ESQ), axis=Eixo.EIXO_X)
 
@@ -390,8 +324,6 @@ class BarbatanaPeitoralAcaraDisco:
             self.posicao-= 1
         else:
             self.posicao+= 1
-
-        #posicao= 2-self.posicao
 
         grausIncremento= 20 # * posicao
 
@@ -415,23 +347,19 @@ class barbatanaPelvicaAcaraDisco:
     barbatanaInferiorEsq= None
     barbatanaInferiorDir= None
 
-    #textura= None
     escala= None
     esqueleto= None
 
     def __init__ (self, escala, esqueleto):
         self.escala= escala
         self.esqueleto= esqueleto
-        #self.textura= texturaCorpo
 
     def desenhar (self, posicao):
         x= posicao.getX ()
         y= posicao.getY ()
         z= posicao.getZ ()
 
-        #self.barbatanaInferiorDir= box(pos=(5.3,-0.8,-9.8), axis=(-1,1,1), length=0.4, height=0.4, width=0.1,color=color.yellow)
         self.barbatanaInferiorDir= box(frame= self.esqueleto, pos= (x+(0.3*self.escala), y-(0.8*self.escala), z+(0.2*self.escala)), axis=(-1,1,1), length=0.4*self.escala, height=0.4*self.escala, width=0.1*self.escala,color=color.yellow)
-        #self.barbatanaInferiorEsq= box(pos=(5.3,-0.8,-10.2), axis=(1,1,1), length=0.4, height=0.4, width=0.1,color=color.yellow)
         self.barbatanaInferiorEsq= box(frame= self.esqueleto, pos= (x+(0.3*self.escala), y-(0.8*self.escala), z-(0.2*self.escala)), axis=(1,1,1), length=0.4*self.escala, height=0.4*self.escala, width=0.1*self.escala,color=color.yellow)
 
 # fim
