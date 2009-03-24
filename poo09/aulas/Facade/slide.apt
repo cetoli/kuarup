@@ -210,7 +210,7 @@ class ClientePeixeComFachada{
 *Home Theater Sem Fachada
  
  [Difícil para o Usuário]
-{{{figuras/homeTheaterSemFachada.jpg}}}
+{{{figuras/hometheatersemfachada.jpg}}}
 
 
 12-[...]Outro Exemplo
@@ -218,7 +218,7 @@ class ClientePeixeComFachada{
 *Home Theater Com Fachada
 
  [Facilitando e Consquistando o Usuário]
-{{{figuras/HomeTheaterComFachada.jpg}}}
+{{{figuras/hometheatercomfachada.jpg}}}
 
 
 13-Desafio
@@ -257,12 +257,16 @@ class ClientePeixeComFachada{
 
 16-Conclusão
 
+
 * A fachada tem como principal objetivo facilitar a vida do cliente final de um ou vários subsistemas complexos.
+ 
  [Outros padrões virão...]
 "Aguardem Sensacionais Revelações"
+
  
 17-Referências
  
+
  [[1]]Padrões de Projeto, Use a Cabeça, Ed. 2. O'Relly, AltaBooks. (Head First - 2 Rev. 2009)
   
  [[2]]Steven John Metsker, Padrões de Projeto em Jav, BookMan 2004.
