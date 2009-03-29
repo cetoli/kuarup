@@ -1,0 +1,14 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>labase.poo</groupId>
+    <artifactId>calc</artifactId>
+    <version>1.0</version>
+    <relativePath>conf/labase/poo/${project.version}/calc/pom.xml</relativePath>
+  </parent>
+  <groupId>projetos</groupId>
+  <artifactId>hotel</artifactId>
+  <name>Hotel</name>
+  <packaging>jar</packaging>
+</project>
