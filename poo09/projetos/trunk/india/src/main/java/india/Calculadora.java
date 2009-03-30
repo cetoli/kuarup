@@ -13,7 +13,7 @@ import labase.poo.ICalculadora;
  *
  * @author  (seu nome)  $Author$
  * @version (versao)    $Revision$ (data)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * @since   (versao) Descreva aqui as alteracoes desta versao
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
@@ -25,7 +25,7 @@ public class Calculadora implements ICalculadora {
    * Construtor para objetos da classe Calculadora.
    */
   public Calculadora() {
-    // inicializa variaveis de instância
+    // inicializa variaveis de instï¿½ncia
   }
 
   /**
