@@ -6,7 +6,7 @@
   <name>Calc</name>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <url>http://labase.nce.ufrj.br/cursos/poo/projetos/tre2008</url>
+  <url>http://labase.nce.ufrj.br/cursos/poo/projetos/poo2009</url>
   <properties>
     <compileSource>1.5</compileSource>
   </properties>
