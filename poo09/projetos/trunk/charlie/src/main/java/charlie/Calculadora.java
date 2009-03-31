@@ -9,23 +9,24 @@ package charlie;
 import labase.poo.ICalculadora;
 
 /**
- * @todo Escreva a descricao da classe Calculadora aqui.
+ * Esta eh a primeira versao da Calculadora. Nao possui nenhum design pattern ainda.
  *
- * @author  (seu nome)  $Author$
- * @version (versao)    $Revision$ (data)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * @author  Andre Abrantes  $Author$
+ * @author  Helio Salmon  $Author$
+ * @version 1.0    $Revision$ 31/03/2009      $Date$
+ * @since   1.0   Esta versao soma um mais um
  */
 public class Calculadora implements ICalculadora {
-  /**Acumulador da Caculadora. */
-  private Integer acumulador = new Integer(0);
-  /**Operador da Caculadora. */
-  private Integer operador = new Integer(0);
+  /**Visor da Caculadora. */
+  private Integer visor = new Integer(0);
+  /**Memoria da Caculadora. */
+  private Integer memoria = new Integer(0);
 
   /**
    * Construtor para objetos da classe Calculadora.
    */
   public Calculadora() {
-    // inicializa variaveis de instância
+    // inicializa variaveis de instï¿½ncia
   }
 
   /**
@@ -34,7 +35,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    return operador.toString();
+    visor = visor * 10 + 1;
+    return visor.toString();
   }
 
   /**
@@ -43,7 +45,9 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-    return "0";
+      memoria = 0;
+      visor = 0;
+      return visor.toString();
   }
 
   /**
@@ -52,6 +56,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-    return acumulador.toString();
+      memoria += visor;
+      visor = 0;
+      return memoria.toString();
   }
 }
