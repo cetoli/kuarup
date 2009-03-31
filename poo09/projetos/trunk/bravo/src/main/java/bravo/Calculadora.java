@@ -9,11 +9,11 @@ package bravo;
 import labase.poo.ICalculadora;
 
 /**
- * @todo Escreva a descricao da classe Calculadora aqui.
- *
- * @author  (seu nome)  $Author$
- * @version (versao)    $Revision$ (data)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * @A classe calculadora realiza operações matemáticas com números inteiros.
+ * @author  (Tiago Cruz de França)  $Author$
+ * @author  (Humberto Ferreira Ramos Junior)  $Author$
+ * @version (1.0) $Revision$ (31 de março de 2009) $Date$
+ * @since   (1.0) Esta versão soma 1+1.
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
