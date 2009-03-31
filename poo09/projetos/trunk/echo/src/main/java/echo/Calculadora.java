@@ -9,15 +9,18 @@ package echo;
 import labase.poo.ICalculadora;
 
 /**
- * @todo Escreva a descricao da classe Calculadora aqui.
+ * @todo Calculadora coms tres botões
  *
- * @author  (seu nome)  $Author$
- * @version (versao)    $Revision$ (data)      $Date$
+ * @author  (Marcos de Castro)  $Author$
+ * @author  (Rodrigo Santos Borges)  $Author$
+ * @version (1.0)    $Revision$ (31/03/09)      $Date$
  * @since   (versao) Descreva aqui as alterações desta versao
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
+  /**Acumulador da ultimo valor. */
+  private Integer atual = new Integer(0);
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
 
@@ -34,7 +37,9 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    return operador.toString();
+    String valor = atual.toString()+"1";
+    atual = new Integer(valor);
+    return atual.toString();
   }
 
   /**
@@ -43,7 +48,9 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-    return "0";
+    atual = new Integer(0);
+    acumulador = new Integer(0);
+    return acumulador.toString();
   }
 
   /**
@@ -52,6 +59,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
+      acumulador+= atual;
+      atual= new Integer (0);
     return acumulador.toString();
   }
 }
