@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Alpha">
+  <skin>
+    <groupId>br.ufrj.nce</groupId>
+    <artifactId>labase-skin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </skin>
+  <bannerLeft>
+    <name>Alpha</name>
+    <src>./images/labase.gif</src>
+    <href>http://labase.nce.ufrj.br/</href>
+  </bannerLeft>
+  <bannerRight>
+    <src>./images/calculadora.gif</src>
+    <href>./index.html</href>
+  </bannerRight>
+  <poweredBy>
+    <logo name="UFRJ" href="http://www.ufrj.br/"
+          img="./images/minerva.gif"/>
+  </poweredBy>
+  <body>
+    <links>
+      <item name="NCE" href="http://www.nce.ufrj.br/" />
+      <item name="PPGI" href="http://www.ppgi.ufrj.br/"/>
+      <item name="POO" href="http://labase.nce.ufrj.br/cursos/poo"/>
+    </links>
+
+    <menu name="Alpha">
+      <item name="Apresentando" href="index.html"/>
+      <item name="FAQ" href="faq.html"/>
+    </menu>
+    <menu ref="reports" />
+  </body>
+</project>
