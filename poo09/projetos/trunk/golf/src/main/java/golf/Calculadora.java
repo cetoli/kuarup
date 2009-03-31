@@ -9,11 +9,11 @@ package golf;
 import labase.poo.ICalculadora;
 
 /**
- * @todo Escreva a descricao da classe Calculadora aqui.
+ * @Class Calculadora - equipe Golf.
  *
- * @author  (seu nome)  $Author$
- * @version (versao)    $Revision$ (data)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * @author  Guga  $Author$
+ * @version 1.0   $Revision$ 31/03      $Date$
+ * @since   0.0 Descreva aqui as alterações desta versao
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
@@ -34,6 +34,7 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
+    operador = (operador * 10) + 1;
     return operador.toString();
   }
 
@@ -43,6 +44,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
+    acumulador = 0;
+    operador = 0;
     return "0";
   }
 
@@ -52,6 +55,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
+    acumulador = acumulador + operador;
+    operador = 0;
     return acumulador.toString();
   }
 }
