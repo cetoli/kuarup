@@ -11,9 +11,9 @@ import labase.poo.ICalculadora;
 /**
  * @todo Escreva a descricao da classe Calculadora aqui.
  *
- * @author  (seu nome)  $Author$
- * @version (versao)    $Revision$ (data)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * @author  (Alexandre Louzada & Marcio Reis)  $Author$
+ * @version (1.0)    $Revision$ (31/03/2009)      $Date$
+ * @since   (versao) Soma 1 mais 1
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
@@ -34,7 +34,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    return operador.toString();
+    operador=1;
+    return operador.toString() + acumulador.toString();
   }
 
   /**
