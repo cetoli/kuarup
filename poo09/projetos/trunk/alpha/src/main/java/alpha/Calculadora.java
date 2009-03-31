@@ -9,11 +9,12 @@ package alpha;
 import labase.poo.ICalculadora;
 
 /**
- * @todo Escreva a descricao da classe Calculadora aqui.
+ * Esta é a classe principal da calculadora do time alpha
  *
- * @author  (seu nome)  $Author$
- * @version (versao)    $Revision$ (data)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * @author  (Diego Mury Gomes de Lima)  $Author$
+ * @author  (Carlos Felippe Cardoso de Resende)  $Author$
+ * @version (1.0)    $Revision$ (1.0)      $Date$ 31/03/09
+ * @since   (1.0) Calculadora com o operador "+", o número "1" e a tecla "limpa"
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
@@ -34,6 +35,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
+    String op = operador.toString() + "1";
+    operador = Integer.parseInt(op);
     return operador.toString();
   }
 
@@ -52,6 +55,10 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
+      
+      acumulador = new Integer(operador.intValue() + acumulador.intValue());
+      operador = new Integer(0);
+      
     return acumulador.toString();
   }
 }
