@@ -17,10 +17,10 @@ import labase.poo.ICalculadora;
  * @since   1.0   Esta versao soma um mais um
  */
 public class Calculadora implements ICalculadora {
-  /**Visor da Caculadora. */
-  private Integer visor = new Integer(0);
-  /**Memoria da Caculadora. */
-  private Integer memoria = new Integer(0);
+  /**Operador da Caculadora. */
+  private Integer operador = new Integer(0);
+  /**Acumulador da Caculadora. */
+  private Integer acumulador = new Integer(0);
 
   /**
    * Construtor para objetos da classe Calculadora.
@@ -35,8 +35,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    visor = visor * 10 + 1;
-    return visor.toString();
+    operador = operador * 10 + 1;
+    return operador.toString();
   }
 
   /**
@@ -45,9 +45,9 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-      memoria = 0;
-      visor = 0;
-      return visor.toString();
+      acumulador = 0;
+      operador = 0;
+      return operador.toString();
   }
 
   /**
@@ -56,8 +56,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-      memoria += visor;
-      visor = 0;
-      return memoria.toString();
+      acumulador += operador;
+      operador = 0;
+      return acumulador.toString();
   }
 }
