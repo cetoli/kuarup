@@ -1,8 +1,8 @@
 #BlueJ package file
-package.editor.height=730
-package.editor.width=1156
-package.editor.x=355
-package.editor.y=115
+package.editor.height=504
+package.editor.width=1066
+package.editor.x=50
+package.editor.y=37
 package.numDependencies=0
 package.numTargets=2
 package.showExtends=true
@@ -12,10 +12,10 @@ readme.editor.width=630
 readme.editor.x=0
 readme.editor.y=25
 target1.association=CalculadoraTest
-target1.editor.height=871
-target1.editor.width=1280
-target1.editor.x=0
-target1.editor.y=25
+target1.editor.height=768
+target1.editor.width=1278
+target1.editor.x=1
+target1.editor.y=1
 target1.height=50
 target1.name=Calculadora
 target1.showInterface=false
