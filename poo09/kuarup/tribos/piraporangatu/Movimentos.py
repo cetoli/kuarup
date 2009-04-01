@@ -3,6 +3,7 @@ from piraporangatuOby import *
 from tubarao_tupinamba import *
 from submarino_ticuna import *
 import Image
+import ImageGrab
 
 
 class Cenario:
@@ -30,6 +31,10 @@ class Cenario:
 
         while 1:
 
+            if(self.frame>0 and self.frame%10==0):
+                im = ImageGrab.grab((24,30,250-4,250-4))
+                fn = "gif/Kuarup"+str(self.frame)+".gif"
+                im.save(fn)                
             rate(30)
             ## Aponta a camera em direção ao cardume
             self.scene.center = (fish1.esqueleto.pos[0],0,fish1.esqueleto.pos[2])
