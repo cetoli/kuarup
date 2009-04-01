@@ -48,12 +48,6 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("11", c.entraUm());
 	}
 
-	public void testLimpaEntrada()
-	{
-		bravo.Calculadora c = new bravo.Calculadora();
-		assertNull(c.limpa());
-	}
-
 	public void testLimpaRetornaZero()
 	{
 		bravo.Calculadora c = new bravo.Calculadora();
@@ -105,7 +99,38 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("1", calculad1.entraUm());
 		assertEquals("1", calculad1.comandoSoma());
 	}
+
+	public void testEntraUmComandoSomaValorAcumulador()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		assertEquals("11", calculad1.comandoSoma());
+	}
+
+	public void testComandoSomaDigitarUmSomar()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("1", calculad1.comandoSoma());
+	}
+
+	public void testComandoSomaSomar11e1111()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("11", calculad1.entraUm());
+		assertEquals("11", calculad1.comandoSoma());
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("11", calculad1.entraUm());
+		assertEquals("111", calculad1.entraUm());
+		assertEquals("1111", calculad1.entraUm());
+		assertEquals("1122", calculad1.comandoSoma());
+	}
 }
+
+
+
 
 
 
