@@ -13,6 +13,10 @@ class Ponto:
         self.z= z
 
 
+    def clonar (self):
+        return Ponto (self.x, self.y, self.z)
+
+
     def getX (self):
         return self.x
 
@@ -24,6 +28,35 @@ class Ponto:
     def getZ (self):
         return self.z
 
+    def setX (self, x):
+        self.x= x
+
+
+    def setY (self, y):
+        self.y= y
+
+
+    def setZ (self, z):
+        self.z= z
+
+    def adicionarX (self, x):
+        self.x+= x
+
+    def adicionarY (self, y):
+        self.y+= y
+
+    def adicionarZ (self, z):
+        self.z+= z
+
+
+    def multiplicarX (self, inc):
+        self.x*= inc
+
+    def multiplicarY (self, inc):
+        self.y*= inc
+
+    def multiplicarZ (self, inc):
+        self.z*= inc
 
     def getLista (self):
         return (self.x, self.y, self.z)
@@ -33,21 +66,22 @@ class Ponto:
         return vector (self.x, self.y, self.z)
 
 
-    def somar (self, valor, eixo):
-        if eixo[0] > 0:
-            self.x+= valor
+    def somar (self, valor, eixo= (1,1,1)):
+            #print "valor %s e eixo %s\n" % (valor, eixo)
+            #print "self.x [%s] valor = [%s]\n" % (self.x, valor)
+            self.x+= valor.getX ()
+            self.y+= valor.getY ()
+            self.z+= valor.getZ ()
 
-        if eixo[1] > 0:
-            self.y+= valor
-
-        if eixo[2] > 0:
-            self.z+= valor
-
+    def multiplicar (self, fator):
+        self.x*= fator
+        self.y*= fator
+        self.z*= fator
 
     # calculo da elipse
     def calcularParametrica (self, x0, y0, x, xM, yM):
-        print "xm %f e ym %f \n" % (xM, yM)
-        print "x0 %f e y0 %f x %f \n" % (x0, y0, x)
+        #print "xm %f e ym %f \n" % (xM, yM)
+        #print "x0 %f e y0 %f x %f \n" % (x0, y0, x)
 
         if xM > yM:
             return self.calcularParametricaHorizontal (x0, y0, x, xM, yM)
@@ -61,7 +95,7 @@ class Ponto:
         # (y - y0)^2 = ( 1 - (x - x0)^2 / xm^2 ) * ym^2
 
         valorX= math.pow ( (x-x0), 2) / math.pow(xM, 2)
-        print "math.pow ( (x-x0), 2) %f, math.pow(xM, 2) %f, valorX= %f \n" % (math.pow ( (x-x0), 2), math.pow(xM, 2), valorX)
+        #print "math.pow ( (x-x0), 2) %f, math.pow(xM, 2) %f, valorX= %f \n" % (math.pow ( (x-x0), 2), math.pow(xM, 2), valorX)
         return  math.sqrt ( (1-valorX) * math.pow (yM, 2)) + y0
 
 
