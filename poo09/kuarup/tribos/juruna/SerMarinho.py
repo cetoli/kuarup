@@ -1,35 +1,71 @@
 from visual import *
 from Ponto import *
 import Image
+from Posicao import *
 
 # Classe generica do ser marinho
 class SerMarinho:
-    posicao= Ponto (0,0,0)
-    VELOCIDADE_NADO= 0.5 # 0.2
-    velocidade= 0
-
     def __init__ (self, escala= 1, **complemento):
         self.esqueleto= frame (**complemento)
+        self.posicao= Posicao ()
+
+        # Valores padrao
         self.escala= escala
+        self.VELOCIDADE_NADO= 1 # 0.2
+        self.dano= 5
         self.velocidade= self.VELOCIDADE_NADO
+
 
 #        print "Construtor: X %f Y %f Z %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
 
-        self.posicao= Ponto (0,0,0) #Ponto (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
+        #self.posicao= Ponto (0,0,0) #Ponto (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
+
+    def getDano (self):
+        return self.dano
 
     def setVelocidade (self, incremento):
         self.velocidade= self.VELOCIDADE_NADO * incremento
 
+    def getPosicao (self):
+        return self.posicao
+
+
+    # Retorna um objeto Ponto com o eixo do sentido multiplicado pela velocidade.
+    # Ou seja, se multiplicarmos o x pelo x retornado teremos o x novo.
+    def getIncrementoNado (self):
+        sentido= self.posicao.getVetorSentido ()
+        sentido= sentido.clonar ()
+
+        # I temporario, depois preciso ver o que fazer. Sem isso, o incremento vira 0,0,0 para seta cima
+        # e seta baixo
+        #sentido.setX (1)
+        #sentido.setY (1)
+        #sentido.setZ (1)
+        # F temporario
+
+        sentido.multiplicarX (self.velocidade)
+        sentido.multiplicarY (self.velocidade)
+        sentido.multiplicarZ (self.velocidade)
+
+        return sentido
+
+    def calcularPosicaoNado (self, sentido):
+        sentido.multiplicarX (self.velocidade)
+        sentido.multiplicarY (self.velocidade)
+        sentido.multiplicarZ (self.velocidade)
 
     def carregarTextura (self, arquivo, tipoMapeamento, comprimento, altura):
         im= Image.open (arquivo)
         im= im.resize ((comprimento,altura), Image.ANTIALIAS)
         return materials.texture (data=im, mapping=tipoMapeamento, interpolate=False)
 
-    def nadar (self):
+    def nadar (self, pontoEixo):
         pass
 
     def girar (self, angulo, eixo):
+        pass
+
+    def matar (self):
         pass
 
     def desenhar (self):
@@ -52,6 +88,54 @@ class SerMarinho:
             maior= z
 
         return maior
+
+    def chocou (self, posElem2):
+        posElem1= self.posicao
+        baixo= posElem1.getPontoBaixo ()
+        cima= posElem1.getPontoCima ()
+
+        x0Elem1= baixo.getX ()
+        y0Elem1= baixo.getY ()
+        z0Elem1= baixo.getZ ()
+
+        x6Elem1= cima.getX ()
+        y6Elem1= cima.getY ()
+        z6Elem1= cima.getZ ()
+
+        baixo= posElem2.getPontoBaixo ()
+        cima= posElem2.getPontoCima ()
+
+        x0Elem2= baixo.getX ()
+        y0Elem2= baixo.getY ()
+        z0Elem2= baixo.getZ ()
+
+        x6Elem2= cima.getX ()
+        y6Elem2= cima.getY ()
+        z6Elem2= cima.getZ ()
+
+        print "pos 0 elem 1: %f %f %f\n" % (x0Elem1, y0Elem1, z0Elem1)
+        print "pos 6 elem 2: %f %f %f\n" % (x6Elem2, y6Elem2, z6Elem2)
+
+        print "pos 6 elem 1: %f %f %f\n" % (x6Elem1, y6Elem1, z6Elem1)
+        print "pos 0 elem 2: %f %f %f\n" % (x0Elem2, y0Elem2, z0Elem2)
+
+        # Verifica se um dos pontos do elem 2 esta dentro do elem 1
+        if (x6Elem2 <= x0Elem1) & ( (y0Elem1 <= y0Elem2) & (y6Elem1 >= y0Elem2) ) :
+            return 1
+
+        if (x6Elem2 <= x0Elem1) & ( (y0Elem1 <= y6Elem2) & (y6Elem1 >= y6Elem2) ) :
+            return 1
+
+        # Verifica se um dos pontos do elem 1 esta dentro do elem 2
+        if (x6Elem2 <= x0Elem1) & ( (y0Elem2 <= y0Elem1) & (y6Elem2 >= y0Elem1) ) :
+            return 1
+
+        if (x6Elem2 <= x0Elem1) & ( (y0Elem2 <= y6Elem1) & (y6Elem2 >= y6Elem1) ) :
+            return 1
+
+
+        return 0
+
 
     def nadarPara (self, posicaoFinal):
         xFinal= posicaoFinal[0]
@@ -89,5 +173,42 @@ class SerMarinho:
             angulo+= anguloVez
             if angulo > anguloTotal:
                 angulo= anguloTotal
+
+
+        """
+    # metodo temporario para auxiliar no calculo e definicao da caixa em volta do ser marinho
+
+        p, l, h, w= self.temp (pontoBaixo, pontoCima)
+        box (pos= p, length=l, height=h, width=w, color=color.green)# , opacity= 0.1)
+
+
+    def temp (self, posBaixo, posCima):
+        xC= posCima.getX()
+        yC= posCima.getY()
+        zC= posCima.getZ()
+
+        xB= posBaixo.getX()
+        yB= posBaixo.getY()
+        zB= posBaixo.getZ()
+
+        l= (xB-xC)
+        h= (yC-yB)
+        w= (zB-zC)
+
+        pX= xC + l/2
+        pY= yB + h/2
+        pZ= zC + w/2
+
+        if l < 0:
+            l*= (-1)
+
+        if h < 0:
+            h*= (-1)
+
+        if w < 0:
+            w*= (-1)
+
+        return (pX, pY, pZ), l, h, w
+    """
 
 # FIM

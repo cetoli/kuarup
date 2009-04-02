@@ -18,20 +18,34 @@ class PeixeAcaraDisco (SerMarinho) :
     barbatanaPelvica= None
 
     def desenhar (self):
+        self.dano= 0
 
         #self.posicao= ponto
+        #texturaCorpo= None #self.carregarTextura ("/home/rodrigo/programacao/mestrado/poo/Trabalho4/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
+
+        # casa
         texturaCorpo= self.carregarTextura ("L:/sincronizar/meus documentos/mestrado/poo/Trabalho3/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
-        #texturaCorpo= self.carregarTextura ("./imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
-        self.desenharCorpo (self.posicao, texturaCorpo)
-        self.desenharBarbatanas (self.posicao, texturaCorpo)
-        self.desenharCauda (self.posicao, texturaCorpo)
-        self.desenharOlhos (self.posicao)
-        self.desenharLabios (self.posicao)
+
+         # trabalho
+        #texturaCorpo= self.carregarTextura ("G:/sincronizar/meus documentos/mestrado/poo/Trabalho3/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
+        pontoBaixo, pontoCima= self.desenharCorpo (Ponto (0,0,0), texturaCorpo)
+
+        print "I Acara\n"
+        self.posicao.setPontoBaixo (pontoBaixo.getX (), pontoBaixo.getY (), pontoBaixo.getZ ())
+        self.posicao.setPontoCima (pontoCima.getX (), pontoCima.getY (), pontoCima.getZ ())
+        print "F Acara\n"
+        self.posicao.setVetorSentido (1, 0, 0)
+        self.posicao.testeQuadrado ()
+
+        self.desenharBarbatanas (Ponto (0,0,0), texturaCorpo)
+        self.desenharCauda (Ponto (0,0,0), texturaCorpo)
+        self.desenharOlhos (Ponto (0,0,0))
+        self.desenharLabios (Ponto (0,0,0))
 
     def desenharCorpo (self, posicao, texturaCorpo):
 
         self.corpo= CorpoAcaraDisco (texturaCorpo, self.escala, self.esqueleto)
-        self.corpo.desenhar (posicao)
+        return self.corpo.desenhar (posicao)
 
     def desenharBarbatanas (self, posicao, texturaCorpo):
         self.barbatanaPeitoral= BarbatanaPeitoralAcaraDisco (self.escala, self.esqueleto)
@@ -60,9 +74,23 @@ class PeixeAcaraDisco (SerMarinho) :
 
     def nadar (self, pontoEixo):
         eixo= pontoEixo.getVetor ()
+
+        pontoEixo.multiplicar (self.VELOCIDADE_NADO)
+        incremento= pontoEixo
+        esqueleto= Ponto (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
+
+        esqueleto.somar (incremento)
+
+        self.esqueleto.pos= esqueleto.getLista ()
+        self.posicao.deslocarPontos (incremento)
+
+        """
         incremento= vector (self.velocidade * eixo[0], self.velocidade * eixo[1], self.velocidade * eixo[2])
+        print "Nadando de %f %f %f para %f %f %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2], (self.esqueleto.pos[0]+incremento[0]), (self.esqueleto.pos[1]+incremento[1]), (self.esqueleto.pos[2]+incremento[2]))
         self.esqueleto.pos+= incremento
         self.barbatanaPeitoral.mexer ()
+        self.posicao.deslocarPontos (incremento)
+        """
 
         #sentidoPositivo= true
         #if eixo[0] < 0:
@@ -76,6 +104,15 @@ class PeixeAcaraDisco (SerMarinho) :
         self.esqueleto.rotate (angle= anguloRad, axis= eixoRotacao)
         self.barbatanaPeitoral.mexer ()
 
+    def matar (self):
+        self.corpo.sumir ()
+        self.cauda.sumir ()
+        self.olhos.sumir ()
+        self.labios.sumir ()
+        self.barbatanaAnal.sumir ()
+        self.barbatanaDorsal.sumir ()
+        self.barbatanaPeitoral.sumir ()
+        self.barbatanaPelvica.sumir ()
 
 # -----------------------------------------------------------------
 class CorpoAcaraDisco:
@@ -90,7 +127,12 @@ class CorpoAcaraDisco:
         self.esqueleto= esqueleto
         self.textura= texturaCorpo
 
+        def sumir (self):
+            self.corpo.visible= 0
+
     def desenhar (self, posicao):
+        posicao= Ponto (0,0,0)
+
         x= posicao.getX ()
         y= posicao.getY ()
         z= posicao.getZ ()
@@ -99,6 +141,10 @@ class CorpoAcaraDisco:
         fator= eixo.calcularRazao (posicao.getZ ())
         self.corpo= ellipsoid(frame= self.esqueleto, pos=(posicao.getX (),posicao.getY (), posicao.getZ ()), length=4*self.escala, height=2*self.escala, width=1.5*self.escala,color=(0.8,0.8,0.8),material=self.textura)#, opacity=(0.15))
 
+        pontoBaixo= Ponto (self.esqueleto.pos[0]+self.corpo.length/2, self.esqueleto.pos[1]-self.corpo.height/2, self.esqueleto.pos[2]+self.corpo.width/2)
+        pontoCima= Ponto (self.esqueleto.pos[0]-self.corpo.length/2, self.esqueleto.pos[1]+self.corpo.height/2, self.esqueleto.pos[2]-self.corpo.width/2)
+
+        return pontoBaixo, pontoCima
 
 # -----------------------------------------------------------------
 class CaudaAcaraDisco:
@@ -127,6 +173,10 @@ class CaudaAcaraDisco:
         self.escala= escala
         self.esqueleto= esqueleto
         self.textura= texturaCorpo
+
+    def sumir (self):
+            self.caudaBaixo.visible= 0
+            self.caudaCima.visible= 0
 
     def desenhar (self, posicao):
         x= posicao.getX ()
@@ -195,6 +245,10 @@ class BocaAcaraDisco:
         self.esqueleto= esqueleto
         #self.textura= texturaCorpo
 
+    def sumir (self):
+        self.labioInferior.visible= 0
+        self.labioSuperior.visible= 0
+
     def desenhar (self, posicao):
         x= posicao.getX ()
         y= posicao.getY ()
@@ -223,6 +277,14 @@ class OlhosAcaraDisco:
         self.esqueleto= esqueleto
         #self.textura= texturaCorpo
 
+    def sumir (self):
+        self.retinaDir.visible= 0
+        self.retinaEsq.visible= 0
+        self.olhoDir.visible= 0
+        self.olhoEsq.visible= 0
+        self.envoltaOlhoDir.visible= 0
+        self.envoltaOlhoEsq.visible= 0
+
     def desenhar (self, posicao):
         x= posicao.getX ()
         y= posicao.getY ()
@@ -248,6 +310,9 @@ class BarbatanaDorsal:
         self.escala= escala
         self.esqueleto= esqueleto
 
+    def sumir (self):
+        self.barbatanaDorsal.visible= 0
+
     def desenhar (self, posicao):
         x= posicao.getX ()
         y= posicao.getY ()
@@ -269,6 +334,9 @@ class BarbatanaAnal:
         self.escala= escala
         self.esqueleto= esqueleto
         self.textura= texturaCorpo
+
+    def sumir (self):
+        self.barbatanaAnal.visible= 0
 
     def desenhar (self, posicao):
         x= posicao.getX ()
@@ -304,6 +372,12 @@ class BarbatanaPeitoralAcaraDisco:
         self.escala= escala
         self.esqueleto= esqueleto
         #self.textura= texturaCorpo
+
+    def sumir (self):
+        self.barbatanaInferiorDir.visible= 0
+        self.barbatanaInferiorEsq.visible= 0
+        self.barbatanaDir.visible= 0
+        self.barbatanaEsq.visible= 0
 
     def desenhar (self, posicao):
         x= posicao.getX ()
@@ -353,6 +427,10 @@ class barbatanaPelvicaAcaraDisco:
     def __init__ (self, escala, esqueleto):
         self.escala= escala
         self.esqueleto= esqueleto
+
+    def sumir (self):
+        self.barbatanaInferiorDir.visible= 0
+        self.barbatanaInferiorEsq.visible= 0
 
     def desenhar (self, posicao):
         x= posicao.getX ()
