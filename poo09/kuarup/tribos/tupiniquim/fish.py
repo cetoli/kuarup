@@ -1,4 +1,4 @@
-from visual import * 
+from visual import *
 # Eh necessario instalar o PIL
 import Image
 from tartaruga_pirapongatu import *
@@ -22,7 +22,7 @@ class Eye():
         self.globo = sphere(frame=frame, pos=self.pos,radius=self.radius,color=self.color)
         posPupila = self.pos + vector(0,0,self.pos.z*0.1)
         self.pupila = sphere(frame=frame, pos=posPupila,radius=self.radius*0.8,color=color.black)
-        
+
 
 class FishBody():
     """Constroi o corpo do peixinho"""
@@ -35,7 +35,7 @@ class FishBody():
 
         self.bodyCentral = ellipsoid(frame=frame,size=self.size,pos=self.pos,color=self.color)
         posBodySphere = self.pos + vector(-1,-1,1.3) * scale
-        
+
         self.bodyPart1 = sphere(frame=frame, pos=posBodySphere,radius=self.radius,color=self.color)
 
         posBodySphere2 = self.pos + vector(-1,-1,-1.3) * scale
@@ -51,9 +51,9 @@ class Fin():
         self.fin = pyramid(frame=frame,pos=self.pos, size=self.size, color=self.color)
 
         self.setOriginalAxis(self.fin.axis)
-        
+
         self.sentido = True
-        
+
     def setOriginalAxis(self, axis):
         self.originalAxis = array(self.fin.axis)
         self.originalAxis = vector(self.originalAxis[0],self.originalAxis[1],self.originalAxis[2])
@@ -91,7 +91,7 @@ class Fish(Marine):
         self.body = FishBody(frame=self.frame, pos=vector(0,0,0), size=vector(25,10,8), radius=3.5, scale=self.scale, formColor=color.orange)
         self.rightEye = Eye(frame=self.frame, pos=vector(-7,0,3), radius=1, formColor=color.white, scale=self.scale)
         self.leftEye  = Eye(frame=self.frame, pos=vector(-7,0,-3), radius=1, formColor=color.white, scale=self.scale)
-        
+
         self.mouth = FishMouth(self.frame, vector(-11,0,0), (1,2,0), 0.6, 1.3, self.scale, color.white)
 
         self.dorsalFin = Fin(frame=self.frame, pos=vector(0.3,2,0), size=vector(7,6,1.5), scale=self.scale)
@@ -104,7 +104,7 @@ class Fish(Marine):
 
         self.leftPectoralFin = Fin(frame=self.frame, pos=vector(-1.5,-4,8), size=vector(7,0.7,6), scale=self.scale)
         self.rightPectoralFin = Fin(frame=self.frame, pos=vector(-1.5,-4,-8), size=vector(7,0.7,6), scale=self.scale)
-        
+
         self.adjustFins()
 
     def adjustFins(self):
@@ -131,7 +131,12 @@ class Fish(Marine):
 
     def shakeCaudalFin(self, speed):
         self.caudalFin.shake(speed=speed, axis=Y_AXIS, amplitude=math.pi/6)
-    
+
     def shakeLateralFins(self, speed):
         self.leftPectoralFin.shake(speed,  X_AXIS, amplitude=math.pi/10)
         self.rightPectoralFin.shake(speed, X_AXIS, amplitude=math.pi/10)
+
+    def nextStep(self):
+        self.move()
+        self.shakeCaudalFin(speed=3)
+        self.shakeLateralFins(speed=3)

@@ -12,3 +12,7 @@ THETA_90 = math.pi/2
 X_AXIS = vector(1,0,0)
 Y_AXIS = vector(0,1,0)
 Z_AXIS = vector(0,0,1)
+
+MINUS_X_AXIS = vector(-1,0,0)
+MINUS_Y_AXIS = vector(0,-1,0)
+MINUS_Z_AXIS = vector(0,0,-1)

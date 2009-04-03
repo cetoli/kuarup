@@ -1,14 +1,14 @@
-from visual import * 
-import Image
-#import ImageGrab
+from visual import *
 from tartaruga_pirapongatu import *
-from random import random, randrange
+from random import uniform, randint
 from renderable import *
 from mathHelper import *
 from caracol import *
 from marine import *
 from fish import *
 from animator import FishAnimator, CaracolAnimator, TurtleAnimator
+from board import *
+from motion import *
 
 class Universe:
     " Representa o lugar onde todos os objetos serao desenhados..."
@@ -17,44 +17,50 @@ class Universe:
         Renderable.loadTexture(path="resources/clown_fish.jpg", keyName="clown_fish")
         Renderable.loadTexture(path="resources/tail.jpg", keyName="tail")
         """
-        self.universeRate = 100
+        self.scene2 = display(title='Pixel, o Super Peixe', width=250, height=250, center= (0,0,0),x=0, y=0)
+        self.scene2.x, self.scene2.y =0,0
+        self.scene2.select()
+        self.scene2.autoscale = 1
 
-        #Cria o universo...
-        self.fish = Fish(scale=.5, speed=10, pos = (15, -2, 0))
+        self.speed = 150
 
-        self.turtle = Sea_turtle(scale=5, posFrame=(-20,10,0))
-        
-        self.caracol = Caracol(escala=1, axis=(1,0,0), pos= (7,-15,-3), speed=2)
+        self.scene2.forward = (0, -2, -4)
 
-        self.animate()
+        self.board = Board()
 
-    def animate(self):
-        frameNumber = 0
-        fishAnimator = FishAnimator(animatedBeing=self.fish)
-        caracolAnimator = CaracolAnimator(animatedBeing=self.caracol)
-        turtleAnimator = TurtleAnimator(animatedBeing=self.turtle)        
+        self.player = Fish(scale=0.08, speed=10.0, coord=(7,6))
+        self.board.setPlayer(player=self.player)
 
-        while 1:
-            if(frameNumber>0 and frameNumber%20==0):
-                im = ImageGrab.grab((40,90,430,450))
-                fn = "gif/Kuarup"+str(frameNumber)+".gif"
-                im.save(fn)
+        #scene.center = self.player.getPosition()
 
-            rate(self.universeRate)
-            fishAnimator.animate(frameNumber)
-            caracolAnimator.animate(frameNumber)
-            turtleAnimator.animate(frameNumber)
-            
-            if(frameNumber == 4000):
-                break
+        self.elements=[]
 
-            frameNumber += 1
+        for i in range(4):
+            self.elements.append(Caracol(scale=0.12, axis=X_AXIS, speed=10.0))
 
+        self.board.addEnemy(enemy=self.elements[0], coord=(3, 0))
+        self.board.addEnemy(enemy=self.elements[1], coord=(3, 2))
+        self.board.addEnemy(enemy=self.elements[2], coord=(2, 6))
+        self.board.addEnemy(enemy=self.elements[3], coord=(5, 6))
+
+        self.friend = Sea_turtle(scale=0.5)
+        self.board.setFriend(friend= self.friend, coord=(0, 0))
+
+        self.elements.append(self.player)
+        self.elements.append(self.friend)
+        [self.elements.append(e) for e in self.board.enemies]
+
+        animator = AnimatorThread(self)
+        animator.start()
+
+        motion = MotionThread(self)
+        motion.start()
+
+    def nextStep(self):
+        [el.nextStep() for el in self.elements]
+        self.board.setActiveBlock()
 
 
 if __name__ == "__main__":
-    scene2 = display(title='Peexis', width=250, height=250, center= (0,0,0),x=0, y=0)
-    scene2.x, scene2.y =0,0
-    scene2.select()
-    scene2.autoscale = 1
+
     Universe()

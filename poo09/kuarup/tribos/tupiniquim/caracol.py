@@ -12,7 +12,7 @@ class Caracol(Marine):
         s = self.scale
         esqueleto = self.frame
 
-        corpo = ellipsoid(frame = esqueleto, pos=(2,-4*s,0), length=7*s, height=s, width=4*s, color=color.yellow)
+        self.corpo = ellipsoid(frame = esqueleto, pos=(2*s,-4*s,0), length=7*s, height=s, width=4*s, color=color.yellow)
 
         casco1 = ellipsoid(frame = esqueleto, pos=(0,0,0), length=8*s, height=8*s, width=2*s, color=color.orange, material=materials.wood)
 
