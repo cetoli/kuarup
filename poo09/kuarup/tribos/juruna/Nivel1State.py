@@ -15,8 +15,6 @@ class Nivel1State (NivelState):
         tipo= self.gerarIntAleatorio (1, 100)
         posicao= self.gerarPosicaoAleatoria ()
 
-        tipo= 2
-
         if tipo <= 30:
             personagem= self.criarAguaViva (posicao)
         else:

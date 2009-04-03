@@ -67,9 +67,10 @@ class AguaViva(SerMarinho):
         self.listaElementosCorpo= list ()
 
 
-    def desenha(self, escala=1):
+    def desenha (self):
         self.dano= 10
 
+        escala= self.escala
         u=escala/6.0
 
         r=6*u
@@ -277,7 +278,7 @@ class AguaViva(SerMarinho):
         dY= 2*escala
         dZ= 3*escala/2 + 2*escala / 2
 
-        dYBaixo= (dY + self.esqueleto.pos[1]- (-3*escala)) /2
+        dYBaixo= (dY +  (4*escala)) /2
         dY/= 2
 
         pontoCima= Ponto (self.esqueleto.pos[0]-dX, self.esqueleto.pos[1]+dY, self.esqueleto.pos[2]-dZ)

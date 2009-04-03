@@ -10,12 +10,6 @@ from AcaraDisco import *
 from AcaraDiscoControlador import *
 from Nivel1State import *
 
-#from TartarugaMichelangelo import *
-
-
-#from AguaViva import *
-#from Tubarao import *
-
 # Classe que trata do canvas
 class Mar:
     animais= None
@@ -67,10 +61,11 @@ class Mar:
         nivel= Nivel1State (ctrlAcara)
 
         # cria um tubarao para mostrar a tela ja como deve ficar depois
-        pos= nivel.gerarPosicaoAleatoria ()
+
+        """pos= nivel.gerarPosicaoAleatoria ()
         temp= nivel.criarTubarao (pos)
         rate (10)
-        temp.matar ()
+        temp.matar ()"""
 
         return ctrlAcara, nivel
 
@@ -82,6 +77,8 @@ class Mar:
         ctrlAcara.esperarTecla ()
         msg.visible= 0
         msg= None
+
+        ctrlAcara.iniciarThread ()
 
         while nivel != None:
             cont= 0
@@ -98,14 +95,18 @@ class Mar:
                     self.exibirMsgJogo (self.MSG_FIM_PERDEU)
                     return
 
+                # rodando via thread
+                """
                 tecla= ctrlAcara.buscarTeclaPressionada ()
                 if tecla != false:
                     ctrlAcara.tratarTeclaPessionada (tecla)
+                """
 
                 rate (taxa)
 
                 cont+= 1
 
+            ctrlAcara.join ()
             nivel= nivel.passarProximoNivel ()
             if nivel != None:
                 msg= self.exibirMsgJogo ("Proximo nivel ...")
@@ -122,10 +123,10 @@ class Mar:
         pontoC= self.posTela.getPontoCima ()
         pontoB= self.posTela.getPontoBaixo ()
 
-        local= (pontoB.getX (), pontoC.getY (), pontoC.getZ ())
+        local= (pontoB.getX (), pontoC.getY ()+1.5, pontoC.getZ ())
 
         msg= nivel.getNomeNivel () + "    -     Vida: " + str (pontuacao.getVida ())
-        self.quadroInfo= self.exibirMsgJogo (msg, local, color.red)
+        self.quadroInfo= self.exibirMsgJogo (msg, local, color.white)
 
     def montarQuadro (self):
         pontoC= self.posTela.getPontoCima ()

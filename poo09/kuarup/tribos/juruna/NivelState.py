@@ -90,13 +90,19 @@ class NivelState:
 
     def criarAguaViva (self, listaPosicao):
         obj= AguaViva (escala = 0.5, axis=(-1,0,0), pos= listaPosicao) # escala antiga = 1
-        obj.desenha (obj.escala)
+
+        obj.setFuncaoThread (obj.desenha)
+        obj.run ()
+        #obj.desenha (obj.escala)
 
         return obj
 
     def criarTubarao (self, listaPosicao):
         obj= Tubarao (escala = 0.1, axis=(-1,0,0), pos= listaPosicao) # escala antiga 0.2
-        obj.desenha (obj.escala)
+
+        obj.setFuncaoThread (obj.desenha)
+        obj.run ()
+        #obj.desenha (obj.escala)
 
         return obj
 
@@ -145,7 +151,9 @@ class NivelState:
                         return 0
 
             else:
-                personagem.matar ()
+                personagem.setFuncaoThread (personagem.matar)
+                personagem.run ()
+                #personagem.matar ()
                 self.removerPersonagem (personagem)
                 self.tempoProxPersonagem= 3
 
@@ -159,25 +167,5 @@ class NivelState:
             self.tempoProxPersonagem= 5
 
         return 1
-
-
-"""
-    def exibirNivel (self):
-        cont= 0
-
-        while cont < qtdIteracaoNivel:
-            self.exibirProximoQuadro()
-
-            tecla= ctrlAcara.buscarTeclaPressionada ()
-
-            if tecla != false:
-                ctrlAcara.tratarTeclaPessionada (tecla)
-
-            cont+= 1
-
-        self.passarProximoNivel ()
-
-        # verifica se foi tudo ok e exibe tela de sucesso ou falha
-"""
 
 # Fim
