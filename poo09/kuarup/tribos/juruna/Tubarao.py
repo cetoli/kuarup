@@ -86,9 +86,10 @@ class Tubarao(SerMarinho):
 
         self.listaElementosCorpo= list ()
 
-    def desenha(self, escala=1):
+    def desenha (self):
         self.dano= 20
 
+        escala= self.escala
         u=escala/6.0
 
         r=6*u

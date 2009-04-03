@@ -2,10 +2,12 @@ from visual import *
 from Ponto import *
 import Image
 from Posicao import *
+from threading import Thread
 
 # Classe generica do ser marinho
-class SerMarinho:
+class SerMarinho (Thread):
     def __init__ (self, escala= 1, **complemento):
+        Thread.__init__ (self)
         self.esqueleto= frame (**complemento)
         self.posicao= Posicao ()
 
@@ -14,14 +16,18 @@ class SerMarinho:
         self.VELOCIDADE_NADO= 1 # 0.2
         self.dano= 5
         self.velocidade= self.VELOCIDADE_NADO
+        self.funcaoThread= None
 
 
-#        print "Construtor: X %f Y %f Z %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
-
-        #self.posicao= Ponto (0,0,0) #Ponto (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
+    def run (self):
+        if self.funcaoThread != None:
+            self.funcaoThread ()
 
     def getDano (self):
         return self.dano
+
+    def setFuncaoThread (self, funcao):
+        self.funcaoThread= funcao
 
     def setVelocidade (self, incremento):
         self.velocidade= self.VELOCIDADE_NADO * incremento
@@ -29,19 +35,11 @@ class SerMarinho:
     def getPosicao (self):
         return self.posicao
 
-
     # Retorna um objeto Ponto com o eixo do sentido multiplicado pela velocidade.
     # Ou seja, se multiplicarmos o x pelo x retornado teremos o x novo.
     def getIncrementoNado (self):
         sentido= self.posicao.getVetorSentido ()
         sentido= sentido.clonar ()
-
-        # I temporario, depois preciso ver o que fazer. Sem isso, o incremento vira 0,0,0 para seta cima
-        # e seta baixo
-        #sentido.setX (1)
-        #sentido.setY (1)
-        #sentido.setZ (1)
-        # F temporario
 
         sentido.multiplicarX (self.velocidade)
         sentido.multiplicarY (self.velocidade)
@@ -70,6 +68,7 @@ class SerMarinho:
 
     def desenhar (self):
         pass
+
     def buscarMaiorNumero (self, x, y, z):
         if x < 0:
             x*= (-1)
@@ -146,30 +145,6 @@ class SerMarinho:
         # caso onde o elemento 2 esta totalmente dentro do elemento 1 => ja abordado acima
 
         # melhoria do caso funcionando a meia-boca, mas nao foi testado
-        """
-        # caso onde o elemento 2 esta + a esquerda e o elemento 1 esta mais a baixo
-        if ( (x0Elem2 >= x0Elem1) & (xoElem2 <= x6Elem1) ) & ( (y0Elem2 <= y6Elem1) & (y0Elem2 >= y0Elem1) ):
-            return 1
-
-        # caso onde o elemento 1 esta + a esquerda e a baixo
-        if ( (x6Elem2 >= x6Elem1) & (x6Elem2 <= x0Elem1) ) & ( (y0Elem2 <= y6Elem1) & (y0Elem2 >= y0Elem1) ) :
-            return 1
-
-
-        # caso onde o elemento 2 esta + a esquerda e o elemento 1 esta mais a acima
-        if ( (x0Elem2 >= x6Elem1) & (x0Elem2 <= x0Elem1) ) & ( (y6Elem2 <= y6Elem1) & (y6Elem2 >= y0Elem1) ):
-            return 1
-
-        # caso onde o elemento 1 esta + a esquerda e a acima
-        if ( (x6Elem2 >= x6Elem1) & (x6Elem2 <= x0Elem1) ) & ( (y6Elem2 <= y6Elem1) & (y6Elem2 >= y0Elem1) ) :
-            return 1
-
-        # caso onde o elemento 1 esta totalmente dentro do elemento 2
-        if ( (x6Elem1 >= x6Elem2) & (x6Elem1 <= x0Elem2) ) & ( (y6Elem1 <= y6Elem2) & (y6Elem1 >= y0Elem2) ) :
-            return 1
-
-        # caso onde o elemento 2 esta totalmente dentro do elemento 1 => ja abordado acima
-        """
 
         return 0
 
@@ -211,41 +186,5 @@ class SerMarinho:
             if angulo > anguloTotal:
                 angulo= anguloTotal
 
-
-        """
-    # metodo temporario para auxiliar no calculo e definicao da caixa em volta do ser marinho
-
-        p, l, h, w= self.temp (pontoBaixo, pontoCima)
-        box (pos= p, length=l, height=h, width=w, color=color.green)# , opacity= 0.1)
-
-
-    def temp (self, posBaixo, posCima):
-        xC= posCima.getX()
-        yC= posCima.getY()
-        zC= posCima.getZ()
-
-        xB= posBaixo.getX()
-        yB= posBaixo.getY()
-        zB= posBaixo.getZ()
-
-        l= (xB-xC)
-        h= (yC-yB)
-        w= (zB-zC)
-
-        pX= xC + l/2
-        pY= yB + h/2
-        pZ= zC + w/2
-
-        if l < 0:
-            l*= (-1)
-
-        if h < 0:
-            h*= (-1)
-
-        if w < 0:
-            w*= (-1)
-
-        return (pX, pY, pZ), l, h, w
-    """
 
 # FIM

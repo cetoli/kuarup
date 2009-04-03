@@ -3,9 +3,9 @@ from MovimentoCimaCommand import *
 from MovimentoBaixoCommand import *
 from MovimentoEsquerdaCommand import *
 from MovimentoDireitaCommand import *
+from threading import Thread
 
-
-class AcaraDiscoControlador:
+class AcaraDiscoControlador (Thread):
     acara= None
     tela= None
 
@@ -17,12 +17,22 @@ class AcaraDiscoControlador:
     cenario= None
 
     def __init__ (self, cenario):
+        Thread.__init__ (self)
         self.cenario= cenario
 
         self.moverCima= MovimentoCimaCommand ()
         self.moverBaixo= MovimentoBaixoCommand ()
         self.moverEsquerda= MovimentoEsquerdaCommand ()
         self.moverDireita= MovimentoDireitaCommand ()
+
+    def iniciarThread (self):
+        self.start ()
+
+    def run (self):
+        while 1:
+            tecla= self.buscarTeclaPressionada ()
+            if tecla != false:
+                self.tratarTeclaPessionada (tecla)
 
     def setAcara (self, acara):
         self.acara= acara
