@@ -80,8 +80,11 @@ Esta classe e uma especializacao da classe SerMarinho...
 '''
 
 class Tubarao(SerMarinho):
-    listaElementosCorpo= list ()
 
+    def __init__ (self, escala= 1, **complemento):
+        SerMarinho.__init__ (self, escala, **complemento)
+
+        self.listaElementosCorpo= list ()
 
     def desenha(self, escala=1):
         self.dano= 20
@@ -311,10 +314,9 @@ class Tubarao(SerMarinho):
         pontoCima= Ponto (self.esqueleto.pos[0]-20*escala, self.esqueleto.pos[1]+15*escala, self.esqueleto.pos[2]-12.2*escala)
         pontoBaixo= Ponto (self.esqueleto.pos[0]+35*escala, self.esqueleto.pos[1]-6.5*escala, self.esqueleto.pos[2]+12.2*escala)
 
-        print "I Tubarao\n"
         self.posicao.setPontoBaixo (pontoBaixo.getX (), pontoBaixo.getY (), pontoBaixo.getZ ())
         self.posicao.setPontoCima (pontoCima.getX (), pontoCima.getY (), pontoCima.getZ ())
-        print "F Tubarao\n"
+
         self.posicao.setVetorSentido (-1, 0, 0)
 
     def matar (self):
@@ -340,7 +342,6 @@ class Tubarao(SerMarinho):
         self.esqueleto.pos= esqueleto.getLista ()
         self.posicao.deslocarPontos (incremento)
 
-        print "tubarao nadando %f %f %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
 
 
 '''

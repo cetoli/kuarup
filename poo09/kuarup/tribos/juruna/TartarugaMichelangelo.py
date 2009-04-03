@@ -155,7 +155,6 @@ class PernasTartaruga:
 
     def mexerPernas (self):
         if self.pernaFrentePosNormal == true:
-            print "Perna SOBE\n"
             eixo= Eixo ()
             anguloFrenteEsqTrasDir= eixo.converterGrausRadiano (210)
             anguloFrenteDirTrasEsq= eixo.converterGrausRadiano (150)
@@ -170,7 +169,6 @@ class PernasTartaruga:
             self.pernaFrentePosNormal= false
             self.pernaTrasPosNormal= true
         else:
-            print "Perna DESCE\n"
             eixo= Eixo ()
             anguloFrenteEsqTrasDir= eixo.converterGrausRadiano (150)
             anguloFrenteDirTrasEsq= eixo.converterGrausRadiano (210)
