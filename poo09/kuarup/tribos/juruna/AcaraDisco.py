@@ -30,10 +30,9 @@ class PeixeAcaraDisco (SerMarinho) :
         #texturaCorpo= self.carregarTextura ("G:/sincronizar/meus documentos/mestrado/poo/Trabalho3/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
         pontoBaixo, pontoCima= self.desenharCorpo (Ponto (0,0,0), texturaCorpo)
 
-        print "I Acara\n"
         self.posicao.setPontoBaixo (pontoBaixo.getX (), pontoBaixo.getY (), pontoBaixo.getZ ())
         self.posicao.setPontoCima (pontoCima.getX (), pontoCima.getY (), pontoCima.getZ ())
-        print "F Acara\n"
+
         self.posicao.setVetorSentido (1, 0, 0)
         self.posicao.testeQuadrado ()
 
@@ -83,6 +82,7 @@ class PeixeAcaraDisco (SerMarinho) :
 
         self.esqueleto.pos= esqueleto.getLista ()
         self.posicao.deslocarPontos (incremento)
+        self.barbatanaPeitoral.mexer ()
 
         """
         incremento= vector (self.velocidade * eixo[0], self.velocidade * eixo[1], self.velocidade * eixo[2])

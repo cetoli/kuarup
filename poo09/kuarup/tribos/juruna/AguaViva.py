@@ -61,8 +61,10 @@ class Cenario:
 
 class AguaViva(SerMarinho):
 
-    listaElementosCorpo= list ()
+    def __init__ (self, escala= 1, **complemento):
+        SerMarinho.__init__ (self, escala, **complemento)
 
+        self.listaElementosCorpo= list ()
 
 
     def desenha(self, escala=1):
@@ -292,7 +294,13 @@ class AguaViva(SerMarinho):
 
         while cont < self.listaElementosCorpo.__len__ ():
             temp= self.listaElementosCorpo.__getitem__ (cont)
-            temp.visible= 0
+            #if temp.__class__ is "<class 'visual.primitives.helix'>":
+            if isinstance(temp, helix):
+                temp.helix.visible= 0
+            else:
+                temp.visible= 0
+
+
 
             cont+= 1
 
@@ -326,8 +334,6 @@ class AguaViva(SerMarinho):
 
         self.esqueleto.pos= esqueleto.getLista ()
         self.posicao.deslocarPontos (incremento)
-
-        print "agua viva nadando %f %f %f\n" % (self.esqueleto.pos[0], self.esqueleto.pos[1], self.esqueleto.pos[2])
 
 
     # seta em relacao a velocidade normal

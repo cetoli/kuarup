@@ -22,6 +22,9 @@ class NivelState:
         self.velocidadePersonagem= 0.5
         self.taxa= 2
 
+        # Define quantos quadros deverao se passar antes de criar outro personagem se for o caso
+        self.tempoProxPersonagem= 0
+
     def setPosicaoTela (self, posNova):
         self.posicaoTela= posNova
 
@@ -144,12 +147,16 @@ class NivelState:
             else:
                 personagem.matar ()
                 self.removerPersonagem (personagem)
+                self.tempoProxPersonagem= 3
 
             cont+= 1
+            self.tempoProxPersonagem-= 1
+
 
         # Crio personagens novos
-        if self.personagens.__len__ () < self.qtdMaxPersonagens:
+        if (self.personagens.__len__ () < self.qtdMaxPersonagens) & (self.tempoProxPersonagem < 1):
             self.criarPersonagem ()
+            self.tempoProxPersonagem= 5
 
         return 1
 

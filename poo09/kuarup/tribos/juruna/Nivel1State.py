@@ -7,13 +7,15 @@ class Nivel1State (NivelState):
         NivelState.__init__(self, acaraCtrl)
 
         self.qtdIteracaoNivel= 120 # 60 segundos na taxa definida de 2 (0.5 segundos)
-        self.qtdMaxPersonagens= 1
+        self.qtdMaxPersonagens= 2
         self.velocidadePersonagem= 0.2
         self.taxa= 2 # 0,5 segundos
 
     def criarPersonagem (self):
         tipo= self.gerarIntAleatorio (1, 100)
         posicao= self.gerarPosicaoAleatoria ()
+
+        tipo= 2
 
         if tipo <= 30:
             personagem= self.criarAguaViva (posicao)

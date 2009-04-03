@@ -67,8 +67,6 @@ class Ponto:
 
 
     def somar (self, valor, eixo= (1,1,1)):
-            #print "valor %s e eixo %s\n" % (valor, eixo)
-            #print "self.x [%s] valor = [%s]\n" % (self.x, valor)
             self.x+= valor.getX ()
             self.y+= valor.getY ()
             self.z+= valor.getZ ()
@@ -80,9 +78,6 @@ class Ponto:
 
     # calculo da elipse
     def calcularParametrica (self, x0, y0, x, xM, yM):
-        #print "xm %f e ym %f \n" % (xM, yM)
-        #print "x0 %f e y0 %f x %f \n" % (x0, y0, x)
-
         if xM > yM:
             return self.calcularParametricaHorizontal (x0, y0, x, xM, yM)
         else:

@@ -23,12 +23,12 @@ class Posicao:
 
     # ponto 0
     def setPontoBaixo (self, x= 0, y= 0, z= 0):
-        print ">>>>>>>>> PONTO BAIXO %f %f %f\n" % (x, y, z)
+        #print ">>>>>>>>> PONTO BAIXO %f %f %f\n" % (x, y, z)
         self.pontoBaixo= Ponto (x, y, z)
 
     # ponto 6
     def setPontoCima (self, x= 0, y= 0, z= 0):
-        print ">>>>>>>>> PONTO CIMA %f %f %f\n" % (x, y, z)
+        #print ">>>>>>>>> PONTO CIMA %f %f %f\n" % (x, y, z)
         self.pontoCima= Ponto (x, y, z)
 
     def setVetorSentido (self, x= 0, y= 0, z= 0):
@@ -126,19 +126,11 @@ class Posicao:
         y6Tela= cima.getY ()
         z6Tela= cima.getZ ()
 
-        print "Ta dentro da tela?\n"
-
-
         if (x0Peixe > x0Tela) | (x0Peixe < x6Tela):
             return 0
 
         if (y0Peixe < y0Tela) | (y0Peixe > y6Tela):
             return 0
-
-        #if (z0Peixe > z0Tela) | (z0Peixe < z6Tela):
-        #    return 0
-
-        print "Dentro da tela!!!\n"
 
         return 1
 
@@ -157,7 +149,7 @@ class Posicao:
     def testeQuadrado (self):
         pass
 
-        """
+        """ " ""
          # @ !!!
         p, l, h, w= self.calculoQuadrado ()
 
@@ -165,7 +157,7 @@ class Posicao:
             self.teste.visible= 0
 
         self.teste= box (pos= p, length=l, height=h, width=w, color=color.green , opacity= 0.1)
-        """
+        "" " """
 
     def calculoQuadrado (self):
         posBaixo, posCima= self.pontoBaixo, self.pontoCima

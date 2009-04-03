@@ -113,26 +113,63 @@ class SerMarinho:
         y6Elem2= cima.getY ()
         z6Elem2= cima.getZ ()
 
-        print "pos 0 elem 1: %f %f %f\n" % (x0Elem1, y0Elem1, z0Elem1)
-        print "pos 6 elem 2: %f %f %f\n" % (x6Elem2, y6Elem2, z6Elem2)
+        #print "pos 0 elem 1: %f %f %f\n" % (x0Elem1, y0Elem1, z0Elem1)
+        #print "pos 6 elem 1: %f %f %f\n" % (x6Elem1, y6Elem1, z6Elem1)
 
-        print "pos 6 elem 1: %f %f %f\n" % (x6Elem1, y6Elem1, z6Elem1)
-        print "pos 0 elem 2: %f %f %f\n" % (x0Elem2, y0Elem2, z0Elem2)
+        #print "pos 0 elem 2: %f %f %f\n" % (x0Elem2, y0Elem2, z0Elem2)
+        #print "pos 6 elem 2: %f %f %f\n" % (x6Elem2, y6Elem2, z6Elem2)
 
-        # Verifica se um dos pontos do elem 2 esta dentro do elem 1
-        if (x6Elem2 <= x0Elem1) & ( (y0Elem1 <= y0Elem2) & (y6Elem1 >= y0Elem2) ) :
+
+        # caso onde o elemento 2 esta + a esquerda e o elemento 1 esta mais a baixo
+        if ( (x0Elem2 >= x0Elem1) & (x0Elem2 <= x6Elem1) ) & ( (y0Elem2 <= y6Elem1) & (y0Elem2 >= y0Elem1) ):
             return 1
 
-        if (x6Elem2 <= x0Elem1) & ( (y0Elem1 <= y6Elem2) & (y6Elem1 >= y6Elem2) ) :
+
+        if ( (x6Elem2 >= x6Elem1) & (x6Elem2 <= x0Elem1) ):
+            # caso onde o elemento 1 esta + a esquerda e a baixo
+            if ( (y0Elem2 <= y6Elem1) & (y0Elem2 >= y0Elem1) ) :
+                return 1
+
+            # caso onde o elemento 1 esta + a esquerda e a acima
+            if ( (y6Elem2 <= y6Elem1) & (y6Elem2 >= y0Elem1) ) :
+                return 1
+
+
+        # caso onde o elemento 2 esta + a esquerda e o elemento 1 esta mais a acima
+        if ( (x0Elem2 >= x6Elem1) & (x0Elem2 <= x0Elem1) ) & ( (y6Elem2 <= y6Elem1) & (y6Elem2 >= y0Elem1) ):
             return 1
 
-        # Verifica se um dos pontos do elem 1 esta dentro do elem 2
-        if (x6Elem2 <= x0Elem1) & ( (y0Elem2 <= y0Elem1) & (y6Elem2 >= y0Elem1) ) :
+        # caso onde o elemento 1 esta totalmente dentro do elemento 2
+        if ( (x6Elem1 >= x6Elem2) & (x6Elem1 <= x0Elem2) ) & ( (y6Elem1 <= y6Elem2) & (y6Elem1 >= y0Elem2) ) :
             return 1
 
-        if (x6Elem2 <= x0Elem1) & ( (y0Elem2 <= y6Elem1) & (y6Elem2 >= y6Elem1) ) :
+        # caso onde o elemento 2 esta totalmente dentro do elemento 1 => ja abordado acima
+
+        # melhoria do caso funcionando a meia-boca, mas nao foi testado
+        """
+        # caso onde o elemento 2 esta + a esquerda e o elemento 1 esta mais a baixo
+        if ( (x0Elem2 >= x0Elem1) & (xoElem2 <= x6Elem1) ) & ( (y0Elem2 <= y6Elem1) & (y0Elem2 >= y0Elem1) ):
             return 1
 
+        # caso onde o elemento 1 esta + a esquerda e a baixo
+        if ( (x6Elem2 >= x6Elem1) & (x6Elem2 <= x0Elem1) ) & ( (y0Elem2 <= y6Elem1) & (y0Elem2 >= y0Elem1) ) :
+            return 1
+
+
+        # caso onde o elemento 2 esta + a esquerda e o elemento 1 esta mais a acima
+        if ( (x0Elem2 >= x6Elem1) & (x0Elem2 <= x0Elem1) ) & ( (y6Elem2 <= y6Elem1) & (y6Elem2 >= y0Elem1) ):
+            return 1
+
+        # caso onde o elemento 1 esta + a esquerda e a acima
+        if ( (x6Elem2 >= x6Elem1) & (x6Elem2 <= x0Elem1) ) & ( (y6Elem2 <= y6Elem1) & (y6Elem2 >= y0Elem1) ) :
+            return 1
+
+        # caso onde o elemento 1 esta totalmente dentro do elemento 2
+        if ( (x6Elem1 >= x6Elem2) & (x6Elem1 <= x0Elem2) ) & ( (y6Elem1 <= y6Elem2) & (y6Elem1 >= y0Elem2) ) :
+            return 1
+
+        # caso onde o elemento 2 esta totalmente dentro do elemento 1 => ja abordado acima
+        """
 
         return 0
 
