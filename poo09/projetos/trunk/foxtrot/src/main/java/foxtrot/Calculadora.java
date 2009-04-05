@@ -9,15 +9,19 @@ package foxtrot;
 import labase.poo.ICalculadora;
 
 /**
- * @todo Escreva a descricao da classe Calculadora aqui.
+ * Descrição:
+ * Calculadora que exerce somente as funções de soma, limpa e tecla 1
  *
- * @author  (seu nome)  $Author$
- * @version (versao)    $Revision$ (data)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * Autores:
+ * Carlos Henrique Pinto Rodriguez
+ * Carlos Eduardo Ferrão
+ * 
+ * Versão 1     Data 31/03/2009
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
+  private Integer acumuladorAux = new Integer(0);
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
 
@@ -34,7 +38,14 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    return operador.toString();
+      String aux = acumuladorAux.toString();
+      if(aux.equals("0"))
+        aux = "1";
+      else
+        aux += "1";
+      acumuladorAux = Integer.parseInt(aux);
+      return acumuladorAux.toString();
+    //return operador.toString();
   }
 
   /**
@@ -43,7 +54,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-    return "0";
+      acumulador = acumuladorAux = 0;
+    return acumulador.toString();
   }
 
   /**
@@ -52,6 +64,13 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-    return acumulador.toString();
+      acumulador += acumuladorAux ;
+      acumuladorAux = 0;
+      return acumulador.toString();
   }
+  
+  public static void main(String [] args) {
+      Calculadora c = new Calculadora();
+      System.out.println(c.comandoSoma());
+    }
 }

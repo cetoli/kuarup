@@ -5,8 +5,11 @@ package foxtrot;
 /**
  * The test class CalculadoraTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * Autores:
+ * Carlos Henrique Pinto Rodriguez
+ * Carlos Eduardo Ferrão
+ * 
+ * Versão 1     Data 31/03/2009
  */
 public class CalculadoraTest extends junit.framework.TestCase
 {
