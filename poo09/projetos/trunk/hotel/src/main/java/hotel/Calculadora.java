@@ -34,8 +34,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    operador=1;
-    return operador.toString() + acumulador.toString();
+    this.operador = new Integer (this.operador.toString() + 1);
+    return operador.toString();
   }
 
   /**
@@ -44,6 +44,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
+    this.operador = 0;
+    this.acumulador = 0;
     return "0";
   }
 
@@ -53,6 +55,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-    return acumulador.toString();
+      this.acumulador += this.operador;
+      this.operador = 0;
+      return acumulador.toString();
   }
 }
