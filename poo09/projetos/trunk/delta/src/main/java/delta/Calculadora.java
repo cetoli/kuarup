@@ -5,15 +5,16 @@
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
-package bravo;
+package delta;
 import labase.poo.ICalculadora;
 
 /**
- * @A classe calculadora realiza operações matemáticas com números inteiros.
- * @author  (Thiago Silva de Souza)  $Author$
- * @author  (André Sion)  $Author$
- * @version (1.0) $Revision$ (04 de abril de 2009) $Date$
- * @since   (1.0) Esta versão soma 1+1.
+ * @todo Escreva a descricao da classe Calculadora aqui.
+ *
+ * @author  Thiago Silva de Souza  $Author$
+ * @author  André Sion  $Author$
+ * @version 1.1    $Revision$ (07/04/09)      $Date$
+ * @since   1.1 Calculadora que soma um mais um
  */
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
@@ -34,7 +35,7 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    this.operador = this.operador * 10 + 1;
+    operador = (operador * 10) + 1;
     return operador.toString();
   }
 
@@ -44,8 +45,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-    this.operador = 0;
-    this.acumulador = 0;
+    acumulador = 0;
+    operador = 0;
     return "0";
   }
 
@@ -54,9 +55,9 @@ public class Calculadora implements ICalculadora {
    *
    * @return  conteudo do acumulador
    */
-  public final String comandoSoma() {    
-    this.acumulador = this.acumulador + this.operador;
-    this.operador = 0;    
+  public final String comandoSoma() {
+    acumulador = acumulador + operador;
+    operador = 0;
     return acumulador.toString();
   }
 }
