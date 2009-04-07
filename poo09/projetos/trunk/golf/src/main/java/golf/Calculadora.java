@@ -20,6 +20,8 @@ public class Calculadora implements ICalculadora {
   private Integer acumulador = new Integer(0);
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
+  /**Base da calculadora. */
+  private final Integer base = 10;
 
   /**
    * Construtor para objetos da classe Calculadora.
@@ -34,7 +36,7 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    operador = (operador * 10) + 1;
+    operador = (operador * base) + 1;
     return operador.toString();
   }
 
