@@ -6,20 +6,21 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package golf;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
  * @Class Calculadora - equipe Golf.
  *
- * @author  Guga  $Author$
- * @version 1.0   $Revision$ 31/03      $Date$
+ * @author  Guga  
+ * @author  Leandro  
+ * @version 1.0  31/03
  * @since   0.0 Descreva aqui as alterações desta versao
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
-  private Integer acumulador = new Integer(0);
+  private AbstractNumero acumulador;
   /**Operador da Caculadora. */
-  private Integer operador = new Integer(0);
+  private AbstractNumero operador;
   /**Base da calculadora. */
   private final Integer base = 10;
 
@@ -27,7 +28,7 @@ public class Calculadora implements ICalculadora {
    * Construtor para objetos da classe Calculadora.
    */
   public Calculadora() {
-    // inicializa variaveis de instância
+    modoDec();
   }
 
   /**
@@ -36,8 +37,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    operador = (operador * base) + 1;
-    return operador.toString();
+    operador.valor = (operador.valor * operador.base) + 1;
+    return operador.converte();
   }
 
   /**
@@ -46,8 +47,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-    acumulador = 0;
-    operador = 0;
+//    acumulador = 0;
+//    operador = 0;
     return "0";
   }
 
@@ -57,8 +58,35 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-    acumulador = acumulador + operador;
-    operador = 0;
-    return acumulador.toString();
+    acumulador.valor = acumulador.valor + operador.valor;
+    //operador = 0;
+    return acumulador.converte();
+  }
+
+  /**
+   * Muda a base da calculadora para Hexadecimal.
+   *
+   */
+  public final void modoHex() {
+      acumulador = new NumeroHex(acumulador.valor);
+      operador = new NumeroHex(operador.valor);
+  }
+
+  /**
+   * Muda a base da calculadora para Binario.
+   *
+   */
+  public final void modoBin() {
+      acumulador = new NumeroBin(acumulador.valor);
+      operador = new NumeroBin(operador.valor);
+  }
+
+  /**
+   * Muda a base da calculadora para Decimal.
+   *
+   */
+  public final void modoDec() {
+      acumulador = new NumeroDec(acumulador.valor);
+      operador = new NumeroDec(operador.valor);
   }
 }
