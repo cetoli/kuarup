@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=novo
+comment0.target=ValorHex(int)
+comment1.params=novo
+comment1.target=void\ setValor(String)
+comment2.target=String\ converterEmString()
+numComments=3
