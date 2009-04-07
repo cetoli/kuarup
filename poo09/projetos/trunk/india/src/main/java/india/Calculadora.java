@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package india;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
  * @todo Escreva a descricao da classe Calculadora aqui.
@@ -15,7 +15,7 @@ import labase.poo.ICalculadora;
  * @version (versao)    $Revision$ (data)      $Date$
  * @since   (versao) Descreva aqui as alteracoes desta versao
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
   /**Operador da Caculadora. */
@@ -54,4 +54,22 @@ public class Calculadora implements ICalculadora {
   public final String comandoSoma() {
     return acumulador.toString();
   }
+  /**
+   * Ativa o modo Hexadecimal.
+   */
+  public final void modoHex() {
+   }
+
+  /**
+   * Ativa o modo Binário.
+   */
+  public final void modoBin() {
+  }
+
+  /**
+   * Ativa o modo Decimal.
+   */
+  public final void modoDec() {
+  }
+
 }
