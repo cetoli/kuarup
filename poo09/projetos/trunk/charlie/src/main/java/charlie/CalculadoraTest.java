@@ -126,4 +126,41 @@ public class CalculadoraTest extends junit.framework.TestCase
        assertEquals("22", calculad1.comandoSoma());
        }
        */
+
+	public void testSomaBinariaOnzeMaisUm()
+	{
+		charlie.Calculadora calculad1 = new charlie.Calculadora();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("100", calculad1.comandoSoma());
+	}
+
+	public void testSomaHexadecimalOnzeMaisUm()
+	{
+		charlie.Calculadora calculad1 = new charlie.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("12", calculad1.comandoSoma());
+	}
+
+	public void testSomaOnzeBinarioMaisOnze()
+	{
+		charlie.Calculadora calculad1 = new charlie.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		assertEquals("1110", calculad1.comandoSoma());
+	}
 }
+
+
+

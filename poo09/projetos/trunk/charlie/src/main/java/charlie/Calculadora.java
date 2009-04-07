@@ -1,26 +1,32 @@
-/*------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------
   Copyright  2002-2009        Carlo E. T. Oliveira et all
   ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
   This software is licensed as described in the file LICENSE.txt,
   which you should have received as part of this distribution.
-  ------------------------------------------------------------------------------*/
+  ----------------------------------------------------------------------------*/
 package charlie;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
- * Esta eh a primeira versao da Calculadora. Nao possui nenhum design pattern ainda.
+ * Esta eh a primeira versao da Calculadora. 
+ * Nao possui nenhum design pattern ainda.
  *
  * @author  Andre Abrantes  $Author$
  * @author  Helio Salmon  $Author$
  * @version 1.0    $Revision$ 31/03/2009      $Date$
  * @since   1.0   Esta versao soma um mais um
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
     /**Operador da Caculadora. */
     private Integer operador = new Integer(0);
     /**Acumulador da Caculadora. */
     private Integer acumulador = new Integer(0);
+    
+    Base modo;
+    
+    /**Multiplicador de dezenas. */
+    private static int dezena = 10;
 
     /**
      * Construtor para objetos da classe Calculadora.
@@ -28,6 +34,7 @@ public class Calculadora implements ICalculadora {
     public Calculadora() {
         // inicializa variaveis de instancia
         operador = acumulador = 0;
+        modo = new Decimal();
     }
 
     /**
@@ -36,8 +43,8 @@ public class Calculadora implements ICalculadora {
      * @return  conteudo do operador
      */
     public final String entraUm() {
-        operador = operador * 10 + 1;
-        return operador.toString();
+        operador = modo.entraUm(operador);     
+        return modo.toString(operador);
     }
 
     /**
@@ -51,14 +58,37 @@ public class Calculadora implements ICalculadora {
         return operador.toString();
     }
 
+   
     /**
      * Entra o comando soma.
      *
      * @return  conteudo do acumulador
      */
     public final String comandoSoma() {
-        acumulador += operador;
+        acumulador = acumulador + operador;
         operador = 0;
-        return acumulador.toString();
+        return modo.toString(acumulador);
     }
+    
+    /**
+     * Entra no modo Hexadecimal.
+     */
+    public void modoHex(){
+        modo = new Hexadecimal();
+    }
+    
+    /**
+     * Entra no modo Binario.
+     */
+    public void modoBin(){
+        modo = new Binario();
+    }
+    
+    /**
+     * Entra no modo Decimal.
+     */
+    public void modoDec(){
+        modo = new Decimal();
+    }
+    
 }
