@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package foxtrot;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
  * Descrição:
@@ -16,13 +16,15 @@ import labase.poo.ICalculadora;
  * Carlos Henrique Pinto Rodriguez
  * Carlos Eduardo Ferrão
  * 
- * Versão 1     Data 31/03/2009
+ * Versão 2     Data 07/04/2009
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
+  /**Estado da Calculadora (Binário, Hexadecimal ou Decimal) */
+  private State estado = new Decimal();
 
   /**
    * Construtor para objetos da classe Calculadora.
@@ -37,9 +39,7 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-	  operador *= 10;
-	  operador++;
-	  return operador.toString();
+      return estado.entraUm(this);
   }
 
   /**
@@ -48,8 +48,7 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-      acumulador = operador = 0;
-    return acumulador.toString();
+      return estado.limpa(this);
   }
 
   /**
@@ -58,8 +57,43 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-      acumulador += operador ;
-      operador = 0;
-      return acumulador.toString();
+      return estado.comandoSoma(this);
   }
+  
+  public void modoBin() {
+      estado = new Binario();
+  }
+  
+  public void modoDec() {
+      estado = new Decimal();
+  }
+
+  public void modoHex() {
+      estado = new Hexadecimal();
+  }
+  
+  public Integer getAcumulador() {
+      return acumulador;
+  }
+
+  public Integer getOperador() {
+      return operador;
+  }
+  
+  public void setOperador(Integer operador) {
+      this.operador = operador;
+  }
+  
+  public void setAcumulador(Integer acumulador) {
+      this.acumulador = acumulador;
+  }
+  
+  public static void main(String [] args) {
+		Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		System.out.println(calculad1.comandoSoma());
+    }
 }

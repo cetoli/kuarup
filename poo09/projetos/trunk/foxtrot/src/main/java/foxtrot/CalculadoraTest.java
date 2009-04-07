@@ -5,11 +5,8 @@ package foxtrot;
 /**
  * The test class CalculadoraTest.
  *
- * Autores:
- * Carlos Henrique Pinto Rodriguez
- * Carlos Eduardo Ferrão
- * 
- * Versão 1     Data 31/03/2009
+ * @author  (your name)
+ * @version (a version number or a date)
  */
 public class CalculadoraTest extends junit.framework.TestCase
 {
@@ -125,7 +122,124 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.comandoSoma();
 		assertEquals("11", calculad1.comandoSoma());
 	}
+
+	public void testHexEntraOnzeAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		assertEquals("0x11", calculad1.entraUm());
+	}
+
+	public void testHexEntraUmLimpaAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		assertEquals("0x0", calculad1.limpa());
+	}
+
+	public void testHexEntraUmTresVezesAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		assertEquals("0x111", calculad1.entraUm());
+	}
+
+	public void testHexUmMaisUmAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("0x2", calculad1.comandoSoma());
+	}
+
+	public void testHexOnzeMaisUmAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("0x12", calculad1.comandoSoma());
+	}
+
+	public void testHexUmMaisUmOnzeVezesAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("0xb", calculad1.comandoSoma());
+	}
+
+	public void testHexEntraUmEntraUmLimpaEntraUmAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.limpa();
+		assertEquals("0x1", calculad1.entraUm());
+	}
+
+	public void testHexSomarAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		assertEquals("0x0", calculad1.comandoSoma());
+	}
+
+	public void testHexEntraUmAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		assertEquals("0x1", calculad1.entraUm());
+	}
+
+	public void testHexLimparAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		assertEquals("0x0", calculad1.limpa());
+	}
+
+	public void testHexEntraOnzeSomarSomarAPartirDoRepouso()
+	{
+		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		assertEquals("0x11", calculad1.comandoSoma());
+	}
 }
+
+
 
 
 
