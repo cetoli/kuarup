@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package echo;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
  * @todo Calculadora coms tres botões
@@ -16,13 +16,13 @@ import labase.poo.ICalculadora;
  * @version (1.0)    $Revision$ (31/03/09)      $Date$
  * @since   (versao) Descreva aqui as alterações desta versao
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
-  private Integer acumulador = new Integer(0);
+  private Valor acumulador = new Valor(0);
   /**Acumulador da ultimo valor. */
-  private Integer atual = new Integer(0);
+  private Valor atual = new Valor(0);
   /**Operador da Caculadora. */
-  private Integer operador = new Integer(0);
+  private Valor operador = new Valor(0);
 
   /**
    * Construtor para objetos da classe Calculadora.
@@ -30,16 +30,28 @@ public class Calculadora implements ICalculadora {
   public Calculadora() {
     // inicializa variaveis de instância
   }
-
+  
+   public void modoHex() {
+       atual = new ValorHex(0);
+    }
+    
+   public void modoBin() {
+       atual = new ValorBin(0);
+    }
+    
+   public void modoDec() {
+       atual = new Valor(0);
+    }
+   
   /**
    * Entra a tecla um.
    *
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    String valor = atual.toString()+"1";
-    atual = new Integer(valor);
-    return atual.toString();
+    //String valor = atual.converterEmString()+"1";
+    atual.adicionarDigito("1");
+    return atual.converterEmString();
   }
 
   /**
