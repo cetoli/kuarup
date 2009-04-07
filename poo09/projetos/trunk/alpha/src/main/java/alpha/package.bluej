@@ -1,5 +1,5 @@
 #BlueJ package file
-dependency1.from=CalculadoraUnitTest
+dependency1.from=CalculadoraTest
 dependency1.to=Calculadora
 dependency1.type=UsesDependency
 package.editor.height=400
@@ -26,9 +26,9 @@ target2.editor.width=1288
 target2.editor.x=-4
 target2.editor.y=-4
 target2.height=50
-target2.name=CalculadoraUnitTest
+target2.name=CalculadoraTest
 target2.showInterface=false
 target2.type=UnitTestTarget
-target2.width=140
+target2.width=120
 target2.x=370
 target2.y=50
