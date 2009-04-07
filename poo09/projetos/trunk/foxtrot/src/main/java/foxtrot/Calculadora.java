@@ -21,7 +21,6 @@ import labase.poo.ICalculadora;
 public class Calculadora implements ICalculadora {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
-  private Integer acumuladorAux = new Integer(0);
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
 
@@ -38,14 +37,9 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-      String aux = acumuladorAux.toString();
-      if(aux.equals("0"))
-        aux = "1";
-      else
-        aux += "1";
-      acumuladorAux = Integer.parseInt(aux);
-      return acumuladorAux.toString();
-    //return operador.toString();
+	  operador *= 10;
+	  operador++;
+	  return operador.toString();
   }
 
   /**
@@ -54,7 +48,7 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-      acumulador = acumuladorAux = 0;
+      acumulador = operador = 0;
     return acumulador.toString();
   }
 
@@ -64,13 +58,8 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-      acumulador += acumuladorAux ;
-      acumuladorAux = 0;
+      acumulador += operador ;
+      operador = 0;
       return acumulador.toString();
   }
-  
-  public static void main(String [] args) {
-      Calculadora c = new Calculadora();
-      System.out.println(c.comandoSoma());
-    }
 }
