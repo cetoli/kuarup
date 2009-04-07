@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=CalculadoraTest()
+comment0.text=\nDefault\ constructor\ for\ test\ class\ CalculadoraTest\n\n
+comment1.target=void\ setUp()
+comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
+comment10.target=void\ testSomaApartirDoRepousoRetornaZero()
+comment11.target=void\ testSomaUmMaisRetornaUm()
+comment12.target=void\ testEntraUmComandoSomaValorAcumulador()
+comment13.target=void\ testComandoSomaDigitarUmSomar()
+comment14.target=void\ testComandoSomaSomar11e1111()
+comment2.target=void\ tearDown()
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
+comment3.target=void\ testSomaUmApatrirdoRepouso()
+comment4.target=void\ testSomaOnzeApartirDoRepouso()
+comment5.target=void\ testLimpaRetornaZero()
+comment6.target=void\ testRetornaCentoeOnzeApartirDoZero()
+comment7.target=void\ testUmMaisUm()
+comment8.target=void\ testUmMaisUmLimpar()
+comment9.target=void\ testEntraUmLimpa()
+numComments=15
