@@ -1,17 +1,16 @@
 package alpha;
 
-
-
 /**
  * The test class NumeroHexadecimalTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  Diego Mury G. de Lima
+ * @author  Carlos Felippe Cardoso de Resende
+ * @version 1.0
  */
 public class NumeroHexadecimalTest extends junit.framework.TestCase
 {
     /**
-     * Default constructor for test class NumeroHexadecimalTest
+     * Construtor da classe NumeroHexadecimalTest.
      */
     public NumeroHexadecimalTest()
     {
@@ -35,14 +34,20 @@ public class NumeroHexadecimalTest extends junit.framework.TestCase
     {
     }
     
-    public void testConverte1HexaEmNumeroDecimalAPartirDoRepouso()
+    /**
+     * Testa a entrada do numero 1 em hexadecimal a partir do repouso.
+     */
+    public void testConverteUmHexaEmNumeroDecimalAPartirDoRepouso()
     {
         alpha.NumeroHexadecimal numHex = new alpha.NumeroHexadecimal();
         numHex.entraUm();
         assertEquals(new Integer(1), numHex.converteEmNumeroDecimal());
     }
     
-    public void testConverte11EmNumeroDecimalAPartirDoRepouso()
+    /**
+     * Testa a entrada do numero 11 em hexadecimal a partir do repouso.
+     */
+    public void testConverteUmUmHexaEmNumeroDecimalAPartirDoRepouso()
     {
         alpha.NumeroHexadecimal numHex = new alpha.NumeroHexadecimal();
         numHex.entraUm();
@@ -50,6 +55,9 @@ public class NumeroHexadecimalTest extends junit.framework.TestCase
         assertEquals(new Integer(17), numHex.converteEmNumeroDecimal());
     }
     
+    /**
+     * Testa a exibicao do numero 11 em hexadecimal.
+     */
     public void testMostraNumeroEmHexadecimalDepoisDeSomar()
     {
         alpha.NumeroHexadecimal numHex = new alpha.NumeroHexadecimal();

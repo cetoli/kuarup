@@ -1,17 +1,16 @@
 package alpha;
 
-
-
 /**
  * The test class NumeroDecimalTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  Diego Mury G. de Lima
+ * @author  Carlos Felippe Cardoso de Resende
+ * @version 1.0
  */
 public class NumeroDecimalTest extends junit.framework.TestCase
 {
     /**
-     * Default constructor for test class NumeroDecimalTest
+     * Default constructor for test class NumeroDecimalTest.
      */
     public NumeroDecimalTest()
     {
@@ -35,14 +34,20 @@ public class NumeroDecimalTest extends junit.framework.TestCase
     {
     }
     
-    public void testConverte1EmNumeroDecimalAPartirDoRepouso()
+    /**
+     * Testa a entrada do numero 1 em Decimal a partir do repouso.
+     */
+    public void testConverteUmEmNumeroDecimalAPartirDoRepouso()
     {
         alpha.NumeroDecimal numDec = new alpha.NumeroDecimal();
         numDec.entraUm();
         assertEquals(new Integer(1), numDec.converteEmNumeroDecimal());
     }
     
-    public void testConverte11EmNumeroDecimalAPartirDoRepouso()
+    /**
+     * Testa a entrada do numero 11 em Decimal a partir do repouso.
+     */
+    public void testConverteUmUmEmNumeroDecimalAPartirDoRepouso()
     {
         alpha.NumeroDecimal numDec = new alpha.NumeroDecimal();
         numDec.entraUm();
@@ -50,21 +55,4 @@ public class NumeroDecimalTest extends junit.framework.TestCase
         assertEquals(new Integer(11), numDec.converteEmNumeroDecimal());
     }
 }
-
-
-/*
-public Integer converteEmNumeroDecimal(){
-        return null;
-    }
-    
-    public INumero converterParaBase(Integer num){
-        NumeroDecimal dec = new NumeroDecimal();
-        dec.setRepNum(num.toString());
-        
-        return dec;
-    }
-    
-    public String mostraNumeroNaMinhaRepresentacaoBase(){
-        return null;
-    }*/
 
