@@ -1,9 +1,13 @@
 #BlueJ class context
 comment0.target=void\ entraUm()
-comment0.text=\nAn\ example\ of\ a\ method\ header\ -\ replace\ this\ comment\ with\ your\ own\n\n@param\ \ y\ \ \ \ a\ sample\ parameter\ for\ a\ method\n@return\ \ \ \ \ \ \ \ the\ result\ produced\ by\ sampleMethod\ \n\n
+comment0.text=\nAssinatura\ do\ metodo\ entraUm.\n\n
 comment1.target=Integer\ converteEmNumeroDecimal()
+comment1.text=\nAssinatura\ do\ metodo\ converteEmNumeroDecimal.\n\n@return\ Integer\n\n
 comment2.params=num
 comment2.target=INumero\ converterParaBase(Integer)
+comment2.text=\nAssinatura\ do\ metodo\ converterParaBase.\n\n@param\ num\n@return\ INumero\n\n
 comment3.target=String\ mostraNumeroNaMinhaRepresentacaoBase()
+comment3.text=\nAssinatura\ do\ metodo\ mostraNumeroNaMinhaRepresentacaoBase.\n\n@return\ String\n\n
 comment4.target=void\ zeraRepresentacaoNumerica()
+comment4.text=\nAssinatura\ do\ metodo\ zeraRepresentacaoNumerica.\n\n
 numComments=5

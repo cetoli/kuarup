@@ -1,35 +1,59 @@
 package alpha;
 
-
 /**
- * Abstract class Numero - write a description of the class here
+ * Classe abstrata que sera extendida para operacao
+ * com numeros nas diversas bases.
  * 
- * @author (your name here)
- * @version (version number or date here)
+ * @author Diego Mury Gomes de Lima
+ * @author  Carlos Felippe Cardoso de Resende
+ * @version 1.0
  */
-public abstract class Numero implements INumero{
+public abstract class Numero implements INumero {
     
-     String repNum = "0"; 
+    String repNum = "0"; 
     
+    /**
+     * Metodo que processa a entrada de um numero.
+     */
     public void entraUm() {
         repNum += "1";
     }
     
+    /**
+     * Metodo abstrato que ira converter a entrada em base decimal.
+     */
     public abstract Integer converteEmNumeroDecimal();
     
+    /**
+     * Metodo abstrato que ira converter o numero em 
+     * base decimal para a base corrente.
+     */
     public abstract INumero converterParaBase(Integer num);
     
+    /**
+     * Metodo abstrato que ira exibir o numero na base decimal.
+     */
     public abstract String mostraNumeroNaMinhaRepresentacaoBase();
     
-     public void setRepNum(String num){
-        this.repNum=num;
+    /**
+     * Metodo que ira proceder alteracoes na representacao numerica.
+     */
+    public void setRepNum(String num) {
+        this.repNum = num;
     }
     
-    public String getRepNum(){
+    /**
+     * Metodo que ira retornar a representacao numerica.
+     */
+    public String getRepNum() {
         return repNum;
     }
     
-    public void zeraRepresentacaoNumerica(){
+    /**
+     * Metodo que ira zerar a representacao numerica 
+     * para obtencao do segundo parametro.
+     */
+    public void zeraRepresentacaoNumerica() {
         setRepNum("0");
     }
 }

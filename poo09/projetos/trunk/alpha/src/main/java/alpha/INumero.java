@@ -1,28 +1,44 @@
 package alpha;
 
-
 /**
- * Write a description of interface INumero here.
+ * Interface que implementara a operacao
+ * com numeros nas diversas bases.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Diego Mury Gomes de Lima
+ * @author  Carlos Felippe Cardoso de Resende
+ * @version 1.0
  */
-
 public interface INumero
 {
     /**
-     * An example of a method header - replace this comment with your own
-     * 
-     * @param  y    a sample parameter for a method
-     * @return        the result produced by sampleMethod 
+     * Assinatura do metodo entraUm.
      */
     public void entraUm();
     
+    /**
+     * Assinatura do metodo converteEmNumeroDecimal.
+     * 
+     * @return Integer
+     */
     public Integer converteEmNumeroDecimal();
     
+    /**
+     * Assinatura do metodo converterParaBase.
+     * 
+     * @param num
+     * @return INumero
+     */
     public INumero converterParaBase(Integer num);
     
+    /**
+     * Assinatura do metodo mostraNumeroNaMinhaRepresentacaoBase.
+     * 
+     * @return String
+     */
     public String mostraNumeroNaMinhaRepresentacaoBase();
     
+    /**
+     * Assinatura do metodo zeraRepresentacaoNumerica.
+     */
     public void zeraRepresentacaoNumerica();
 }

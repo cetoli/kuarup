@@ -3,15 +3,16 @@ package alpha;
 
 
 /**
- * The test class NumeroBinarioTest.
+ * The test class NumeroDecimalTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  Diego Mury G. de Lima
+ * @author  Carlos Felippe Cardoso de Resende
+ * @version 1.0
  */
 public class NumeroBinarioTest extends junit.framework.TestCase
 {
     /**
-     * Default constructor for test class NumeroBinarioTest
+     * Default constructor for test class NumeroBinarioTest.
      */
     public NumeroBinarioTest()
     {
@@ -35,24 +36,29 @@ public class NumeroBinarioTest extends junit.framework.TestCase
     {
     }
     
-    
-      public void testConverte1BinarioEmNumeroDecimalAPartirDoRepouso()
-    {
+    /**
+     * Testa a entrada do numero 1 em binario a partir do repouso.
+     */
+    public void testConverteUmBinarioEmNumeroDecimalAPartirDoRepouso() {
         alpha.NumeroBinario numBin = new alpha.NumeroBinario();
         numBin.entraUm();
         assertEquals(new Integer(1), numBin.converteEmNumeroDecimal());
     }
     
-    public void testConverte11BinarioEmNumeroDecimalAPartirDoRepouso()
-    {
+    /**
+     * Testa a entrada do numero 11 em binario a partir do repouso.
+     */
+    public void testConverteUmUmBinarioEmNumeroDecimalAPartirDoRepouso() {
         alpha.NumeroBinario numBin = new alpha.NumeroBinario();
         numBin.entraUm();
         numBin.entraUm();
         assertEquals(new Integer(3), numBin.converteEmNumeroDecimal());
     }
     
-    public void testMostraNumeroEmBinarioAposEntradaApartirDoRepouso()
-    {
+     /**
+     * Testa a exibicao do numero 11 em binario.
+     */
+    public void testMostraNumeroUmUmEmBinarioAposEntradaApartirDoRepouso() {
         alpha.NumeroBinario numBin = new alpha.NumeroBinario();
         numBin.entraUm();
         numBin.entraUm();
