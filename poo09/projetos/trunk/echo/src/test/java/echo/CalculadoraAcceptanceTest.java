@@ -31,7 +31,7 @@ class CalcFactory  extends CalculadoraFactory{
 }
 
 public class CalculadoraAcceptanceTest extends junit.framework.TestCase{
-    
+
     public static Test suite() {
       new CalcFactory();
       TestSuite suite= new TestSuite(CalculadoraTest.class);

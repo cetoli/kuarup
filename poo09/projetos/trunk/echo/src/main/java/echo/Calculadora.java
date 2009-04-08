@@ -9,12 +9,12 @@ package echo;
 import labase.poo.ICalculadoraBase;
 
 /**
- * @todo Calculadora coms tres botões
+ * @todo Calculadora cmos tres botï¿½es
  *
  * @author  (Marcos de Castro)  $Author$
  * @author  (Rodrigo Santos Borges)  $Author$
- * @version (1.0)    $Revision$ (31/03/09)      $Date$
- * @since   (versao) Descreva aqui as alterações desta versao
+ * @version (2.0)    $Revision$ (07/04/09)      $Date$
+ * @since   (2.0) Botoes para entrar valores em binario, hexadecimal e decimal
  */
 public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
@@ -22,13 +22,13 @@ public class Calculadora implements ICalculadoraBase {
   /**Acumulador da ultimo valor. */
   private Valor atual = new Valor(0);
   /**Operador da Caculadora. */
-  private Valor operador = new Valor(0);
+ // private Valor operador = new Valor(0);
 
   /**
    * Construtor para objetos da classe Calculadora.
    */
   public Calculadora() {
-    // inicializa variaveis de instância
+    // inicializa variaveis de instï¿½ncia
   }
   
    public void modoHex() {
@@ -50,8 +50,7 @@ public class Calculadora implements ICalculadoraBase {
    */
   public final String entraUm() {
     //String valor = atual.converterEmString()+"1";
-    atual.adicionarDigito("1");
-    return atual.converterEmString();
+    return atual.adicionarDigito("1");
   }
 
   /**
@@ -60,9 +59,8 @@ public class Calculadora implements ICalculadoraBase {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-    atual = new Integer(0);
-    acumulador = new Integer(0);
-    return acumulador.toString();
+    atual.limparValor();
+    return acumulador.limparValor();
   }
 
   /**
@@ -71,8 +69,13 @@ public class Calculadora implements ICalculadoraBase {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-      acumulador+= atual;
-      atual= new Integer (0);
-    return acumulador.toString();
+      atual.somar (acumulador);
+
+      acumulador= (Valor) atual.clone ();
+      
+      atual.setValor ("0");
+      
+    return acumulador.converterEmString();
   }
+  
 }
