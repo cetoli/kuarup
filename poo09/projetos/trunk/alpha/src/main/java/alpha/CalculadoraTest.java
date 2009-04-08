@@ -35,7 +35,11 @@ public class CalculadoraTest extends junit.framework.TestCase
     protected void tearDown()
     {
     }
-
+    
+    /**
+     * Testa o metodo limpa 
+     *
+     */
     public void testLimpa()
     {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
@@ -111,7 +115,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     public void testOverflowNaEntrada()
     {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
-        try{
+        try {
             calculad1.entraUm();
             calculad1.entraUm();
             calculad1.entraUm();
@@ -125,11 +129,68 @@ public class CalculadoraTest extends junit.framework.TestCase
             calculad1.entraUm();
             fail();
         }
-        catch(NumberFormatException e){
+        catch (NumberFormatException e) {
             assertTrue(true);
         }
     }
+    
+    public void testSomaUmBinarioComUmBinario(){
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("10", calculad1.comandoSoma());
+    }
+    
+    public void testSomaUmHexaComUmHexa(){
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("2", calculad1.comandoSoma());
+    }
+    
+    public void testSomaUmUmHexaComUmHexa(){
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("12", calculad1.comandoSoma());
+    }
+    
+    public void testSomaUmBinarioComUmHexa(){
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        assertEquals("2", calculad1.comandoSoma());
+    }
+    
+    public void testSomaUmHexaComUmUmBin(){
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        assertEquals("100", calculad1.comandoSoma());
+    }
+    
+     public void testSomaUmUmHexaComUmBin(){
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        assertEquals("10010", calculad1.comandoSoma());
+    }
 }
-
-
-

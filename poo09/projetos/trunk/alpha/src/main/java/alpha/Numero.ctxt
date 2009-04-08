@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=void\ entraUm()
+comment1.target=Integer\ converteEmNumeroDecimal()
+comment2.params=num
+comment2.target=INumero\ converterParaBase(Integer)
+comment3.target=String\ mostraNumeroNaMinhaRepresentacaoBase()
+comment4.params=num
+comment4.target=void\ setRepNum(String)
+comment5.target=String\ getRepNum()
+comment6.target=void\ zeraRepresentacaoNumerica()
+numComments=7

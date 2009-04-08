@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=NumeroBinario()
+comment0.text=\nConstructor\ for\ objects\ of\ class\ NumeroBinario\n\n
+comment1.target=Integer\ converteEmNumeroDecimal()
+comment2.params=num
+comment2.target=INumero\ converterParaBase(Integer)
+comment3.target=String\ mostraNumeroNaMinhaRepresentacaoBase()
+numComments=4
