@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.target=CalculadoraUnitTest()
+comment0.target=CalculadoraTest()
 comment0.text=\nDefault\ constructor\ for\ test\ class\ CalculadoraUnitTest\n\n
 comment1.target=void\ setUp()
 comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
