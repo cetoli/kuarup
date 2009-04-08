@@ -8,13 +8,13 @@ package alpha;
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class CalculadoraUnitTest extends junit.framework.TestCase
+public class CalculadoraTest extends junit.framework.TestCase
 {
     /**
      * Default constructor for test class CalculadoraUnitTest
      */
     
-    public CalculadoraUnitTest()
+    public CalculadoraTest()
     {
     }
 
