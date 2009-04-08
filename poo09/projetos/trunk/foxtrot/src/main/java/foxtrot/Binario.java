@@ -33,6 +33,8 @@ public class Binario implements State
       Integer operador = calc.getOperador();
       acumulador += operador ;
       operador = 0;
+      calc.setAcumulador(acumulador);
+      calc.setOperador(operador);      
       return "bx" + Integer.toBinaryString(acumulador.intValue());
     }
 }

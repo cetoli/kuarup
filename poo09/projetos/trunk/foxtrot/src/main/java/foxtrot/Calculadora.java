@@ -89,11 +89,11 @@ public class Calculadora implements ICalculadoraBase {
   }
   
   public static void main(String [] args) {
-		Calculadora calculad1 = new foxtrot.Calculadora();
-		calculad1.modoHex();
+		Calculadora calculad1 = new Calculadora();
+		calculad1.modoBin();
 		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
+		System.out.println(calculad1.comandoSoma());
+		System.out.println(calculad1.entraUm());
 		System.out.println(calculad1.comandoSoma());
     }
 }
