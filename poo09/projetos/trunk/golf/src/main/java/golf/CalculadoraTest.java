@@ -41,7 +41,7 @@ public class CalculadoraTest extends junit.framework.TestCase{
         calculad1.limpa();
         assertEquals("1", calculad1.entraUm());
     }
-    
+
     /**
      * Testa o resultado de digitar um duas vezes.
      *
