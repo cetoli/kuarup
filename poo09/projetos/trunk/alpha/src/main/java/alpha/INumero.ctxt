@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=void\ entraUm()
+comment0.text=\nAn\ example\ of\ a\ method\ header\ -\ replace\ this\ comment\ with\ your\ own\n\n@param\ \ y\ \ \ \ a\ sample\ parameter\ for\ a\ method\n@return\ \ \ \ \ \ \ \ the\ result\ produced\ by\ sampleMethod\ \n\n
+comment1.target=Integer\ converteEmNumeroDecimal()
+comment2.params=num
+comment2.target=INumero\ converterParaBase(Integer)
+comment3.target=String\ mostraNumeroNaMinhaRepresentacaoBase()
+comment4.target=void\ zeraRepresentacaoNumerica()
+numComments=5

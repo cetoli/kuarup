@@ -6,38 +6,27 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package alpha;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
- * Esta é a classe principal da calculadora do time alpha
+ * Esta é a classe principal da calculadora do time alpha.
  *
  * @author  (Diego Mury Gomes de Lima)  $Author$
  * @author  (Carlos Felippe Cardoso de Resende)  $Author$
- * @version (1.0)    $Revision$ (1.0)      $Date$ 31/03/09
+ * @version (2.0)    $Revision$ (2.0)      $Date$ 07/04/09
  * @since   (1.0) Calculadora com o operador "+", o número "1" e a tecla "limpa"
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
-  private Integer acumulador = new Integer(0);
+  private INumero acumulador = new NumeroDecimal();
   /**Operador da Caculadora. */
-  private Integer operador = new Integer(0);
+  private INumero operador = new NumeroDecimal();
 
   /**
    * Construtor para objetos da classe Calculadora.
    */
   public Calculadora() {
     // inicializa variaveis de instância
-  }
-
-  /**
-   * Entra a tecla um.
-   *
-   * @return  conteudo do operador
-   */
-  public final String entraUm() {
-    String op = operador.toString() + "1";
-    operador = Integer.parseInt(op);
-    return operador.toString();
   }
 
   /**
@@ -48,17 +37,63 @@ public class Calculadora implements ICalculadora {
   public final String limpa() {
     return "0";
   }
+  
+  /**
+   * Entra a tecla um.
+   *
+   * @return  conteudo do operador
+   */
+  public final String entraUm() {
+      operador.entraUm();
+      return operador.mostraNumeroNaMinhaRepresentacaoBase();
+  }
 
   /**
    * Entra o comando soma.
    *
    * @return  conteudo do acumulador
    */
-  public final String comandoSoma() {
+    public final String comandoSoma() {
       
-      acumulador = new Integer(operador.intValue() + acumulador.intValue());
-      operador = new Integer(0);
-      
-    return acumulador.toString();
-  }
+      Integer temp = operador.converteEmNumeroDecimal().intValue()+ acumulador.converteEmNumeroDecimal().intValue();
+      //System.out.println("Valor de temp " + temp.toString());
+      acumulador = operador.converterParaBase(temp);
+      operador.zeraRepresentacaoNumerica();
+      return acumulador.mostraNumeroNaMinhaRepresentacaoBase();
+    }
+    
+  /**
+   * * Opera em modo hexadecimal.
+   *
+   * 
+   */
+    public final void modoHex() {
+        operador = new NumeroHexadecimal();
+   
+      //return acumulador.toString();
+    }
+    
+    /**
+   * * Opera em modo hexadecimal.
+   *
+   * 
+   */
+    public final void modoBin() {
+        operador = new NumeroBinario();
+   
+      //return acumulador.toString();
+    }
+    
+    /**
+   * * Opera em modo hexadecimal.
+   *
+   * 
+   */
+    public final void modoDec() {
+        operador = new NumeroDecimal();
+   
+      //return acumulador.toString();
+    }
+    
+    
 }
