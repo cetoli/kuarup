@@ -1,7 +1,15 @@
 #BlueJ class context
 comment0.params=novo
 comment0.target=ValorBin(int)
-comment1.params=novo
-comment1.target=void\ setValor(String)
-comment2.target=String\ converterEmString()
-numComments=3
+comment1.params=str
+comment1.target=int\ converterBin(String)
+comment1.text=\nConverte\ o\ valor\ de\ bin\u00E1rio\ para\ decimal.\n\n@param\ \ str\ Valor\ em\ bin\u00E1rio.\n\n@return\ valor\ em\ decimal.\n\n
+comment2.params=novo
+comment2.target=void\ setValor(String)
+comment2.text=\nConverte\ para\ decimal\ e\ armazena\ o\ valor\ passado.\n\n@param\ novo\ valor\ em\ bin\u00E1rio.\n\n
+comment3.target=String\ converterEmString()
+comment3.text=\nConverte\ o\ valor\ armazenado\ em\ String\ bin\u00E1ria.\n\n@return\ String\ bin\u00E1ria.\n\n
+comment4.params=digito
+comment4.target=String\ adicionarDigito(String)
+comment4.text=\nAdiciona\ um\ novo\ d\u00EDgito\ a\ direita\ do\ valor\ armazenado.\n\n@param\ digito\ String\ com\ o\ valor\ do\ d\u00EDgito\ a\ ser\ inserido.\n\n@return\ valor\ atualizado\ do\ objeto.\n\n
+numComments=5
