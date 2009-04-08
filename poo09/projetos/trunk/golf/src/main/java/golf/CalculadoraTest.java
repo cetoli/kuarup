@@ -126,7 +126,96 @@ public class CalculadoraTest extends junit.framework.TestCase{
         calculad1.entraUm();
         assertEquals("2", calculad1.comandoSoma());
     }
+
+    /**
+     * Testa o que acontece se somar 1 + 1 no modo Binario.
+     *
+     * @return  10
+     */
+	public void testSomaUmMaisUmBin(){
+		golf.Calculadora calculad1 = new golf.Calculadora();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("10", calculad1.comandoSoma());
+	}
+
+    /**
+     * Testa o que acontece se digitar + em repouso no modo Binario.
+     *
+     * @return  0
+     */
+	public void testDigitaMaisEmRepousoBin(){
+		golf.Calculadora calculad1 = new golf.Calculadora();
+		calculad1.modoBin();
+		assertEquals("0", calculad1.comandoSoma());
+	}
+
+    /**
+     * Testa o que acontece se somar 1 + 1 + 1, no modo Binario.
+     *
+     * @return  11
+     */
+	public void testUmMaisUmMaisUmMaisBin(){
+		golf.Calculadora calculad1 = new golf.Calculadora();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("11", calculad1.comandoSoma());
+	}
+
+    /**
+     * Testa o que acontece se somar 11 + 11, no modo Hexadecimal.
+     *
+     * @return  22
+     */
+	public void testSomaOnzeMaisOnzeHex(){
+		golf.Calculadora calculad1 = new golf.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		assertEquals("22", calculad1.comandoSoma());
+	}
+
+    /**
+     * Testa o que acontece se somar 11 + 1, no modo Hexadecimal.
+     *
+     * @return  12
+     */
+	public void testSomaOnzeMaisUmHex(){
+		golf.Calculadora calculad1 = new golf.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("12", calculad1.comandoSoma());
+	}
+
+    /**
+     * Testa o que acontece se digitar + em repouso no modo Hexadecimal.
+     *
+     * @return  0
+     */
+	public void testDigitaMaisEmRepousoHex(){
+		golf.Calculadora calculad1 = new golf.Calculadora();
+		calculad1.modoHex();
+		assertEquals("0", calculad1.comandoSoma());
+	}
 }
+
+
+
+
+
+
 
 
 
