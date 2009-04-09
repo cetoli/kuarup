@@ -22,13 +22,13 @@ class Caixa3D(Observer):
             self.setColorCinza()
 
     def setColorCinza(self):
-        self.box.color = (0.4, 0.4, 0.4)
+        self.box.color = (0.6, 0.6, 0.6)
 
     def setColorAzul(self):
-        self.box.color = (0, 0, 0.9)
+        self.box.color = (0, 0, 1)
 
     def setColorDerrubada(self):
-        self.box.color = (0.8, 0.8, 0.8)
+        self.box.color = (0, 1, 1)
 
     def novoDestinoEsquerda(self):
         self.posDestino = self.box.pos - (1, 0, 0)
