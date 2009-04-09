@@ -13,7 +13,7 @@ class Cenario():
         self.scene2.select()
         self.scene2.autoscale = 1
         self.scene2.autocenter = 1
-        self.scene2.forward = (0,1,-1)
+        self.scene2.forward = (0,1,-2)
         #scene2.range = (6,6,6)
 
         self.tabuleiro = Tabuleiro()
