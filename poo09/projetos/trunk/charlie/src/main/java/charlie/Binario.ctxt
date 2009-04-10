@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.params=integer
-comment0.target=Integer\ entraUm(Integer)
-comment0.text=\nAn\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n@param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\n@return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \n\n
-comment1.params=integer
-comment1.target=String\ toString(Integer)
-numComments=2
