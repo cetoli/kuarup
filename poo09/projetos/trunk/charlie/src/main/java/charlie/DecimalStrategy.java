@@ -1,27 +1,28 @@
 package charlie;
 
-
 /**
  * Write a description of class Dec here.
- * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Decimal implements Base
+public class DecimalStrategy implements BaseStrategy
 {
+    /**
+     * Declaracao de variavel BaseDez.
+     */
     static int BaseDez = 10;
     
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Declaracao do metodo entraUm.
      */
     public Integer entraUm (Integer integer){
         integer = integer * BaseDez + 1;        
         return integer;
     }    
     
+    /**
+     * Declaracao de metodo toString.
+     */
     public String toString (Integer integer){
         return Integer.toString(integer);
     }

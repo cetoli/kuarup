@@ -11,7 +11,6 @@ import labase.poo.ICalculadoraBase;
 /**
  * Esta eh a primeira versao da Calculadora. 
  * Nao possui nenhum design pattern ainda.
- *
  * @author  Andre Abrantes  $Author$
  * @author  Helio Salmon  $Author$
  * @version 1.0    $Revision$ 31/03/2009      $Date$
@@ -20,10 +19,12 @@ import labase.poo.ICalculadoraBase;
 public class Calculadora implements ICalculadoraBase {
     /**Operador da Caculadora. */
     private Integer operador = new Integer(0);
+    
     /**Acumulador da Caculadora. */
     private Integer acumulador = new Integer(0);
     
-    Base modo;
+    /**Declaracao de variavel modo de operacao. */
+    BaseStrategy modo;
     
     /**Multiplicador de dezenas. */
     private static int dezena = 10;
@@ -34,12 +35,11 @@ public class Calculadora implements ICalculadoraBase {
     public Calculadora() {
         // inicializa variaveis de instancia
         operador = acumulador = 0;
-        modo = new Decimal();
+        modo = new DecimalStrategy();
     }
 
     /**
      * Entra a tecla um.
-     *
      * @return  conteudo do operador
      */
     public final String entraUm() {
@@ -49,7 +49,6 @@ public class Calculadora implements ICalculadoraBase {
 
     /**
      * Limpa o acumulador.
-     *
      * @return  conteudo do acumulador
      */
     public final String limpa() {
@@ -57,11 +56,9 @@ public class Calculadora implements ICalculadoraBase {
         operador = 0;
         return operador.toString();
     }
-
    
     /**
      * Entra o comando soma.
-     *
      * @return  conteudo do acumulador
      */
     public final String comandoSoma() {
@@ -74,21 +71,20 @@ public class Calculadora implements ICalculadoraBase {
      * Entra no modo Hexadecimal.
      */
     public void modoHex(){
-        modo = new Hexadecimal();
+        modo = new HexadecimalStrategy();
     }
     
     /**
      * Entra no modo Binario.
      */
     public void modoBin(){
-        modo = new Binario();
+        modo = new BinarioStrategy();
     }
     
     /**
      * Entra no modo Decimal.
      */
     public void modoDec(){
-        modo = new Decimal();
-    }
-    
+        modo = new DecimalStrategy();
+    } 
 }

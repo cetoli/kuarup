@@ -1,27 +1,28 @@
 package charlie;
 
-
 /**
  * Write a description of class Hexadecimal here.
- * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Hexadecimal implements Base
+public class HexadecimalStrategy implements BaseStrategy
 {
+    /**
+     * Declaracao dde variavel BaseDezesseis.
+     */    
     static int BaseDezesseis = 16;
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Declaracao do metodo entraUm em Hexa.
      */    
     public Integer entraUm (Integer integer){
         integer = integer * BaseDezesseis + 1;        
         return integer;
-    }    
+    }  
     
+    /**
+     * Declaracao do metodo toString em Hexa.
+     */   
     public String toString (Integer integer){
         return Integer.toHexString(integer);
     }
