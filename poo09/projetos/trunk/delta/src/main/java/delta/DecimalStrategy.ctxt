@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=char\ getId()
+comment0.text=\nRetorna\ o\ identificador\ da\ base\ decimal,\ bin\u00E1ria\ ou\ hexadecimal.\n@return\ o\ identificador\ da\ respectiva\ base.\n\n
+comment1.params=n
+comment1.target=int\ toDecValue(String)
+comment1.text=\nRetorna\ o\ valor\ em\ decimal\ do\ n\u00FAmero\ dado\ em\ base\ decimal,\ bin\u00E1ria\ ou\nhexadecimal.\n@param\ n\ string\ do\ n\u00FAmero\ dado\ na\ respectiva\ base.\n@return\ o\ valor\ em\ decimal\ do\ n\u00FAmero\ dado.\n\n
+comment2.params=v
+comment2.target=String\ toBase(int)
+comment2.text=\nRetorna\ um\ n\u00FAmero\ em\ base\ decimal,\ bin\u00E1ria\ ou\ hexadecimal\ de\ acordo\ com\no\ valor\ em\ decimal\ dado.\n@param\ v\ valor\ em\ decimal\ do\ n\u00FAmero\ dado.\n@return\ a\ string\ do\ n\u00FAmero\ dado\ na\ respectiva\ base.\n\n
+numComments=3

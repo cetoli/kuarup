@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=DecimalStrategyTest()
+comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ DecimalTeste.\n\n
+comment1.target=void\ testeToDecValue8()
+comment1.text=\nTeste\ do\ m\u00E9todo\ toDecValue()\nN\u00FAmero\ na\ base\ decimal\ utilizado\:\ 8.\n\n
+comment10.target=void\ tearDown()
+comment10.text=\nLimpeza\ do\ caso\ de\ teste.\nChamado\ ap\u00F3s\ cada\ m\u00E9todo\ de\ teste\ de\ caso.\n\n
+comment2.target=void\ testeToDecValue35()
+comment2.text=\nTeste\ do\ m\u00E9todo\ toDecValue()\nN\u00FAmero\ na\ base\ decimal\ utilizado\:\ 35.\n\n
+comment3.target=void\ testeToDecValue256()
+comment3.text=\nTeste\ do\ m\u00E9todo\ toDecValue()\nN\u00FAmero\ na\ base\ decimal\ utilizado\:\ 256.\n\n
+comment4.target=void\ testeToDecValue1600()
+comment4.text=\nTeste\ do\ m\u00E9todo\ toDecValue()\nN\u00FAmero\ na\ base\ decimal\ utilizado\:\ 1600.\n\n
+comment5.target=void\ testeToBase8()
+comment5.text=\nTeste\ do\ m\u00E9todo\ toBase()\nValor\ na\ base\ decimal\ utilizado\:\ 8.\n\n
+comment6.target=void\ testeToBase35()
+comment6.text=\nTeste\ do\ m\u00E9todo\ toBase()\nValor\ na\ base\ decimal\ utilizado\:\ 35.\n\n
+comment7.target=void\ testeToBase256()
+comment7.text=\nTeste\ do\ m\u00E9todo\ toBase()\nValor\ na\ base\ decimal\ utilizado\:\ 256.\n\n
+comment8.target=void\ testeToBase1600()
+comment8.text=\nTeste\ do\ m\u00E9todo\ toBase()\nValor\ na\ base\ decimal\ utilizado\:\ 1600.\n\n
+comment9.target=void\ setUp()
+comment9.text=\nPrepara\u00E7\u00E3o\ do\ caso\ de\ teste.\nChamado\ antes\ de\ cada\ m\u00E9todo\ de\ caso\ de\ teste.\n\n
+numComments=11

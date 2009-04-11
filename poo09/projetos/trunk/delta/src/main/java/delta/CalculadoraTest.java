@@ -1,3 +1,11 @@
+/*------------------------------------------------------------------------------
+    Copyright  2002-2009        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
+
 package delta;
 /**
  * The test class CalculadoraTest.
@@ -9,97 +17,660 @@ package delta;
 public class CalculadoraTest extends junit.framework.TestCase
 {
     /**
-     * Default constructor for test class CalculadoraTest
+     * Default constructor for test class CalculadoraTeste.
      */
-    public CalculadoraTest()
-    {
+    public CalculadoraTest() {
     }
+
+    /**
+     * Teste do método limpa().
+     */
+    public void testeLimpa() {
+        Calculadora calculadora = new Calculadora();
+        assertEquals(0, calculadora.limpa());
+    }
+
+    /**
+     * Teste do método entraUm()
+     * Validação do método testeEntraUmaVez() utilizando apenas uma chamada do
+     * método entraUm().
+     */
+    public void testeEntraUmUmaVez() {
+        Calculadora calculadora = new Calculadora();
+        assertEquals("D1", calculadora.entraUm());
+    }
+
+    /**
+     * Teste do método entraUm()
+     * Validação do método testeEntraDuasVezes() utilizando duas chamadas do
+     * método entraUm().
+     */
+    public void testeEntraUmDuasVezes() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        assertEquals("D11", calculadora.entraUm());
+    }
+
+    /**
+     * Teste do método entraUm()
+     * Validação do método testeEntraTresVezes() utilizando três chamadas do
+     * método entraUm().
+     */
+    public void testeEntraUmTresVezes() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("D111", calculadora.entraUm());
+    }
+
+    /**
+     * Teste do método comandoSoma()
+     * Validação do método testeSomaSemOperador() utilizando apenas uma chamada
+     * do método comandoSoma().
+     */
+    public void testeSomaSemOperador() {
+        Calculadora calculadora = new Calculadora();
+        assertEquals("D0", calculadora.comandoSoma());
+    }
+
+    /**
+     * Teste do método comandoSoma()
+     * Validação do método testeSomaComUmOperador() utilizando apenas uma
+     * chamada do método entraUm() e uma chamada do método comandoSoma().
+     */
+    public void testeSomaComUmOperador() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        assertEquals("D1", calculadora.comandoSoma());
+    }
+
+    /**
+     * Teste do método comandoSoma()
+     * Validação do método testeSomaComDoisOperadores() utilizando duas chamadas
+     * do método entraUm() e duas chamadas do método comandoSoma().
+     */
+    public void testeSomaComDoisOperadores() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        assertEquals("D2", calculadora.comandoSoma());
+    }
+
+    /**
+     * Teste do método comandoSoma()
+     * Validação do método testeLimpaAposSoma() através da chamda do método
+     * limpa() após duas chamadas do método entraUm() e duas chamadas do método
+     * comandoSoma().
+     */
+    public void testeLimpaAposSoma() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        assertEquals(0, calculadora.limpa());
+    }
+
+    /**
+     * Teste do método comandoSoma()
+     * Validação do método testeSomaAposLima() através da chamada do método
+     * comandoSoma() após duas chamadas do método entraUm() e uma chamada do
+     * método comandoSoma().
+     */
+    public void testeSomaAposLimpa() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        calculadora.limpa();
+        assertEquals("D0", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXLimpa()
+     * O objetivo é verificar se o método limpa() executará de forma correta
+     * após uma chamada do método entraBaseX().
+     */
+    public void testeEntraBaseDecLimpa() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        assertEquals(0, calculadora.limpa());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXLimpa()
+     * O objetivo é verificar se o método limpa() executará de forma correta
+     * após uma chamada do método entraBaseX().
+     */
+    public void testeEntraBaseBinLimpa() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        assertEquals(0, calculadora.limpa());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXLimpa()
+     * O objetivo é verificar se o método limpa() executará de forma correta
+     * após uma chamada do método entraBaseX().
+     */
+    public void testeEntraBaseHexLimpa() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        assertEquals(0, calculadora.limpa());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXSoma()
+     * O objetivo é verificar se o método comandoSoma() retornará o valor zero
+     * na base especificada após uma chamada do método entraBaseX().
+     */
+    public void testeEntraBaseDecSoma() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        assertEquals("D0", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXSoma()
+     * O objetivo é verificar se o método comandoSoma() retornará o valor zero
+     * na base especificada após uma chamada do método entraBaseX().
+     */
+    public void testeEntraBaseBinSoma() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        assertEquals("B0", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXSoma()
+     * O objetivo é verificar se o método comandoSoma() retornará o valor zero
+     * na base especificada após uma chamada do método entraBaseX().
+     */
+    public void testeEntraBaseHexSoma() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        assertEquals("H0", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXEntraUm()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraBaseDecEntraUm() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        assertEquals("D1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXEntraUm()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraBaseBinEntraUm() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        assertEquals("B1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraBaseXEntraUm()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraBaseHexEntraUm() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        assertEquals("H1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraOpDecSomaEntraOpBin() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        assertEquals("B1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraOpDecSomaEntraOpHex() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoHex();
+        assertEquals("H1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraOpBinSomaEntraOpDec() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoDec();
+        assertEquals("D1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraOpBinSomaEntraOpHex() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoHex();
+        assertEquals("H1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraOpHexSomaEntraOpBin() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        assertEquals("B1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
+     * binária e hexadecimal estão corretas.
+     */
+    public void testeEntraOpHexSomaEntraOpDec() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoDec();
+        assertEquals("D1", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
+     * O objetivo é verificar se a soma entre operandos em diferentes bases
+     * estão sendo realizadas de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm()
+     * em uma base apenas (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaEntreOpDecEOpBin() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        assertEquals("B1100", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
+     * O objetivo é verificar se a soma entre operandos em diferentes bases
+     * estão sendo realizadas de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm()
+     * em uma base apenas (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaEntreOpDecEOpHex() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        assertEquals("Hc", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
+     * O objetivo é verificar se a soma entre operandos em diferentes bases
+     * estão sendo realizadas de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm()
+     * em uma base apenas (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaEntreOpBinEOpDec() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        assertEquals("D4", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
+     * O objetivo é verificar se a soma entre operandos em diferentes bases
+     * estão sendo realizadas de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm()
+     * em uma base apenas (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaEntreOpBinEOpHex() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        assertEquals("H4", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
+     * O objetivo é verificar se a soma entre operandos em diferentes bases
+     * estão sendo realizadas de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm()
+     * em uma base apenas (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaEntreOpHexEOpBin() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        assertEquals("B10010", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
+     * O objetivo é verificar se a soma entre operandos em diferentes bases
+     * estão sendo realizadas de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm()
+     * em uma base apenas (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaEntreOpHexEOpDec() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        assertEquals("D18", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
+     * O objetivo é verificar se a formação de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, está sendo feita de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeEntraD11B1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        assertEquals("B10111", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
+     * O objetivo é verificar se a formação de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, está sendo feita de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeEntraB11D1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoDec();
+        assertEquals("D31", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
+     * O objetivo é verificar se a formação de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, está sendo feita de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeEntraH11B1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        assertEquals("B100011", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
+     * O objetivo é verificar se a formação de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, está sendo feita de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeEntraD11B1H1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.modoHex();
+        assertEquals("H171", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
+     * O objetivo é verificar se a formação de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, está sendo feita de forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeEntraH11B1H1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.modoHex();
+        assertEquals("H231", calculadora.entraUm());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo é verificar se a soma entre operandos, formados pela
+     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaD11B1eB11D1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        assertEquals("D54", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo é verificar se a soma entre operandos, formados pela
+     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaD11B1eH11D1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        assertEquals("D194", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo é verificar se a soma entre operandos, formados pela
+     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaD11B1eB11H1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        assertEquals("H48", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo é verificar se a soma entre operandos, formados pela
+     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaH11B1eD11H1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        assertEquals("Hd4", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo é verificar se a soma entre operandos, formados pela
+     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaD11B1H1eB11D1H1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        assertEquals("H362", calculadora.comandoSoma());
+    }
+
+    /**
+     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo é verificar se a soma entre operandos, formados pela
+     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * forma correta.
+     * Nestes testes o operando é formado por chamadas ao método entraUm() em
+     * diferentes bases (decimal, binária ou hexadecimal).
+     */
+    public void testeSomaB11D1H1eH11B1D1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        assertEquals("D848", calculadora.comandoSoma());
+    }
+
     /**
      * Sets up the test fixture.
-     *
      * Called before every test case method.
      */
-    protected void setUp()
-    {
+    protected void setUp() {
     }
+
     /**
      * Tears down the test fixture.
-     *
      * Called after every test case method.
      */
-    protected void tearDown()
-    {
+    protected void tearDown() {
     }
-	public void testeEntraUmDigitar1()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		assertEquals("1", calculad1.entraUm());
-	}
-	public void testeEntraUmDigitar11()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		calculad1.entraUm();
-		assertEquals("11", calculad1.entraUm());
-	}
-	public void testeEntraUmDigitar111()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		assertEquals("111", calculad1.entraUm());
-	}
-	public void testeEntraUmDigitar1111()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		assertEquals("1111", calculad1.entraUm());
-	}
-	public void testeComandoSomaDigitar1Somar()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		assertEquals("2", calculad1.comandoSoma());
-	}
-	public void testeComandoSomaSomar1e11()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		assertEquals("12", calculad1.comandoSoma());
-	}
-	public void testeComandoSomaSomar11e1111()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		assertEquals("1122", calculad1.comandoSoma());
-	}
-	public void testeComandoLimpar()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		assertEquals("0", calculad1.limpa());
-	}
-	public void testeComandoSomarApartirRepouso()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		assertEquals("0", calculad1.comandoSoma());
-	}
-	public void testeComandoLimparEntraUm()
-	{
-		delta.Calculadora calculad1 = new delta.Calculadora();
-		calculad1.entraUm();
-		calculad1.limpa();
-		assertEquals("1", calculad1.entraUm());
-	}
 }
