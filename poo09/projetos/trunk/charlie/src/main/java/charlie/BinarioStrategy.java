@@ -1,7 +1,7 @@
 package charlie;
 
 /**
- * Write a description of class Binario here.
+ * Classe concreta Binario.
  * @author (your name) 
  * @version (a version number or a date)
  */
@@ -9,13 +9,13 @@ public class BinarioStrategy implements BaseStrategy {
     /**
      * Variavel que define a base a ser utilizada.
      */  
-    static int BaseDois = 2;
+    static int baseDois = 2;
 
     /**
      * Tecla numero Um.
      */    
     public Integer entraUm(Integer integer) {
-        integer = integer * BaseDois + 1;        
+        integer = integer * baseDois + 1;        
         return integer;
     }    
     

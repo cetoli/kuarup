@@ -7,7 +7,7 @@ package charlie;
  */
 public class CalculadoraTest extends junit.framework.TestCase {
     /**
-     * Default constructor for test class CalculadoraTest
+     * Construtor da Classe Calculadora.
      */
     public CalculadoraTest() {
     }
