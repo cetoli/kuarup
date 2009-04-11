@@ -1,12 +1,10 @@
 #BlueJ class context
 comment0.target=Calculadora()
-comment0.text=\nConstrutor\ para\ objetos\ da\ classe\ Calculadora.\n\n\n
-comment1.target=void\ entraUm()
-comment1.text=\nEntra\ a\ tecla\ um.\n\n\n
-comment2.target=String\ getDisplay()
-comment2.text=\nObt\u00E9m\ o\ cont\u00E9udo\ do\ display.\n\n@return\ o\ conteudo\ do\ display\n\n
-comment3.target=void\ limpa()
-comment3.text=\nLimpa\ o\ cont\u00E9udo\ do\ acumulador.\n\n\n
-comment4.target=void\ comandoSoma()
-comment4.text=\nRealiza\ a\ soma\ do\ n\u00FAmero\ digitado\ na\ calculadora\ (operando)\ com\ o\ \ncont\u00E9udo\ do\ acumulador,\ compondo\ o\ resultado\ da\ opera\u00E7\u00E3o\ soma.\n\n\n
-numComments=5
+comment0.text=\nConstrutor\ para\ objetos\ da\ classe\ Calculadora.\n\n
+comment1.target=String\ entraUm()
+comment1.text=\nEntra\ a\ tecla\ um.\n\n@return\ \ conteudo\ do\ operador\n\n
+comment2.target=String\ limpa()
+comment2.text=\nLimpa\ o\ acumulador.\n\n@return\ \ conteudo\ do\ acumulador\n\n
+comment3.target=String\ comandoSoma()
+comment3.text=\nEntra\ o\ comando\ soma.\n\n@return\ \ conteudo\ do\ acumulador\n\n
+numComments=4
