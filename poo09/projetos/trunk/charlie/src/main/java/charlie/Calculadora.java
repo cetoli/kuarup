@@ -34,7 +34,8 @@ public class Calculadora implements ICalculadoraBase {
      */
     public Calculadora() {
         // inicializa variaveis de instancia
-        operador = acumulador = 0;
+        operador = 0;
+        acumulador = 0;
         modo = new DecimalStrategy();
     }
 
@@ -70,21 +71,21 @@ public class Calculadora implements ICalculadoraBase {
     /**
      * Entra no modo Hexadecimal.
      */
-    public void modoHex(){
+    public void modoHex() {
         modo = new HexadecimalStrategy();
     }
     
     /**
      * Entra no modo Binario.
      */
-    public void modoBin(){
+    public void modoBin() {
         modo = new BinarioStrategy();
     }
     
     /**
      * Entra no modo Decimal.
      */
-    public void modoDec(){
+    public void modoDec() {
         modo = new DecimalStrategy();
     } 
 }

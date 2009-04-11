@@ -1,15 +1,15 @@
 package charlie;
 
 /**
- * The test class BinarioTest.
+ * The test class DecimalStrategyTest.
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class BinarioTest extends junit.framework.TestCase {
+public class DecimalStrategyTest extends junit.framework.TestCase {
     /**
-     * Default constructor for test class BinarioTest
+     * Construtor da classe DecimalStrategyTest.
      */
-    public BinarioTest() {
+    public DecimalStrategyTest() {
     }
 
     /**

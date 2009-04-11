@@ -1,15 +1,15 @@
 package charlie;
 
 /**
- * The test class HexadecimalTest.
+ * The test class BinarioStrategyTest.
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class HexadecimalTest extends junit.framework.TestCase {
+public class BinarioStrategyTest extends junit.framework.TestCase {
     /**
-     * Default constructor for test class HexadecimalTest
+     * Contrutor da classe de teste de BinarioStrategy.
      */
-    public HexadecimalTest() {
+    public BinarioStrategyTest() {
     }
 
     /**
