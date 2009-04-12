@@ -6,36 +6,72 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package hotel;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
  * @todo Escreva a descricao da classe Calculadora aqui.
  *
  * @author  (Alexandre Louzada & Marcio Reis)  $Author$
- * @version (1.0)    $Revision$ (31/03/2009)      $Date$
+ * @version (2.0)    $Revision$ (31/03/2009)      $Date$
  * @since   (versao) Soma 1 mais 1
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
-
+  
+  private BaseState baseDecimal;
+  private BaseState baseBinaria;
+  private BaseState baseHexadecimal;
+  private BaseState baseAtual;
+  
   /**
    * Construtor para objetos da classe Calculadora.
    */
   public Calculadora() {
     // inicializa variaveis de instância
+    this.baseDecimal = new BaseDecimal();
+    this.baseBinaria = new BaseBinaria();
+    this.baseHexadecimal = new BaseHexadecimal();
+    this.baseAtual = this.baseDecimal;
   }
 
+  public Integer getOperador(){
+      return this.operador;
+  }
+  
+  public void setOperador(Integer operador){
+      this.operador = operador;
+  }
+  
+  public Integer getAcumulador(){
+      return this.acumulador;
+  }
+  
+  public void setAcumulador(Integer acumulador){
+      this.acumulador = acumulador;
+  }
+  
+  public void modoHex(){
+      this.baseAtual = this.baseHexadecimal;
+  }
+
+  public void modoBin(){
+      this.baseAtual = this.baseBinaria;
+  }
+  
+  public void modoDec(){
+      this.baseAtual = this.baseDecimal;
+  }
+  
   /**
    * Entra a tecla um.
    *
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    this.operador = new Integer (this.operador.toString() + 1);
-    return operador.toString();
+      return this.baseAtual.entraUm(this);
   }
 
   /**
@@ -44,9 +80,7 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String limpa() {
-    this.operador = 0;
-    this.acumulador = 0;
-    return "0";
+      return this.baseAtual.limpa(this);
   }
 
   /**
@@ -55,8 +89,6 @@ public class Calculadora implements ICalculadora {
    * @return  conteudo do acumulador
    */
   public final String comandoSoma() {
-      this.acumulador += this.operador;
-      this.operador = 0;
-      return acumulador.toString();
+      return this.baseAtual.comandoSoma(this);
   }
 }
