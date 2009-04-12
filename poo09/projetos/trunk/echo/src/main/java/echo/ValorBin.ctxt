@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=novo
 comment0.target=ValorBin(int)
+comment0.text=\nConstrutor\ que\ armazena\ um\ valor\ decimal.\n\n@param\ novo\ valor\ em\ decimal\ a\ ser\ armazenado.\n\n
 comment1.params=str
 comment1.target=int\ converterBin(String)
 comment1.text=\nConverte\ o\ valor\ de\ bin\u00E1rio\ para\ decimal.\n\n@param\ \ str\ Valor\ em\ bin\u00E1rio.\n\n@return\ valor\ em\ decimal.\n\n
