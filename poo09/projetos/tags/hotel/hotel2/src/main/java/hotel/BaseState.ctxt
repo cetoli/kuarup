@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=calc
+comment0.target=String\ entraUm(Calculadora)
+comment1.params=calc
+comment1.target=String\ comandoSoma(Calculadora)
+comment2.params=calc
+comment2.target=String\ limpa(Calculadora)
+comment3.params=valor
+comment3.target=String\ converterParaDecimal(Integer)
+comment4.params=valor
+comment4.target=String\ converterParaBinario(Integer)
+comment5.params=valor
+comment5.target=String\ converterParaHexadecimal(Integer)
+numComments=6
