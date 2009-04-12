@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=BaseHexadecimal()
+comment0.text=\nConstructor\ for\ objects\ of\ class\ BaseHexadecimal\n\n
+comment1.params=valor
+comment1.target=String\ converterBase(Integer)
+comment1.text=\nMetodo\ conversor\ para\ base\ Hexadecimal,\nutiliza\ o\ metodo\ estatico\ toHexString\ da\ classe\ Integer\ para\ retornar\ a\ String\n@param\ Objeto\ do\ tipo\ inteiro\ valor\n@retorno\ String\ com\ a\ representacao\ na\ base\ hexadecimal\ do\ valor\n\n
+numComments=2

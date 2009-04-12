@@ -6,28 +6,53 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package bravo;
-import labase.poo.ICalculadora;
+import labase.poo.ICalculadoraBase;
 
 /**
  * @A classe calculadora realiza operações matemáticas com números inteiros.
- * @author  (Tiago Cruz de França)  $Author$
- * @author  (Humberto Ferreira Ramos Junior)  $Author$
- * @version (1.0) $Revision$ (31 de março de 2009) $Date$
- * @since   (1.0) Esta versão soma 1+1.
+ * @author  (Tiago Cruz de França) - O papagaio
+ * @author  (Humberto Ferreira Ramos Junior) - O pirata
+ * @version (2.0) (12 de abril de 2009)
+ * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária.
  */
-public class Calculadora implements ICalculadora {
+public class Calculadora implements ICalculadoraBase {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
-
+  /**Conversor de base*/
+  private StrategyBase base = new BaseDecimal();
+  
   /**
    * Construtor para objetos da classe Calculadora.
    */
-  public Calculadora() {
-    // inicializa variaveis de instância
+  public Calculadora() 
+  {
   }
-
+  
+  /**
+   * Metodo utilizado para indicar operacoes na base Hexadecimal
+   */
+  public void modoHex()
+  {
+      base = new BaseHexadecimal();
+  }
+  
+  /**
+   * Metodo utilizado para indicar operacoes na base Binaria
+   */
+  public void modoBin()
+  {
+      base = new BaseBinaria();
+  }
+  
+  /**
+   * Metodo utilizado para indicar operacoes na base Decimal
+   */
+  public void modoDec(){
+      base = new BaseDecimal();
+  }
+  
   /**
    * Entra a tecla um.
    *
@@ -56,7 +81,8 @@ public class Calculadora implements ICalculadora {
    */
   public final String comandoSoma() {    
     this.acumulador = this.acumulador + this.operador;
-    this.operador = 0;    
-    return acumulador.toString();
+    this.operador = 0;   
+    return base.converterBase(acumulador);
   }
+  
 }

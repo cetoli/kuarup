@@ -127,7 +127,28 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("1111", calculad1.entraUm());
 		assertEquals("1122", calculad1.comandoSoma());
 	}
+
+	public void testBaseHexadecimalUmMaisUm()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("1", calculad1.comandoSoma());
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("2", calculad1.comandoSoma());
+	}
+
+	public void testBaseDecimalSomandoUmMaisUmRetornaDois()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		calculad1.modoDec();
+		assertEquals("1", calculad1.comandoSoma());
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("2", calculad1.comandoSoma());
+	}
 }
+
+
 
 
 
