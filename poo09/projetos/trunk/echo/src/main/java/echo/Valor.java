@@ -2,30 +2,40 @@ package echo;
 
 
 /**
- * Write a description of class Valor here.
+ * Classe que representa o valor armazenado em decimal.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author  (Marcos de Castro)  $Author$
+ * @author  (Rodrigo Santos Borges)  $Author$
+ * @version 1.0
  */
 public class Valor implements Cloneable
 {
+    /**
+     * Variavel que armazena, em decimal, o valor do
+     * objeto.
+     */
     protected int valor;
 
     /**
-     * Constructor for objects of class Valor
+     * Construtor padrao.
      */
-    public Valor()
-    {
+    public Valor() {
 
         valor = 0;
     }
 
-    public Valor(int novo)
-    {
+    /**
+     * Construtor com o valor em decimal sendo passado como
+     * parâmetro.
+     */
+    public Valor(int novo) {
 
         valor = novo;
     }
 
+    /**
+     * Funcao que clona o  elemento.
+     */
     public Object clone () {
         try {
             return super.clone();
@@ -35,36 +45,54 @@ public class Valor implements Cloneable
         }
     }
 
-    public String limparValor(){
-        valor= 0;
+    /**
+     * Limpa o valor do armazenado.
+     */
+    public String limparValor() {
+        valor = 0;
 
         return converterEmString ();
     }
 
+    /**
+     * Retorna o valor.
+     */
     public int getValor() {
         return valor;
     }
 
+    /**
+     * adiciona um digito a direita do valor atual.
+     */
     public String adicionarDigito (String digito) {
-        String str= converterEmString () + digito;
+        String str = converterEmString () + digito;
 
-        valor= Integer.parseInt (str);
+        valor = Integer.parseInt (str);
 
         return converterEmString ();
     }
 
+    /**
+     * Altera o valor armazenado.
+     */
     public void setValor(String novo) {
         valor = Integer.parseInt (novo);
     }
 
+    /**
+     * Converte o valor em string.
+     */
     public String converterEmString() {
         return String.valueOf(valor);
     }
 
-    public void somar(Valor objOp2){
-        int op2= objOp2.getValor ();
+    /**
+     * Soma o valor do objeto passado como parametro com o seu valor.
+     */
+    public void somar(Valor objOp2) {
+        int op2 = objOp2.getValor ();
 
-        valor+= op2;
+        valor += op2;
 
     }
 

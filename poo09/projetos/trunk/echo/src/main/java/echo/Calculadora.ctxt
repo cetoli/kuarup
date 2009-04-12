@@ -2,8 +2,11 @@
 comment0.target=Calculadora()
 comment0.text=\nConstrutor\ para\ objetos\ da\ classe\ Calculadora.\n\n
 comment1.target=void\ modoHex()
+comment1.text=\nBotao\ para\ entrada\ de\ valores\ em\ hexadecimal.\n\n
 comment2.target=void\ modoBin()
+comment2.text=\nBotao\ para\ entrada\ de\ valores\ em\ binario.\n\n
 comment3.target=void\ modoDec()
+comment3.text=\nBotao\ para\ entrada\ de\ valores\ em\ decimal.\n\n
 comment4.target=String\ entraUm()
 comment4.text=\nEntra\ a\ tecla\ um.\n\n@return\ \ conteudo\ do\ operador\n\n
 comment5.target=String\ limpa()

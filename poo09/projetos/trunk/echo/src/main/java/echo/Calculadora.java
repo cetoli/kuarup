@@ -9,73 +9,89 @@ package echo;
 import labase.poo.ICalculadoraBase;
 
 /**
- * @todo Calculadora cmos tres bot�es
- *
+ * Calculadora com tres botoes.
+ * 
  * @author  (Marcos de Castro)  $Author$
  * @author  (Rodrigo Santos Borges)  $Author$
  * @version (2.0)    $Revision$ (07/04/09)      $Date$
  * @since   (2.0) Botoes para entrar valores em binario, hexadecimal e decimal
  */
 public class Calculadora implements ICalculadoraBase {
-  /**Acumulador da Caculadora. */
-  private Valor acumulador = new Valor(0);
-  /**Acumulador da ultimo valor. */
-  private Valor atual = new Valor(0);
-  /**Operador da Caculadora. */
- // private Valor operador = new Valor(0);
-
-  /**
-   * Construtor para objetos da classe Calculadora.
-   */
-  public Calculadora() {
-    // inicializa variaveis de inst�ncia
-  }
+    /**
+     * Acumulador da Caculadora. 
+     */
+     
+    private Valor acumulador = new Valor(0);
   
-   public void modoHex() {
-       atual = new ValorHex(0);
+     /**
+      * Acumulador da ultimo valor. 
+      */
+    private Valor atual = new Valor(0);
+  
+  /* *Operador da Caculadora. */
+  // private Valor operador = new Valor(0);
+
+    /**
+     * Construtor para objetos da classe Calculadora.
+     */
+    public Calculadora() {
+  
     }
-    
-   public void modoBin() {
-       atual = new ValorBin(0);
+  
+    /**
+     * Botao para entrada de valores em hexadecimal.
+     */
+    public void modoHex() {
+        atual = new ValorHex(0);
     }
-    
-   public void modoDec() {
-       atual = new Valor(0);
+  
+    /**
+     * Botao para entrada de valores em binario.
+     */    
+    public void modoBin() {
+        atual = new ValorBin(0);
+    }
+  
+    /**
+     * Botao para entrada de valores em decimal.
+     */
+    public void modoDec() {
+        atual = new Valor(0);
     }
    
-  /**
-   * Entra a tecla um.
-   *
-   * @return  conteudo do operador
-   */
-  public final String entraUm() {
-    //String valor = atual.converterEmString()+"1";
-    return atual.adicionarDigito("1");
-  }
+    /**
+     * Entra a tecla um.
+     *
+     * @return  conteudo do operador
+     */
+    public final String entraUm() {
+        //String valor = atual.converterEmString()+"1";
+        return atual.adicionarDigito("1");
+    }
 
-  /**
-   * Limpa o acumulador.
-   *
-   * @return  conteudo do acumulador
-   */
-  public final String limpa() {
-    atual.limparValor();
-    return acumulador.limparValor();
-  }
+    /**
+     * Limpa o acumulador.
+     *
+     * @return  conteudo do acumulador
+     */
+    public final String limpa() {
+        atual.limparValor();
+        return acumulador.limparValor();
+    }
 
-  /**
-   * Entra o comando soma.
-   *
-   * @return  conteudo do acumulador
-   */
-  public final String comandoSoma() {
-      atual.somar (acumulador);
+    /**
+     * Entra o comando soma.
+     *
+     * @return  conteudo do acumulador
+     */
+    public final String comandoSoma() {
+        atual.somar (acumulador);
 
-      acumulador= (Valor) atual.clone ();
+        acumulador = (Valor) atual.clone ();
       
-      atual.setValor ("0");
+        atual.setValor ("0");
       
-    return acumulador.converterEmString();
-  }
+        return acumulador.converterEmString();
+    }
   
 }

@@ -1,16 +1,24 @@
 #BlueJ class context
 comment0.target=Valor()
-comment0.text=\nConstructor\ for\ objects\ of\ class\ Valor\n\n
+comment0.text=\nConstrutor\ padrao.\n\n
 comment1.params=novo
 comment1.target=Valor(int)
+comment1.text=\nConstrutor\ com\ o\ valor\ em\ decimal\ sendo\ passado\ como\npar\u00E2metro.\n\n
 comment2.target=Object\ clone()
+comment2.text=\nFuncao\ que\ clona\ o\ \ elemento.\n\n
 comment3.target=String\ limparValor()
+comment3.text=\nLimpa\ o\ valor\ do\ armazenado.\n\n
 comment4.target=int\ getValor()
+comment4.text=\nRetorna\ o\ valor.\n\n
 comment5.params=digito
 comment5.target=String\ adicionarDigito(String)
+comment5.text=\nadiciona\ um\ digito\ a\ direita\ do\ valor\ atual.\n\n
 comment6.params=novo
 comment6.target=void\ setValor(String)
+comment6.text=\nAltera\ o\ valor\ armazenado.\n\n
 comment7.target=String\ converterEmString()
+comment7.text=\nConverte\ o\ valor\ em\ string.\n\n
 comment8.params=objOp2
 comment8.target=void\ somar(Valor)
+comment8.text=\nSoma\ o\ valor\ do\ objeto\ passado\ como\ parametro\ com\ o\ seu\ valor.\n\n
 numComments=9

@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=novo
 comment0.target=ValorHex(int)
+comment0.text=\nConstrutor\ que\ armazena\ um\ valor\ decimal.\n\n@param\ novo\ valor\ em\ decimal\ a\ ser\ armazenado.\n\n
 comment1.params=str
 comment1.target=int\ converterHex(String)
 comment1.text=\nConverte\ o\ valor\ de\ hexadecimal\ para\ decimal.\n\n@param\ \ str\ Valor\ em\ hexadecimal.\n\n@return\ valor\ em\ decimal.\n\n
