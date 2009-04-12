@@ -1,10 +1,19 @@
 #BlueJ class context
 comment0.target=Calculadora()
 comment0.text=\nConstrutor\ para\ objetos\ da\ classe\ Calculadora.\n\n
-comment1.target=String\ entraUm()
-comment1.text=\nEntra\ a\ tecla\ um.\n\n@return\ \ conteudo\ do\ operador\n\n
-comment2.target=String\ limpa()
-comment2.text=\nLimpa\ o\ acumulador.\n\n@return\ \ conteudo\ do\ acumulador\n\n
-comment3.target=String\ comandoSoma()
-comment3.text=\nEntra\ o\ comando\ soma.\n\n@return\ \ conteudo\ do\ acumulador\n\n
-numComments=4
+comment1.target=Integer\ getOperador()
+comment10.target=String\ comandoSoma()
+comment10.text=\nEntra\ o\ comando\ soma.\n\n@return\ \ conteudo\ do\ acumulador\n\n
+comment2.params=operador
+comment2.target=void\ setOperador(Integer)
+comment3.target=Integer\ getAcumulador()
+comment4.params=acumulador
+comment4.target=void\ setAcumulador(Integer)
+comment5.target=void\ modoHex()
+comment6.target=void\ modoBin()
+comment7.target=void\ modoDec()
+comment8.target=String\ entraUm()
+comment8.text=\nEntra\ a\ tecla\ um.\n\n@return\ \ conteudo\ do\ operador\n\n
+comment9.target=String\ limpa()
+comment9.text=\nLimpa\ o\ acumulador.\n\n@return\ \ conteudo\ do\ acumulador\n\n
+numComments=11
