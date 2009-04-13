@@ -41,6 +41,7 @@ class SerMarinho():
         "Construtor do ser marinho, definindo um esqueleto(frame) e desenhando"
         self.esqueleto=frame(**qualquel_outro_parametro)
         self.desenha(escala)
+        self.angle = 0
     def desenha(self): pass
 '''
 Esta classe é uma especialização da classe SerMarinho...

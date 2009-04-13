@@ -41,8 +41,8 @@ class Pangacio(SerMarinho):
         self.cor4 = color.red;
        
         corpo1 = self.desenharEsfera((0,0,0),self.cor1,5*escala,1)
-        olhoE = self.desenharEsfera((4*escala,1*escala,-1.5*escala),self.cor2,2*escala,0.5*escala)
-        olhoD = self.desenharEsfera((4*escala,1*escala,1.5*escala),self.cor2,2*escala,0.5*escala)
+        olhoE = self.desenharEsfera((4*escala,1*escala,-1.5*escala),self.cor2,2*escala,0.5)
+        olhoD = self.desenharEsfera((4*escala,1*escala,1.5*escala),self.cor2,2*escala,0.5)
         pupilaE = self.desenharEsfera((5*escala,1*escala,-1.5*escala),self.cor3,0.8*escala)
         pupilaD = self.desenharEsfera((5*escala,1*escala,1.5*escala),self.cor3,0.8*escala)
         labioSup = self.desenhaElipse((5*escala,-2*escala,0),2*escala,2*escala,3*escala, self.cor4)

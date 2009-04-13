@@ -323,7 +323,7 @@ class Olho:
 
         self.t += velocidade * pi/2
 
-class Peixe (threading.Thread):
+class PeixeXavante (threading.Thread):
 
     def __init__ (self, color=color.white, material=None, tamanho=1, velocidade=1):
 
@@ -419,7 +419,7 @@ if __name__ == "__main__":
     #material_global  = None
     material_global  = materials.marble
 
-    peixe = Peixe (color=color.white, material=material_global, tamanho=1, velocidade=2)
+    peixe = PeixeXavante (color=color.white, material=material_global, tamanho=1, velocidade=2)
     peixe.start_moving()
 
     #os.system ("import -window VPython img%02d.jpg" % i)
