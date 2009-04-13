@@ -146,7 +146,6 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("1", calculad1.entraUm());
 		assertEquals("2", calculad1.comandoSoma());
 	}
-<<<<<<< .mine
 
 	public void testBaseBinariaEntraOnzeSomaEntraUmRetornaCem()
 	{
@@ -202,31 +201,5 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("11", calculad1.entraUm());
 		assertEquals("1111", calculad1.comandoSoma());
 	}
-=======
-
->>>>>>> .r217
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< .mine
-
-
-
-
-=======
-
-
->>>>>>> .r217
