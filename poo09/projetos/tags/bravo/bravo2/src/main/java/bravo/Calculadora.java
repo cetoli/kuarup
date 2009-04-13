@@ -59,8 +59,8 @@ public class Calculadora implements ICalculadoraBase {
    * @return  conteudo do operador
    */
   public final String entraUm() {
-    this.operador = this.operador * 10 + 1;
-    return operador.toString();
+    this.operador = base.entraUm(this.operador);
+    return base.converterBase(this.operador);
   }
 
   /**
