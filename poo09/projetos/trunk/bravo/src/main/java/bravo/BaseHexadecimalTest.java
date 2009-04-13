@@ -5,13 +5,14 @@ package bravo;
 /**
  * The test class BaseHexadecimalTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author (Tiago C. de França) - O papagaio
+ * @author (Humberto Ferreira Ramos Junior) - O pirata
+ * @version 2.0 em 12 de abril de 2009
  */
 public class BaseHexadecimalTest extends junit.framework.TestCase
 {
     /**
-     * Default constructor for test class BaseHexadecimalTest
+     * Default constructor for test class BaseHexadecimalTest.
      */
     public BaseHexadecimalTest()
     {
@@ -34,24 +35,33 @@ public class BaseHexadecimalTest extends junit.framework.TestCase
     protected void tearDown()
     {
     }
+    
+    /**
+     * Metodo de teste passando valores.
+     */
+    public void testePassandoUmRotornaStringUm()
+    {
+        bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
+        assertEquals("1", baseHexa1.converterBase(1));
+    }
 
-	public void testePassandoUmRotornaStringUm()
-	{
-		bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
-		assertEquals("1", baseHexa1.converterBase(1));
-	}
+    /**
+     * Metodo de teste passando valores.
+     */
+    public void testPassandoOnzeRetornaStringB()
+    {
+        bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
+        assertEquals("b", baseHexa1.converterBase(11));
+    }
 
-	public void testPassandoOnzeRetornaStringB()
-	{
-		bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
-		assertEquals("b", baseHexa1.converterBase(11));
-	}
-
-	public void testEntraDozeRetornaC()
-	{
-		bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
-		assertEquals("c", baseHexa1.converterBase(12));
-	}
+    /**
+     * Metodo de teste passando valores.
+     */
+    public void testEntraDozeRetornaC()
+    {
+        bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
+        assertEquals("c", baseHexa1.converterBase(12));
+    }
 }
 
 
