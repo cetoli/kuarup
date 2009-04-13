@@ -146,7 +146,10 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("1", calculad1.entraUm());
 		assertEquals("2", calculad1.comandoSoma());
 	}
+
 }
+
+
 
 
 

@@ -7,4 +7,5 @@ comment2.target=void\ tearDown()
 comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
 comment3.target=void\ testPassandoUmRetornaStringUm()
 comment4.target=void\ testPassandoOnzeRetornaStringMileOnze()
-numComments=5
+comment5.target=void\ testPassandoCentoeOnzeRetorna1101111()
+numComments=6

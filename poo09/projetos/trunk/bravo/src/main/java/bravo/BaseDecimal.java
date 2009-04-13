@@ -14,7 +14,9 @@ public class BaseDecimal implements StrategyBase
     /**
      * Constructor for objects of class BaseDecimal
      */
-    public BaseDecimal(){}
+    public BaseDecimal()
+    {
+    }
     
     /**
      * Metodo conversor para base decimal,
