@@ -2,7 +2,7 @@
 
 from visual import *
 from peixe_xavante import *
-from peixe_pequeno import *
+from peixe_potiguara import *
 from tubarao import *
 
 cm=255.0
