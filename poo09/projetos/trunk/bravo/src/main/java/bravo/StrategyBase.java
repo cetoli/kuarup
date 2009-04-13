@@ -13,6 +13,12 @@ public interface StrategyBase
 {
     /**
      * Metodo abstrato
+     * Entrada de valores
+     */    
+    public Integer entraUm(Integer valor);
+    
+    /**
+     * Metodo abstrato
      * Conversor de Base de Operacao
      * @param valor e um objeto intereiro em base decimal
      * @retorna uma string com o valor na base desejada
