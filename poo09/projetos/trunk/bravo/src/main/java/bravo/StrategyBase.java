@@ -2,7 +2,7 @@ package bravo;
 
 
 /**
- * Interface descritiva do metodo de conversao de base
+ * Interface descritiva do metodo de conversao de base.
  * 
  * @author (Tiago C. de França) - O papagaio
  * @author (Humberto Ferreira Ramos Junior) - O pirata
@@ -12,13 +12,13 @@ package bravo;
 public interface StrategyBase
 {
     /**
-     * Metodo abstrato
+     * Metodo abstrato.
      * Entrada de valores
      */    
     public Integer entraUm(Integer valor);
     
     /**
-     * Metodo abstrato
+     * Metodo abstrato.
      * Conversor de Base de Operacao
      * @param valor e um objeto intereiro em base decimal
      * @retorna uma string com o valor na base desejada

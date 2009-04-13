@@ -2,8 +2,10 @@ package bravo;
 
 
 /**
- * Classe concreta que implementa a interface StrategyBase que contem o metodo converterBase(Integer Valor)
- * retorna uma String. Esta classe devolve a representacao na base decimal do valor passado como parametro do metodo citado
+ * Classe concreta que implementa a interface StrategyBase.
+ * Esta classe contem o metodo converterBase(Integer Valor)
+ * retorna uma String. Esta classe devolve a representacao 
+ * na base decimal do valor passado como parametro do metodo citado
  * 
  * @author (Tiago C. de França) - O papagaio
  * @author (Humberto Ferreira Ramos Junior) - O pirata
@@ -12,14 +14,14 @@ package bravo;
 public class BaseDecimal implements StrategyBase
 {
     /**
-     * Constructor for objects of class BaseDecimal
+     * Constructor for objects of class BaseDecimal.
      */
     public BaseDecimal()
     {
     }
     
     /**
-     * Metodo de Entrada para Decimais
+     * Metodo de Entrada para Decimais.
      * Entrada de valores
      */    
     public Integer entraUm(Integer valor)
@@ -29,10 +31,12 @@ public class BaseDecimal implements StrategyBase
     }
     
     /**
-     * Metodo conversor para base decimal,
-     * as operacoes sao feitas nesta base e necessario apenas retornar uma string com o valor
-     * @param Objeto inteiro valor
-     * @retorna uma String com a representacao na base decimal do valor passado
+     * Metodo conversor para base decimal.
+     * As operacoes sao feitas nesta base e necessario apenas
+     * retornar uma string com o valor
+     * @param valor
+     * @retorna uma String com a representacao na base decimal do
+     * valor passado
      */
     public String converterBase(Integer valor)
     {
