@@ -46,6 +46,13 @@ public class BaseHexadecimalTest extends junit.framework.TestCase
 		bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
 		assertEquals("b", baseHexa1.converterBase(11));
 	}
+
+	public void testEntraDozeRetornaC()
+	{
+		bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
+		assertEquals("c", baseHexa1.converterBase(12));
+	}
 }
+
 
 

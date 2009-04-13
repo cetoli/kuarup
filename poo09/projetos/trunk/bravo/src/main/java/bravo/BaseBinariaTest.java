@@ -46,6 +46,15 @@ public class BaseBinariaTest extends junit.framework.TestCase
 		bravo.BaseBinaria baseBina1 = new bravo.BaseBinaria();
 		assertEquals("1011", baseBina1.converterBase(11));
 	}
+
+
+	public void testPassandoCentoeOnzeRetorna1101111()
+	{
+		bravo.BaseBinaria baseBina1 = new bravo.BaseBinaria();
+		assertEquals("1101111", baseBina1.converterBase(111));
+	}
 }
+
+
 
 

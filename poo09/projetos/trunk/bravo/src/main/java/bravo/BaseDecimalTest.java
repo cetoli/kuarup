@@ -47,7 +47,14 @@ public class BaseDecimalTest extends junit.framework.TestCase
 		bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
 		assertEquals("11", baseDeci1.converterBase(11));
 	}
+
+	public void testTestePassandoValorCentoeOnzeRetornaCentoeOnze()
+	{
+		bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
+		assertEquals("111", baseDeci1.converterBase(111));
+	}
 }
+
 
 
 
