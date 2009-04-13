@@ -2,6 +2,9 @@
 comment0.target=BaseDecimal()
 comment0.text=\nConstructor\ for\ objects\ of\ class\ BaseDecimal\n\n
 comment1.params=valor
-comment1.target=String\ converterBase(Integer)
-comment1.text=\nMetodo\ conversor\ para\ base\ decimal,\nas\ operacoes\ sao\ feitas\ nesta\ base\ e\ necessario\ apenas\ retornar\ uma\ string\ com\ o\ valor\n@param\ Objeto\ inteiro\ valor\n@retorna\ uma\ String\ com\ a\ representacao\ na\ base\ decimal\ do\ valor\ passado\n\n
-numComments=2
+comment1.target=Integer\ entraUm(Integer)
+comment1.text=\nMetodo\ de\ Entrada\ para\ Decimais\nEntrada\ de\ valores\n\n
+comment2.params=valor
+comment2.target=String\ converterBase(Integer)
+comment2.text=\nMetodo\ conversor\ para\ base\ decimal,\nas\ operacoes\ sao\ feitas\ nesta\ base\ e\ necessario\ apenas\ retornar\ uma\ string\ com\ o\ valor\n@param\ Objeto\ inteiro\ valor\n@retorna\ uma\ String\ com\ a\ representacao\ na\ base\ decimal\ do\ valor\ passado\n\n
+numComments=3

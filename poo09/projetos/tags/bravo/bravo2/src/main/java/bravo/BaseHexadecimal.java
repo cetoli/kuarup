@@ -19,6 +19,16 @@ public class BaseHexadecimal implements StrategyBase
     }
     
     /**
+     * Metodo de Entrada para HexaDecimal
+     * Entrada de valores
+     */    
+    public Integer entraUm(Integer valor)
+    {
+        valor = valor * 16 + 1;
+        return valor;
+    }
+    
+    /**
      * Metodo conversor para base Hexadecimal,
      * utiliza o metodo estatico toHexString da classe Integer para retornar a String
      * @param Objeto do tipo inteiro valor
