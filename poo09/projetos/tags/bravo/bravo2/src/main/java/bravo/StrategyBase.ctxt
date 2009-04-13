@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=valor
+comment0.target=Integer\ entraUm(Integer)
+comment0.text=\nMetodo\ abstrato.\nEntrada\ de\ valores\n\n
+comment1.params=valor
+comment1.target=String\ converterBase(Integer)
+comment1.text=\nMetodo\ abstrato.\nConversor\ de\ Base\ de\ Operacao\n@param\ valor\ e\ um\ objeto\ intereiro\ em\ base\ decimal\n@retorna\ uma\ string\ com\ o\ valor\ na\ base\ desejada\n\n
+numComments=2

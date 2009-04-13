@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=BaseDecimalTest()
+comment0.text=\nDefault\ constructor\ for\ test\ class\ BaseDecimalTest.\n\n
+comment1.target=void\ setUp()
+comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
+comment2.target=void\ tearDown()
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
+comment3.target=void\ testPassandoValorUmRetornaStringUm()
+comment3.text=\nTeste\ passando\ valores.\n\n
+comment4.target=void\ testPassandoValorOnzeRetornaStringOnze()
+comment4.text=\nTeste\ passando\ valores.\n\n
+comment5.target=void\ testTestePassandoValorCentoeOnzeRetornaCentoeOnze()
+comment5.text=\nTeste\ passando\ valores.\n\n
+numComments=6

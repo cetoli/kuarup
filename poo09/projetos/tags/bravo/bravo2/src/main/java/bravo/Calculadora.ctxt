@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Calculadora()
+comment0.text=\nConstrutor\ para\ objetos\ da\ classe\ Calculadora.\n\n
+comment1.target=void\ modoHex()
+comment1.text=\nMetodo\ utilizado\ para\ indicar\ operacoes\ na\ base\ Hexadecimal.\n\n
+comment2.target=void\ modoBin()
+comment2.text=\nMetodo\ utilizado\ para\ indicar\ operacoes\ na\ base\ Binaria.\n\n
+comment3.target=void\ modoDec()
+comment3.text=\nMetodo\ utilizado\ para\ indicar\ operacoes\ na\ base\ Decimal.\n\n
+comment4.target=String\ entraUm()
+comment4.text=\nEntra\ a\ tecla\ um.\n\n@return\ conteudo\ do\ operador\n\n
+comment5.target=String\ limpa()
+comment5.text=\nLimpa\ o\ acumulador.\n\n@return\ \ conteudo\ do\ acumulador\n\n
+comment6.target=String\ comandoSoma()
+comment6.text=\nEntra\ o\ comando\ soma.\n\n@return\ \ conteudo\ do\ acumulador\n\n
+numComments=7
