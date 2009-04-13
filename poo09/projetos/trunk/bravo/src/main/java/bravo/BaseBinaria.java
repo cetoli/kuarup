@@ -18,6 +18,15 @@ public class BaseBinaria implements StrategyBase
     public BaseBinaria()
     {
     }
+    /**
+     * Metodo de Entrada para Binários
+     * Entrada de valores
+     */    
+    public Integer entraUm(Integer valor)
+    {
+        valor = valor * 2 + 1;
+        return valor;
+    }
     
     /**
      * Metodo conversor para base Binaria,

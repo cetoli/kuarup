@@ -19,6 +19,16 @@ public class BaseDecimal implements StrategyBase
     }
     
     /**
+     * Metodo de Entrada para Decimais
+     * Entrada de valores
+     */    
+    public Integer entraUm(Integer valor)
+    {
+        valor = valor * 10 + 1;
+        return valor;
+    }
+    
+    /**
      * Metodo conversor para base decimal,
      * as operacoes sao feitas nesta base e necessario apenas retornar uma string com o valor
      * @param Objeto inteiro valor
