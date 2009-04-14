@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.params=integer
 comment0.target=Integer\ entraUm(Integer)
-comment0.text=\nEsta\ e\ a\ Base\ de\ calculo.\n\n
+comment0.text=\nEsta\ e\ a\ Base\ de\ calculo.\n@param\ integer\ Entra\ um\ inteiro.\n@return\ Retorna\ um.\n\n
 comment1.params=integer
 comment1.target=String\ toString(Integer)
-comment1.text=\nConversor\ de\ inteiro\ para\ string.\n\n
+comment1.text=\nConversor\ de\ inteiro\ para\ string.\n@param\ integer\ Converte\ para\ string.\n@return\ Retorna\ string.\n\n
 numComments=2
