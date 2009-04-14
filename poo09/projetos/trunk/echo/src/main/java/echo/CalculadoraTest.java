@@ -143,10 +143,10 @@ public class CalculadoraTest extends junit.framework.TestCase {
     assertEquals("11", calculad1.entraUm());
     assertEquals("11", calculad1.comandoSoma());
     calculad1.modoBin();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
 
-    assertEquals("1110", calculad1.comandoSoma());
+    assertEquals("0b1110", calculad1.comandoSoma());
   }
 
   /**
@@ -157,9 +157,9 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11BinE11Dec() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoBin();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
+    assertEquals("0b11", calculad1.comandoSoma());
     calculad1.modoDec();
     assertEquals("1", calculad1.entraUm());
     assertEquals("11", calculad1.entraUm());
@@ -178,9 +178,9 @@ public class CalculadoraTest extends junit.framework.TestCase {
     assertEquals("11", calculad1.entraUm());
     assertEquals("11", calculad1.comandoSoma());
     calculad1.modoHex();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("1c", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x1c", calculad1.comandoSoma());
   }
 
   /**
@@ -191,9 +191,9 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11HexE11Dec() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoHex();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x11", calculad1.comandoSoma());
     calculad1.modoDec();
     assertEquals("1", calculad1.entraUm());
     assertEquals("11", calculad1.entraUm());
@@ -208,13 +208,13 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11BinE11Hex() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoBin();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
+    assertEquals("0b11", calculad1.comandoSoma());
     calculad1.modoHex();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("14", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x14", calculad1.comandoSoma());
   }
 
   /**
@@ -225,13 +225,13 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11HexE11Bin() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoHex();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x11", calculad1.comandoSoma());
     calculad1.modoBin();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("10100", calculad1.comandoSoma());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
+    assertEquals("0b10100", calculad1.comandoSoma());
   }
 
   /**
@@ -242,13 +242,13 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11BinE11Bin() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoBin();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
+    assertEquals("0b11", calculad1.comandoSoma());
     calculad1.modoBin();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("110", calculad1.comandoSoma());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
+    assertEquals("0b110", calculad1.comandoSoma());
   }
 
   /**
@@ -258,13 +258,13 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11BinE11() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoBin();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
+    assertEquals("0b11", calculad1.comandoSoma());
 
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("110", calculad1.comandoSoma());
+    assertEquals("0b1", calculad1.entraUm());
+    assertEquals("0b11", calculad1.entraUm());
+    assertEquals("0b110", calculad1.comandoSoma());
   }
 
   /**
@@ -275,13 +275,13 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11HexE11Hex() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoHex();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x11", calculad1.comandoSoma());
     calculad1.modoHex();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("22", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x22", calculad1.comandoSoma());
   }
 
   /**
@@ -291,12 +291,12 @@ public class CalculadoraTest extends junit.framework.TestCase {
   public void test11HexE11() {
     echo.Calculadora calculad1 = new echo.Calculadora();
     calculad1.modoHex();
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("11", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x11", calculad1.comandoSoma());
 
-    assertEquals("1", calculad1.entraUm());
-    assertEquals("11", calculad1.entraUm());
-    assertEquals("22", calculad1.comandoSoma());
+    assertEquals("0x1", calculad1.entraUm());
+    assertEquals("0x11", calculad1.entraUm());
+    assertEquals("0x22", calculad1.comandoSoma());
   }
 }

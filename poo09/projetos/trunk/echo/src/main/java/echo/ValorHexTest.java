@@ -43,7 +43,7 @@ public class ValorHexTest extends junit.framework.TestCase
 	{
 		echo.ValorHex valor1 = new echo.ValorHex(0);
 		valor1.setValor ("2a");
-		assertEquals ("2a", valor1.converterEmString ());
+		assertEquals ("0x2a", valor1.converterEmString ());
 	}
 
 	/**
@@ -52,10 +52,10 @@ public class ValorHexTest extends junit.framework.TestCase
 	public void testAdicionarDigito()
 	{
 		echo.ValorHex valorHex1 = new echo.ValorHex(0);
-		assertEquals("1", valorHex1.adicionarDigito("1"));
-		assertEquals("11", valorHex1.adicionarDigito("1"));
-		assertEquals("111", valorHex1.adicionarDigito("1"));
-		assertEquals("111", valorHex1.converterEmString());
+		assertEquals("0x1", valorHex1.adicionarDigito("1"));
+		assertEquals("0x11", valorHex1.adicionarDigito("1"));
+		assertEquals("0x111", valorHex1.adicionarDigito("1"));
+		assertEquals("0x111", valorHex1.converterEmString());
 		assertEquals (273, valorHex1.getValor());
 	}
 }
