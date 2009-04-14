@@ -29,7 +29,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testSomaUmAPartirDoRepouso.
      */
-    public void testSomaUmAPartirDoRepouso() {
+    public final void testSomaUmAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         assertEquals("1", calculad1.comandoSoma());
@@ -38,7 +38,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testEntraOnzeAPartirDoRepouso.
      */
-    public void testEntraOnzeAPartirDoRepouso() {
+    public final void testEntraOnzeAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         assertEquals("11", calculad1.entraUm());
@@ -47,56 +47,56 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testLimpaAPartirDoRepouso.
      */
-    public void testLimpaAPartirDoRepouso() {
+    public final void testLimpaAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         assertEquals("0", calculad1.limpa());
     }
-   
+
     /**
      * Teste testLimpaAposInserirUmAPartirDoRepouso.
      */
-    public void testLimpaAposInserirUmAPartirDoRepouso() {
+    public final void testLimpaAposInserirUmAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         assertEquals("0", calculad1.limpa());
     }
-    
+
     /**
      * Teste testLimpaAposInserirOnzeAPartirDoRepouso.
      */
-    public void testLimpaAposInserirOnzeAPartirDoRepouso() {
+    public final void testLimpaAposInserirOnzeAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.entraUm();
         assertEquals("0", calculad1.limpa());
     }
-   
+
     /**
      * Teste testLimpaAposInserirCentoEOnzeAPartirDoRepouso.
      */
-    public void testLimpaAposInserirCentoEOnzeAPartirDoRepouso() {
+    public final void testLimpaAposInserirCentoEOnzeAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.entraUm();
         calculad1.entraUm();
         assertEquals("0", calculad1.limpa());
     }
-    
+
     /**
      * Teste testSomaUmMaisOnzeAPartirDoRepouso.
      */
-    public void testSomaUmMaisUmAPartirDoRepouso() {
+    public final void testSomaUmMaisUmAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
         calculad1.entraUm();
         assertEquals("2", calculad1.comandoSoma());
     }
-    
+
     /**
      * Teste testSomaUmMaisOnzeAPartirDoRepouso.
      */
-    public void testSomaUmMaisUmMaisUmAPartirDoRepouso() {
+    public final void testSomaUmMaisUmMaisUmAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
@@ -105,11 +105,11 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.entraUm();
         assertEquals("3", calculad1.comandoSoma());
     }
-    
+
     /**
      * Teste testSomaUmMaisOnzeAPartirDoRepouso.
      */
-    public void testSomaUmMaisOnzeAPartirDoRepouso() {
+    public final void testSomaUmMaisOnzeAPartirDoRepouso() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
@@ -136,54 +136,56 @@ public class CalculadoraTest extends junit.framework.TestCase {
        assertEquals("22", calculad1.comandoSoma());
        }
        */
-      
+
     /**
      * Teste testSomaBinariaOnzeMaisUm.
      */
-	public void testSomaBinariaOnzeMaisUm() {
-		charlie.Calculadora calculad1 = new charlie.Calculadora();
-		calculad1.modoBin();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		assertEquals("0b100", calculad1.comandoSoma());
-	}
-	
+	public final void testSomaBinariaOnzeMaisUm() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("0b100", calculad1.comandoSoma());
+    }
+
     /**
      * Teste testSomaHexadecimalOnzeMaisUm.
      */
-	public void testSomaHexadecimalOnzeMaisUm() {
-		charlie.Calculadora calculad1 = new charlie.Calculadora();
-		calculad1.modoHex();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		assertEquals("0x12", calculad1.comandoSoma());
-	}
-	
+    public final void testSomaHexadecimalOnzeMaisUm() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("0x12", calculad1.comandoSoma());
+    }
+
     /**
      * Teste testSomaOnzeBinarioMaisOnze.
      */
-	public void testSomaOnzeBinarioMaisOnze() {
-		charlie.Calculadora calculad1 = new charlie.Calculadora();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.modoBin();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		assertEquals("0b1110", calculad1.comandoSoma());
-	}
+    public final void testSomaOnzeBinarioMaisOnze() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        assertEquals("0b1110", calculad1.comandoSoma());
+    }
 
-	public void testHexadecimal11Binario1Retorna0b100011()
-	{
-		charlie.Calculadora calculad1 = new charlie.Calculadora();
-		calculad1.modoHex();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.modoBin();
-		assertEquals("0b100011", calculad1.entraUm());
-	}
+    /**
+     * Teste testHexadecimal11Binario1Retorna0b100011.
+     */
+    public final void testHexadecimal11Binario1Retorna0b100011() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.modoBin();
+        assertEquals("0b100011", calculad1.entraUm());
+    }
 }
