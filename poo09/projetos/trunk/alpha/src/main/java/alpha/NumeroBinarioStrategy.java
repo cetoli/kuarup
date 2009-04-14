@@ -16,7 +16,8 @@ public class NumeroBinarioStrategy extends NumeroStrategy
      * Construtor da classe.
      * 
      */
-    public NumeroBinarioStrategy() { }
+    public NumeroBinarioStrategy() {
+    }
     /**
      * Converte o numero para a base Decimal.
      * 
