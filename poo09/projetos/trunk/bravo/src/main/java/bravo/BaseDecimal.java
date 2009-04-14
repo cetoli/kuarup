@@ -11,21 +11,19 @@ package bravo;
  * @author (Humberto Ferreira Ramos Junior) - O pirata
  * @version 2.0 em 12 de abril de 2009
  */
-public class BaseDecimal implements StrategyBase
-{
+public class BaseDecimal implements StrategyBase {
+
     /**
      * Constructor for objects of class BaseDecimal.
      */
-    public BaseDecimal()
-    {
+    public BaseDecimal() {
     }
     
     /**
      * Metodo de Entrada para Decimais.
      * Entrada de valores
      */    
-    public Integer entraUm(Integer valor)
-    {
+    public Integer entraUm(Integer valor) {
         valor = valor * 10 + 1;
         return valor;
     }
@@ -38,8 +36,7 @@ public class BaseDecimal implements StrategyBase
      * @retorna uma String com a representacao na base decimal do
      * valor passado
      */
-    public String converterBase(Integer valor)
-    {
+    public String converterBase(Integer valor) {
         return valor.toString();    
     }
 
