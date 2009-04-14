@@ -18,80 +18,80 @@ import labase.poo.ICalculadoraBase;
  * @since   (2.0) Botoes para entrar valores em binario, hexadecimal e decimal
  */
 public class Calculadora implements ICalculadoraBase {
-	/**
-	 * Acumulador da Caculadora. 
-	 */
+  /**
+   * Acumulador da Caculadora. 
+   */
 
-	private Valor acumulador = new Valor(0);
+  private Valor acumulador = new Valor(0);
 
-	/**
-	 * Acumulador da ultimo valor. 
-	 */
-	private Valor atual = new Valor(0);
+  /**
+   * Acumulador da ultimo valor. 
+   */
+  private Valor atual = new Valor(0);
 
-	/* *Operador da Caculadora. */
-	// private Valor operador = new Valor(0);
-	/**
-	 * Construtor para objetos da classe Calculadora.
-	 */
-	public Calculadora() {
+  /* *Operador da Caculadora. */
+  // private Valor operador = new Valor(0);
+  /**
+   * Construtor para objetos da classe Calculadora.
+   */
+  public Calculadora() {
 
-	}
+  }
 
-	/**
-	 * Botao para entrada de valores em hexadecimal.
-	 */
-	public void modoHex() {
-		atual = new ValorHex(0);
-	}
+  /**
+   * Botao para entrada de valores em hexadecimal.
+   */
+  public void modoHex() {
+    atual = new ValorHex(0);
+  }
 
-	/**
-	 * Botao para entrada de valores em binario.
-	 */
-	public void modoBin() {
-		atual = new ValorBin(0);
-	}
+  /**
+   * Botao para entrada de valores em binario.
+   */
+  public void modoBin() {
+    atual = new ValorBin(0);
+  }
 
-	/**
-	 * Botao para entrada de valores em decimal.
-	 */
-	public void modoDec() {
-		atual = new Valor(0);
-	}
+  /**
+   * Botao para entrada de valores em decimal.
+   */
+  public void modoDec() {
+    atual = new Valor(0);
+  }
 
-	/**
-	 * Entra a tecla um.
-	 *
-	 * @return  conteudo do operador
-	 */
-	public final String entraUm() {
-		//String valor = atual.converterEmString()+"1";
-		return atual.adicionarDigito("1");
-	}
+  /**
+   * Entra a tecla um.
+   *
+   * @return  conteudo do operador
+   */
+  public final String entraUm() {
+    //String valor = atual.converterEmString()+"1";
+    return atual.adicionarDigito("1");
+  }
 
-	/**
-	 * Limpa o acumulador.
-	 *
-	 * @return  conteudo do acumulador
-	 */
-	public final String limpa() {
-		atual.limparValor();
-		return acumulador.limparValor();
-	}
+  /**
+   * Limpa o acumulador.
+   *
+   * @return  conteudo do acumulador
+   */
+  public final String limpa() {
+    atual.limparValor();
+    return acumulador.limparValor();
+  }
 
-	/**
-	 * Entra o comando soma.
-	 *
-	 * @return  conteudo do acumulador
-	 */
-	public final String comandoSoma() {
-		atual.somar(acumulador);
+  /**
+   * Entra o comando soma.
+   *
+   * @return  conteudo do acumulador
+   */
+  public final String comandoSoma() {
+    atual.somar(acumulador);
 
-		acumulador = (Valor) atual.clone();
+    acumulador = (Valor) atual.clone();
 
-		atual.setValor("0");
+    atual.setValor("0");
 
-		return acumulador.converterEmString();
-	}
+    return acumulador.converterEmString();
+  }
 
 }

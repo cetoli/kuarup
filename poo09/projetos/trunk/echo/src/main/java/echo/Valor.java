@@ -26,7 +26,8 @@ public class Valor implements Cloneable
 
     /**
      * Construtor com o valor em decimal sendo passado como
-     * parÃ¢metro.
+     * parâmetro.
+     * @param novo valor em decimal.
      */
     public Valor(int novo) {
 
@@ -35,6 +36,7 @@ public class Valor implements Cloneable
 
     /**
      * Funcao que clona o  elemento.
+     * @return Retorna o objeto Valor clonado.
      */
     public Object clone () {
         try {
@@ -47,8 +49,9 @@ public class Valor implements Cloneable
 
     /**
      * Limpa o valor do armazenado.
+     * @return retorna o valor convertido em String.
      */
-    public String limparValor() {
+    public final String limparValor() {
         valor = 0;
 
         return converterEmString ();
@@ -56,31 +59,36 @@ public class Valor implements Cloneable
 
     /**
      * Retorna o valor.
+     * @return retorna o valor armazenado.
      */
-    public int getValor() {
+    public final int getValor() {
         return valor;
     }
 
     /**
-     * adiciona um digito a direita do valor atual.
+     * Adiciona um digito a direita do valor atual.
+     * @param dígito a ser acrescentado.
+     * @return retorna o valor armazenado no formato String.
      */
-    public String adicionarDigito (String digito) {
+    public String adicionarDigito(String digito) {
         String str = converterEmString () + digito;
 
-        valor = Integer.parseInt (str);
+        valor = Integer.parseInt(str);
 
-        return converterEmString ();
+        return converterEmString();
     }
 
     /**
      * Altera o valor armazenado.
+     * @param novo valor em hexadecimal.
      */
     public void setValor(String novo) {
-        valor = Integer.parseInt (novo);
+        valor = Integer.parseInt(novo);
     }
 
     /**
      * Converte o valor em string.
+     * @return retorna o valor convertido em String.
      */
     public String converterEmString() {
         return String.valueOf(valor);
@@ -88,9 +96,10 @@ public class Valor implements Cloneable
 
     /**
      * Soma o valor do objeto passado como parametro com o seu valor.
+     * @param valor a ser somado.
      */
-    public void somar(Valor objOp2) {
-        int op2 = objOp2.getValor ();
+    public final void somar(Valor objOp2) {
+        int op2 = objOp2.getValor();
 
         valor += op2;
 
