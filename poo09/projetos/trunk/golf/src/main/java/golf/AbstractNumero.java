@@ -1,47 +1,47 @@
 package golf;
 
-
 /**
- * Abstract class AbstractNumero - write a description of the class here
+ * Classe abstrata que representa um nœmero que ser‡ usado na calculadora
  * 
- * @author (your name here)
- * @version (version number or date here)
+ * @author Gustavo Taveira
+ * @version 2.0
  */
-public abstract class AbstractNumero{
-    // instance variables - replace the example below with your own
-    protected Integer valor;
-    protected Integer base;
+public abstract class AbstractNumero {
 
-    /**
-     * Converte o valor para a base correta
-     * 
-     */
-    public abstract String converte();
+	protected Integer valor;
 
-    /**
-     * Seta o valor da variavel valor
-     * 
-     * @atribute Integer x
-     */
-    public void setValor(Integer x){
-        this.valor = x;
-    }
+	protected Integer base;
 
-    /**
-     * Retorna o valor da variavel valor
-     * 
-     * @return valor
-     */
-    public Integer getValor(){
-        return this.valor;
-    }
+	/**
+	 * Converte o valor para a base correta
+	 * 
+	 */
+	public abstract String converte();
 
-    /**
-     * Retorna o valor da variavel base
-     * 
-     * @return base
-     */
-    public Integer getBase(){
-        return this.base;
-    }
+	/**
+	 * Seta o valor da variavel valor
+	 * 
+	 * @atribute Integer x
+	 */
+	public void setValor(Integer x) {
+		this.valor = x;
+	}
+
+	/**
+	 * Retorna o valor da variavel valor
+	 * 
+	 * @return valor
+	 */
+	public Integer getValor() {
+		return this.valor;
+	}
+
+	/**
+	 * Retorna o valor da variavel base
+	 * 
+	 * @return base
+	 */
+	public Integer getBase() {
+		return this.base;
+	}
 }
