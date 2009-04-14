@@ -27,7 +27,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      */
     public void testeLimpa() {
         Calculadora calculadora = new Calculadora();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
     }
 
     /**
@@ -109,7 +109,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.comandoSoma();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
     }
 
     /**
@@ -135,7 +135,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     public void testeEntraBaseDecLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
     }
 
     /**
@@ -146,7 +146,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     public void testeEntraBaseBinLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
     }
 
     /**
@@ -157,7 +157,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     public void testeEntraBaseHexLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
     }
 
     /**
@@ -365,7 +365,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.entraUm();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        calculadora.modoBin();
+        calculadora.modoDec();
         calculadora.entraUm();
         assertEquals("D4", calculadora.comandoSoma());
     }
