@@ -28,7 +28,7 @@ public class BaseBinaria implements BaseState
         Integer operador = calculadora.getOperador();
         Integer novoOperador = Integer.parseInt(Integer.toBinaryString(operador) + "1");
         calculadora.setOperador(new Integer(this.converterParaDecimal(novoOperador)));
-        return "bx" + novoOperador;
+        return "0b" + novoOperador;
     }
 
     public String comandoSoma(Calculadora calculadora){        
@@ -39,12 +39,12 @@ public class BaseBinaria implements BaseState
         Integer novoAcumulador = new Integer(Integer.toBinaryString(acumulador + operador));
         calculadora.setAcumulador(new Integer(this.converterParaDecimal(novoAcumulador)));
         calculadora.setOperador(0);
-        return "bx" + novoAcumulador;
+        return "0b" + novoAcumulador;
     }
     
     public String limpa(Calculadora calculadora){
         calculadora.setOperador(0);
         calculadora.setAcumulador(0);
-        return "bx0";
+        return "0b0";
     }
 }
