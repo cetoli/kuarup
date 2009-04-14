@@ -39,6 +39,6 @@ public class BaseHexadecimal implements StrategyBase
      */
     public String converterBase(Integer valor)
     {
-        return Integer.toHexString(valor);
+        return "0x"+Integer.toHexString(valor);
     }
 }
