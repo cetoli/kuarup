@@ -9,7 +9,7 @@ package charlie;
 import labase.poo.ICalculadoraBase;
 
 /**
- * Esta eh a primeira versao da Calculadora. 
+ * Esta eh a primeira versao da Calculadora.
  * Nao possui nenhum design pattern ainda.
  * @author  Andre Abrantes  $Author$
  * @author  Helio Salmon  $Author$
@@ -19,15 +19,12 @@ import labase.poo.ICalculadoraBase;
 public class Calculadora implements ICalculadoraBase {
     /**Operador da Caculadora. */
     private Integer operador = new Integer(0);
-    
+
     /**Acumulador da Caculadora. */
     private Integer acumulador = new Integer(0);
-    
+
     /**Declaracao de variavel modo de operacao. */
-    BaseStrategy modo;
-    
-    /**Multiplicador de dezenas. */
-    private static int dezena = 10;
+    private BaseStrategy modo;
 
     /**
      * Construtor para objetos da classe Calculadora.
@@ -44,7 +41,7 @@ public class Calculadora implements ICalculadoraBase {
      * @return  conteudo do operador
      */
     public final String entraUm() {
-        operador = modo.entraUm(operador);     
+        operador = modo.entraUm(operador);
         return modo.toString(operador);
     }
 
@@ -57,7 +54,7 @@ public class Calculadora implements ICalculadoraBase {
         operador = 0;
         return operador.toString();
     }
-   
+
     /**
      * Entra o comando soma.
      * @return  conteudo do acumulador
@@ -67,25 +64,25 @@ public class Calculadora implements ICalculadoraBase {
         operador = 0;
         return modo.toString(acumulador);
     }
-    
+
     /**
      * Entra no modo Hexadecimal.
      */
-    public void modoHex() {
+    public final void modoHex() {
         modo = new HexadecimalStrategy();
     }
-    
+
     /**
      * Entra no modo Binario.
      */
-    public void modoBin() {
+    public final void modoBin() {
         modo = new BinarioStrategy();
     }
-    
+
     /**
      * Entra no modo Decimal.
      */
-    public void modoDec() {
+    public final void modoDec() {
         modo = new DecimalStrategy();
-    } 
+    }
 }
