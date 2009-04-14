@@ -4,8 +4,8 @@
   <parent>
     <groupId>labase.poo</groupId>
     <artifactId>calc</artifactId>
-    <version>1.0</version>
-    <relativePath>conf/labase/poo/1.0/calc/pom.xml</relativePath>
+    <version>2.0</version>
+    <relativePath>conf/labase/poo/2.0/calc/pom.xml</relativePath>
   </parent>
   <groupId>projetos</groupId>
   <artifactId>hotel</artifactId>
