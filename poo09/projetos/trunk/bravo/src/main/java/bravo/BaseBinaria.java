@@ -2,7 +2,6 @@ package bravo;
 
 /**
  * Classe concreta que implementa a interface StrategyBase.
- * 
  * @author (Tiago C. de França) - O papagaio
  * @author (Humberto Ferreira Ramos Junior) - O pirata
  * @version 2.0 em 12 de abril de 2009
@@ -19,7 +18,7 @@ public class BaseBinaria implements StrategyBase {
      * Metodo de Entrada para Binários.
      * Entrada de valores.
      */
-    public Integer entraUm(Integer valor) {
+    public final Integer entraUm(Integer valor) {
         valor = valor * 2 + 1;
         return valor;
     }
@@ -31,7 +30,7 @@ public class BaseBinaria implements StrategyBase {
      * @param valor
      * @retorno String com a representacao na base binaria do valor
      */
-    public String converterBase(Integer valor) {
+    public final String converterBase(Integer valor) {
         return "0b" + Integer.toBinaryString(valor);
     }
 }
