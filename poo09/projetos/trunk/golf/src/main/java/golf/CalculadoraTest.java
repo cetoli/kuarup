@@ -136,7 +136,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		calculad1.entraUm();
 		calculad1.comandoSoma();
 		calculad1.entraUm();
-		assertEquals("10", calculad1.comandoSoma());
+		assertEquals("0b10", calculad1.comandoSoma());
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 	public void testDigitaMaisEmRepousoBin() {
 		golf.Calculadora calculad1 = new golf.Calculadora();
 		calculad1.modoBin();
-		assertEquals("0", calculad1.comandoSoma());
+		assertEquals("0b0", calculad1.comandoSoma());
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		calculad1.entraUm();
 		calculad1.comandoSoma();
 		calculad1.entraUm();
-		assertEquals("11", calculad1.comandoSoma());
+		assertEquals("0b11", calculad1.comandoSoma());
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		calculad1.comandoSoma();
 		calculad1.entraUm();
 		calculad1.entraUm();
-		assertEquals("22", calculad1.comandoSoma());
+		assertEquals("0x22", calculad1.comandoSoma());
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		calculad1.entraUm();
 		calculad1.comandoSoma();
 		calculad1.entraUm();
-		assertEquals("12", calculad1.comandoSoma());
+		assertEquals("0x12", calculad1.comandoSoma());
 	}
 
 	/**
@@ -205,6 +205,6 @@ public class CalculadoraTest extends junit.framework.TestCase {
 	public void testDigitaMaisEmRepousoHex() {
 		golf.Calculadora calculad1 = new golf.Calculadora();
 		calculad1.modoHex();
-		assertEquals("0", calculad1.comandoSoma());
+		assertEquals("0x0", calculad1.comandoSoma());
 	}
 }

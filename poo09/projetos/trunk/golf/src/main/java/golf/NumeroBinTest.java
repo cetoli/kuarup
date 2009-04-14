@@ -35,7 +35,7 @@ public class NumeroBinTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeUm() {
 		golf.NumeroBin numeroBi1 = new golf.NumeroBin(1);
-		assertEquals("1", numeroBi1.converte());
+		assertEquals("0b1", numeroBi1.converte());
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class NumeroBinTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeDois() {
 		golf.NumeroBin numeroBi1 = new golf.NumeroBin(2);
-		assertEquals("10", numeroBi1.converte());
+		assertEquals("0b10", numeroBi1.converte());
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class NumeroBinTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeCinco() {
 		golf.NumeroBin numeroBi1 = new golf.NumeroBin(5);
-		assertEquals("101", numeroBi1.converte());
+		assertEquals("0b101", numeroBi1.converte());
 	}
 
 	/**
@@ -62,6 +62,6 @@ public class NumeroBinTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeDez() {
 		golf.NumeroBin numeroBi1 = new golf.NumeroBin(10);
-		assertEquals("1010", numeroBi1.converte());
+		assertEquals("0b1010", numeroBi1.converte());
 	}
 }

@@ -22,7 +22,11 @@ public class NumeroDec extends AbstractNumero {
 	/**
 	 * Converte o valor para decimal
 	 */
-	public String converte() {
+	protected String converteBase() {
 		return valor.toString();
 	}
+	
+	protected String getBasePrefix() {
+        return "";
+    }
 }
