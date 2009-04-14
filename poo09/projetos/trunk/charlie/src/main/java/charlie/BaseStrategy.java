@@ -10,11 +10,15 @@ package charlie;
 public interface BaseStrategy {
     /**
      * Esta e a Base de calculo.
+     * @param integer Entra um inteiro.
+     * @return Retorna um.
      */
     Integer entraUm(Integer integer);
 
     /**
      * Conversor de inteiro para string.
+     * @param integer Converte para string.
+     * @return Retorna string.
      */
-    String toString (Integer integer);
+    String toString(Integer integer);
 }

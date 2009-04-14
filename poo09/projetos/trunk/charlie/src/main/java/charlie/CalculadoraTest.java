@@ -140,7 +140,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testSomaBinariaOnzeMaisUm.
      */
-	public final void testSomaBinariaOnzeMaisUm() {
+    public final void testSomaBinariaOnzeMaisUm() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.modoBin();
         calculad1.entraUm();
