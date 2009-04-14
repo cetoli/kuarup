@@ -22,7 +22,7 @@ public interface BaseStrategy {
      * Retorna o identificador da base decimal, binária ou hexadecimal.
      * @return o identificador da respectiva base.
      */
-    public char getId();
+    public String getId();
 
     /**
      * Retorna o valor em decimal do número dado em base decimal, binária ou
