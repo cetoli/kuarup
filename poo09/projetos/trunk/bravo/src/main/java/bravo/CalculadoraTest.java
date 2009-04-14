@@ -5,8 +5,9 @@ package bravo;
 /**
  * The test class CalculadoraTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  (Tiago Cruz de França) - O papagaio
+ * @author  (Humberto Ferreira Ramos Junior) - O pirata
+ * @version (2.0) (12 de abril de 2009)
  */
 public class CalculadoraTest extends junit.framework.TestCase {
 
