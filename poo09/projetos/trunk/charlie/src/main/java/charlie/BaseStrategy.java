@@ -10,9 +10,9 @@ package charlie;
 public interface BaseStrategy {
     /**
      * Esta e a Base de calculo.
-     */    
-    Integer entraUm(Integer integer); 
-    
+     */
+    Integer entraUm(Integer integer);
+
     /**
      * Conversor de inteiro para string.
      */

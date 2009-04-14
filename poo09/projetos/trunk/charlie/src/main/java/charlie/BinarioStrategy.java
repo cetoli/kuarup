@@ -2,27 +2,30 @@ package charlie;
 
 /**
  * Classe concreta Binario.
- * @author (your name) 
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class BinarioStrategy implements BaseStrategy {
     /**
      * Variavel que define a base a ser utilizada.
-     */  
-    static int baseDois = 2;
+     */
+    private final int baseDois = 2;
 
     /**
      * Tecla numero Um.
-     */    
-    public Integer entraUm(Integer integer) {
-        integer = integer * baseDois + 1;        
-        return integer;
-    }    
-    
+     * @param integer entra um.
+     * @return retorna um.
+     */
+    public final Integer entraUm(final Integer integer) {
+        return integer * baseDois + 1;
+    }
+
     /**
      * Conversor de numero para String.
-     */  
-    public String toString(Integer integer) {
-        return Integer.toBinaryString(integer);
+     * @param integer inteiro a ser convertido.
+     * @return retorna inteiro convertido.
+     */
+    public final String toString(final Integer integer) {
+        return "0b" + Integer.toBinaryString(integer);
     }
 }
