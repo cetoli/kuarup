@@ -257,4 +257,16 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("0b1111", calculad1.comandoSoma());
     }
     
+
+	public void testH1SomaB1RetornaB10()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.modoHex();
+		assertEquals("0x1", calculad1.entraUm());
+		assertEquals("0x1", calculad1.comandoSoma());
+		calculad1.modoBin();
+		assertEquals("0b1", calculad1.entraUm());
+		assertEquals("0b10", calculad1.comandoSoma());
+	}
 }
+
