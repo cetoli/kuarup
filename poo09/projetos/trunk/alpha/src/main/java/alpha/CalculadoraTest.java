@@ -14,18 +14,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Default constructor for test class CalculadoraUnitTest.
      */
-    
-    public CalculadoraTest() {
-    }
-
+    public CalculadoraTest() { }
     /**
      * Sets up the test fixture.
      *
      * Called before every test case method.
      */
-    protected void setUp() {
-    }
-
+    protected void setUp() { }
     /**
      * Tears down the test fixture.
      *
@@ -33,7 +28,6 @@ public class CalculadoraTest extends junit.framework.TestCase
      */
     protected void tearDown() {
     }
-    
     /**
      * Testa o metodo limpa .
      *
@@ -44,7 +38,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         String zero = calculad1.limpa();
         assertEquals("Deveria retornar 0", "0", zero);
     }
-    
     /**
      * Testa a soma a partir do repouso.
      *
@@ -54,7 +47,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         assertEquals("Deveria retornar 0", "0", calculad1.comandoSoma());
     }
-    
     /**
      * Testa limpa e soma a partir do repouso.
      *
@@ -65,7 +57,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.limpa();
         assertEquals("Deveria retornar 0", "0", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a entrada de um numero a partir do repouso.
      *
@@ -75,7 +66,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         assertEquals("1", calculad1.entraUm());
     }
-    
     /**
      * Testa a entra um e soma a partir do repouso.
      *
@@ -86,7 +76,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("1", calculad1.comandoSoma());
     }
-
     /**
      * Testa a soma de um com um.
      *
@@ -99,7 +88,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("2", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a entra onze e soma a partir do repouso.
      *
@@ -111,8 +99,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("11", calculad1.comandoSoma());
     }
-    
-    
     /**
      * Testa a soma de um com Onze.
      *
@@ -126,7 +112,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("12", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a soma de onze com cento e onze.
      *
@@ -142,7 +127,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("122", calculad1.comandoSoma());
     }
-    
     /**
      * Testa o overflow na entrada.
      *
@@ -168,7 +152,6 @@ public class CalculadoraTest extends junit.framework.TestCase
             assertTrue(true);
         }
     }
-    
     /**
      * Testa a soma de um binario com um binario.
      *
@@ -181,7 +164,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("0b10", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a soma de um hexadecimal com um hexadecimal.
      *
@@ -194,7 +176,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("0x2", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a soma de onze hexadecimal com um hexadecimal.
      *
@@ -208,7 +189,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("0x12", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a soma de um binario com um hexadecimal.
      *
@@ -222,7 +202,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("0x2", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a soma de um hexadecimal com um binario.
      *
@@ -237,7 +216,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("0b100", calculad1.comandoSoma());
     }
-    
     /**
      * Testa a soma de Onze hexadecimal com um binario.
      *
@@ -276,5 +254,17 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.modoDec();
         calculad1.entraUm();
         assertEquals("171", calculad1.comandoSoma());
+    }
+   /**
+     * Testa entrada de um binario com um hexadecimal.
+     *
+     */
+    public void testEntraUmBinComUmHex() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        assertEquals("0x11", calculad1.comandoSoma());
     }
 }

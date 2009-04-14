@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.target=NumeroHexadecimalTest()
+comment0.target=NumeroHexadecimalStrategyTest()
 comment0.text=\nConstrutor\ da\ classe\ NumeroHexadecimalTest.\n\n
 comment1.target=void\ setUp()
 comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
