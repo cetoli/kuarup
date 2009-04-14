@@ -12,13 +12,15 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Default constructor for test class CalculadoraUnitTest.
      */
-    public CalculadoraTest() { }
+    public CalculadoraTest() {
+    }
     /**
      * Sets up the test fixture.
      *
      * Called before every test case method.
      */
-    protected void setUp() { }
+    protected void setUp() {
+    }
     /**
      * Tears down the test fixture.
      *
