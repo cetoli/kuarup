@@ -13,6 +13,7 @@ public class Hexadecimal implements State
 {
     /**.
      * entra o valor 1 no operador
+     * @param calculadora
      * @return conteúdo do operador
      */
     public String entraUm(Calculadora calc) {
@@ -26,6 +27,7 @@ public class Hexadecimal implements State
 
     /**.
      * limpa o acumulador e o operador
+     * @param calculadora
      * @return conteúdo do acumulador
      */
     public String limpa(Calculadora calc) {
@@ -36,6 +38,7 @@ public class Hexadecimal implements State
 
     /**.
      * soma o acumulador com o operador, guarda em acumulador e limpa o operador
+     * @param calculadora
      * @return conteúdo do acumulador
      */
     public String comandoSoma(Calculadora calc) {
