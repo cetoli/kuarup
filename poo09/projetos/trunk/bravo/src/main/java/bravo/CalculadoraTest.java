@@ -248,5 +248,63 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		assertEquals("0b1", calculad1.entraUm());
 		assertEquals("0b10", calculad1.comandoSoma());
 	}
+
+    /**
+     * teste de unidade, manipulacao dos metodos.
+     */
+	public void testEntraB1H1B1sai0b100011() {
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.modoBin();
+		assertEquals("0b100011", calculad1.entraUm());
+	}
+
+    /**
+     * teste de unidade, manipulacao dos metodos.
+     */
+	public void testEntraB1H1D1sai171()	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.modoDec();
+		assertEquals("171", calculad1.entraUm());
+	}
+
+    /**
+     * teste de unidade, manipulacao dos metodos.
+     */
+	public void testEntraB1H1sai0x11() {
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.modoHex();
+		assertEquals("0x11", calculad1.entraUm());
+	}
+
+    /**
+     * teste de unidade, manipulacao dos metodos.
+     */
+	public void testSomaB111Soma111sai0b1110() {
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.comandoSoma();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		assertEquals("0b1110", calculad1.comandoSoma());
+	}
 }
+
+
+
+
 

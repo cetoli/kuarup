@@ -39,5 +39,4 @@ public class BaseDecimal implements StrategyBase {
     public String converterBase(Integer valor) {
         return valor.toString();    
     }
-
 }

@@ -16,6 +16,7 @@ import labase.poo.ICalculadoraBase;
  * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária.
  */
 public class Calculadora implements ICalculadoraBase {
+
     /**
      * Acumulador da Caculadora.
      */
