@@ -1,11 +1,8 @@
 package bravo;
 
-
 /**
  * Classe concreta que implementa a interface StrategyBase.
- * Esta classe contem o metodo converterBase(Integer Valor)
- * retorna uma String. Esta classe devolve a representacao na
- * base hexadecimal do valor passado como parametro do metodo citado
+ * Retorna uma String.
  * 
  * @author (Tiago C. de França) - O papagaio
  * @author (Humberto Ferreira Ramos Junior) - O pirata
@@ -18,20 +15,17 @@ public class BaseHexadecimal implements StrategyBase {
      */
     public BaseHexadecimal() {
     }
-    
+
     /**
      * Metodo de Entrada para HexaDecimal.
-     * Entrada de valores
      */    
     public Integer entraUm(Integer valor) {
         valor = valor * 16 + 1;
         return valor;
     }
-    
+
     /**
      * Metodo conversor para base Hexadecimal.
-     * Utiliza o metodo estatico toHexString da classe 
-     * Integer para retornar a String
      * @param valor
      * @retorno String com a representacao na base hexadecimal do valor
      */

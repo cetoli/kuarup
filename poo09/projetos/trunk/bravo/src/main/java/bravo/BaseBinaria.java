@@ -1,12 +1,7 @@
 package bravo;
 
-
-
 /**
- * Classe concreta que implementa a interface StrategyBase que contem 
- * o metodo converterBase(Integer Valor) retorna uma String.
- * Esta classe devolve a representacao na base Binaria do valor passado 
- * como parametro do metodo citado
+ * Classe concreta que implementa a interface StrategyBase.
  * 
  * @author (Tiago C. de França) - O papagaio
  * @author (Humberto Ferreira Ramos Junior) - O pirata
@@ -19,20 +14,20 @@ public class BaseBinaria implements StrategyBase {
      */
     public BaseBinaria() {
     }
-    
+
     /**
      * Metodo de Entrada para Binários.
-     * Entrada de valores
-     */    
+     * Entrada de valores.
+     */
     public Integer entraUm(Integer valor) {
         valor = valor * 2 + 1;
         return valor;
     }
-    
+
     /**
      * Metodo conversor para base Binaria.
-     * Utiliza o metodo estatico toBinaryString da classe Integer
-     * para retornar a String
+     * Utiliza o metodo estatico toBinaryString da classe Integer.
+     * Retornar a String.
      * @param valor
      * @retorno String com a representacao na base binaria do valor
      */

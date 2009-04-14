@@ -6,5 +6,5 @@ comment1.target=Integer\ entraUm(Integer)
 comment1.text=\nMetodo\ de\ Entrada\ para\ Decimais.\nEntrada\ de\ valores\n\n
 comment2.params=valor
 comment2.target=String\ converterBase(Integer)
-comment2.text=\nMetodo\ conversor\ para\ base\ decimal.\nAs\ operacoes\ sao\ feitas\ nesta\ base\ e\ necessario\ apenas\nretornar\ uma\ string\ com\ o\ valor\n@param\ valor\n@retorna\ uma\ String\ com\ a\ representacao\ na\ base\ decimal\ do\nvalor\ passado\n\n
+comment2.text=\nMetodo\ conversor\ para\ base\ decimal.\n@param\ valor\n@retorna\ uma\ String\n\n
 numComments=3

@@ -1,7 +1,5 @@
 package bravo;
 
-
-
 /**
  * The test class CalculadoraTest.
  *
@@ -32,7 +30,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
      */
     protected void tearDown() {
     }
-    
+
     /**
      * teste de unidade, manipulacao dos metodos.
      */
@@ -236,7 +234,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
         assertEquals("0b11", calculad1.entraUm());
         assertEquals("0b1111", calculad1.comandoSoma());
     }
-    
+
     /**
      * teste de unidade, manipulacao dos metodos.
      */
@@ -304,8 +302,3 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		assertEquals("0b1110", calculad1.comandoSoma());
 	}
 }
-
-
-
-
-
