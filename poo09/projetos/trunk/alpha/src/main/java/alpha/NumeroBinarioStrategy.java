@@ -1,6 +1,5 @@
 package alpha;
 
-
 /**
  * Classe que executa operações com numeros binarios.
  * 
@@ -18,7 +17,6 @@ public class NumeroBinarioStrategy extends NumeroStrategy
      * 
      */
     public NumeroBinarioStrategy() { }
-    
     /**
      * Converte o numero para a base Decimal.
      * 
@@ -27,7 +25,6 @@ public class NumeroBinarioStrategy extends NumeroStrategy
     public Integer converteEmNumeroDecimal() {
         return Integer.valueOf(repNum, BASE);
     }
-    
     /**
      * Converte o numero para a base corrente.
      * 
@@ -36,11 +33,9 @@ public class NumeroBinarioStrategy extends NumeroStrategy
      */
     public INumeroStrategy converterParaBase(Integer num) {
         NumeroBinarioStrategy bin = new NumeroBinarioStrategy();
-        bin.setRepNum(Integer.toBinaryString(num));
-        
+        bin.setRepNum(Integer.toBinaryString(num));   
         return bin;
     }
-    
     /**
      * Retorna o resultado na base corrente.
      * @return uma String com o resultado desejado
@@ -49,7 +44,6 @@ public class NumeroBinarioStrategy extends NumeroStrategy
         Integer temp = converteEmNumeroDecimal();
         return temp.toBinaryString(temp);
     }
-    
     /**
      * Retorna o resultado na base corrente para exibicao no Display.
      * @return uma "0b" + String com o resultado desejado

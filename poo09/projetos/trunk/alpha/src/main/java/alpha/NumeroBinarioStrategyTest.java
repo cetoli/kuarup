@@ -1,7 +1,5 @@
 package alpha;
 
-
-
 /**
  * The test class NumeroDecimalTest.
  *
@@ -14,28 +12,22 @@ public class NumeroBinarioStrategyTest extends junit.framework.TestCase
     /**
      * Default constructor for test class NumeroBinarioStrategyTest.
      */
-    public NumeroBinarioStrategyTest()
-    {
+    public NumeroBinarioStrategyTest() {
     }
-
     /**
      * Sets up the test fixture.
      *
      * Called before every test case method.
      */
-    protected void setUp()
-    {
+    protected void setUp() {
     }
-
     /**
      * Tears down the test fixture.
      *
      * Called after every test case method.
      */
-    protected void tearDown()
-    {
+    protected void tearDown() {
     }
-    
     /**
      * Testa a entrada do numero 1 em binario a partir do repouso.
      */
@@ -44,7 +36,6 @@ public class NumeroBinarioStrategyTest extends junit.framework.TestCase
         numBin.entraUm();
         assertEquals(new Integer(1), numBin.converteEmNumeroDecimal());
     }
-    
     /**
      * Testa a entrada do numero 11 em binario a partir do repouso.
      */
@@ -54,7 +45,6 @@ public class NumeroBinarioStrategyTest extends junit.framework.TestCase
         numBin.entraUm();
         assertEquals(new Integer(3), numBin.converteEmNumeroDecimal());
     }
-    
      /**
      * Testa a exibicao do numero 11 em binario.
      */
