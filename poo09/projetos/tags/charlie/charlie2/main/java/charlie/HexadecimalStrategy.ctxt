@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=integer
-comment0.target=Integer\ entraUm(Integer)
-comment0.text=\nDeclaracao\ do\ metodo\ entraUm\ em\ Hexa.\n\n
-comment1.params=integer
-comment1.target=String\ toString(Integer)
-comment1.text=\nDeclaracao\ do\ metodo\ toString\ em\ Hexa.\n\n
-numComments=2
