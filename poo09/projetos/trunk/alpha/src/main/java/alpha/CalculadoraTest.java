@@ -252,4 +252,29 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         assertEquals("0b10010", calculad1.comandoSoma());
     }
+    /**
+     * Testa entrada de um hexadecimal com um binario.
+     *
+     */
+    public void testEntraUmHexaComUmBin() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        assertEquals("0b11", calculad1.comandoSoma());
+    }
+    /**
+     * Testa entrada de onze hexadecimal com um decimal.
+     *
+     */
+    public void testEntraUmUmHexaComUmDec() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.modoDec();
+        calculad1.entraUm();
+        assertEquals("171", calculad1.comandoSoma());
+    }
 }

@@ -62,21 +62,27 @@ public class Calculadora implements ICalculadoraBase {
      * * Opera em modo hexadecimal.
      */
     public final void modoHex() {
+        INumero temp = operador;
+        Integer i = temp.converteEmNumeroDecimal();
         operador = new NumeroHexadecimal();
-      //return acumulador.toString();
+        operador = operador.converterParaBase(i);
     }
     /**
      * Opera em modo binario.
      */
     public final void modoBin() {
+        INumero temp = operador;
+        Integer i = temp.converteEmNumeroDecimal();
         operador = new NumeroBinario();
-      //return acumulador.toString();
+        operador = operador.converterParaBase(i);
     }
     /**
      * Opera em modo decimal.
      */
     public final void modoDec() {
+        INumero temp = operador;
+        Integer i = temp.converteEmNumeroDecimal();
         operador = new NumeroDecimal();
-      //return acumulador.toString();
+        operador = operador.converterParaBase(i);
     }
 }
