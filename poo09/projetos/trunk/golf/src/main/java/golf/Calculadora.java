@@ -18,84 +18,85 @@ import labase.poo.ICalculadoraBase;
  * @since 0.0 Descreva aqui as alterações desta versao
  */
 public class Calculadora implements ICalculadoraBase {
-	/**
-	 * Acumulador da Caculadora.
-	 */
-	private AbstractNumero acumulador;
+    /**
+     * Acumulador da Caculadora.
+     */
+    private AbstractNumero acumulador;
 
-	/**
-	 * Operador da Caculadora.
-	 */
-	private AbstractNumero operador;
+    /**
+     * Operador da Caculadora.
+     */
+    private AbstractNumero operador;
 
-	/**
-	 * Base da calculadora.
-	 */
-	private final Integer base = 10;
+    /**
+     * Base da calculadora.
+     */
+    private final Integer base = 10;
 
-	/**
-	 * Construtor para objetos da classe Calculadora.
-	 */
-	public Calculadora() {
-		this.modoDec();
-	}
+    /**
+     * Construtor para objetos da classe Calculadora.
+     */
+    public Calculadora() {
+        operador = new NumeroDec(0);
+        acumulador = new NumeroDec(0);        
+    }
 
-	/**
-	 * Entra a tecla um.
-	 * 
-	 * @return conteudo do operador
-	 */
-	public final String entraUm() {
-		operador.setValor(operador.getValor() * operador.getBase() + 1);
-		return operador.converte();
-	}
+    /**
+     * Entra a tecla um.
+     * 
+     * @return conteudo do operador
+     */
+    public final String entraUm() {
+        operador.setValor(operador.getValor() * operador.getBase() + 1);        
+        return operador.converte();
+    }
 
-	/**
-	 * Limpa o acumulador.
-	 * 
-	 * @return conteudo do acumulador
-	 */
-	public final String limpa() {
-		operador.setValor(0);
-		acumulador.setValor(0);
-		return "0";
-	}
+    /**
+     * Limpa o acumulador.
+     * 
+     * @return conteudo do acumulador
+     */
+    public final String limpa() {
+        operador.setValor(0);
+        acumulador.setValor(0);
+        return "0";
+    }
 
-	/**
-	 * Entra o comando soma.
-	 * 
-	 * @return conteudo do acumulador
-	 */
-	public final String comandoSoma() {
-		acumulador.setValor(acumulador.getValor() + operador.getValor());
-		operador.setValor(0);
-		return acumulador.converte();
-	}
+    /**
+     * Entra o comando soma.
+     * 
+     * @return conteudo do acumulador
+     */
+    public final String comandoSoma() {
+        acumulador.setValor(acumulador.getValor() + operador.getValor());
+        operador.setValor(0);
+        return acumulador.converte();
+    }
 
-	/**
-	 * Muda a base da calculadora para Hexadecimal.
-	 * 
-	 */
-	public final void modoHex() {
-		acumulador = new NumeroHex(0);
-		operador = new NumeroHex(0);
-	}
+    /**
+     * Muda a base da calculadora para Hexadecimal.
+     * 
+     */
+    public final void modoHex() {
+        operador = new NumeroHex(operador.getValor());
+        acumulador = new NumeroHex(acumulador.getValor());
+    }
 
-	/**
-	 * Muda a base da calculadora para Binario.
-	 * 
-	 */
-	public final void modoBin() {
-		acumulador = new NumeroBin(0);
-		operador = new NumeroBin(0);
-	}
+    /**
+     * Muda a base da calculadora para Binario.
+     * 
+     */
+    public final void modoBin() {
+        operador = new NumeroBin(operador.getValor());
+        acumulador = new NumeroBin(acumulador.getValor());
+    }
 
-	/**
-	 * Muda a base da calculadora para Decimal.
-	 * 
-	 */
-	public final void modoDec() {
-		acumulador = new NumeroDec(0);
-		operador = new NumeroDec(0);
-	}
+    /**
+     * Muda a base da calculadora para Decimal.
+     * 
+     */
+    public final void modoDec() {
+        operador = new NumeroDec(operador.getValor());
+        acumulador = new NumeroDec(acumulador.getValor());
+    }
 }
