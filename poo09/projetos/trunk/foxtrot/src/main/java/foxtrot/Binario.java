@@ -19,13 +19,13 @@ public class Binario implements State
       operadorBin += "1";
       operador = Integer.parseInt(operadorBin, 2);
       calc.setOperador(operador);
-      return "bx" + Integer.toBinaryString(operador.intValue());
+      return "0b" + Integer.toBinaryString(operador.intValue());
     }
     
     public String limpa(Calculadora calc) {
       calc.setAcumulador(0);
       calc.setOperador(0);
-      return "bx0";
+      return "0b0";
     }
     
     public String comandoSoma(Calculadora calc) {
@@ -35,6 +35,6 @@ public class Binario implements State
       operador = 0;
       calc.setAcumulador(acumulador);
       calc.setOperador(operador);      
-      return "bx" + Integer.toBinaryString(acumulador.intValue());
+      return "0b" + Integer.toBinaryString(acumulador.intValue());
     }
 }

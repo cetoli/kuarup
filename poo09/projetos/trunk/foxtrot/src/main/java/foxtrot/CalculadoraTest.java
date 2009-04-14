@@ -243,7 +243,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
 		calculad1.modoBin();
 		calculad1.entraUm();
-		assertEquals("bx11", calculad1.entraUm());
+		assertEquals("0b11", calculad1.entraUm());
 	}
 
 	public void testBinEntraUmLimpaAPartirDoRepouso()
@@ -251,7 +251,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
 		calculad1.modoBin();
 		calculad1.entraUm();
-		assertEquals("bx0", calculad1.limpa());
+		assertEquals("0b0", calculad1.limpa());
 	}
 
 	public void testBinEntraUmTresVezesAPartirDoRepouso()
@@ -260,7 +260,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.modoBin();
 		calculad1.entraUm();
 		calculad1.entraUm();
-		assertEquals("bx111", calculad1.entraUm());
+		assertEquals("0b111", calculad1.entraUm());
 	}
 
 	public void testBinUmMaisUmAPartirDoRepouso()
@@ -270,7 +270,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.entraUm();
 		calculad1.comandoSoma();
 		calculad1.entraUm();
-		assertEquals("bx10", calculad1.comandoSoma());
+		assertEquals("0b10", calculad1.comandoSoma());
 	}
 
 	public void testBinOnzeMaisUmAPartirDoRepouso()
@@ -281,7 +281,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.entraUm();
 		calculad1.comandoSoma();
 		calculad1.entraUm();
-		assertEquals("bx100", calculad1.comandoSoma());
+		assertEquals("0b100", calculad1.comandoSoma());
 	}
 
 	public void testBinUmMaisUmOnzeVezesAPartirDoRepouso()
@@ -309,7 +309,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.entraUm();
 		calculad1.comandoSoma();
 		calculad1.entraUm();
-		assertEquals("bx1011", calculad1.comandoSoma());
+		assertEquals("0b1011", calculad1.comandoSoma());
 	}
 
 	public void testBinEntraUmEntraUmLimpaEntraUmAPartirDoRepouso()
@@ -319,28 +319,28 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.entraUm();
 		calculad1.entraUm();
 		calculad1.limpa();
-		assertEquals("bx1", calculad1.entraUm());
+		assertEquals("0b1", calculad1.entraUm());
 	}
 
 	public void testBinSomarAPartirDoRepouso()
 	{
 		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
 		calculad1.modoBin();
-		assertEquals("bx0", calculad1.comandoSoma());
+		assertEquals("0b0", calculad1.comandoSoma());
 	}
 
 	public void testBinEntraUmAPartirDoRepouso()
 	{
 		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
 		calculad1.modoBin();
-		assertEquals("bx1", calculad1.entraUm());
+		assertEquals("0b1", calculad1.entraUm());
 	}
 
 	public void testBinLimparAPartirDoRepouso()
 	{
 		foxtrot.Calculadora calculad1 = new foxtrot.Calculadora();
 		calculad1.modoBin();
-		assertEquals("bx0", calculad1.limpa());
+		assertEquals("0b0", calculad1.limpa());
 	}
 
 	public void testBinEntraOnzeSomarSomarAPartirDoRepouso()
@@ -350,7 +350,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.entraUm();
 		calculad1.entraUm();
 		calculad1.comandoSoma();
-		assertEquals("bx11", calculad1.comandoSoma());
+		assertEquals("0b11", calculad1.comandoSoma());
 	}
 }
 
