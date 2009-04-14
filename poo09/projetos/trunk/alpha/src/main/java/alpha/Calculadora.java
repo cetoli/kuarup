@@ -27,7 +27,6 @@ public class Calculadora implements ICalculadoraBase {
     public Calculadora() {
     // inicializa variaveis de instância
     }
-
     /**
      * Limpa o acumulador.
      *
@@ -43,7 +42,7 @@ public class Calculadora implements ICalculadoraBase {
      */
     public final String entraUm() {
         operador.entraUm();
-        return operador.mostraNumeroNaMinhaRepresentacaoBase();
+        return operador.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
     
     /**
