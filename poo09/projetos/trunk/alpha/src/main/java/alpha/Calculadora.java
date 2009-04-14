@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package alpha;
-import labase.poo.ICalculadoraBase;
+import labase.poo.ICalculadoraComplexo;
 
 /**
  * Esta é a classe principal da calculadora do time alpha.
@@ -16,7 +16,7 @@ import labase.poo.ICalculadoraBase;
  * @version 2.0    $Revision$ 2.0      $Date$ 07/04/09
  * @since   1.0 Calculadora com o operador "+", o número "1" e a tecla "limpa"
  */
-public class Calculadora implements ICalculadoraBase {
+public class Calculadora implements ICalculadoraComplexo {
     /**Acumulador da Caculadora. */
     private INumeroStrategy acumulador = new NumeroDecimalStrategy();
     /**Operador da Caculadora. */
@@ -82,5 +82,11 @@ public class Calculadora implements ICalculadoraBase {
         Integer i = temp.converteEmNumeroDecimal();
         operador = new NumeroDecimalStrategy();
         operador = operador.converterParaBase(i);
+    }
+    /**
+     * Habilita numeros complexos.
+     *
+     */
+    public void entraI() {
     }
 }

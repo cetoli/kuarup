@@ -265,4 +265,24 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.modoBin();
         assertEquals("0b100011", calculad1.entraUm());
     }
+    public void testeSomaD1ID1eD1sai2I1() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.entraUm();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("2I1", calculad1.comandoSoma());
+    }
+    public void testeSomaD11ID1eID1sai11I2() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.entraUm();
+        assertEquals("11I2", calculad1.comandoSoma());
+    }
 }

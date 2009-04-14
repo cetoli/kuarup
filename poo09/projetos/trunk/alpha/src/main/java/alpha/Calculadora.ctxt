@@ -13,4 +13,6 @@ comment5.target=void\ modoBin()
 comment5.text=\nOpera\ em\ modo\ binario.\n\n
 comment6.target=void\ modoDec()
 comment6.text=\nOpera\ em\ modo\ decimal.\n\n
-numComments=7
+comment7.target=void\ entraI()
+comment7.text=\nHabilita\ numeros\ complexos.\n\n\n
+numComments=8
