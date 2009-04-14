@@ -2,7 +2,7 @@
 comment0.target=CalculadoraTest()
 comment0.text=\nDefault\ constructor\ for\ test\ class\ CalculadoraTest.\n\n
 comment1.target=void\ setUp()
-comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
+comment1.text=\nSets\ up\ the\ test\ fixture.\nCalled\ before\ every\ test\ case\ method.\n\n
 comment10.target=void\ testSomaApartirDoRepousoRetornaZero()
 comment10.text=\nteste\ de\ unidade,\ manipulacao\ dos\ metodos.\n\n
 comment11.target=void\ testSomaUmMaisRetornaUm()
@@ -24,7 +24,7 @@ comment18.text=\nteste\ de\ unidade,\ manipulacao\ dos\ metodos.\n\n
 comment19.target=void\ testDecimalOnzeSomaBinariaUmSomaHexaUmRetornaHexaD()
 comment19.text=\nteste\ de\ unidade,\ manipulacao\ dos\ metodos.\n\n
 comment2.target=void\ tearDown()
-comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
+comment2.text=\nTears\ down\ the\ test\ fixture.\nCalled\ after\ every\ test\ case\ method.\n\n
 comment20.target=void\ testeHexaUmSomaDecOnzeSomaBinOnzeRetornaEmBinMilCentoOnze()
 comment20.text=\nteste\ de\ unidade,\ manipulacao\ dos\ metodos.\n\n
 comment21.target=void\ testH1SomaB1RetornaB10()

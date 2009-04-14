@@ -2,7 +2,6 @@ package bravo;
 
 /**
  * The test class BaseDecimalTest.
- *
  * @author (Tiago C. de França) - O papagaio
  * @author (Humberto Ferreira Ramos Junior) - O pirata
  * @version 2.0 em 12 de abril de 2009
@@ -17,7 +16,6 @@ public class BaseDecimalTest extends junit.framework.TestCase {
 
     /**
      * Sets up the test fixture.
-     *
      * Called before every test case method.
      */
     protected void setUp() {
@@ -25,7 +23,6 @@ public class BaseDecimalTest extends junit.framework.TestCase {
 
     /**
      * Tears down the test fixture.
-     *
      * Called after every test case method.
      */
     protected void tearDown() {
