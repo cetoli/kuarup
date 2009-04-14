@@ -1,7 +1,5 @@
 package bravo;
 
-
-
 /**
  * The test class BaseBinariaTest.
  * 

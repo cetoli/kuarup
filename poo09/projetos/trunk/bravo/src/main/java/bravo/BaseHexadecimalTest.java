@@ -1,7 +1,5 @@
 package bravo;
 
-
-
 /**
  * The test class BaseHexadecimalTest.
  *
@@ -32,7 +30,7 @@ public class BaseHexadecimalTest extends junit.framework.TestCase {
      */
     protected void tearDown() {
     }
-    
+
     /**
      * Metodo de teste passando valores.
      */

@@ -21,44 +21,44 @@ public class Calculadora implements ICalculadoraBase {
      * Acumulador da Caculadora.
      */
     private Integer acumulador = new Integer(0);
-  
+
     /**
      * Operador da Caculadora.
      */
     private Integer operador = new Integer(0);
-  
+
     /**
      * Conversor de base.
      */
     private StrategyBase base = new BaseDecimal();
-  
+
     /**
      * Construtor para objetos da classe Calculadora.
      */
     public Calculadora() {
     }
-  
+
     /**
      * Metodo utilizado para indicar operacoes na base Hexadecimal.
      */
     public void modoHex() {
         base = new BaseHexadecimal();
     }
-  
+
     /**
      * Metodo utilizado para indicar operacoes na base Binaria.
      */
     public void modoBin() {
         base = new BaseBinaria();
     }
-  
+
     /**
      * Metodo utilizado para indicar operacoes na base Decimal.
      */
     public void modoDec() {
         base = new BaseDecimal();
     }
-  
+
     /**
      * Entra a tecla um.
      *
@@ -90,5 +90,4 @@ public class Calculadora implements ICalculadoraBase {
         this.operador = 0;   
         return base.converterBase(acumulador);
     }
-  
 }
