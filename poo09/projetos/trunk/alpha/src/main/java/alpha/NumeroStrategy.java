@@ -47,7 +47,7 @@ public abstract class NumeroStrategy implements INumeroStrategy {
         return repNum;
     }
     /**
-     * Metodo que ira zerar a representacao numerica 
+     * Metodo que ira zerar a representacao numerica
      * para obtencao do segundo parametro.
      */
     public void zeraRepresentacaoNumerica() {

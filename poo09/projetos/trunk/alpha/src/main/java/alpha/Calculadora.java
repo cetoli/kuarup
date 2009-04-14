@@ -49,7 +49,7 @@ public class Calculadora implements ICalculadoraBase {
      *
      *@return  conteudo do acumulador
      */
-    public final String comandoSoma() {  
+    public final String comandoSoma() {
         Integer temp = operador.converteEmNumeroDecimal().intValue()
                 + acumulador.converteEmNumeroDecimal().intValue();
         acumulador = operador.converterParaBase(temp);
