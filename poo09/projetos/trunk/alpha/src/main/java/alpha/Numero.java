@@ -31,9 +31,14 @@ public abstract class Numero implements INumero {
     public abstract INumero converterParaBase(Integer num);
     
     /**
-     * Metodo abstrato que ira exibir o numero na base decimal.
+     * Metodo abstrato que ira exibir o numero na base corrente.
      */
     public abstract String mostraNumeroNaMinhaRepresentacaoBase();
+    
+    /**
+     * Metodo abstrato que ira exibir o numero na base corrente para exibicao no display.
+     */
+    public abstract String mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     
     /**
      * Metodo que ira proceder alteracoes na representacao numerica.

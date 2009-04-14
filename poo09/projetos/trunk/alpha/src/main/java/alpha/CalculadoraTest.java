@@ -179,7 +179,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         calculad1.comandoSoma();
         calculad1.entraUm();
-        assertEquals("10", calculad1.comandoSoma());
+        assertEquals("0b10", calculad1.comandoSoma());
     }
     
     /**
@@ -192,7 +192,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         calculad1.comandoSoma();
         calculad1.entraUm();
-        assertEquals("2", calculad1.comandoSoma());
+        assertEquals("0x2", calculad1.comandoSoma());
     }
     
     /**
@@ -206,7 +206,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.entraUm();
         calculad1.comandoSoma();
         calculad1.entraUm();
-        assertEquals("12", calculad1.comandoSoma());
+        assertEquals("0x12", calculad1.comandoSoma());
     }
     
     /**
@@ -220,7 +220,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.comandoSoma();
         calculad1.modoHex();
         calculad1.entraUm();
-        assertEquals("2", calculad1.comandoSoma());
+        assertEquals("0x2", calculad1.comandoSoma());
     }
     
     /**
@@ -235,7 +235,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.modoBin();
         calculad1.entraUm();
         calculad1.entraUm();
-        assertEquals("100", calculad1.comandoSoma());
+        assertEquals("0b100", calculad1.comandoSoma());
     }
     
     /**
@@ -250,6 +250,6 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.comandoSoma();
         calculad1.modoBin();
         calculad1.entraUm();
-        assertEquals("10010", calculad1.comandoSoma());
+        assertEquals("0b10010", calculad1.comandoSoma());
     }
 }
