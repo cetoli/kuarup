@@ -14,14 +14,12 @@ public interface INumeroStrategy
      * Assinatura do metodo entraUm.
      */
     public void entraUm();
-    
     /**
      * Assinatura do metodo converteEmNumeroDecimal.
      * 
      * @return Integer
      */
     public Integer converteEmNumeroDecimal();
-    
     /**
      * Assinatura do metodo converterParaBase.
      * 
@@ -29,21 +27,18 @@ public interface INumeroStrategy
      * @return INumero
      */
     public INumeroStrategy converterParaBase(Integer num);
-    
     /**
      * Assinatura do metodo mostraNumeroNaMinhaRepresentacaoBase.
      * 
      * @return String
      */
     public String mostraNumeroNaMinhaRepresentacaoBase();
-    
      /**
      * Assinatura do metodo mostraNumeroNaMinhaRepresentacaoBaseParaODisplay.
      * 
      * @return String
      */
     public String mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
-    
     /**
      * Assinatura do metodo zeraRepresentacaoNumerica.
      */
