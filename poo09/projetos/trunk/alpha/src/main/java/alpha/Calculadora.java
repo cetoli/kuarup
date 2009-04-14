@@ -56,7 +56,7 @@ public class Calculadora implements ICalculadoraBase {
                 + acumulador.converteEmNumeroDecimal().intValue();
         acumulador = operador.converterParaBase(temp);
         operador.zeraRepresentacaoNumerica();
-        return acumulador.mostraNumeroNaMinhaRepresentacaoBase();
+        return acumulador.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
     /**
      * * Opera em modo hexadecimal.

@@ -37,6 +37,13 @@ public interface INumero
      */
     public String mostraNumeroNaMinhaRepresentacaoBase();
     
+     /**
+     * Assinatura do metodo mostraNumeroNaMinhaRepresentacaoBaseParaODisplay.
+     * 
+     * @return String
+     */
+    public String mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
+    
     /**
      * Assinatura do metodo zeraRepresentacaoNumerica.
      */

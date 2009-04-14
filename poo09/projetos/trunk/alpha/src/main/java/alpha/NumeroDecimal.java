@@ -44,4 +44,11 @@ public class NumeroDecimal extends Numero
         Integer temp = converteEmNumeroDecimal();
         return temp.toString(temp);
     }
+    
+      /**
+     * Metodo que ira exibir o numero na base corrente para exibicao no display.
+     */
+    public  String mostraNumeroNaMinhaRepresentacaoBaseParaODisplay(){
+        return mostraNumeroNaMinhaRepresentacaoBase();
+    }
 }
