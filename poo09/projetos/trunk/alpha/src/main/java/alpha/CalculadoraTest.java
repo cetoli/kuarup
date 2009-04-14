@@ -7,8 +7,7 @@ package alpha;
  * @author  Carlos Felippe Cardoso de Resende
  * @version 1.0
  */
-public class CalculadoraTest extends junit.framework.TestCase
-{
+public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Default constructor for test class CalculadoraUnitTest.
      */
@@ -137,8 +136,7 @@ public class CalculadoraTest extends junit.framework.TestCase
             calculad1.entraUm();
             calculad1.entraUm();
             fail();
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             assertTrue(true);
         }
     }

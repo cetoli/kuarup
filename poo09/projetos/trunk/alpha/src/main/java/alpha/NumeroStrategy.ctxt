@@ -16,5 +16,5 @@ comment5.text=\nMetodo\ que\ ira\ proceder\ alteracoes\ na\ representacao\ numer
 comment6.target=String\ getRepNum()
 comment6.text=\nMetodo\ que\ ira\ retornar\ a\ representacao\ numerica.\n\n
 comment7.target=void\ zeraRepresentacaoNumerica()
-comment7.text=\nMetodo\ que\ ira\ zerar\ a\ representacao\ numerica\ \npara\ obtencao\ do\ segundo\ parametro.\n\n
+comment7.text=\nMetodo\ que\ ira\ zerar\ a\ representacao\ numerica\npara\ obtencao\ do\ segundo\ parametro.\n\n
 numComments=8
