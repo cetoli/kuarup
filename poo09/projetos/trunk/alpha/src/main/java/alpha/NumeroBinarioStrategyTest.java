@@ -9,12 +9,12 @@ package alpha;
  * @author  Carlos Felippe Cardoso de Resende
  * @version 1.0
  */
-public class NumeroBinarioTest extends junit.framework.TestCase
+public class NumeroBinarioStrategyTest extends junit.framework.TestCase
 {
     /**
-     * Default constructor for test class NumeroBinarioTest.
+     * Default constructor for test class NumeroBinarioStrategyTest.
      */
-    public NumeroBinarioTest()
+    public NumeroBinarioStrategyTest()
     {
     }
 
@@ -40,7 +40,7 @@ public class NumeroBinarioTest extends junit.framework.TestCase
      * Testa a entrada do numero 1 em binario a partir do repouso.
      */
     public void testConverteUmBinarioEmNumeroDecimalAPartirDoRepouso() {
-        alpha.NumeroBinario numBin = new alpha.NumeroBinario();
+        alpha.NumeroBinarioStrategy numBin = new alpha.NumeroBinarioStrategy();
         numBin.entraUm();
         assertEquals(new Integer(1), numBin.converteEmNumeroDecimal());
     }
@@ -49,7 +49,7 @@ public class NumeroBinarioTest extends junit.framework.TestCase
      * Testa a entrada do numero 11 em binario a partir do repouso.
      */
     public void testConverteUmUmBinarioEmNumeroDecimalAPartirDoRepouso() {
-        alpha.NumeroBinario numBin = new alpha.NumeroBinario();
+        alpha.NumeroBinarioStrategy numBin = new alpha.NumeroBinarioStrategy();
         numBin.entraUm();
         numBin.entraUm();
         assertEquals(new Integer(3), numBin.converteEmNumeroDecimal());
@@ -59,7 +59,7 @@ public class NumeroBinarioTest extends junit.framework.TestCase
      * Testa a exibicao do numero 11 em binario.
      */
     public void testMostraNumeroUmUmEmBinarioAposEntradaApartirDoRepouso() {
-        alpha.NumeroBinario numBin = new alpha.NumeroBinario();
+        alpha.NumeroBinarioStrategy numBin = new alpha.NumeroBinarioStrategy();
         numBin.entraUm();
         numBin.entraUm();
         assertEquals("11", numBin.mostraNumeroNaMinhaRepresentacaoBase());

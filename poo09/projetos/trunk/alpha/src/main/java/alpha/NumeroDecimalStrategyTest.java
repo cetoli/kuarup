@@ -7,12 +7,12 @@ package alpha;
  * @author  Carlos Felippe Cardoso de Resende
  * @version 1.0
  */
-public class NumeroDecimalTest extends junit.framework.TestCase
+public class NumeroDecimalStrategyTest extends junit.framework.TestCase
 {
     /**
-     * Default constructor for test class NumeroDecimalTest.
+     * Default constructor for test class NumeroDecimalStrategyTest.
      */
-    public NumeroDecimalTest()
+    public NumeroDecimalStrategyTest()
     {
     }
 
@@ -39,7 +39,7 @@ public class NumeroDecimalTest extends junit.framework.TestCase
      */
     public void testConverteUmEmNumeroDecimalAPartirDoRepouso()
     {
-        alpha.NumeroDecimal numDec = new alpha.NumeroDecimal();
+        alpha.NumeroDecimalStrategy numDec = new alpha.NumeroDecimalStrategy();
         numDec.entraUm();
         assertEquals(new Integer(1), numDec.converteEmNumeroDecimal());
     }
@@ -49,7 +49,7 @@ public class NumeroDecimalTest extends junit.framework.TestCase
      */
     public void testConverteUmUmEmNumeroDecimalAPartirDoRepouso()
     {
-        alpha.NumeroDecimal numDec = new alpha.NumeroDecimal();
+        alpha.NumeroDecimalStrategy numDec = new alpha.NumeroDecimalStrategy();
         numDec.entraUm();
         numDec.entraUm();
         assertEquals(new Integer(11), numDec.converteEmNumeroDecimal());

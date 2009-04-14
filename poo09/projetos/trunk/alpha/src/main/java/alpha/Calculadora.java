@@ -18,9 +18,9 @@ import labase.poo.ICalculadoraBase;
  */
 public class Calculadora implements ICalculadoraBase {
     /**Acumulador da Caculadora. */
-    private INumero acumulador = new NumeroDecimal();
+    private INumeroStrategy acumulador = new NumeroDecimalStrategy();
     /**Operador da Caculadora. */
-    private INumero operador = new NumeroDecimal();
+    private INumeroStrategy operador = new NumeroDecimalStrategy();
     /**
      * Construtor para objetos da classe Calculadora.
      */
@@ -62,27 +62,27 @@ public class Calculadora implements ICalculadoraBase {
      * * Opera em modo hexadecimal.
      */
     public final void modoHex() {
-        INumero temp = operador;
+        INumeroStrategy temp = operador;
         Integer i = temp.converteEmNumeroDecimal();
-        operador = new NumeroHexadecimal();
+        operador = new NumeroHexadecimalStrategy();
         operador = operador.converterParaBase(i);
     }
     /**
      * Opera em modo binario.
      */
     public final void modoBin() {
-        INumero temp = operador;
+        INumeroStrategy temp = operador;
         Integer i = temp.converteEmNumeroDecimal();
-        operador = new NumeroBinario();
+        operador = new NumeroBinarioStrategy();
         operador = operador.converterParaBase(i);
     }
     /**
      * Opera em modo decimal.
      */
     public final void modoDec() {
-        INumero temp = operador;
+        INumeroStrategy temp = operador;
         Integer i = temp.converteEmNumeroDecimal();
-        operador = new NumeroDecimal();
+        operador = new NumeroDecimalStrategy();
         operador = operador.converterParaBase(i);
     }
 }

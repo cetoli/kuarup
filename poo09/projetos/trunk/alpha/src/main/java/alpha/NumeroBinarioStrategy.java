@@ -8,7 +8,7 @@ package alpha;
  * @author  Carlos Felippe Cardoso de Resende
  * @version 1.0
  */
-public class NumeroBinario extends Numero
+public class NumeroBinarioStrategy extends NumeroStrategy
 {
     //Constante indicando a base 2.
     private static final int BASE = 2;
@@ -17,7 +17,7 @@ public class NumeroBinario extends Numero
      * Construtor da classe.
      * 
      */
-    public NumeroBinario() { }
+    public NumeroBinarioStrategy() { }
     
     /**
      * Converte o numero para a base Decimal.
@@ -32,10 +32,10 @@ public class NumeroBinario extends Numero
      * Converte o numero para a base corrente.
      * 
      * @param num numero que deve ser convertido
-     * @return um INumero com o numero convertido
+     * @return um INumeroStrategy com o numero convertido
      */
-    public INumero converterParaBase(Integer num) {
-        NumeroBinario bin = new NumeroBinario();
+    public INumeroStrategy converterParaBase(Integer num) {
+        NumeroBinarioStrategy bin = new NumeroBinarioStrategy();
         bin.setRepNum(Integer.toBinaryString(num));
         
         return bin;
@@ -50,10 +50,11 @@ public class NumeroBinario extends Numero
         return temp.toBinaryString(temp);
     }
     
-      /**
-     * Metodo que ira exibir o numero na base corrente para exibicao no display.
+    /**
+     * Retorna o resultado na base corrente para exibicao no Display.
+     * @return uma "0b" + String com o resultado desejado
      */
-    public  String mostraNumeroNaMinhaRepresentacaoBaseParaODisplay(){
+    public  String mostraNumeroNaMinhaRepresentacaoBaseParaODisplay() {
         return "0b" + mostraNumeroNaMinhaRepresentacaoBase();
     }
 }

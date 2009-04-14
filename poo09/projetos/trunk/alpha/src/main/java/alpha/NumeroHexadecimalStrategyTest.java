@@ -7,12 +7,12 @@ package alpha;
  * @author  Carlos Felippe Cardoso de Resende
  * @version 1.0
  */
-public class NumeroHexadecimalTest extends junit.framework.TestCase
+public class NumeroHexadecimalStrategyTest extends junit.framework.TestCase
 {
     /**
      * Construtor da classe NumeroHexadecimalTest.
      */
-    public NumeroHexadecimalTest()
+    public NumeroHexadecimalStrategyTest()
     {
     }
 
@@ -39,7 +39,7 @@ public class NumeroHexadecimalTest extends junit.framework.TestCase
      */
     public void testConverteUmHexaEmNumeroDecimalAPartirDoRepouso()
     {
-        alpha.NumeroHexadecimal numHex = new alpha.NumeroHexadecimal();
+        alpha.NumeroHexadecimalStrategy numHex = new alpha.NumeroHexadecimalStrategy();
         numHex.entraUm();
         assertEquals(new Integer(1), numHex.converteEmNumeroDecimal());
     }
@@ -49,7 +49,7 @@ public class NumeroHexadecimalTest extends junit.framework.TestCase
      */
     public void testConverteUmUmHexaEmNumeroDecimalAPartirDoRepouso()
     {
-        alpha.NumeroHexadecimal numHex = new alpha.NumeroHexadecimal();
+        alpha.NumeroHexadecimalStrategy numHex = new alpha.NumeroHexadecimalStrategy();
         numHex.entraUm();
         numHex.entraUm();
         assertEquals(new Integer(17), numHex.converteEmNumeroDecimal());
@@ -60,7 +60,7 @@ public class NumeroHexadecimalTest extends junit.framework.TestCase
      */
     public void testMostraNumeroEmHexadecimalDepoisDeSomar()
     {
-        alpha.NumeroHexadecimal numHex = new alpha.NumeroHexadecimal();
+        alpha.NumeroHexadecimalStrategy numHex = new alpha.NumeroHexadecimalStrategy();
         numHex.entraUm();
         numHex.entraUm();
         assertEquals("11", numHex.mostraNumeroNaMinhaRepresentacaoBase());

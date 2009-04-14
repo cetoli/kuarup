@@ -8,7 +8,7 @@ package alpha;
  * @author  Carlos Felippe Cardoso de Resende
  * @version 1.0
  */
-public abstract class Numero implements INumero {
+public abstract class NumeroStrategy implements INumeroStrategy {
     
     String repNum = "0"; 
     
@@ -28,7 +28,7 @@ public abstract class Numero implements INumero {
      * Metodo abstrato que ira converter o numero em 
      * base decimal para a base corrente.
      */
-    public abstract INumero converterParaBase(Integer num);
+    public abstract INumeroStrategy converterParaBase(Integer num);
     
     /**
      * Metodo abstrato que ira exibir o numero na base corrente.
@@ -36,7 +36,8 @@ public abstract class Numero implements INumero {
     public abstract String mostraNumeroNaMinhaRepresentacaoBase();
     
     /**
-     * Metodo abstrato que ira exibir o numero na base corrente para exibicao no display.
+     * Metodo abstrato que ira exibir o numero na base
+     * corrente para exibicao no display.
      */
     public abstract String mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     

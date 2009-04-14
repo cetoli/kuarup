@@ -8,7 +8,7 @@ package alpha;
  * @author  Carlos Felippe Cardoso de Resende
  * @version 1.0
  */
-public interface INumero
+public interface INumeroStrategy
 {
     /**
      * Assinatura do metodo entraUm.
@@ -28,7 +28,7 @@ public interface INumero
      * @param num
      * @return INumero
      */
-    public INumero converterParaBase(Integer num);
+    public INumeroStrategy converterParaBase(Integer num);
     
     /**
      * Assinatura do metodo mostraNumeroNaMinhaRepresentacaoBase.

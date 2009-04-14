@@ -1,13 +1,13 @@
 #BlueJ class context
-comment0.target=NumeroHexadecimal()
+comment0.target=NumeroBinarioStrategy()
 comment0.text=\nConstrutor\ da\ classe.\n\n\n
 comment1.target=Integer\ converteEmNumeroDecimal()
 comment1.text=\nConverte\ o\ numero\ para\ a\ base\ Decimal.\n\n@return\ um\ Integer\ com\ o\ numero\ convertido\n\n
 comment2.params=num
-comment2.target=INumero\ converterParaBase(Integer)
-comment2.text=\nConverte\ o\ numero\ para\ a\ base\ corrente.\n\n@param\ num\ numero\ que\ deve\ ser\ convertido\n@return\ um\ INumero\ com\ o\ numero\ convertido\n\n
+comment2.target=INumeroStrategy\ converterParaBase(Integer)
+comment2.text=\nConverte\ o\ numero\ para\ a\ base\ corrente.\n\n@param\ num\ numero\ que\ deve\ ser\ convertido\n@return\ um\ INumeroStrategy\ com\ o\ numero\ convertido\n\n
 comment3.target=String\ mostraNumeroNaMinhaRepresentacaoBase()
 comment3.text=\nRetorna\ o\ resultado\ na\ base\ corrente.\n@return\ uma\ String\ com\ o\ resultado\ desejado\n\n
 comment4.target=String\ mostraNumeroNaMinhaRepresentacaoBaseParaODisplay()
-comment4.text=\nMetodo\ que\ ira\ exibir\ o\ numero\ na\ base\ corrente\ para\ exibicao\ no\ display.\n\n
+comment4.text=\nRetorna\ o\ resultado\ na\ base\ corrente\ para\ exibicao\ no\ Display.\n@return\ uma\ "0b"\ +\ String\ com\ o\ resultado\ desejado\n\n
 numComments=5
