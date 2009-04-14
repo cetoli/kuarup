@@ -1,6 +1,5 @@
 package bravo;
 
-
 /**
  * Interface descritiva do metodo de conversao de base.
  * @author (Tiago C. de França) - O papagaio
