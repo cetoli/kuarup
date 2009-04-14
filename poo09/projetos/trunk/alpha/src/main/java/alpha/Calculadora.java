@@ -44,7 +44,6 @@ public class Calculadora implements ICalculadoraBase {
         operador.entraUm();
         return operador.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
-    
     /**
      * Entra o comando soma.
      *
