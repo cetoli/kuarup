@@ -203,8 +203,8 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx10111", calculad1.entraUm());
-        assertEquals("bx101111", calculad1.entraUm());
+        assertEquals("0b10111", calculad1.entraUm());
+        assertEquals("0b101111", calculad1.entraUm());
         calculad1.modoDec();
         assertEquals("471", calculad1.entraUm());
     }
@@ -216,13 +216,13 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx10111", calculad1.entraUm());
-        assertEquals("bx101111", calculad1.entraUm());
-        assertEquals("bx101111", calculad1.comandoSoma());
-        assertEquals("bx1", calculad1.entraUm());
-        assertEquals("bx11", calculad1.entraUm());
-        assertEquals("bx111", calculad1.entraUm());
-        assertEquals("bx110110", calculad1.comandoSoma());
+        assertEquals("0b10111", calculad1.entraUm());
+        assertEquals("0b101111", calculad1.entraUm());
+        assertEquals("0b101111", calculad1.comandoSoma());
+        assertEquals("0b1", calculad1.entraUm());
+        assertEquals("0b11", calculad1.entraUm());
+        assertEquals("0b111", calculad1.entraUm());
+        assertEquals("0b110110", calculad1.comandoSoma());
         calculad1.modoDec();
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
@@ -233,28 +233,28 @@ public class CalculadoraTest extends junit.framework.TestCase
     {
         hotel.Calculadora calculad1 = new hotel.Calculadora();
         calculad1.modoBin();
-        assertEquals("bx1", calculad1.entraUm());
-        assertEquals("bx11", calculad1.entraUm());
-        assertEquals("bx111", calculad1.entraUm());
+        assertEquals("0b1", calculad1.entraUm());
+        assertEquals("0b11", calculad1.entraUm());
+        assertEquals("0b111", calculad1.entraUm());
         calculad1.modoDec();
         assertEquals("71", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx10001111", calculad1.entraUm());
+        assertEquals("0b10001111", calculad1.entraUm());
     }
     
     public void testMudaBaseBinariaParaDecimalESoma()
     {
         hotel.Calculadora calculad1 = new hotel.Calculadora();
         calculad1.modoBin();
-        assertEquals("bx1", calculad1.entraUm());
-        assertEquals("bx11", calculad1.entraUm());
-        assertEquals("bx111", calculad1.entraUm());
+        assertEquals("0b1", calculad1.entraUm());
+        assertEquals("0b11", calculad1.entraUm());
+        assertEquals("0b111", calculad1.entraUm());
         calculad1.modoDec();
         assertEquals("7", calculad1.comandoSoma());
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx10010", calculad1.comandoSoma());
+        assertEquals("0b10010", calculad1.comandoSoma());
     }
     
     public void testMudaBaseHexaDecimalParaBinaria()
@@ -264,8 +264,8 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("0x1", calculad1.entraUm());
         assertEquals("0x11", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx100011", calculad1.entraUm());
-        assertEquals("bx1000111", calculad1.entraUm());
+        assertEquals("0b100011", calculad1.entraUm());
+        assertEquals("0b1000111", calculad1.entraUm());
         calculad1.modoHex();
         assertEquals("0x471", calculad1.entraUm());
     }
@@ -277,13 +277,13 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx10111", calculad1.entraUm());
-        assertEquals("bx101111", calculad1.entraUm());
-        assertEquals("bx101111", calculad1.comandoSoma());
-        assertEquals("bx1", calculad1.entraUm());
-        assertEquals("bx11", calculad1.entraUm());
-        assertEquals("bx111", calculad1.entraUm());
-        assertEquals("bx110110", calculad1.comandoSoma());
+        assertEquals("0b10111", calculad1.entraUm());
+        assertEquals("0b101111", calculad1.entraUm());
+        assertEquals("0b101111", calculad1.comandoSoma());
+        assertEquals("0b1", calculad1.entraUm());
+        assertEquals("0b11", calculad1.entraUm());
+        assertEquals("0b111", calculad1.entraUm());
+        assertEquals("0b110110", calculad1.comandoSoma());
         calculad1.modoDec();
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
@@ -294,31 +294,75 @@ public class CalculadoraTest extends junit.framework.TestCase
     {
         hotel.Calculadora calculad1 = new hotel.Calculadora();
         calculad1.modoBin();
-        assertEquals("bx1", calculad1.entraUm());
-        assertEquals("bx11", calculad1.entraUm());
-        assertEquals("bx111", calculad1.entraUm());
+        assertEquals("0b1", calculad1.entraUm());
+        assertEquals("0b11", calculad1.entraUm());
+        assertEquals("0b111", calculad1.entraUm());
         calculad1.modoDec();
         assertEquals("71", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx10001111", calculad1.entraUm());
+        assertEquals("0b10001111", calculad1.entraUm());
     }
     
     public void testMudaBaseBinariaParaHexaDecimalESoma()
     {
         hotel.Calculadora calculad1 = new hotel.Calculadora();
         calculad1.modoBin();
-        assertEquals("bx1", calculad1.entraUm());
-        assertEquals("bx11", calculad1.entraUm());
-        assertEquals("bx111", calculad1.entraUm());
+        assertEquals("0b1", calculad1.entraUm());
+        assertEquals("0b11", calculad1.entraUm());
+        assertEquals("0b111", calculad1.entraUm());
         calculad1.modoDec();
         assertEquals("7", calculad1.comandoSoma());
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("bx10010", calculad1.comandoSoma());
+        assertEquals("0b10010", calculad1.comandoSoma());
     }
     
+
+	public void testSomaB1eB1sai0B10()
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.modoBin();
+		assertEquals("0b1", calculad1.entraUm());
+		assertEquals("0b1", calculad1.comandoSoma());
+		assertEquals("0b1", calculad1.entraUm());
+		assertEquals("0b10", calculad1.comandoSoma());
+	}
+
+	public void testEntraB1H1D1sai171()
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.modoBin();
+		assertEquals("0b1", calculad1.entraUm());
+		calculad1.modoHex();
+		assertEquals("0x11", calculad1.entraUm());
+		calculad1.modoDec();
+		assertEquals("171", calculad1.entraUm());
+	}
+
+	public void testSomaB111eH111eD111sai391()
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.modoBin();
+		assertEquals("0b1", calculad1.entraUm());
+		assertEquals("0b11", calculad1.entraUm());
+		assertEquals("0b111", calculad1.entraUm());
+		assertEquals("0b111", calculad1.comandoSoma());
+		calculad1.modoHex();
+		assertEquals("0x1", calculad1.entraUm());
+		assertEquals("0x11", calculad1.entraUm());
+		assertEquals("0x111", calculad1.entraUm());
+		assertEquals("0x118", calculad1.comandoSoma());
+		calculad1.modoDec();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("11", calculad1.entraUm());
+		assertEquals("111", calculad1.entraUm());
+		assertEquals("391", calculad1.comandoSoma());
+	}
 }
+
+
+
 
 
 
