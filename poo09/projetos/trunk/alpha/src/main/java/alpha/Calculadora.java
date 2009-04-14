@@ -17,13 +17,10 @@ import labase.poo.ICalculadoraBase;
  * @since   1.0 Calculadora com o operador "+", o número "1" e a tecla "limpa"
  */
 public class Calculadora implements ICalculadoraBase {
-    
     /**Acumulador da Caculadora. */
     private INumero acumulador = new NumeroDecimal();
-    
     /**Operador da Caculadora. */
     private INumero operador = new NumeroDecimal();
-
     /**
      * Construtor para objetos da classe Calculadora.
      */
@@ -39,7 +36,6 @@ public class Calculadora implements ICalculadoraBase {
     public final String limpa() {
         return "0";
     }
-  
     /**
      * Entra a tecla um.
      *
@@ -49,45 +45,38 @@ public class Calculadora implements ICalculadoraBase {
         operador.entraUm();
         return operador.mostraNumeroNaMinhaRepresentacaoBase();
     }
-
+    
     /**
      * Entra o comando soma.
      *
      *@return  conteudo do acumulador
      */
-    public final String comandoSoma() {
-      
-        Integer temp = operador.converteEmNumeroDecimal().intValue() + 
-                acumulador.converteEmNumeroDecimal().intValue();
+    public final String comandoSoma() {  
+        Integer temp = operador.converteEmNumeroDecimal().intValue()
+                + acumulador.converteEmNumeroDecimal().intValue();
         acumulador = operador.converterParaBase(temp);
         operador.zeraRepresentacaoNumerica();
         return acumulador.mostraNumeroNaMinhaRepresentacaoBase();
     }
-    
     /**
      * * Opera em modo hexadecimal.
      */
     public final void modoHex() {
         operador = new NumeroHexadecimal();
-   
       //return acumulador.toString();
     }
-    
     /**
      * Opera em modo binario.
      */
     public final void modoBin() {
         operador = new NumeroBinario();
-   
       //return acumulador.toString();
     }
-    
     /**
      * Opera em modo decimal.
      */
     public final void modoDec() {
         operador = new NumeroDecimal();
-   
       //return acumulador.toString();
     }
 }
