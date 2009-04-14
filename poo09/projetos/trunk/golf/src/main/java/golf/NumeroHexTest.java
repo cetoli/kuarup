@@ -35,7 +35,7 @@ public class NumeroHexTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeUm() {
 		golf.NumeroHex numeroHe1 = new golf.NumeroHex(1);
-		assertEquals("1", numeroHe1.converte());
+		assertEquals("0x1", numeroHe1.converte());
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class NumeroHexTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeDois() {
 		golf.NumeroHex numeroHe1 = new golf.NumeroHex(2);
-		assertEquals("2", numeroHe1.converte());
+		assertEquals("0x2", numeroHe1.converte());
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class NumeroHexTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeCinco() {
 		golf.NumeroHex numeroHe1 = new golf.NumeroHex(5);
-		assertEquals("5", numeroHe1.converte());
+		assertEquals("0x5", numeroHe1.converte());
 	}
 
 	/**
@@ -62,6 +62,6 @@ public class NumeroHexTest extends junit.framework.TestCase {
 	 */
 	public void testSaidaSeDez() {
 		golf.NumeroHex numeroHe1 = new golf.NumeroHex(10);
-		assertEquals("A", numeroHe1.converte());
+		assertEquals("0xA", numeroHe1.converte());
 	}
 }

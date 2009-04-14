@@ -7,23 +7,30 @@ package golf;
  * @version (a version number or a date)
  */
 public class NumeroHex extends AbstractNumero {
-	public final Integer hexadecimal = 16;
+    public final Integer hexadecimal = 16;
 
-	/**
-	 * Constructor for objects of class NumeroHex
-	 * 
-	 * @atribute Integer x
-	 */
-	public NumeroHex(Integer x) {
-		this.valor = x;
-		this.base = hexadecimal;
-	}
+    /**
+     * Constructor for objects of class NumeroHex
+     * 
+     * @atribute Integer x
+     */
+    public NumeroHex(Integer x) {
+        this.valor = x;
+        this.base = hexadecimal;
+    }
 
-	/**
-	 * Converte o valor para Hexadecimal
-	 */
-	public String converte() {
-		String buffer = Integer.toHexString(valor);
-		return buffer.toUpperCase();
-	}
+    /**
+     * Converte o valor para Hexadecimal
+     */
+    protected String converteBase() {
+        String buffer = Integer.toHexString(valor);
+        return buffer.toUpperCase();
+    }
+    
+    /**
+     * 
+     */
+    protected String getBasePrefix() {
+        return "0x";    
+    }
 }
