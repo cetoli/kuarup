@@ -8,6 +8,8 @@ package echo;
  * @version 1.0
  */
 public class ValorHex extends Valor {
+  private final int BASE= 16;
+
   /**
    * Construtor que armazena um valor decimal.
    *
@@ -25,7 +27,7 @@ public class ValorHex extends Valor {
    * @return valor em decimal.
    */
   private int converterHex(final String str) {
-    return Integer.parseInt(str, 16);
+    return Integer.parseInt(str, BASE);
   }
 
   /**
