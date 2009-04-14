@@ -61,7 +61,6 @@ public class Calculadora implements ICalculadoraBase {
 
     /**
      * Entra a tecla um.
-     *
      * @return conteudo do operador
      */
     public final String entraUm() {
@@ -71,7 +70,6 @@ public class Calculadora implements ICalculadoraBase {
 
     /**
      * Limpa o acumulador.
-     *
      * @return  conteudo do acumulador
      */
     public final String limpa() {
@@ -82,12 +80,11 @@ public class Calculadora implements ICalculadoraBase {
 
     /**
      * Entra o comando soma.
-     *
      * @return  conteudo do acumulador
      */
-    public final String comandoSoma() {    
+    public final String comandoSoma() {
         this.acumulador = this.acumulador + this.operador;
-        this.operador = 0;   
+        this.operador = 0;
         return base.converterBase(acumulador);
     }
 }
