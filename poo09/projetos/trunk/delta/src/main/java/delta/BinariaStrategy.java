@@ -22,8 +22,8 @@ public class BinariaStrategy implements BaseStrategy {
      * Retorna o identificador da base decimal, binária ou hexadecimal.
      * @return o identificador da respectiva base.
      */
-    public char getId() {
-        return 'B';
+    public String getId() {
+        return "0b";
     }
 
     /**

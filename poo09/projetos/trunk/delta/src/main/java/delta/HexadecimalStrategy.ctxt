@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.target=char\ getId()
+comment0.target=String\ getId()
 comment0.text=\nRetorna\ o\ identificador\ da\ base\ decimal,\ bin\u00E1ria\ ou\ hexadecimal.\n@return\ o\ identificador\ da\ respectiva\ base.\n\n
 comment1.params=n
 comment1.target=int\ toDecValue(String)
