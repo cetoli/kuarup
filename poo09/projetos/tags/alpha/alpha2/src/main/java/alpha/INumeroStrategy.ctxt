@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=void\ entraUm()
+comment0.text=\nAssinatura\ do\ metodo\ entraUm.\n\n
+comment1.target=Integer\ converteEmNumeroDecimal()
+comment1.text=\nAssinatura\ do\ metodo\ converteEmNumeroDecimal.\n\n@return\ Integer\n\n
+comment2.params=num
+comment2.target=INumeroStrategy\ converterParaBase(Integer)
+comment2.text=\nAssinatura\ do\ metodo\ converterParaBase.\n\n@param\ num\n@return\ INumero\n\n
+comment3.target=String\ mostraNumeroNaMinhaRepresentacaoBase()
+comment3.text=\nAssinatura\ do\ metodo\ mostraNumeroNaMinhaRepresentacaoBase.\n\n@return\ String\n\n
+comment4.target=String\ mostraNumeroNaMinhaRepresentacaoBaseParaODisplay()
+comment4.text=\nAssinatura\ do\ metodo\ mostraNumeroNaMinhaRepresentacaoBaseParaODisplay.\n\n@return\ String\n\n
+comment5.target=void\ zeraRepresentacaoNumerica()
+comment5.text=\nAssinatura\ do\ metodo\ zeraRepresentacaoNumerica.\n\n
+numComments=6
