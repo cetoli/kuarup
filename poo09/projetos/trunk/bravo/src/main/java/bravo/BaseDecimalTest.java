@@ -57,7 +57,3 @@ public class BaseDecimalTest extends junit.framework.TestCase {
         assertEquals("111", baseDeci1.converterBase(111));
     }
 }
-
-
-
-

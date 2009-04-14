@@ -19,6 +19,7 @@ public class BaseBinaria implements StrategyBase {
      */
     public BaseBinaria() {
     }
+    
     /**
      * Metodo de Entrada para Binários.
      * Entrada de valores
@@ -38,5 +39,4 @@ public class BaseBinaria implements StrategyBase {
     public String converterBase(Integer valor) {
         return "0b" + Integer.toBinaryString(valor);
     }
-
 }

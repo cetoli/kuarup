@@ -8,8 +8,8 @@ package bravo;
  * @author (Humberto Ferreira Ramos Junior) - O pirata
  * @version 2.0 em 12 de abril de 2009
  */
-
 public interface StrategyBase {
+
     /**
      * Metodo abstrato.
      * Entrada de valores
