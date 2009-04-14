@@ -10,7 +10,7 @@ package echo;
  */
 public class ValorBin extends Valor
 {
-    private final int base= 2;
+    private final int base = 2;
 
     /**
      * Construtor que armazena um valor decimal.
@@ -59,7 +59,7 @@ public class ValorBin extends Valor
      */
     public String adicionarDigito (String digito) {
         String str = converterEmString () + digito;
-        str= str.replace ("0b", "");
+        str = str.replace ("0b", "");
 
         valor = converterBin (str);
 
