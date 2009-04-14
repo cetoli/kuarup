@@ -1,7 +1,5 @@
 package alpha;
 
-
-
 /**
  * The test class CalculadoraUnitTest.
  *
@@ -32,8 +30,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa o metodo limpa .
      *
      */
-    public void testLimpa()
-    {
+    public void testLimpa() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         String zero = calculad1.limpa();
         assertEquals("Deveria retornar 0", "0", zero);
@@ -42,8 +39,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa a soma a partir do repouso.
      *
      */
-    public void testSomaAPartirDoRepouso()
-    {
+    public void testSomaAPartirDoRepouso() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         assertEquals("Deveria retornar 0", "0", calculad1.comandoSoma());
     }
@@ -51,8 +47,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa limpa e soma a partir do repouso.
      *
      */
-    public void testLimpaESoma()
-    {
+    public void testLimpaESoma() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.limpa();
         assertEquals("Deveria retornar 0", "0", calculad1.comandoSoma());
@@ -61,8 +56,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa a entrada de um numero a partir do repouso.
      *
      */
-    public void testEntraUmAPartirDoRepouso()
-    {
+    public void testEntraUmAPartirDoRepouso() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         assertEquals("1", calculad1.entraUm());
     }
@@ -70,8 +64,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa a entra um e soma a partir do repouso.
      *
      */
-    public void testSomaUmAPartirDoRepouso()
-    {
+    public void testSomaUmAPartirDoRepouso() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.entraUm();
         assertEquals("1", calculad1.comandoSoma());
@@ -80,8 +73,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa a soma de um com um.
      *
      */
-    public void testSomaUmComUm()
-    {
+    public void testSomaUmComUm() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
@@ -92,8 +84,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa a entra onze e soma a partir do repouso.
      *
      */
-    public void testSomaOnzeAPartirDoRepouso()
-    {
+    public void testSomaOnzeAPartirDoRepouso() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.entraUm();
         calculad1.entraUm();
@@ -103,8 +94,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa a soma de um com Onze.
      *
      */
-    public void testSomaUmComOnze()
-    {
+    public void testSomaUmComOnze() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
@@ -116,8 +106,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa a soma de onze com cento e onze.
      *
      */
-    public void testSomaOnzeComCentoEOnze()
-    {
+    public void testSomaOnzeComCentoEOnze() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.entraUm();
         calculad1.entraUm();
@@ -131,8 +120,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Testa o overflow na entrada.
      *
      */
-    public void testOverflowNaEntrada()
-    {
+    public void testOverflowNaEntrada() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         try {
             calculad1.entraUm();
@@ -264,8 +252,11 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculad1.modoHex();
         assertEquals("0x11", calculad1.entraUm());
     }
-    
-    public void testEntraUmBinUmHexUmBim() {
+    /**
+     * Testa entrada de um binario com um hexadecimal com um Binario.
+     *
+     */
+    public void testEntraUmBinUmHexUmBin() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.modoBin();
         calculad1.entraUm();
