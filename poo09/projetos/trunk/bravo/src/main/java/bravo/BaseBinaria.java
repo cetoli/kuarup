@@ -12,20 +12,18 @@ package bravo;
  * @author (Humberto Ferreira Ramos Junior) - O pirata
  * @version 2.0 em 12 de abril de 2009
  */
-public class BaseBinaria implements StrategyBase
-{
+public class BaseBinaria implements StrategyBase {
+
     /**
      * Constructor for objects of class BaseBinaria.
      */
-    public BaseBinaria()
-    {
+    public BaseBinaria() {
     }
     /**
      * Metodo de Entrada para Binários.
      * Entrada de valores
      */    
-    public Integer entraUm(Integer valor)
-    {
+    public Integer entraUm(Integer valor) {
         valor = valor * 2 + 1;
         return valor;
     }
@@ -37,8 +35,7 @@ public class BaseBinaria implements StrategyBase
      * @param valor
      * @retorno String com a representacao na base binaria do valor
      */
-    public String converterBase(Integer valor)
-    {
+    public String converterBase(Integer valor) {
         return "0b" + Integer.toBinaryString(valor);
     }
 

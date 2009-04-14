@@ -34,23 +34,20 @@ public class Calculadora implements ICalculadoraBase {
     /**
      * Construtor para objetos da classe Calculadora.
      */
-    public Calculadora() 
-    {
+    public Calculadora() {
     }
   
     /**
      * Metodo utilizado para indicar operacoes na base Hexadecimal.
      */
-    public void modoHex()
-    {
+    public void modoHex() {
         base = new BaseHexadecimal();
     }
   
     /**
      * Metodo utilizado para indicar operacoes na base Binaria.
      */
-    public void modoBin()
-    {
+    public void modoBin() {
         base = new BaseBinaria();
     }
   

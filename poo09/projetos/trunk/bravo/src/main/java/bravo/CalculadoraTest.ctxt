@@ -28,6 +28,7 @@ comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ 
 comment20.target=void\ testeHexaUmSomaDecOnzeSomaBinOnzeRetornaEmBinMilCentoOnze()
 comment20.text=\nteste\ de\ unidade,\ manipulacao\ dos\ metodos.\n\n
 comment21.target=void\ testH1SomaB1RetornaB10()
+comment21.text=\nteste\ de\ unidade,\ manipulacao\ dos\ metodos.\n\n
 comment3.target=void\ testSomaUmApatrirdoRepouso()
 comment3.text=\nteste\ de\ unidade,\ manipulacao\ dos\ metodos.\n\n
 comment4.target=void\ testSomaOnzeApartirDoRepouso()
