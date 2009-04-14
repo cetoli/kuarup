@@ -27,6 +27,12 @@ comment2.target=void\ tearDown()
 comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
 comment20.target=void\ test11HexE11()
 comment20.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma,\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
+comment21.target=void\ testEntraB1H1Sai0x11()
+comment21.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma,\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
+comment22.target=void\ testEntraB1H1B1Sai0b100011()
+comment22.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma,\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
+comment23.target=void\ testEntraB1H1D1Sai171()
+comment23.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma,\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
 comment3.target=void\ testSomaUmApartirDoRepouso()
 comment3.text=\nDigita\ 1\ vez\ o\ numero\ 1\ e\ depois\ soma.\ Resultado\=\ 1.\n\n
 comment4.target=void\ testTesteOnze()
@@ -41,4 +47,4 @@ comment8.target=void\ testVariasEntradas()
 comment8.text=\nDigita\ 1,\ soma,\ 1,\ soma,\ 1\ e\ soma.\ Resultado\=\ 3.\n\n
 comment9.target=void\ testSomaUmApartirDoRepousoDec()
 comment9.text=\nBotao\ de\ cimal\:\ Digita\ 1,\ soma.\ Resultado\=\ 1.\n\n
-numComments=21
+numComments=24

@@ -10,7 +10,7 @@ package echo;
  */
 public class ValorBin extends Valor
 {
-  private final int BASE= 2;
+    private final int base= 2;
 
     /**
      * Construtor que armazena um valor decimal.
@@ -29,7 +29,7 @@ public class ValorBin extends Valor
      * @return valor em decimal.
      */
     private int converterBin (String str) {
-        return Integer.parseInt(str, BASE);
+        return Integer.parseInt(str, base);
     }
 
    /**

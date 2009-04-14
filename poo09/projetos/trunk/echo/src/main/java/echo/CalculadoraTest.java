@@ -299,4 +299,53 @@ public class CalculadoraTest extends junit.framework.TestCase {
     assertEquals("0x11", calculad1.entraUm());
     assertEquals("0x22", calculad1.comandoSoma());
   }
-}
+
+    /**
+   * Botao hexadecimal: Digita 11, soma, Digita 11, soma.
+   * Resultado= 22.
+   */
+  public void testEntraB1H1Sai0x11() {
+    echo.Calculadora calculad1 = new echo.Calculadora();
+    calculad1.modoBin();
+    assertEquals("0b1", calculad1.entraUm());
+    //assertEquals("0b1", calculad1.comandoSoma());
+    calculad1.modoHex();
+    assertEquals("0x11", calculad1.entraUm());
+    //assertEquals("0x11", calculad1.comandoSoma());      
+  }
+
+  /**
+   * Botao hexadecimal: Digita 11, soma, Digita 11, soma.
+   * Resultado= 22.
+   */
+  public void testEntraB1H1B1Sai0b100011() {
+    echo.Calculadora calculad1 = new echo.Calculadora();
+    calculad1.modoBin();
+    assertEquals("0b1", calculad1.entraUm());
+    //assertEquals("0b1", calculad1.comandoSoma());
+    calculad1.modoHex();
+    assertEquals("0x11", calculad1.entraUm());
+    //assertEquals("0x11", calculad1.comandoSoma());
+    calculad1.modoBin();
+    assertEquals("0b100011", calculad1.entraUm());
+    //assertEquals("0b100011", calculad1.comandoSoma());
+  }
+
+  /**
+   * Botao hexadecimal: Digita 11, soma, Digita 11, soma.
+   * Resultado= 22.
+   */
+  public void testEntraB1H1D1Sai171() {
+    echo.Calculadora calculad1 = new echo.Calculadora();
+    calculad1.modoBin();
+    assertEquals("0b1", calculad1.entraUm());
+    //assertEquals("0b1", calculad1.comandoSoma());
+    calculad1.modoHex();
+    assertEquals("0x11", calculad1.entraUm());
+    //assertEquals("0x11", calculad1.comandoSoma());
+    calculad1.modoDec();
+    assertEquals("171", calculad1.entraUm());
+    //assertEquals("171", calculad1.comandoSoma());      
+  }  
+
+}  
