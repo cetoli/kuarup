@@ -5,7 +5,7 @@
     <groupId>labase.poo</groupId>
     <artifactId>calc</artifactId>
     <version>2.0</version>
-    <relativePath>conf/labase/poo/1.0/calc/pom.xml</relativePath>
+    <relativePath>conf/labase/poo/2.0/calc/pom.xml</relativePath>
   </parent>
   <groupId>projetos</groupId>
   <artifactId>bravo</artifactId>

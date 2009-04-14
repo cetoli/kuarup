@@ -174,7 +174,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("0x1", calculad1.entraUm());
         assertEquals("0x1", calculad1.comandoSoma());
         assertEquals("0x1", calculad1.entraUm());
-        assertEquals("ox2", calculad1.comandoSoma());
+        assertEquals("0x2", calculad1.comandoSoma());
     }
 
     /**
@@ -215,8 +215,8 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("0b11", calculad1.entraUm());
         assertEquals("0b11", calculad1.comandoSoma());
         calculad1.modoDec();
-        assertEquals("0b1", calculad1.entraUm());
-        assertEquals("0b4", calculad1.comandoSoma());
+        assertEquals("1", calculad1.entraUm());
+        assertEquals("4", calculad1.comandoSoma());
     }
 
     /**
@@ -231,7 +231,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("11", calculad1.comandoSoma());
         calculad1.modoBin();
         assertEquals("0b1", calculad1.entraUm());
-        assertEquals("1100", calculad1.comandoSoma());
+        assertEquals("0b1100", calculad1.comandoSoma());
         calculad1.modoHex();
         assertEquals("0x1", calculad1.entraUm());
         assertEquals("0xd", calculad1.comandoSoma());
@@ -244,17 +244,17 @@ public class CalculadoraTest extends junit.framework.TestCase
     {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoHex();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("1", calculad1.comandoSoma());
+        assertEquals("0x1", calculad1.entraUm());
+        assertEquals("0x1", calculad1.comandoSoma());
         calculad1.modoDec();
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
         calculad1.comandoSoma();
         calculad1.modoBin();
-        assertEquals("1", calculad1.entraUm());
+        assertEquals("0b1", calculad1.entraUm());
         calculad1.modoBin();
-        assertEquals("11", calculad1.entraUm());
-        assertEquals("1111", calculad1.comandoSoma());
+        assertEquals("0b11", calculad1.entraUm());
+        assertEquals("0b1111", calculad1.comandoSoma());
     }
     
 }
