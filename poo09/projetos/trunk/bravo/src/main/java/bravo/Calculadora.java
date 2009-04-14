@@ -10,10 +10,10 @@ import labase.poo.ICalculadoraBase;
 
 /**
  * A classe calculadora realiza operações matemáticas com números inteiros.
- * @author  (Tiago Cruz de França) - O papagaio
- * @author  (Humberto Ferreira Ramos Junior) - O pirata
+ * @author  (Tiago Cruz de França) O papagaio
+ * @author  (Humberto Ferreira Ramos Junior) O pirata
  * @version (2.0) (12 de abril de 2009)
- * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária.
+ * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária
  */
 public class Calculadora implements ICalculadoraBase {
 
