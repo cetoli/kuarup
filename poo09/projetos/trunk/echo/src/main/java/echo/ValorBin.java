@@ -47,7 +47,7 @@ public class ValorBin extends Valor
      * @return String binária.
      */
     public String converterEmString() {
-        return Integer.toBinaryString(valor);
+        return "0b" + Integer.toBinaryString(valor);
     }
 
     /**
@@ -59,7 +59,7 @@ public class ValorBin extends Valor
      */
     public String adicionarDigito (String digito) {
         String str = converterEmString () + digito;
-
+        str= str.replace ("0b", "");
 
         valor = converterBin (str);
 

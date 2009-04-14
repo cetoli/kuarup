@@ -42,7 +42,7 @@ public class ValorBinTest extends junit.framework.TestCase
 	public void testConverterBin()
 	{
 		echo.ValorBin valorBin1 = new echo.ValorBin(12);
-		assertEquals("1100", valorBin1.converterEmString());
+		assertEquals("0b1100", valorBin1.converterEmString());
 	}
 
 	/**
@@ -51,8 +51,8 @@ public class ValorBinTest extends junit.framework.TestCase
 	public void testAdicionarDigito()
 	{
 		echo.ValorBin valorBin1 = new echo.ValorBin(0);
-		assertEquals("1", valorBin1.adicionarDigito("1"));
-		assertEquals("11", valorBin1.adicionarDigito("1"));
+		assertEquals("0b1", valorBin1.adicionarDigito("1"));
+		assertEquals("0b11", valorBin1.adicionarDigito("1"));
 		assertEquals (3, valorBin1.getValor());
 	}
 }
