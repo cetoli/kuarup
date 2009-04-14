@@ -26,7 +26,7 @@ public class Valor implements Cloneable
 
     /**
      * Construtor com o valor em decimal sendo passado como
-     * parâmetro.
+     * parametro.
      * @param novo valor em decimal.
      */
     public Valor(int novo) {
@@ -67,7 +67,7 @@ public class Valor implements Cloneable
 
     /**
      * Adiciona um digito a direita do valor atual.
-     * @param dígito a ser acrescentado.
+     * @param dï¿½gito a ser acrescentado.
      * @return retorna o valor armazenado no formato String.
      */
     public String adicionarDigito(String digito) {

@@ -42,21 +42,21 @@ public class Calculadora implements ICalculadoraBase {
    * Botao para entrada de valores em hexadecimal.
    */
   public void modoHex() {
-    atual = new ValorHex(0);
+    atual = new ValorHex(atual.getValor ());
   }
 
   /**
    * Botao para entrada de valores em binario.
    */
   public void modoBin() {
-    atual = new ValorBin(0);
+    atual = new ValorBin(atual.getValor ());
   }
 
   /**
    * Botao para entrada de valores em decimal.
    */
   public void modoDec() {
-    atual = new Valor(0);
+    atual = new Valor(atual.getValor ());
   }
 
   /**
