@@ -20,8 +20,8 @@ public class BaseDecimal implements StrategyBase {
      * Metodo de Entrada para Decimais.
      * Entrada de valores
      */    
-    public final Integer entraUm(Integer valor) {
-        valor = valor * 10 + 1;
+    public Numero entraUm(Numero valor) {
+        valor.setX(valor.getX() * 10 + 1);
         return valor;
     }
 
@@ -30,7 +30,7 @@ public class BaseDecimal implements StrategyBase {
      * @param valor
      * @retorna uma String
      */
-    public final String converterBase(Integer valor) {
-        return valor.toString();    
+    public String converterBase(Numero valor) {
+        return valor.getX().toString();    
     }
 }

@@ -33,7 +33,7 @@ public class BaseDecimalTest extends junit.framework.TestCase {
      */
     public void testPassandoValorUmRetornaStringUm() {
         bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
-        assertEquals("1", baseDeci1.converterBase(1));
+        assertEquals("1", baseDeci1.converterBase(new Numero(1)));
     }
 
     /**
@@ -41,7 +41,7 @@ public class BaseDecimalTest extends junit.framework.TestCase {
      */
     public void testPassandoValorOnzeRetornaStringOnze() {
         bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
-        assertEquals("11", baseDeci1.converterBase(11));
+        assertEquals("11", baseDeci1.converterBase(new Numero(11)));
     }
 
     /**
@@ -49,6 +49,6 @@ public class BaseDecimalTest extends junit.framework.TestCase {
      */
     public void testTestePassandoValorCentoeOnzeRetornaCentoeOnze() {
         bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
-        assertEquals("111", baseDeci1.converterBase(111));
+        assertEquals("111", baseDeci1.converterBase(new Numero(111)));
     }
 }
