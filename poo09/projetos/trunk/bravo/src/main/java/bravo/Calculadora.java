@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package bravo;
-import labase.poo.ICalculadoraBase;
+import labase.poo.ICalculadoraComplexo;
 
 /**
  * A classe calculadora realiza operações matemáticas com números inteiros.
@@ -15,23 +15,34 @@ import labase.poo.ICalculadoraBase;
  * @version (2.0) (12 de abril de 2009)
  * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária
  */
-public class Calculadora implements ICalculadoraBase {
+public class Calculadora implements ICalculadoraComplexo {
 
     /**
      * Acumulador da Caculadora.
      */
-    private Integer acumulador = new Integer(0);
-
+    private Numero acumulador = new Numero();
+    
+    private String teste = "aaaaa";
+    /**
+     * Acumulador da Caculadora.
+     */
+    private Numero acumuladorImaginario = new Numero();
     /**
      * Operador da Caculadora.
      */
-    private Integer operador = new Integer(0);
-
+    private Numero operador = new Numero();
+    /**
+     * Operador da Caculadora.
+     */
+    private Numero operadorImaginario = new Numero();
     /**
      * Conversor de base.
      */
     private StrategyBase base = new BaseDecimal();
 
+    
+    private ITipoNumeroState state = new TipoNumeroRealState();
+    
     /**
      * Construtor para objetos da classe Calculadora.
      */
@@ -64,17 +75,24 @@ public class Calculadora implements ICalculadoraBase {
      * @return conteudo do operador
      */
     public final String entraUm() {
-        this.operador = base.entraUm(this.operador);
-        return base.converterBase(this.operador);
+        return state.entraUm(base,operador,operadorImaginario);
     }
 
+    public final void entraI() {
+        state = new TipoNumeroImaginarioState();
+    
+    }   
+    
+    
     /**
      * Limpa o acumulador.
      * @return  conteudo do acumulador
      */
     public final String limpa() {
-        this.operador = 0;
-        this.acumulador = 0;
+        this.operador = new Numero();
+        this.operadorImaginario = new Numero();
+        this.acumulador = new Numero();
+        this.acumuladorImaginario = new Numero();
         return "0";
     }
 
@@ -83,8 +101,10 @@ public class Calculadora implements ICalculadoraBase {
      * @return  conteudo do acumulador
      */
     public final String comandoSoma() {
-        this.acumulador = this.acumulador + this.operador;
-        this.operador = 0;
-        return base.converterBase(acumulador);
+        String retorno = state.soma(base, operador,operadorImaginario, acumulador, acumuladorImaginario);
+        operador = new Numero();
+        operadorImaginario = new Numero();  
+        state = new TipoNumeroRealState();
+        return retorno;
     }
 }
