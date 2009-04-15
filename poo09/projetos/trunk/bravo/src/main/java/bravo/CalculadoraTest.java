@@ -298,4 +298,44 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.entraUm();
         assertEquals("0b1110", calculad1.comandoSoma());
     }
+	
+	/**
+     * teste de unidade, manipulacao dos metodos.
+     */
+	public void testEntraD1ImD1SomaD1sai2I1() {
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		assertEquals("2I1", calculad1.comandoSoma());
+	}
+	
+	/**
+     * teste de unidade, manipulacao dos metodos.
+     */
+	public void testEntraD1SomaD1ImD1sai2I1() {
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.entraUm();
+		assertEquals("2I1", calculad1.comandoSoma());
+	}
+		/**
+     * teste de unidade, manipulacao dos metodos.
+     */
+	public void testEntraD1ImD1SomaD1ImD1sai2I2() {
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.entraUm();
+		assertEquals("2I2", calculad1.comandoSoma());
+	}
 }

@@ -12,7 +12,7 @@ public interface StrategyBase {
      * Metodo abstrato.
      * Entrada de valores.
      */    
-    public Integer entraUm(Integer valor);
+    public Numero entraUm(Numero valor);
         
     /**
      * Metodo abstrato.
@@ -20,5 +20,5 @@ public interface StrategyBase {
      * @param valor e um objeto intereiro em base decimal
      * @retorna uma string com o valor na base desejada
      */
-    public String converterBase(Integer valor);
+    public String converterBase(Numero valor); 
 }
