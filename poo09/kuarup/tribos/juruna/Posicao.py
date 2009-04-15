@@ -148,16 +148,18 @@ class Posicao:
 
     def testeQuadrado (self):
         pass
-
         """     " ""
-         # @ !!!
         p, l, h, w= self.calculoQuadrado ()
 
         if self.teste != None:
             self.teste.visible= 0
 
-        self.teste= box (pos= p, length=l, height=h, width=w, color=color.green , opacity= 0.1)
+        self.teste= box (pos= p, length=l, height=h, width=w, color=color.yellow, opacity= 0.1)
         " ""    """
+
+    def imprimir (self, rotulo):
+        self.pontoCima.imprimir (rotulo+" - CIMA")
+        self.pontoBaixo.imprimir (rotulo+" - BAIXO")
 
     def calculoQuadrado (self):
         posBaixo, posCima= self.pontoBaixo, self.pontoCima

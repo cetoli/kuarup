@@ -84,16 +84,21 @@ class Mar:
             cont= 0
             qtdIteracaoNivel= nivel.getQtdIteracaoNivel ()
             taxa= nivel.getTaxaQuadros ()
+            temPersonagem= 0
 
-            while cont < qtdIteracaoNivel:
+            nivel.inicializar ()
+
+            while cont < qtdIteracaoNivel | temPersonagem > 0:
                 self.exibirInformacoes (nivel)
 
-                vivo= nivel.exibirProximoQuadro ()
+                vivo= nivel.exibirProximoQuadro (cont)
                 if vivo == 0:
                     # So para exibir 0 de vida
                     self.exibirInformacoes (nivel)
                     self.exibirMsgJogo (self.MSG_FIM_PERDEU)
                     return
+
+                temPersonagem= nivel.getQtdPersonagens ()
 
                 # rodando via thread
                 """
@@ -106,13 +111,13 @@ class Mar:
 
                 cont+= 1
 
-            ctrlAcara.join ()
+            #ctrlAcara.join ()
             nivel= nivel.passarProximoNivel ()
-            if nivel != None:
+            """if nivel != None:
                 msg= self.exibirMsgJogo ("Proximo nivel ...")
                 rate (0.5) # 2 segundos de espera
                 msg.visible= 0
-
+            """
         self.exibirMsgJogo (self.MSG_FIM_SUCESSO)
 
     def exibirInformacoes (self, nivel):
