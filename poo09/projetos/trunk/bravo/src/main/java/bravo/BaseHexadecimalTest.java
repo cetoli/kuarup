@@ -33,7 +33,7 @@ public class BaseHexadecimalTest extends junit.framework.TestCase {
      */
     public void testePassandoUmRotornaStringUm() {
         bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
-        assertEquals("0x1", baseHexa1.converterBase(1));
+        assertEquals("0x1", baseHexa1.converterBase(new Numero(1)));
     }
 
     /**
@@ -41,7 +41,7 @@ public class BaseHexadecimalTest extends junit.framework.TestCase {
      */
     public void testPassandoOnzeRetornaStringB() {
         bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
-        assertEquals("0xb", baseHexa1.converterBase(11));
+        assertEquals("0xb", baseHexa1.converterBase(new Numero(11)));
     }
 
     /**
@@ -49,6 +49,6 @@ public class BaseHexadecimalTest extends junit.framework.TestCase {
      */
     public void testEntraDozeRetornaC() {
         bravo.BaseHexadecimal baseHexa1 = new bravo.BaseHexadecimal();
-        assertEquals("0xc", baseHexa1.converterBase(12));
+        assertEquals("0xc", baseHexa1.converterBase(new Numero(12)));
     }
 }

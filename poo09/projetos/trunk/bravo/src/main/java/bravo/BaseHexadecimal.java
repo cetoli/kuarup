@@ -18,8 +18,8 @@ public class BaseHexadecimal implements StrategyBase {
     /**
      * Metodo de Entrada para HexaDecimal.
      */    
-    public final Integer entraUm(Integer valor) {
-        valor = valor * 16 + 1;
+    public Numero entraUm(Numero valor) {
+        valor.setX( valor.getX() * 16 + 1);
         return valor;
     }
 
@@ -28,7 +28,7 @@ public class BaseHexadecimal implements StrategyBase {
      * @param valor
      * @retorno String com a representacao na base hexadecimal do valor
      */
-    public final String converterBase(Integer valor) {
-        return "0x" + Integer.toHexString(valor);
+    public String converterBase(Numero valor) {
+        return "0x" + Integer.toHexString(valor.getX());
     }
 }

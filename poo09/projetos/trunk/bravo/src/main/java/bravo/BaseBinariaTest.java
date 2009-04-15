@@ -35,7 +35,7 @@ public class BaseBinariaTest extends junit.framework.TestCase {
      */
     public void testPassandoUmRetornaStringUm() {
         bravo.BaseBinaria baseBina1 = new bravo.BaseBinaria();
-        assertEquals("0b1", baseBina1.converterBase(1));
+        assertEquals("0b1", baseBina1.converterBase(new Numero(1)));
     }
 
     /**
@@ -43,7 +43,7 @@ public class BaseBinariaTest extends junit.framework.TestCase {
      */
     public void testPassandoOnzeRetornaStringMileOnze() {
         bravo.BaseBinaria baseBina1 = new bravo.BaseBinaria();
-        assertEquals("0b1011", baseBina1.converterBase(11));
+        assertEquals("0b1011", baseBina1.converterBase(new Numero(11)));
     }
 
     /**
@@ -51,6 +51,6 @@ public class BaseBinariaTest extends junit.framework.TestCase {
      */
     public void testPassandoCentoeOnzeRetorna1101111() {
         bravo.BaseBinaria baseBina1 = new bravo.BaseBinaria();
-        assertEquals("0b1101111", baseBina1.converterBase(111));
+        assertEquals("0b1101111", baseBina1.converterBase(new Numero(111))); 
     }
 }
