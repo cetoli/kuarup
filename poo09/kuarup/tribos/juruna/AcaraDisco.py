@@ -21,13 +21,11 @@ class PeixeAcaraDisco (SerMarinho) :
         self.dano= 0
 
         #self.posicao= ponto
-        #texturaCorpo= None #self.carregarTextura ("/home/rodrigo/programacao/mestrado/poo/Trabalho4/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
+        texturaCorpo= None
 
         # casa
-        texturaCorpo= self.carregarTextura ("L:/sincronizar/meus documentos/mestrado/poo/Trabalho3/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
-
-         # trabalho
-        #texturaCorpo= self.carregarTextura ("G:/sincronizar/meus documentos/mestrado/poo/Trabalho3/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
+        #texturaCorpo= self.carregarTextura ("L:/sincronizar/meus documentos/mestrado/poo/Trabalho3/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
+        
         pontoBaixo, pontoCima= self.desenharCorpo (Ponto (0,0,0), texturaCorpo)
 
         self.posicao.setPontoBaixo (pontoBaixo.getX (), pontoBaixo.getY (), pontoBaixo.getZ ())

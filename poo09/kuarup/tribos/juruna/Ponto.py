@@ -20,21 +20,18 @@ class Ponto:
     def getX (self):
         return self.x
 
-
     def getY (self):
         return self.y
-
 
     def getZ (self):
         return self.z
 
+
     def setX (self, x):
         self.x= x
 
-
     def setY (self, y):
         self.y= y
-
 
     def setZ (self, z):
         self.z= z
@@ -76,6 +73,9 @@ class Ponto:
         self.y*= fator
         self.z*= fator
 
+    def imprimir (self, rotulo):
+        print "%s - (%f, %f, %f)\n" % (rotulo, self.x, self.y, self.z)
+
     # calculo da elipse
     def calcularParametrica (self, x0, y0, x, xM, yM):
         if xM > yM:
@@ -113,4 +113,14 @@ class Ponto:
 
         return math.sqrt (parte1) + x0
 
+    def calcularDistanciaEntrePontos (self, ponto2):
+        x2= ponto2.getX ()
+        y2= ponto2.getY ()
+        z2= ponto2.getZ ()
+
+        x= math.pow (self.x - x2, 2)
+        y= math.pow (self.y - y2, 2)
+        z= math.pow (self.z - z2, 2)
+
+        return math.sqrt(x+y+z)
 # fim

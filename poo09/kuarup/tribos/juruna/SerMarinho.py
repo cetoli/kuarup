@@ -18,7 +18,6 @@ class SerMarinho (Thread):
         self.velocidade= self.VELOCIDADE_NADO
         self.funcaoThread= None
 
-
     def run (self):
         if self.funcaoThread != None:
             self.funcaoThread ()
@@ -34,6 +33,9 @@ class SerMarinho (Thread):
 
     def getPosicao (self):
         return self.posicao
+
+    def getVelocidade (self):
+        return self.velocidade
 
     # Retorna um objeto Ponto com o eixo do sentido multiplicado pela velocidade.
     # Ou seja, se multiplicarmos o x pelo x retornado teremos o x novo.
@@ -56,6 +58,7 @@ class SerMarinho (Thread):
         im= Image.open (arquivo)
         im= im.resize ((comprimento,altura), Image.ANTIALIAS)
         return materials.texture (data=im, mapping=tipoMapeamento, interpolate=False)
+
 
     def nadar (self, pontoEixo):
         pass
