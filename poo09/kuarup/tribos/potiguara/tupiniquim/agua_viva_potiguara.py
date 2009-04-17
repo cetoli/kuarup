@@ -2,9 +2,12 @@ from visual import *
 from SerMarinho import *
 from marine import *
 
-class AguaViva(SerMarinho):
+class Agua_Viva_Potiguara(Marine):
 
-    def render(self, escala=1):
+    def render(self):
+
+        self.esqueleto = self.frame
+        self.escala = self.scale
 
         u=escala/6.0
         r=6*u

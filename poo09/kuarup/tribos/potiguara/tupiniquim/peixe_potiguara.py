@@ -1,15 +1,19 @@
 ﻿from visual import *
-from SerMarinho import *
 from marine import *
 
 '''
 Estas classes são as especializações da classe SerMarinho...
 '''
-class Pangacio(SerMarinho):
-        
-    def render(self,escala=1):
+class Peixe_Potiguara(Marine):
+    
+    
 
-        u=escala/6.0
+    def render(self):
+
+        self.esqueleto = self.frame
+        self.escala = self.scale
+            
+        u=self.escala/6.0
         r=6*u
         l=6*r
         direcoes = [-r,0,r]
@@ -19,35 +23,35 @@ class Pangacio(SerMarinho):
         self.cor3 = color.black;
         self.cor4 = color.red;
         
-        corpo1 = self.desenharEsfera((0,0,0),self.cor1,5*escala,1)
+        corpo1 = self.desenharEsfera((0,0,0),self.cor1,5*self.escala,1)
 
-        olhoE = self.desenharEsfera((4*escala,1*escala,-1.5*escala),self.cor2,2*escala,0.5)
-        olhoD = self.desenharEsfera((4*escala,1*escala,1.5*escala),self.cor2,2*escala,0.5)
+        olhoE = self.desenharEsfera((4*self.escala,1*self.escala,-1.5*self.escala),self.cor2,2*self.escala,0.5)
+        olhoD = self.desenharEsfera((4*self.escala,1*self.escala,1.5*self.escala),self.cor2,2*self.escala,0.5)
 
-        pupilaE = self.desenharEsfera((5*escala,1*escala,-1.5*escala),self.cor3,1*escala,0.8)
-        pupilaD = self.desenharEsfera((5*escala,1*escala,1.5*escala),self.cor3,1*escala,0.8)
+        pupilaE = self.desenharEsfera((5*self.escala,1*self.escala,-1.5*self.escala),self.cor3,1*self.escala,0.8)
+        pupilaD = self.desenharEsfera((5*self.escala,1*self.escala,1.5*self.escala),self.cor3,1*self.escala,0.8)
 
-        labioSup = self.desenhaElipse((5*escala,-2*escala,0),2*escala,2*escala,3*escala, self.cor4)
-        labioInf = self.desenhaElipse((4*escala,-3*escala,0*escala),2*escala,2*escala,3*escala,self.cor4)
+        labioSup = self.desenhaElipse((5*self.escala,-2*self.escala,0),2*self.escala,2*self.escala,3*self.escala, self.cor4)
+        labioInf = self.desenhaElipse((4*self.escala,-3*self.escala,0*self.escala),2*self.escala,2*self.escala,3*self.escala,self.cor4)
 
-        rabo1 = self.desenharPiramide((-10*escala,0,0),(8*escala,10*escala,0.1*escala),(1*escala,0,0),self.cor1,0.6)
+        rabo1 = self.desenharPiramide((-10*self.escala,0,0),(8*self.escala,10*self.escala,0.1*self.escala),(1*self.escala,0,0),self.cor1,0.6)
     
-        rabo1.append = self.desenharCilindro((-10*escala,3*escala,-0.2*escala),(0,0,0.3*escala),2*escala,self.cor1,1)
-        rabo1.append = self.desenharCilindro((-9*escala,0,-0.2*escala),(0,0,0.3*escala),2*escala,self.cor1,1)
-        rabo1.append = self.desenharCilindro((-10*escala,-3*escala,-0.2*escala),(0,0,0.3*escala),2*escala,self.cor1,1)
+        rabo1.append = self.desenharCilindro((-10*self.escala,3*self.escala,-0.2*self.escala),(0,0,0.3*self.escala),2*self.escala,self.cor1,1)
+        rabo1.append = self.desenharCilindro((-9*self.escala,0,-0.2*self.escala),(0,0,0.3*self.escala),2*self.escala,self.cor1,1)
+        rabo1.append = self.desenharCilindro((-10*self.escala,-3*self.escala,-0.2*self.escala),(0,0,0.3*self.escala),2*self.escala,self.cor1,1)
 
-        dorsal1 = self.desenharCilindro((0,4*escala,0),(0,0,0.1*escala),3*escala,self.cor1,0.5)
-        dorsal2 = self.desenharCilindro((3*escala,3.5*escala,0),(0,0,0.1*escala),1*escala,self.cor1,1)
-        dorsal3 = self.desenharCilindro((1.5*escala,4.5*escala,0),(0,0,0.1*escala),1*escala,self.cor1,1)
-        dorsal4 = self.desenharCilindro((0,5*escala,0),(0,0,0.1*escala),1*escala,self.cor1,1)
-        dorsal5 = self.desenharCilindro((-1.2*escala,4.5*escala,0),(0,0,0.1*escala),1*escala,self.cor1,1)
-        dorsal6 = self.desenharCilindro((-2*escala,4*escala,0),(0,0,0.1*escala),1*escala,self.cor1,1)
+        dorsal1 = self.desenharCilindro((0,4*self.escala,0),(0,0,0.1*self.escala),3*self.escala,self.cor1,0.5)
+        dorsal2 = self.desenharCilindro((3*self.escala,3.5*self.escala,0),(0,0,0.1*self.escala),1*self.escala,self.cor1,1)
+        dorsal3 = self.desenharCilindro((1.5*self.escala,4.5*self.escala,0),(0,0,0.1*self.escala),1*self.escala,self.cor1,1)
+        dorsal4 = self.desenharCilindro((0,5*self.escala,0),(0,0,0.1*self.escala),1*self.escala,self.cor1,1)
+        dorsal5 = self.desenharCilindro((-1.2*self.escala,4.5*self.escala,0),(0,0,0.1*self.escala),1*self.escala,self.cor1,1)
+        dorsal6 = self.desenharCilindro((-2*self.escala,4*self.escala,0),(0,0,0.1*self.escala),1*self.escala,self.cor1,1)
 
-        barbatana10 = self.desenharCilindro((0,0,-5*escala),(0.1*escala,0,-0.1*escala),2*escala,self.cor1)
-        barbatana11 = self.desenharCilindro((0,-2*escala,-5*escala),(0.1*escala,0,-0.1*escala),1*escala,self.cor1)
+        barbatana10 = self.desenharCilindro((0,0,-5*self.escala),(0.1*self.escala,0,-0.1*self.escala),2*self.escala,self.cor1)
+        barbatana11 = self.desenharCilindro((0,-2*self.escala,-5*self.escala),(0.1*self.escala,0,-0.1*self.escala),1*self.escala,self.cor1)
 
-        barbatana10 = self.desenharCilindro((0,0,5*escala),(-0.1*escala,0,-0.1*escala),2*escala,self.cor1)
-        barbatana11 = self.desenharCilindro((0,-2*escala,5*escala),(-0.1*escala,0,-0.1*escala),1*escala,self.cor1)
+        barbatana10 = self.desenharCilindro((0,0,5*self.escala),(-0.1*self.escala,0,-0.1*self.escala),2*self.escala,self.cor1)
+        barbatana11 = self.desenharCilindro((0,-2*self.escala,5*self.escala),(-0.1*self.escala,0,-0.1*self.escala),1*self.escala,self.cor1)
         
 
     def desenharEsfera(self,posicao=(0,0,0),cor=color.blue,raio=1, opacidade=1):
