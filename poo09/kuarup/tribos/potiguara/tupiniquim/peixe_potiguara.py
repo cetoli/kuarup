@@ -11,6 +11,13 @@ class Peixe_Potiguara(Marine):
     def render(self):
 
         self.esqueleto = self.frame
+#este valores irão sempre substituir os valores passados para movimentação do peIXE - CORRIGIR- ver tb a agua viva
+        self.esqueleto.x = 3
+        self.esqueleto.y = 0.5
+        self.esqueleto.z = 1
+
+        self.esqueleto.rotate(angle=3*pi/2,axis=(0,1,0),pos=(0,0,0))
+        
         self.escala = self.scale
             
         u=self.escala/6.0

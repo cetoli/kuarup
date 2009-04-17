@@ -4,7 +4,6 @@ from random import uniform, randint
 from renderable import *
 from mathHelper import *
 from caracol import *
-#from SerMarinho import *
 from peixe_potiguara import *
 from agua_viva_potiguara import *
 from marine import *
@@ -32,7 +31,13 @@ class Universe:
         self.board = Board()
 
         self.player = Fish(scale=0.08, speed=10.0, coord=(7,6))
-        self.player = Peixe_Potiguara(scale=0.08, speed=10.0, coord=(7,6))
+
+#inclusao dos objetos da tribo potiguara no cenario
+        self.player2 = Peixe_Potiguara(scale=0.1, speed=10.0, coord=(7,7))
+        self.agua_viva1 = Agua_Viva_Potiguara(scale=0.5, speed=10.0, coord=(2 ,2))
+#elemento que atrapalha a destruicao dos caracois
+        self.impecilio = box(pos=(-3,2,1), length=1, height=1, width = 1, color = color.red)
+                
         self.board.setPlayer(player=self.player)
         
 
