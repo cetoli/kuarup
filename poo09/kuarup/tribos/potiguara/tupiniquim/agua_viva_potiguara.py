@@ -2,9 +2,9 @@ from visual import *
 from SerMarinho import *
 from marine import *
 
-class AguaViva(Marine):
+class AguaViva(SerMarinho):
 
-    def desenha(self, escala=1):
+    def render(self, escala=1):
 
         u=escala/6.0
         r=6*u
