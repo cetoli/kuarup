@@ -5,9 +5,9 @@ from marine import *
 '''
 Estas classes são as especializações da classe SerMarinho...
 '''
-class Pangacio(Marine):
+class Pangacio(SerMarinho):
         
-    def desenha(self,escala=1):
+    def render(self,escala=1):
 
         u=escala/6.0
         r=6*u
