@@ -4,6 +4,9 @@ from random import uniform, randint
 from renderable import *
 from mathHelper import *
 from caracol import *
+from SerMarinho import *
+from peixe_potiguara import *
+from agua_viva_potiguara import *
 from marine import *
 from fish import *
 from animator import FishAnimator, CaracolAnimator, TurtleAnimator
@@ -30,6 +33,7 @@ class Universe:
 
         self.player = Fish(scale=0.08, speed=10.0, coord=(7,6))
         self.board.setPlayer(player=self.player)
+        
 
         #scene.center = self.player.getPosition()
 

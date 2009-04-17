@@ -10,6 +10,8 @@ renderable.py
 
 Created by Leandro Gomes on 2009-03-22.
 Copyright (c) 2009 __MyCompanyName__. All rights reserved.
+
+Alterado por Tiago Cruz de França em 16-04-2009
 """
 
 class Renderable:
