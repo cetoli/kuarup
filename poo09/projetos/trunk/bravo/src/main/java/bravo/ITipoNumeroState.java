@@ -2,15 +2,18 @@ package bravo;
 
 
 /**
- * Write a description of interface ITipoNumeroState here.
+ * Interface de Estado.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-
-public interface ITipoNumeroState
-{
-   String entraUm(StrategyBase base, Numero operador, Numero operadorImaginario);
-   
-   String soma(StrategyBase base,Numero operador, Numero operadorImaginario, Numero acumulador, Numero acumuladorImaginario);
+public interface ITipoNumeroState {
+    /**
+     * String entraUm.
+     */        
+    String entraUm(StrategyBase base, Numero operador, Numero operadorImaginario);
+    /**
+     * String soma.
+     */      
+    String soma(StrategyBase base, Numero operador, Numero operadorImaginario, Numero acumulador, Numero acumuladorImaginario);
 }
