@@ -75,9 +75,11 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return conteudo do operador
      */
     public final String entraUm() {
-        return state.entraUm(base,operador,operadorImaginario);
+        return state.entraUm(base, operador, operadorImaginario);
     }
-
+    /**
+     * Entra a tecla I.
+     */
     public final void entraI() {
         state = new TipoNumeroImaginarioState();
     
@@ -101,7 +103,7 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return  conteudo do acumulador
      */
     public final String comandoSoma() {
-        String retorno = state.soma(base, operador,operadorImaginario, acumulador, acumuladorImaginario);
+        String retorno = state.soma(base, operador, operadorImaginario, acumulador, acumuladorImaginario);
         operador = new Numero();
         operadorImaginario = new Numero();  
         state = new TipoNumeroRealState();
