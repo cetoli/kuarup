@@ -74,7 +74,7 @@ public class Calculadora implements ICalculadoraBase {
         acumulador = acumulador + base.toDecValue(operando);
         String soma = base.getId() + base.toBase(acumulador);
         operando = "0";
-        base = new DecimalStrategy();
+        //base = new DecimalStrategy();
         return soma;
     }
 

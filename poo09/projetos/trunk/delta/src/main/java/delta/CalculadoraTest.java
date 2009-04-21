@@ -256,6 +256,19 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("0x1", calculadora.entraUm());
     }
 
+     /**
+     * Testa a soma de 1 + 1 binário.
+     */
+    public void testeSoma1Mais1Binario() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        //calculadora.modoBin();
+        calculadora.entraUm();
+        assertEquals("0b10", calculadora.comandoSoma());
+    }
+    
     /**
      * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
      * O objetivo é verificar se as entradas dos operandos nas bases decimal,
