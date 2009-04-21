@@ -259,15 +259,85 @@ public class CalculadoraTest extends junit.framework.TestCase
      /**
      * Testa a soma de 1 + 1 binário.
      */
-    public void testeSoma1Mais1Binario() {
+    public void testeSomaB1eB1sai0b10() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        //calculadora.modoBin();
         calculadora.entraUm();
         assertEquals("0b10", calculadora.comandoSoma());
     }
+    
+     /**
+     * Testa a soma de 11 + 11 binário.
+     */
+    public void testeSomaB11eB11sai0b110() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("0b110", calculadora.comandoSoma());
+    }
+    
+     /**
+     * Testa a soma de 111 + 111 binário.
+     */
+    public void testeSomaB111eB111sai0b1110() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("0b1110", calculadora.comandoSoma());
+    }
+    
+     /**
+     * Testa a soma de 1 + 1 hexadecimal.
+     */
+    public void testeSomaH1eH1sai0x2() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        assertEquals("0x2", calculadora.comandoSoma());
+    }
+    
+     /**
+     * Testa a soma de 11 + 11 hexadecimal.
+     */
+    public void teste2SomaH11eH11sai0x22() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("0x22", calculadora.comandoSoma());
+    }
+    
+     /**
+     * Testa a soma de 1 + 111 hexadecimal.
+     */
+    public void testeSomaH1eH111sai0x112() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("0x112", calculadora.comandoSoma());
+    }
+    
     
     /**
      * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
