@@ -8,100 +8,90 @@
 
 package delta;
 
-import labase.poo.ICalculadoraBase;
+import labase.poo.ICalculadoraComplexo;
 
 /**
  * Classe que implementa a calculadora.
- * @author  André Sion
- * @author  Thiago Silva de Souza
- * @version 0.1 07/04/2009 André Sion e Thiago Silva de Souza
- * @since   0.2 Incluídas as funcionalidades: números em bases binárias e
- * hexadecimais.
- * @version 0.1 31/03/2009 André Sion e Thiago Silva de Souza
- * @since   0.1 Incluídas as implementações dos métodos limpa(), entraUm() e
- * comandoSoma().
+ * @author  Andre Sion
+ * @author  Andre Abrantes
+ * @version 0.3 24/04/2009 Andre Sion e Andre Abrante
+ * @since   0.2 Incluido suporte a numeros complexos.
  */
-public class Calculadora implements ICalculadoraBase {
+public class Calculadora implements ICalculadoraComplexo {
 
-    // Estado da Caculadora
     /**
      * Atributo acumulador guarda os resultados da soma.
      **/
-    private int acumulador;
+    private Inteiro acumulador;
+
     /**
-     * Atributo operando guarda o contéudo do operando.
+     * Atributo operando guarda o conteudo do operando.
      **/
-    private String operando;
-    /**
-     * Atributo base especifica a base utilizada.
-     **/
-    private BaseStrategy base = null;
+    private Inteiro operando;
 
     /**
      * Construtor para objetos da classe Calculadora.
      **/
     public Calculadora() {
-        // inicializa variáveis de instância
-        this.acumulador = 0;
-        this.operando = "0";
-        this.base = new DecimalStrategy(); // base default
+        acumulador = new Inteiro();
+        operando = new Inteiro();
     }
 
     /**
      * Limpa o acumulador.
-     * @return conteúdo do acumulador
+     * @return conteudo do acumulador
      **/
     public final String limpa() {
-        this.operando = "0";
-        this.acumulador = 0;
+        acumulador.limpa();
+        operando.limpa();
         return "0";
     }
 
     /**
      * Entra a tecla um.
-     * @return conteúdo do operador
+     * @return conteudo do operador
      **/
     public String entraUm() {
-        operando = operando + "1";
-        return base.getId() + base.toBase(base.toDecValue(operando));
+        operando.entraUm();
+        return operando.toString();
     }
 
     /**
      * Entra o comando soma.
-     * @return conteúdo do acumulador
+     * @return conteudo do acumulador
      **/
     public String comandoSoma() {
-        acumulador = acumulador + base.toDecValue(operando);
-        String soma = base.getId() + base.toBase(acumulador);
-        operando = "0";
-        //base = new DecimalStrategy();
-        return soma;
+        acumulador.soma(operando);
+        operando.limpa();
+
+        return acumulador.toString();
     }
 
     /**
      * Entra a base decimal.
      */
     public void modoDec() {
-        operando = Integer.toString(base.toDecValue(operando));
-        base = new DecimalStrategy();
-        operando = base.toBase(Integer.parseInt(operando));
+        acumulador.modoDec();
     }
 
     /**
-     * Entra a base binária.
+     * Entra a base binaria.
      */
     public void modoBin() {
-        operando = Integer.toString(base.toDecValue(operando));
-        base = new BinariaStrategy();
-        operando = base.toBase(Integer.parseInt(operando));
+        acumulador.modoBin();
     }
 
     /**
      * Entra a base hexadecimal.
      */
     public void modoHex() {
-        operando = Integer.toString(base.toDecValue(operando));
-        base = new HexadecimalStrategy();
-        operando = base.toBase(Integer.parseInt(operando));
+        acumulador.modoHex();
+    }
+    
+    /**
+     * Entra numero complexo.
+     */
+    public void entraI() {
+        // TODO
     }
 }

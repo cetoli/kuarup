@@ -11,7 +11,7 @@ package delta;
  * The test class CalculadoraTest.
  *
  * @author  Thiago Silva de Souza
- * @author  André Sion
+ * @author  Andre Sion
  * @version 1.0 (Testes iniciais da calculadora)
  */
 public class CalculadoraTest extends junit.framework.TestCase
@@ -23,40 +23,40 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Teste do método limpa().
+     * Teste do mï¿½todo limpa().
      */
-    public void testeLimpa() {
+    public void testLimpa() {
         Calculadora calculadora = new Calculadora();
         assertEquals("0", calculadora.limpa());
     }
 
     /**
-     * Teste do método entraUm()
-     * Validação do método testeEntraUmaVez() utilizando apenas uma chamada do
-     * método entraUm().
+     * Teste do mï¿½todo entraUm()
+     * Validaï¿½ï¿½o do mï¿½todo testEntraUmaVez() utilizando apenas uma chamada do
+     * mï¿½todo entraUm().
      */
-    public void testeEntraUmUmaVez() {
+    public void testEntraUmUmaVez() {
         Calculadora calculadora = new Calculadora();
         assertEquals("1", calculadora.entraUm());
     }
 
     /**
-     * Teste do método entraUm()
-     * Validação do método testeEntraDuasVezes() utilizando duas chamadas do
-     * método entraUm().
+     * Teste do mï¿½todo entraUm()
+     * Validaï¿½ï¿½o do mï¿½todo testEntraDuasVezes() utilizando duas chamadas do
+     * mï¿½todo entraUm().
      */
-    public void testeEntraUmDuasVezes() {
+    public void testEntraUmDuasVezes() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         assertEquals("11", calculadora.entraUm());
     }
 
     /**
-     * Teste do método entraUm()
-     * Validação do método testeEntraTresVezes() utilizando três chamadas do
-     * método entraUm().
+     * Teste do mï¿½todo entraUm()
+     * Validaï¿½ï¿½o do mï¿½todo testEntraTresVezes() utilizando trï¿½s chamadas do
+     * mï¿½todo entraUm().
      */
-    public void testeEntraUmTresVezes() {
+    public void testEntraUmTresVezes() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraUm();
@@ -64,32 +64,32 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Teste do método comandoSoma()
-     * Validação do método testeSomaSemOperador() utilizando apenas uma chamada
-     * do método comandoSoma().
+     * Teste do mï¿½todo comandoSoma()
+     * Validaï¿½ï¿½o do mï¿½todo testSomaSemOperador() utilizando apenas uma chamada
+     * do mï¿½todo comandoSoma().
      */
-    public void testeSomaSemOperador() {
+    public void testSomaSemOperador() {
         Calculadora calculadora = new Calculadora();
         assertEquals("0", calculadora.comandoSoma());
     }
 
     /**
-     * Teste do método comandoSoma()
-     * Validação do método testeSomaComUmOperador() utilizando apenas uma
-     * chamada do método entraUm() e uma chamada do método comandoSoma().
+     * Teste do mï¿½todo comandoSoma()
+     * Validaï¿½ï¿½o do mï¿½todo testSomaComUmOperador() utilizando apenas uma
+     * chamada do mï¿½todo entraUm() e uma chamada do mï¿½todo comandoSoma().
      */
-    public void testeSomaComUmOperador() {
+    public void testSomaComUmOperador() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         assertEquals("1", calculadora.comandoSoma());
     }
 
     /**
-     * Teste do método comandoSoma()
-     * Validação do método testeSomaComDoisOperadores() utilizando duas chamadas
-     * do método entraUm() e duas chamadas do método comandoSoma().
+     * Teste do mï¿½todo comandoSoma()
+     * Validaï¿½ï¿½o do mï¿½todo testSomaComDoisOperadores() utilizando duas chamadas
+     * do mï¿½todo entraUm() e duas chamadas do mï¿½todo comandoSoma().
      */
-    public void testeSomaComDoisOperadores() {
+    public void testSomaComDoisOperadores() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
@@ -98,12 +98,12 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Teste do método comandoSoma()
-     * Validação do método testeLimpaAposSoma() através da chamda do método
-     * limpa() após duas chamadas do método entraUm() e duas chamadas do método
+     * Teste do mï¿½todo comandoSoma()
+     * Validaï¿½ï¿½o do mï¿½todo testLimpaAposSoma() atravï¿½s da chamda do mï¿½todo
+     * limpa() apï¿½s duas chamadas do mï¿½todo entraUm() e duas chamadas do mï¿½todo
      * comandoSoma().
      */
-    public void testeLimpaAposSoma() {
+    public void testLimpaAposSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
@@ -113,12 +113,12 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Teste do método comandoSoma()
-     * Validação do método testeSomaAposLima() através da chamada do método
-     * comandoSoma() após duas chamadas do método entraUm() e uma chamada do
-     * método comandoSoma().
+     * Teste do mï¿½todo comandoSoma()
+     * Validaï¿½ï¿½o do mï¿½todo testSomaAposLima() atravï¿½s da chamada do mï¿½todo
+     * comandoSoma() apï¿½s duas chamadas do mï¿½todo entraUm() e uma chamada do
+     * mï¿½todo comandoSoma().
      */
-    public void testeSomaAposLimpa() {
+    public void testSomaAposLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
@@ -128,110 +128,110 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXLimpa()
-     * O objetivo é verificar se o método limpa() executará de forma correta
-     * após uma chamada do método entraBaseX().
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXLimpa()
+     * O objetivo ï¿½ verificar se o mï¿½todo limpa() executarï¿½ de forma correta
+     * apï¿½s uma chamada do mï¿½todo entraBaseX().
      */
-    public void testeEntraBaseDecLimpa() {
+    public void testEntraBaseDecLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         assertEquals("0", calculadora.limpa());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXLimpa()
-     * O objetivo é verificar se o método limpa() executará de forma correta
-     * após uma chamada do método entraBaseX().
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXLimpa()
+     * O objetivo ï¿½ verificar se o mï¿½todo limpa() executarï¿½ de forma correta
+     * apï¿½s uma chamada do mï¿½todo entraBaseX().
      */
-    public void testeEntraBaseBinLimpa() {
+    public void testEntraBaseBinLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         assertEquals("0", calculadora.limpa());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXLimpa()
-     * O objetivo é verificar se o método limpa() executará de forma correta
-     * após uma chamada do método entraBaseX().
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXLimpa()
+     * O objetivo ï¿½ verificar se o mï¿½todo limpa() executarï¿½ de forma correta
+     * apï¿½s uma chamada do mï¿½todo entraBaseX().
      */
-    public void testeEntraBaseHexLimpa() {
+    public void testEntraBaseHexLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         assertEquals("0", calculadora.limpa());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXSoma()
-     * O objetivo é verificar se o método comandoSoma() retornará o valor zero
-     * na base especificada após uma chamada do método entraBaseX().
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXSoma()
+     * O objetivo ï¿½ verificar se o mï¿½todo comandoSoma() retornarï¿½ o valor zero
+     * na base especificada apï¿½s uma chamada do mï¿½todo entraBaseX().
      */
-    public void testeEntraBaseDecSoma() {
+    public void testEntraBaseDecSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         assertEquals("0", calculadora.comandoSoma());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXSoma()
-     * O objetivo é verificar se o método comandoSoma() retornará o valor zero
-     * na base especificada após uma chamada do método entraBaseX().
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXSoma()
+     * O objetivo ï¿½ verificar se o mï¿½todo comandoSoma() retornarï¿½ o valor zero
+     * na base especificada apï¿½s uma chamada do mï¿½todo entraBaseX().
      */
-    public void testeEntraBaseBinSoma() {
+    public void testEntraBaseBinSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         assertEquals("0b0", calculadora.comandoSoma());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXSoma()
-     * O objetivo é verificar se o método comandoSoma() retornará o valor zero
-     * na base especificada após uma chamada do método entraBaseX().
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXSoma()
+     * O objetivo ï¿½ verificar se o mï¿½todo comandoSoma() retornarï¿½ o valor zero
+     * na base especificada apï¿½s uma chamada do mï¿½todo entraBaseX().
      */
-    public void testeEntraBaseHexSoma() {
+    public void testEntraBaseHexSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         assertEquals("0x0", calculadora.comandoSoma());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXEntraUm()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXEntraUm()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraBaseDecEntraUm() {
+    public void testEntraBaseDecEntraUm() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         assertEquals("1", calculadora.entraUm());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXEntraUm()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXEntraUm()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraBaseBinEntraUm() {
+    public void testEntraBaseBinEntraUm() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         assertEquals("0b1", calculadora.entraUm());
     }
 
     /**
-     * Validação dos métodos testeEntraBaseXEntraUm()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraBaseXEntraUm()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraBaseHexEntraUm() {
+    public void testEntraBaseHexEntraUm() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         assertEquals("0x1", calculadora.entraUm());
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraOpDecSomaEntraOpBin() {
+    public void testEntraOpDecSomaEntraOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -242,11 +242,11 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraOpDecSomaEntraOpHex() {
+    public void testEntraOpDecSomaEntraOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -257,9 +257,9 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
      /**
-     * Testa a soma de 1 + 1 binário.
+     * Testa a soma de 1 + 1 binï¿½rio.
      */
-    public void testeSomaB1eB1sai0b10() {
+    public void testSomaB1eB1sai0b10() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -269,9 +269,9 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
     
      /**
-     * Testa a soma de 11 + 11 binário.
+     * Testa a soma de 11 + 11 binï¿½rio.
      */
-    public void testeSomaB11eB11sai0b110() {
+    public void testSomaB11eB11sai0b110() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -283,9 +283,9 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
     
      /**
-     * Testa a soma de 111 + 111 binário.
+     * Testa a soma de 111 + 111 binï¿½rio.
      */
-    public void testeSomaB111eB111sai0b1110() {
+    public void testSomaB111eB111sai0b1110() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -301,7 +301,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      /**
      * Testa a soma de 1 + 1 hexadecimal.
      */
-    public void testeSomaH1eH1sai0x2() {
+    public void testSomaH1eH1sai0x2() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -313,7 +313,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      /**
      * Testa a soma de 11 + 11 hexadecimal.
      */
-    public void teste2SomaH11eH11sai0x22() {
+    public void test2SomaH11eH11sai0x22() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -327,7 +327,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      /**
      * Testa a soma de 1 + 111 hexadecimal.
      */
-    public void testeSomaH1eH111sai0x112() {
+    public void testSomaH1eH111sai0x112() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -340,11 +340,11 @@ public class CalculadoraTest extends junit.framework.TestCase
     
     
     /**
-     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraOpBinSomaEntraOpDec() {
+    public void testEntraOpBinSomaEntraOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -355,11 +355,11 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraOpBinSomaEntraOpHex() {
+    public void testEntraOpBinSomaEntraOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -370,11 +370,11 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraOpHexSomaEntraOpBin() {
+    public void testEntraOpHexSomaEntraOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -385,11 +385,11 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
-     * O objetivo é verificar se as entradas dos operandos nas bases decimal,
-     * binária e hexadecimal estão corretas.
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXSomaEntraOpBaseY()
+     * O objetivo ï¿½ verificar se as entradas dos operandos nas bases decimal,
+     * binï¿½ria e hexadecimal estï¿½o corretas.
      */
-    public void testeEntraOpHexSomaEntraOpDec() {
+    public void testEntraOpHexSomaEntraOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -400,13 +400,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
-     * O objetivo é verificar se a soma entre operandos em diferentes bases
-     * estão sendo realizadas de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm()
-     * em uma base apenas (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBaseXEOpBaseY()
+     * O objetivo ï¿½ verificar se a soma entre operandos em diferentes bases
+     * estï¿½o sendo realizadas de forma correta.
+     * Nestes testes, o operando ï¿½ formado por chamadas ao mï¿½todo entraUm()
+     * em uma base apenas (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaEntreOpDecEOpBin() {
+    public void testSomaEntreOpDecEOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -418,13 +418,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
-     * O objetivo é verificar se a soma entre operandos em diferentes bases
-     * estão sendo realizadas de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm()
-     * em uma base apenas (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBaseXEOpBaseY()
+     * O objetivo ï¿½ verificar se a soma entre operandos em diferentes bases
+     * estï¿½o sendo realizadas de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm()
+     * em uma base apenas (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaEntreOpDecEOpHex() {
+    public void testSomaEntreOpDecEOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -436,13 +436,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
-     * O objetivo é verificar se a soma entre operandos em diferentes bases
-     * estão sendo realizadas de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm()
-     * em uma base apenas (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBaseXEOpBaseY()
+     * O objetivo ï¿½ verificar se a soma entre operandos em diferentes bases
+     * estï¿½o sendo realizadas de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm()
+     * em uma base apenas (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaEntreOpBinEOpDec() {
+    public void testSomaEntreOpBinEOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -454,13 +454,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
-     * O objetivo é verificar se a soma entre operandos em diferentes bases
-     * estão sendo realizadas de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm()
-     * em uma base apenas (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBaseXEOpBaseY()
+     * O objetivo ï¿½ verificar se a soma entre operandos em diferentes bases
+     * estï¿½o sendo realizadas de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm()
+     * em uma base apenas (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaEntreOpBinEOpHex() {
+    public void testSomaEntreOpBinEOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -472,13 +472,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
-     * O objetivo é verificar se a soma entre operandos em diferentes bases
-     * estão sendo realizadas de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm()
-     * em uma base apenas (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBaseXEOpBaseY()
+     * O objetivo ï¿½ verificar se a soma entre operandos em diferentes bases
+     * estï¿½o sendo realizadas de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm()
+     * em uma base apenas (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaEntreOpHexEOpBin() {
+    public void testSomaEntreOpHexEOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -490,13 +490,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBaseXEOpBaseY()
-     * O objetivo é verificar se a soma entre operandos em diferentes bases
-     * estão sendo realizadas de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm()
-     * em uma base apenas (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBaseXEOpBaseY()
+     * O objetivo ï¿½ verificar se a soma entre operandos em diferentes bases
+     * estï¿½o sendo realizadas de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm()
+     * em uma base apenas (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaEntreOpHexEOpDec() {
+    public void testSomaEntreOpHexEOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -508,13 +508,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
-     * O objetivo é verificar se a formação de um operando, utilizando chamadas
-     * entraUm() em diferentes bases, está sendo feita de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXEntraOpBaseY()
+     * O objetivo ï¿½ verificar se a formaï¿½ï¿½o de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, estï¿½ sendo feita de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeEntraD11B1() {
+    public void testEntraD11B1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -524,13 +524,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
-     * O objetivo é verificar se a formação de um operando, utilizando chamadas
-     * entraUm() em diferentes bases, está sendo feita de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXEntraOpBaseY()
+     * O objetivo ï¿½ verificar se a formaï¿½ï¿½o de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, estï¿½ sendo feita de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeEntraB11D1() {
+    public void testEntraB11D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -540,13 +540,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
-     * O objetivo é verificar se a formação de um operando, utilizando chamadas
-     * entraUm() em diferentes bases, está sendo feita de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXEntraOpBaseY()
+     * O objetivo ï¿½ verificar se a formaï¿½ï¿½o de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, estï¿½ sendo feita de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeEntraH11B1() {
+    public void testEntraH11B1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -556,13 +556,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
-     * O objetivo é verificar se a formação de um operando, utilizando chamadas
-     * entraUm() em diferentes bases, está sendo feita de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXEntraOpBaseY()
+     * O objetivo ï¿½ verificar se a formaï¿½ï¿½o de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, estï¿½ sendo feita de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeEntraD11B1H1() {
+    public void testEntraD11B1H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -574,13 +574,13 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeEntraOpBaseXEntraOpBaseY()
-     * O objetivo é verificar se a formação de um operando, utilizando chamadas
-     * entraUm() em diferentes bases, está sendo feita de forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Validaï¿½ï¿½o dos mï¿½todos testEntraOpBaseXEntraOpBaseY()
+     * O objetivo ï¿½ verificar se a formaï¿½ï¿½o de um operando, utilizando chamadas
+     * entraUm() em diferentes bases, estï¿½ sendo feita de forma correta.
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeEntraH11B1H1() {
+    public void testEntraH11B1H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -592,14 +592,14 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
-     * O objetivo é verificar se a soma entre operandos, formados pela
-     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo ï¿½ verificar se a soma entre operandos, formados pela
+     * combinaï¿½ï¿½o de entraUm() em diferentes bases, estï¿½ sendo realizada de
      * forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaD11B1eB11D1() {
+    public void testSomaD11B1eB11D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -616,14 +616,14 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
-     * O objetivo é verificar se a soma entre operandos, formados pela
-     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo ï¿½ verificar se a soma entre operandos, formados pela
+     * combinaï¿½ï¿½o de entraUm() em diferentes bases, estï¿½ sendo realizada de
      * forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaD11B1eH11D1() {
+    public void testSomaD11B1eH11D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -640,14 +640,14 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
-     * O objetivo é verificar se a soma entre operandos, formados pela
-     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo ï¿½ verificar se a soma entre operandos, formados pela
+     * combinaï¿½ï¿½o de entraUm() em diferentes bases, estï¿½ sendo realizada de
      * forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaD11B1eB11H1() {
+    public void testSomaD11B1eB11H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -664,14 +664,14 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
-     * O objetivo é verificar se a soma entre operandos, formados pela
-     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo ï¿½ verificar se a soma entre operandos, formados pela
+     * combinaï¿½ï¿½o de entraUm() em diferentes bases, estï¿½ sendo realizada de
      * forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaH11B1eD11H1() {
+    public void testSomaH11B1eD11H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -688,14 +688,14 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
-     * O objetivo é verificar se a soma entre operandos, formados pela
-     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo ï¿½ verificar se a soma entre operandos, formados pela
+     * combinaï¿½ï¿½o de entraUm() em diferentes bases, estï¿½ sendo realizada de
      * forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaD11B1H1eB11D1H1() {
+    public void testSomaD11B1H1eB11D1H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -716,14 +716,14 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
-     * Validação dos métodos testeSomaEntreOpBasesDiversasEOpBasesDiversas()
-     * O objetivo é verificar se a soma entre operandos, formados pela
-     * combinação de entraUm() em diferentes bases, está sendo realizada de
+     * Validaï¿½ï¿½o dos mï¿½todos testSomaEntreOpBasesDiversasEOpBasesDiversas()
+     * O objetivo ï¿½ verificar se a soma entre operandos, formados pela
+     * combinaï¿½ï¿½o de entraUm() em diferentes bases, estï¿½ sendo realizada de
      * forma correta.
-     * Nestes testes o operando é formado por chamadas ao método entraUm() em
-     * diferentes bases (decimal, binária ou hexadecimal).
+     * Nestes testes o operando ï¿½ formado por chamadas ao mï¿½todo entraUm() em
+     * diferentes bases (decimal, binï¿½ria ou hexadecimal).
      */
-    public void testeSomaB11D1H1eH11B1D1() {
+    public void testSomaB11D1H1eH11B1D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
