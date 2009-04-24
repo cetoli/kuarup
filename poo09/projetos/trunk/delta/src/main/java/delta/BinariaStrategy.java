@@ -9,17 +9,17 @@
 package delta;
 
 /**
- * Classe da base binária.
- * @author  André Sion
+ * Classe da base binï¿½ria.
+ * @author  Andrï¿½ Sion
  * @author  Thiago Silva de Souza
- * @version 0.1 07/04/2009 André Sion e Thiago Silva de Souza
- * @since   0.1 Incluídas as implementações dos métodos toBase() e
+ * @version 0.1 07/04/2009 Andrï¿½ Sion e Thiago Silva de Souza
+ * @since   0.1 Incluï¿½das as implementaï¿½ï¿½es dos mï¿½todos toBase() e
  * toDecValue().
  */
 public class BinariaStrategy implements BaseStrategy {
 
     /**
-     * Retorna o identificador da base decimal, binária ou hexadecimal.
+     * Retorna o identificador da base decimal, binï¿½ria ou hexadecimal.
      * @return o identificador da respectiva base.
      */
     public String getId() {
@@ -27,22 +27,22 @@ public class BinariaStrategy implements BaseStrategy {
     }
 
     /**
-     * Retorna o valor em decimal do número dado em base decimal, binária ou
+     * Retorna o valor em decimal do nï¿½mero dado em base decimal, binï¿½ria ou
      * hexadecimal.
-     * @param n string do número dado na respectiva base.
-     * @return o valor em decimal do número dado.
+     * @param n string do nï¿½mero dado na respectiva base.
+     * @return o valor em decimal do nï¿½mero dado.
      */
     public int toDecValue(String n) {
         return Integer.parseInt(n, 2);
     }
 
     /**
-     * Retorna um número em base decimal, binária ou hexadecimal de acordo com
+     * Retorna um nï¿½mero em base decimal, binï¿½ria ou hexadecimal de acordo com
      * o valor em decimal dado.
-     * @param v valor em decimal do número dado.
-     * @return a string do número dado na respectiva base.
+     * @param v valor em decimal do nï¿½mero dado.
+     * @return a string do nï¿½mero dado na respectiva base.
      */
     public String toBase(int v) {
-        return Integer.toBinaryString(v);
+        return getId() + Integer.toBinaryString(v);
     }
 }
