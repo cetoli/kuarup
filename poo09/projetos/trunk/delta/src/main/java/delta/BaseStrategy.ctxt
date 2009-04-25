@@ -1,10 +1,7 @@
 #BlueJ class context
 comment0.target=Integer\ getValorBase()
-comment0.text=\nRetorna\ o\ identificador\ o\ valor\ da\ base.\n@return\ identificador\ o\ valor\ da\ base.\n\n
-comment1.params=n
-comment1.target=int\ toDecValue(String)
-comment1.text=\nRetorna\ o\ valor\ em\ decimal\ do\ numero\ dado\ em\ base\ decimal,\ binaria\ ou\nhexadecimal.\n@param\ n\ string\ do\ numero\ dado\ na\ respectiva\ base.\n@return\ o\ valor\ em\ decimal\ do\ numero\ dado.\n\n
-comment2.params=v
-comment2.target=String\ toBase(int)
-comment2.text=\nRetorna\ um\ numero\ em\ base\ decimal,\ binaria\ ou\ hexadecimal\ de\ acordo\ com\no\ valor\ em\ decimal\ dado.\n@param\ v\ valor\ em\ decimal\ do\ numero\ dado.\n@return\ a\ string\ do\ numero\ dado\ na\ respectiva\ base.\n\n
-numComments=3
+comment0.text=\n\n\n
+comment1.params=integer
+comment1.target=String\ toString(Integer)
+comment1.text=\n\n\n
+numComments=2

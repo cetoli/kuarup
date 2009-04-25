@@ -20,14 +20,19 @@ import labase.poo.ICalculadoraComplexo;
 public class Calculadora implements ICalculadoraComplexo {
 
     /**
-     * Atributo acumulador guarda os resultados da soma.
+     * Guarda os resultados da soma.
      **/
     private Inteiro acumulador;
 
     /**
-     * Atributo operando guarda o conteudo do operando.
+     * Guarda o conteudo do operando.
      **/
     private Inteiro operando;
+
+    /**
+     * Guarda a base atual.
+     **/
+    private BaseStrategy base;
 
     /**
      * Construtor para objetos da classe Calculadora.
@@ -35,63 +40,65 @@ public class Calculadora implements ICalculadoraComplexo {
     public Calculadora() {
         acumulador = new Inteiro();
         operando = new Inteiro();
+
+        base = new DecimalStrategy();
     }
 
     /**
-     * Limpa o acumulador.
-     * @return conteudo do acumulador
+     * Limpa acumulador e operando.
+     * @return representacao de 0 na base atual.
      **/
     public final String limpa() {
-        acumulador.limpa();
-        operando.limpa();
-        return "0";
+        acumulador = new Inteiro();
+        operando = new Inteiro();
+        return operando.toString(base);
     }
 
     /**
      * Entra a tecla um.
-     * @return conteudo do operador
+     * @return conteudo do operando na base atual.
      **/
     public String entraUm() {
-        operando.entraUm();
-        return operando.toString();
+        operando.entraUm(base);
+        return operando.toString(base);
     }
 
     /**
      * Entra o comando soma.
-     * @return conteudo do acumulador
+     * @return resultado da soma do acumulador e do operando.
      **/
     public String comandoSoma() {
         acumulador.soma(operando);
-        operando.limpa();
+        operando = new Inteiro();
 
-        return acumulador.toString();
+        return acumulador.toString(base);
     }
 
     /**
-     * Entra a base decimal.
+     * Entra na base decimal.
      */
     public void modoDec() {
-        acumulador.modoDec();
+        base = new DecimalStrategy();
     }
 
     /**
-     * Entra a base binaria.
+     * Entra na base binaria.
      */
     public void modoBin() {
-        acumulador.modoBin();
+        base = new BinariaStrategy();
     }
 
     /**
-     * Entra a base hexadecimal.
+     * Entra na base hexadecimal.
      */
     public void modoHex() {
-        acumulador.modoHex();
+        base = new HexadecimalStrategy();
     }
-    
+
     /**
      * Entra numero complexo.
      */
     public void entraI() {
-        // TODO
+        operando.entraI();
     }
 }

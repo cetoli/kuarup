@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=InteiroComplexoState()
+comment0.text=\n\n\n
+comment1.params=inteiro\ base
+comment1.target=String\ toString(Inteiro,\ BaseStrategy)
+comment1.text=\n\n\n
+comment2.params=inteiro\ base
+comment2.target=void\ entraUm(Inteiro,\ BaseStrategy)
+comment2.text=\n\n\n
+comment3.params=inteiro\ inteiroState
+comment3.target=void\ decideNovoEstado(Inteiro,\ InteiroState)
+comment3.text=\n\n\n
+numComments=4
