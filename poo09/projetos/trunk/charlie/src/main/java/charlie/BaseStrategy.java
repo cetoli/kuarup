@@ -6,7 +6,6 @@ package charlie;
  * @author  Helio Salmon  $Author$
  * @version 1.0
  */
-
 public interface BaseStrategy {
     /**
      * Esta e a Base de calculo.

@@ -6,17 +6,17 @@
   which you should have received as part of this distribution.
   ----------------------------------------------------------------------------*/
 package charlie;
-import labase.poo.ICalculadoraBase;
+import labase.poo.ICalculadoraComplexo;
 
 /**
  * Esta eh a primeira versao da Calculadora.
  * Nao possui nenhum design pattern ainda.
- * @author  Andre Abrantes  $Author$
+ * @author  Tiago Cruz de França  $Author$
  * @author  Helio Salmon  $Author$
- * @version 1.0    $Revision$ 31/03/2009      $Date$
- * @since   1.0   Esta versao soma um mais um
+ * @version 2.0    $Revision$ 15/04/2009      $Date$
+ * @since   2.0   Esta versão opera com números complexos
  */
-public class Calculadora implements ICalculadoraBase {
+public class Calculadora implements ICalculadoraComplexo {
     /**Operador da Caculadora. */
     private Integer operador = new Integer(0);
 
@@ -26,6 +26,18 @@ public class Calculadora implements ICalculadoraBase {
     /**Declaracao de variavel modo de operacao. */
     private BaseStrategy modo;
 
+    /**Declaracao do atributo do estado da soma. */
+    private SomaState estadoSoma;
+
+    /**Declaracao do atributo do estado real da soma. */
+    private SomaState estadoSomaReal = new RealSomaState();
+
+    /**Declaracao do atributo do estado imaginario da soma. */
+    private SomaState estadoSomaImaginario = new ImaginarioSomaState();
+
+    /**Declaracao do atributo do estado da impressao do resultado. */
+    private ExibeValorState exibeValor;
+
     /**
      * Construtor para objetos da classe Calculadora.
      */
@@ -34,6 +46,8 @@ public class Calculadora implements ICalculadoraBase {
         operador = 0;
         acumulador = 0;
         modo = new DecimalStrategy();
+        estadoSoma = estadoSomaReal;
+        exibeValor = new RealExibeValorState();
     }
 
     /**
@@ -43,6 +57,8 @@ public class Calculadora implements ICalculadoraBase {
     public final String entraUm() {
         operador = modo.entraUm(operador);
         return modo.toString(operador);
+// se necessario, o retorno pode ser dado por exibeValor,
+// depende da exigencia dos testes do professor
     }
 
     /**
@@ -52,17 +68,23 @@ public class Calculadora implements ICalculadoraBase {
     public final String limpa() {
         acumulador = 0;
         operador = 0;
+        estadoSomaReal = new RealSomaState();
+        estadoSomaImaginario = new ImaginarioSomaState();
+        estadoSoma = estadoSomaReal;
+        exibeValor = new RealExibeValorState();
         return operador.toString();
     }
 
     /**
      * Entra o comando soma.
-     * @return  conteudo do acumulador
      */
     public final String comandoSoma() {
-        acumulador = acumulador + operador;
+        estadoSoma.soma(operador);
+        estadoSoma = estadoSomaReal;
         operador = 0;
-        return modo.toString(acumulador);
+        Integer acumulReal = estadoSomaReal.getAcumulador();
+        Integer acumulImag = estadoSomaImaginario.getAcumulador();
+        return exibeValor.imprimeResultado(acumulReal, acumulImag, modo);
     }
 
     /**
@@ -84,5 +106,13 @@ public class Calculadora implements ICalculadoraBase {
      */
     public final void modoDec() {
         modo = new DecimalStrategy();
+    }
+
+    /**
+     * Entra no estado Complexo.
+     */ 
+    public final void entraI() {
+        estadoSoma = estadoSomaImaginario;
+        exibeValor = new ImaginarioExibeValorState();
     }
 }
