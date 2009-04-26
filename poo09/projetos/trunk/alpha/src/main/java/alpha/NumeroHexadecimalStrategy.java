@@ -36,6 +36,15 @@ public class NumeroHexadecimalStrategy extends NumeroStrategy
         return hex;
     }
     /**
+     * Converte apenas o valor para a base corrente.
+     * 
+     * @param num numero que deve ser convertido
+     * @param iNum INumeroStrategy
+     */
+    public void converterValorParaBase(Integer num, INumeroStrategy iNum) {
+        iNum.setRepNum(Integer.toHexString(num));
+    }
+    /**
      * Retorna o resultado na base corrente.
      * @return uma String com o resultado desejado
      */

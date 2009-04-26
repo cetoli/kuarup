@@ -4,14 +4,13 @@ package alpha;
  * Classe que executa operações com numeros binarios.
  * 
  * @author Diego Mury G. de Lima 
- * @author  Carlos Felippe Cardoso de Resende
- * @version 1.0
+ * @author  Marcio Reis Teixeira
+ * @version 2.0
  */
 public class NumeroBinarioStrategy extends NumeroStrategy
 {
     //Constante indicando a base 2.
     private static final int BASE = 2;
-    
     /**
      * Construtor da classe.
      * 
@@ -36,6 +35,15 @@ public class NumeroBinarioStrategy extends NumeroStrategy
         NumeroBinarioStrategy bin = new NumeroBinarioStrategy();
         bin.setRepNum(Integer.toBinaryString(num));   
         return bin;
+    }
+    /**
+     * Converte apenas o valor para a base corrente.
+     * 
+     * @param num numero que deve ser convertido
+     * @param iNum INumeroStrategy
+     */
+    public void converterValorParaBase(Integer num, INumeroStrategy iNum) {
+        iNum.setRepNum(Integer.toBinaryString(num));
     }
     /**
      * Retorna o resultado na base corrente.
