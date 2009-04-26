@@ -4,8 +4,8 @@ package alpha;
  * The test class CalculadoraUnitTest.
  *
  * @author Diego Mury Gomes de Lima
- * @author  Carlos Felippe Cardoso de Resende
- * @version 1.0
+ * @author  Marcio Reis Teixeira
+ * @version 2.0
  */
 public class CalculadoraTest extends junit.framework.TestCase {
     /**
@@ -28,7 +28,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     protected void tearDown() {
     }
     /**
-     * Testa o metodo limpa .
+     * Testa o metodo limpa.
      *
      */
     public void testLimpa() {
@@ -265,6 +265,10 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.modoBin();
         assertEquals("0b100011", calculad1.entraUm());
     }
+    /**
+     * Testa entrada de um decimal real e um decimal 
+     * imaginario com um decimal real.
+     */
     public void testeSomaD1ID1eD1sai2I1() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.entraUm();
@@ -274,6 +278,10 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.entraUm();
         assertEquals("2I1", calculad1.comandoSoma());
     }
+    /**
+     * Testa entrada de onze decimal real e um decimal imaginario
+     * com um decimal imaginario.
+     */
     public void testeSomaD11ID1eID1sai11I2() {
         alpha.Calculadora calculad1 = new alpha.Calculadora();
         calculad1.entraUm();
@@ -284,5 +292,22 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.entraI();
         calculad1.entraUm();
         assertEquals("11I2", calculad1.comandoSoma());
+    }
+    /**
+     * Testa entrada de onze binario Imaginario
+     * com onze hexadecimal imaginario.
+     */
+    public void testeSomaI0b11eI0x11sai0x0I0x14() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.entraI();
+        calculad1.modoBin();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        assertEquals("0x0I0x14", calculad1.comandoSoma());
     }
 }

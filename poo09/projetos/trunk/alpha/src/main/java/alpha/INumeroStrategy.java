@@ -5,8 +5,8 @@ package alpha;
  * com numeros nas diversas bases.
  * 
  * @author Diego Mury Gomes de Lima
- * @author  Carlos Felippe Cardoso de Resende
- * @version 1.0
+ * @author  Marcio Reis Teixeira
+ * @version 2.0
  */
 public interface INumeroStrategy
 {
@@ -28,6 +28,13 @@ public interface INumeroStrategy
      */
     public INumeroStrategy converterParaBase(Integer num);
     /**
+     * Assinatura do metodo converterValorParaBase.
+     * 
+     * @param num 
+     * @param INum
+     */
+    public void converterValorParaBase(Integer num, INumeroStrategy iNum);
+    /**
      * Assinatura do metodo mostraNumeroNaMinhaRepresentacaoBase.
      * 
      * @return String
@@ -43,4 +50,8 @@ public interface INumeroStrategy
      * Assinatura do metodo zeraRepresentacaoNumerica.
      */
     public void zeraRepresentacaoNumerica();
+    /**
+     * Assinatura do metodo setRepNum, que altera a representacao numerica.
+     */
+    public void setRepNum(String num);
 }
