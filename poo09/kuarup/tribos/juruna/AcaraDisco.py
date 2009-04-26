@@ -25,7 +25,7 @@ class PeixeAcaraDisco (SerMarinho) :
 
         # casa
         #texturaCorpo= self.carregarTextura ("L:/sincronizar/meus documentos/mestrado/poo/Trabalho3/src/imagem/texturaCorpoPeixe.jpg", "spherical", 128, 128)
-        
+
         pontoBaixo, pontoCima= self.desenharCorpo (Ponto (0,0,0), texturaCorpo)
 
         self.posicao.setPontoBaixo (pontoBaixo.getX (), pontoBaixo.getY (), pontoBaixo.getZ ())

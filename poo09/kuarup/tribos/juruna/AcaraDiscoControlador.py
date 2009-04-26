@@ -3,6 +3,7 @@ from MovimentoCimaCommand import *
 from MovimentoBaixoCommand import *
 from MovimentoEsquerdaCommand import *
 from MovimentoDireitaCommand import *
+from SelecaoCommand import *
 from threading import Thread
 
 class AcaraDiscoControlador (Thread):
@@ -13,6 +14,7 @@ class AcaraDiscoControlador (Thread):
     moverBaixo= None
     moverDireita= None
     moverEsquerda= None
+    selecionar= None
 
     cenario= None
 
@@ -24,6 +26,10 @@ class AcaraDiscoControlador (Thread):
         self.moverBaixo= MovimentoBaixoCommand ()
         self.moverEsquerda= MovimentoEsquerdaCommand ()
         self.moverDireita= MovimentoDireitaCommand ()
+        self.selecionar= SelecaoCommand ()
+
+    def setEstrategia (self, estrategia):
+        self.estrategia= estrategia
 
     def iniciarThread (self):
         self.start ()
@@ -56,15 +62,16 @@ class AcaraDiscoControlador (Thread):
         return false
 
     def tratarTeclaPessionada (self, tecla):
+        if tecla == "\n":
+            self.selecionar.executar (self.acara, self.tela, self.estrategia)
         if tecla == "up":
-            self.moverCima.executar (self.acara, self.tela)
+            self.moverCima.executar (self.acara, self.tela, self.estrategia)
         elif tecla == "down":
-            self.moverBaixo.executar (self.acara, self.tela)
+            self.moverBaixo.executar (self.acara, self.tela, self.estrategia)
         elif tecla == "left":
-            self.moverEsquerda.executar (self.acara, self.tela)
+            self.moverEsquerda.executar (self.acara, self.tela, self.estrategia)
         elif tecla == "right":
-            self.moverDireita.executar (self.acara, self.tela)
+            self.moverDireita.executar (self.acara, self.tela, self.estrategia)
 
 
-
-
+# Fim

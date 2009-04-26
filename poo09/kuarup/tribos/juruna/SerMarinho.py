@@ -37,6 +37,11 @@ class SerMarinho (Thread):
     def getVelocidade (self):
         return self.velocidade
 
+    def getPontoEsqueleto (self):
+        pos= self.esqueleto.pos
+
+        return Ponto (pos[0], pos[1], pos[2])
+
     # Retorna um objeto Ponto com o eixo do sentido multiplicado pela velocidade.
     # Ou seja, se multiplicarmos o x pelo x retornado teremos o x novo.
     def getIncrementoNado (self):
