@@ -1,7 +1,10 @@
 from Command import *
 
 class MovimentoDireitaCommand (Command):
-    def executar (self, peixe, tela):
+    def executar (self, peixe, tela, estrategia):
+        estrategia.movimentoDireita (peixe, tela)
+
+        """
         pos= peixe.getPosicao ()
         pos.setVetorSentido (1,0,0)
         incremento= peixe.getIncrementoNado ()
@@ -12,3 +15,6 @@ class MovimentoDireitaCommand (Command):
         if pos.permitidoPeixeMover (peixe, incremento, tela) != 0:
             posicao= peixe.getPosicao ()
             peixe.nadar (incremento)
+        """
+
+# Fim

@@ -14,9 +14,10 @@ from Ponto import *
 
 """
 class Posicao:
-    pontoBaixo= Ponto (0,0,0)
-    pontoCima= Ponto (0,0,0)
-    sentido= Ponto (1,0,0)
+    def __init__ (self):
+        self.pontoBaixo= Ponto (0,0,0)
+        self.pontoCima= Ponto (0,0,0)
+        self.sentido= Ponto (1,0,0)
 
     # variavel que representa uma caixa usada como teste
     teste= None
@@ -189,5 +190,23 @@ class Posicao:
             w*= (-1)
 
         return (pX, pY, pZ), l, h, w
+
+    def calcularPontoMeio (self):
+        posBaixo, posCima= self.pontoBaixo, self.pontoCima
+        xC= posCima.getX()
+        yC= posCima.getY()
+        zC= posCima.getZ()
+
+        xB= posBaixo.getX()
+        yB= posBaixo.getY()
+        zB= posBaixo.getZ()
+
+
+        x= xB - xC
+        y= yC - yB
+        z= zB - zC
+
+        return Ponto (x, y, z)
+
 
 # Fim

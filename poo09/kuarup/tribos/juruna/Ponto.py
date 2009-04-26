@@ -1,4 +1,5 @@
 from __future__ import division
+#from Posicao import *
 import math
 from visual import *
 
@@ -123,4 +124,21 @@ class Ponto:
         z= math.pow (self.z - z2, 2)
 
         return math.sqrt(x+y+z)
+
+
+    def calcularPosicaoPeloPontoMeio (self, dx, dy, dz):
+        posicao= Posicao ()
+
+        x= self.x - (dx/2)
+        y= self.y + (dy/2)
+        z= self.z - (dz/2)
+        posicao.setPontoCima (x, y, z)
+
+        x= self.x + (dx/2)
+        y= self.y - (dy/2)
+        z= self.z + (dz/2)
+        posicao.setPontoBaixo (x, y, z)
+
+        return posicao
+
 # fim
