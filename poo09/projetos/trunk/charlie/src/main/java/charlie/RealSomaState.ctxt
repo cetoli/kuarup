@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=operador
+comment0.target=Integer\ soma(Integer)
+comment0.text=\nImplementacao\ do\ metodo\ soma\ para\ valores\ reais.\n\n
+comment1.target=Integer\ getAcumulador()
+comment1.text=\nImplementacao\ do\ metodo\ getAcumulador.\n\n
+numComments=2

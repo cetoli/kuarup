@@ -188,4 +188,74 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.modoBin();
         assertEquals("0b100011", calculad1.entraUm());
     }
+
+    /**
+     * Teste testImagEntra1SomaEntra1sai1I1.
+     */
+    public void testImagEntra1SomaEntra1sai1I1() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("1I1", calculad1.comandoSoma());
+    }
+
+    /**
+     * Teste testEntra1SomaIEntra1SomaIEntra1Somasai1I2.
+     */
+    public void testEntra1SomaIEntra1SomaIEntra1Somasai1I2() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.entraUm();
+        assertEquals("1I2", calculad1.comandoSoma());
+    }
+
+    /**
+     * Teste testEntra1SomaIEntra1SomaEntra1Somasai2I1.
+     */
+    public void testEntra1SomaIEntra1SomaEntra1Somasai2I1() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("2I1", calculad1.comandoSoma());
+    }
+
+    /**
+     * Teste testEntra1SomaEntrI1SomaLimpasai0.
+     */
+    public void testEntra1SomaEntrI1SomaLimpasai0() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.entraUm();
+        assertEquals("1I1", calculad1.comandoSoma());
+        assertEquals("0", calculad1.limpa());
+    }
+
+    /**
+     * testHexEntra11SomaEntraI1SomaEntra1saiox12I1.
+     */
+    public void testHexEntra11SomaEntraI1SomaEntra1saiox12I1() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("0x12I0x1", calculad1.comandoSoma());
+    }
 }
