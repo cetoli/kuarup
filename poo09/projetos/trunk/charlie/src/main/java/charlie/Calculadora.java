@@ -115,4 +115,5 @@ public class Calculadora implements ICalculadoraComplexo {
         estadoSoma = estadoSomaImaginario;
         exibeValor = new ImaginarioExibeValorState();
     }
+
 }

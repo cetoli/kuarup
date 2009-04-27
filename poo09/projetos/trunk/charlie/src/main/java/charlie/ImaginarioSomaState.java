@@ -15,7 +15,8 @@ public class ImaginarioSomaState implements SomaState {
      * Implementacao do metodo soma para valores imaginarios.
      */    
     public final Integer soma(Integer operador) {
-        return acumuladorImaginario += operador;
+        acumuladorImaginario = acumuladorImaginario + operador;
+        return acumuladorImaginario;
     }
 
     /**

@@ -13,7 +13,7 @@ public interface SomaState {
     public Integer soma(Integer operador);
 
     /**
-     * Declaracao da assinatura do metodo getAcumuldor.
+     * Declaracao da assinatura do metodo getAcumulador.
      */
     public Integer getAcumulador();
 }
