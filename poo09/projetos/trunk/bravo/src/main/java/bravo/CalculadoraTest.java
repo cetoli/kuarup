@@ -2,9 +2,11 @@ package bravo;
 
 /**
  * The test class CalculadoraTest.
- * @author  (Tiago Cruz de França) - O papagaio
- * @author  (Humberto Ferreira Ramos Junior) - O pirata
- * @version (2.0) (12 de abril de 2009)
+ * A classe calculadora realiza operações matemáticas com números Imaginários.
+ * @author  (Carlos Felippe Cardoso de Resende) O papagaio
+ * @author  (Humberto Ferreira Ramos Junior) O pirata
+ * @version (3.0) (27 de abril de 2009) 
+ * Esta versão trabalha com os numeros Imaginarios
  */
 public class CalculadoraTest extends junit.framework.TestCase {
 

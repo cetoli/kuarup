@@ -9,10 +9,11 @@ package bravo;
 import labase.poo.ICalculadoraComplexo;
 
 /**
- * A classe calculadora realiza operações matemáticas com números inteiros.
- * @author  (Tiago Cruz de França) O papagaio
+ * A classe calculadora realiza operações matemáticas com números Imaginários.
+ * @author  (Carlos Felippe Cardoso de Resende) O papagaio
  * @author  (Humberto Ferreira Ramos Junior) O pirata
- * @version (2.0) (12 de abril de 2009)
+ * @version (3.0) (27 de abril de 2009) 
+ * Esta versão trabalha com os numeros Imaginarios
  * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária
  */
 public class Calculadora implements ICalculadoraComplexo {
@@ -21,8 +22,6 @@ public class Calculadora implements ICalculadoraComplexo {
      * Acumulador da Caculadora.
      */
     private Numero acumulador = new Numero();
-    
-    private String teste = "aaaaa";
     /**
      * Acumulador da Caculadora.
      */
@@ -38,10 +37,11 @@ public class Calculadora implements ICalculadoraComplexo {
     /**
      * Conversor de base.
      */
-    private StrategyBase base = new BaseDecimal();
-
-    
-    private ITipoNumeroState state = new TipoNumeroRealState();
+    private StrategyBase base = new BaseDecimal();    
+    /**Declaracao do atributo do estado da impressao do resultado. */
+    private IExibicaoValorState exibeValorState = new ExibicaoNumeroRealState();
+    /**Declaracao do atributo do estado de operacao a ser executada. */
+    private ITipoNumeroState tipoNumeroState = new TipoNumeroRealState();
     
     /**
      * Construtor para objetos da classe Calculadora.
@@ -75,17 +75,15 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return conteudo do operador
      */
     public final String entraUm() {
-        return state.entraUm(base, operador, operadorImaginario);
+        return tipoNumeroState.entraUm(base, operador, operadorImaginario);
     }
     /**
      * Entra a tecla I.
      */
     public final void entraI() {
-        state = new TipoNumeroImaginarioState();
-    
+        tipoNumeroState = new TipoNumeroImaginarioState();
+        exibeValorState = new ExibicaoNumeroImaginarioState();
     }   
-    
-    
     /**
      * Limpa o acumulador.
      * @return  conteudo do acumulador
@@ -95,6 +93,7 @@ public class Calculadora implements ICalculadoraComplexo {
         this.operadorImaginario = new Numero();
         this.acumulador = new Numero();
         this.acumuladorImaginario = new Numero();
+        this.exibeValorState = new ExibicaoNumeroRealState();
         return "0";
     }
 
@@ -103,10 +102,13 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return  conteudo do acumulador
      */
     public final String comandoSoma() {
-        String retorno = state.soma(base, operador, operadorImaginario, acumulador, acumuladorImaginario);
+        tipoNumeroState.soma(base, operador, operadorImaginario, 
+            acumulador, acumuladorImaginario);
+        String retorno = exibeValorState.retornaValor(acumulador, 
+            acumuladorImaginario, base);   
         operador = new Numero();
         operadorImaginario = new Numero();  
-        state = new TipoNumeroRealState();
+        tipoNumeroState = new TipoNumeroRealState();
         return retorno;
     }
 }
