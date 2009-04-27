@@ -77,7 +77,7 @@ def init_window ():
 i=0
 def grava_quadro ():
     global i
-    os.system ("import -window Colaboradores img%03d.jpg" % i)
+    #os.system ("import -window Colaboradores img%03d.jpg" % i)
     i += 1
 
 if __name__ == "__main__":

@@ -34,7 +34,7 @@ class Robots (threading.Thread):
 
         self.draw_board()
 
-        self.fish = Peixe(velocidade=5, material=materials.marble)
+        self.fish = PeixeXavante(velocidade=5, material=materials.marble)
         self.pos_fish = self.random_pos()
         self.fish.rotate(angle=pi/2, axis=(0,0,1))
         self.fish.move(self.pos_fish)
