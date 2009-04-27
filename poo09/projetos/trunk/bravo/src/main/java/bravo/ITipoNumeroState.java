@@ -11,9 +11,11 @@ public interface ITipoNumeroState {
     /**
      * String entraUm.
      */        
-    String entraUm(StrategyBase base, Numero operador, Numero operadorImaginario);
+    String entraUm(StrategyBase base, 
+        Numero operador, Numero operadorImaginario);
     /**
      * String soma.
      */      
-    String soma(StrategyBase base, Numero operador, Numero operadorImaginario, Numero acumulador, Numero acumuladorImaginario);
+    String soma(StrategyBase base, Numero operador, Numero operadorImaginario,
+        Numero acumulador, Numero acumuladorImaginario);
 }

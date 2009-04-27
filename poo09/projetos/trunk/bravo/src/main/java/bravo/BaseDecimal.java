@@ -4,9 +4,10 @@ package bravo;
  * Classe concreta que implementa a interface StrategyBase.
  * Esta classe contem o metodo converterBase(Integer Valor).
  * Retorna uma String. Esta classe devolve a representacao Decimal.
- * @author (Tiago C. de França) - O papagaio
- * @author (Humberto Ferreira Ramos Junior) - O pirata
- * @version 2.0 em 12 de abril de 2009
+ * @author  (Carlos Felippe Cardoso de Resende) O papagaio
+ * @author  (Humberto Ferreira Ramos Junior) O pirata
+ * @version (3.0) (27 de abril de 2009) 
+ * Esta versão trabalha com os numeros Imaginarios
  */
 public class BaseDecimal implements StrategyBase {
 

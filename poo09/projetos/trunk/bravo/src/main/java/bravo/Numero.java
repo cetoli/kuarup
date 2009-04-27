@@ -3,9 +3,11 @@ package bravo;
 
 /**
  * Define  a classe número.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * A classe calculadora realiza operações matemáticas com números Imaginários.
+ * @author  (Carlos Felippe Cardoso de Resende) O papagaio
+ * @author  (Humberto Ferreira Ramos Junior) O pirata
+ * @version (3.0) (27 de abril de 2009) 
+ * Esta versão trabalha com os numeros Imaginarios
  */
 public class Numero
 {
