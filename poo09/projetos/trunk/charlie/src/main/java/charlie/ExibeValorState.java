@@ -1,6 +1,5 @@
 package charlie;
 
-
 /**
  * Interface do estado de exibição do resultado.
  * @author  Tiago Cruz de França  $Author$

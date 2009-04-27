@@ -14,7 +14,8 @@ public class RealSomaState implements SomaState {
      * Implementacao do metodo soma para valores reais.
      */    
     public final Integer soma(Integer operador) {
-        return acumuladorReal += operador;
+        acumuladorReal = acumuladorReal + operador;
+        return acumuladorReal;
     }
 
     /**
