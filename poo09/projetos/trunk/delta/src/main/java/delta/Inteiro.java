@@ -2,7 +2,7 @@ package delta;
 
 /**
  * Write a description of class Inteiro here.
- * 
+ *
  * @author Andre Sion
  * @author Andre Abrantes
  * @version 0.3
