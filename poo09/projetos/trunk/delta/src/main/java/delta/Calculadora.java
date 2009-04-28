@@ -1,10 +1,10 @@
-/*------------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------
   Copyright  2002-2009        Carlo E. T. Oliveira et all
   ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
   This software is licensed as described in the file LICENSE.txt,
   which you should have received as part of this distribution.
-  ------------------------------------------------------------------------------*/
+  ---------------------------------------------------------------------------*/
 
 package delta;
 
@@ -58,7 +58,7 @@ public class Calculadora implements ICalculadoraComplexo {
      * Entra a tecla um.
      * @return conteudo do operando na base atual.
      **/
-    public String entraUm() {
+    public final String entraUm() {
         operando.entraUm(base);
         return operando.toString(base);
     }
@@ -67,7 +67,7 @@ public class Calculadora implements ICalculadoraComplexo {
      * Entra o comando soma.
      * @return resultado da soma do acumulador e do operando.
      **/
-    public String comandoSoma() {
+    public final String comandoSoma() {
         acumulador.soma(operando);
         operando = new Inteiro();
 
@@ -77,28 +77,28 @@ public class Calculadora implements ICalculadoraComplexo {
     /**
      * Entra na base decimal.
      */
-    public void modoDec() {
+    public final void modoDec() {
         base = new DecimalStrategy();
     }
 
     /**
      * Entra na base binaria.
      */
-    public void modoBin() {
+    public final void modoBin() {
         base = new BinariaStrategy();
     }
 
     /**
      * Entra na base hexadecimal.
      */
-    public void modoHex() {
+    public final void modoHex() {
         base = new HexadecimalStrategy();
     }
 
     /**
      * Entra numero complexo.
      */
-    public void entraI() {
+    public final void entraI() {
         operando.entraI();
     }
 }
