@@ -12,7 +12,6 @@ package bravo;
  */
 public class TipoNumeroRealState implements ITipoNumeroState
 {
-   
     /**
      * Constructor for objects of class TipoNumeroRealState.
      */

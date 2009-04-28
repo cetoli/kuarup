@@ -12,7 +12,6 @@ package bravo;
  */
 public class TipoNumeroImaginarioState implements ITipoNumeroState
 {
-    private StrategyBase base = new BaseDecimal();
     /**
      * Constructor for objects of class TipoNumeroImaginarioState.
      */
