@@ -25,7 +25,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Teste do metodo limpa().
      */
-    public void testLimpa() {
+    public final void testLimpa() {
         Calculadora calculadora = new Calculadora();
         assertEquals("0", calculadora.limpa());
     }
@@ -35,7 +35,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Validacao do metodo testEntraUmaVez() utilizando apenas uma chamada do
      * metodo entraUm().
      */
-    public void testEntraUmUmaVez() {
+    public final void testEntraUmUmaVez() {
         Calculadora calculadora = new Calculadora();
         assertEquals("1", calculadora.entraUm());
     }
@@ -45,7 +45,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Validacao do metodo testEntraDuasVezes() utilizando duas chamadas do
      * metodo entraUm().
      */
-    public void testEntraUmDuasVezes() {
+    public final void testEntraUmDuasVezes() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         assertEquals("11", calculadora.entraUm());
@@ -56,7 +56,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Validacao do metodo testEntraTresVezes() utilizando tres chamadas do
      * metodo entraUm().
      */
-    public void testEntraUmTresVezes() {
+    public final void testEntraUmTresVezes() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraUm();
@@ -68,7 +68,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Validacao do metodo testSomaSemOperador() utilizando apenas uma chamada
      * do metodo comandoSoma().
      */
-    public void testSomaSemOperador() {
+    public final void testSomaSemOperador() {
         Calculadora calculadora = new Calculadora();
         assertEquals("0", calculadora.comandoSoma());
     }
@@ -78,7 +78,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Validacao do metodo testSomaComUmOperador() utilizando apenas uma
      * chamada do metodo entraUm() e uma chamada do metodo comandoSoma().
      */
-    public void testSomaComUmOperador() {
+    public final void testSomaComUmOperador() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         assertEquals("1", calculadora.comandoSoma());
@@ -89,7 +89,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Validacao do metodo testSomaComDoisOperadores() utilizando duas chamadas
      * do metodo entraUm() e duas chamadas do metodo comandoSoma().
      */
-    public void testSomaComDoisOperadores() {
+    public final void testSomaComDoisOperadores() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
@@ -103,7 +103,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * limpa() apos duas chamadas do metodo entraUm() e duas chamadas do metodo
      * comandoSoma().
      */
-    public void testLimpaAposSoma() {
+    public final void testLimpaAposSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
@@ -118,7 +118,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * comandoSoma() apos duas chamadas do metodo entraUm() e uma chamada do
      * metodo comandoSoma().
      */
-    public void testSomaAposLimpa() {
+    public final void testSomaAposLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
@@ -132,7 +132,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se o metodo limpa() executara de forma correta
      * apos uma chamada do metodo modoDec().
      */
-    public void testEntraBaseDecLimpa() {
+    public final void testEntraBaseDecLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         assertEquals("0", calculadora.limpa());
@@ -143,7 +143,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se o metodo limpa() executara de forma correta
      * apos uma chamada do metodo modoBin().
      */
-    public void testEntraBaseBinLimpa() {
+    public final void testEntraBaseBinLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         assertEquals("0b0", calculadora.limpa());
@@ -154,7 +154,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se o metodo limpa() executara de forma correta
      * apos uma chamada do metodo modoHex().
      */
-    public void testEntraBaseHexLimpa() {
+    public final void testEntraBaseHexLimpa() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         assertEquals("0x0", calculadora.limpa());
@@ -165,7 +165,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se o metodo comandoSoma() retornara o valor zero
      * na base especificada apos uma chamada do metodo modoDec().
      */
-    public void testEntraBaseDecSoma() {
+    public final void testEntraBaseDecSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         assertEquals("0", calculadora.comandoSoma());
@@ -176,7 +176,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se o metodo comandoSoma() retornara o valor zero
      * na base especificada apos uma chamada do metodo modoBin().
      */
-    public void testEntraBaseBinSoma() {
+    public final void testEntraBaseBinSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         assertEquals("0b0", calculadora.comandoSoma());
@@ -187,7 +187,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se o metodo comandoSoma() retornara o valor zero
      * na base especificada apos uma chamada do metodo modoHex().
      */
-    public void testEntraBaseHexSoma() {
+    public final void testEntraBaseHexSoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         assertEquals("0x0", calculadora.comandoSoma());
@@ -198,7 +198,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraBaseDecEntraUm() {
+    public final void testEntraBaseDecEntraUm() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         assertEquals("1", calculadora.entraUm());
@@ -209,7 +209,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraBaseBinEntraUm() {
+    public final void testEntraBaseBinEntraUm() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         assertEquals("0b1", calculadora.entraUm());
@@ -220,7 +220,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraBaseHexEntraUm() {
+    public final void testEntraBaseHexEntraUm() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         assertEquals("0x1", calculadora.entraUm());
@@ -231,7 +231,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraOpDecSomaEntraOpBin() {
+    public final void testEntraOpDecSomaEntraOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -246,7 +246,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraOpDecSomaEntraOpHex() {
+    public final void testEntraOpDecSomaEntraOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -259,7 +259,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Testa a soma de 1 + 1 binario.
      */
-    public void testSomaB1eB1sai0b10() {
+    public final void testSomaB1eB1sai0b10() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -271,7 +271,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Testa a soma de 11 + 11 binario.
      */
-    public void testSomaB11eB11sai0b110() {
+    public final void testSomaB11eB11sai0b110() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -285,7 +285,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Testa a soma de 111 + 111 binario.
      */
-    public void testSomaB111eB111sai0b1110() {
+    public final void testSomaB111eB111sai0b1110() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -301,7 +301,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Testa a soma de 1 + 1 hexadecimal.
      */
-    public void testSomaH1eH1sai0x2() {
+    public final void testSomaH1eH1sai0x2() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -313,7 +313,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Testa a soma de 11 + 11 hexadecimal.
      */
-    public void test2SomaH11eH11sai0x22() {
+    public final void test2SomaH11eH11sai0x22() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -327,7 +327,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      * Testa a soma de 1 + 111 hexadecimal.
      */
-    public void testSomaH1eH111sai0x112() {
+    public final void testSomaH1eH111sai0x112() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -344,7 +344,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraOpBinSomaEntraOpDec() {
+    public final void testEntraOpBinSomaEntraOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -359,7 +359,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraOpBinSomaEntraOpHex() {
+    public final void testEntraOpBinSomaEntraOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -374,7 +374,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraOpHexSomaEntraOpBin() {
+    public final void testEntraOpHexSomaEntraOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -389,7 +389,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * O objetivo e verificar se as entradas dos operandos nas bases decimal,
      * binaria e hexadecimal estao corretas.
      */
-    public void testEntraOpHexSomaEntraOpDec() {
+    public final void testEntraOpHexSomaEntraOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -406,7 +406,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes, o operando e formado por chamadas ao metodo entraUm()
      * em uma base apenas (decimal, binaria ou hexadecimal).
      */
-    public void testSomaEntreOpDecEOpBin() {
+    public final void testSomaEntreOpDecEOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -424,7 +424,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando a formado por chamadas ao metodo entraUm()
      * em uma base apenas (decimal, binaria ou hexadecimal).
      */
-    public void testSomaEntreOpDecEOpHex() {
+    public final void testSomaEntreOpDecEOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -442,7 +442,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm()
      * em uma base apenas (decimal, binaria ou hexadecimal).
      */
-    public void testSomaEntreOpBinEOpDec() {
+    public final void testSomaEntreOpBinEOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -460,7 +460,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm()
      * em uma base apenas (decimal, binaria ou hexadecimal).
      */
-    public void testSomaEntreOpBinEOpHex() {
+    public final void testSomaEntreOpBinEOpHex() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -478,7 +478,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm()
      * em uma base apenas (decimal, binaria ou hexadecimal).
      */
-    public void testSomaEntreOpHexEOpBin() {
+    public final void testSomaEntreOpHexEOpBin() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -496,7 +496,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm()
      * em uma base apenas (decimal, binaria ou hexadecimal).
      */
-    public void testSomaEntreOpHexEOpDec() {
+    public final void testSomaEntreOpHexEOpDec() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -514,7 +514,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testEntraD11B1() {
+    public final void testEntraD11B1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -530,7 +530,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testEntraB11D1() {
+    public final void testEntraB11D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -546,7 +546,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testEntraH11B1() {
+    public final void testEntraH11B1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -562,7 +562,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testEntraD11B1H1() {
+    public final void testEntraD11B1H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -580,7 +580,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testEntraH11B1H1() {
+    public final void testEntraH11B1H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -599,7 +599,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testSomaD11B1eB11D1() {
+    public final void testSomaD11B1eB11D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -623,7 +623,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testSomaD11B1eH11D1() {
+    public final void testSomaD11B1eH11D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -647,7 +647,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testSomaD11B1eB11H1() {
+    public final void testSomaD11B1eB11H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -671,7 +671,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testSomaH11B1eD11H1() {
+    public final void testSomaH11B1eD11H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -695,7 +695,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testSomaD11B1H1eB11D1H1() {
+    public final void testSomaD11B1H1eB11D1H1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoDec();
         calculadora.entraUm();
@@ -723,7 +723,7 @@ public class CalculadoraTest extends junit.framework.TestCase
      * Nestes testes o operando e formado por chamadas ao metodo entraUm() em
      * diferentes bases (decimal, binaria ou hexadecimal).
      */
-    public void testSomaB11D1H1eH11B1D1() {
+    public final void testSomaB11D1H1eH11B1D1() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -746,7 +746,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void test1I1() {
+    public final void test1I1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraI();
@@ -756,7 +756,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void testISoma() {
+    public final void testISoma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraI();
         assertEquals("0I0", calculadora.comandoSoma());
@@ -765,7 +765,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void test1I1Soma1I1Soma() {
+    public final void test1I1Soma1I1Soma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraI();
@@ -780,7 +780,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void test1I1Soma1Soma() {
+    public final void test1I1Soma1Soma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraI();
@@ -793,7 +793,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void test1Soma1I1Soma() {
+    public final void test1Soma1I1Soma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
@@ -806,7 +806,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void testBin11111IDec11SomaHex111IB111Soma() {
+    public final void testBin11111IDec11SomaHex111IB111Soma() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoBin();
         calculadora.entraUm();
@@ -835,7 +835,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void testHex11SomaIBin11() {
+    public final void testHex11SomaIBin11() {
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
@@ -851,7 +851,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void test11IDec1SomaIDec1Soma() {
+    public final void test11IDec1SomaIDec1Soma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraUm();
@@ -868,7 +868,7 @@ public class CalculadoraTest extends junit.framework.TestCase
     /**
      *
      */
-    public void testIBin11SomaIHex11Soma() {
+    public final void testIBin11SomaIHex11Soma() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraI();
         calculadora.modoBin();
