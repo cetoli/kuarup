@@ -6,8 +6,7 @@ package delta;
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class InteiroComplexoStateTest extends junit.framework.TestCase
-{
+public class InteiroComplexoStateTest extends junit.framework.TestCase {
     /**
      * Default constructor for test class InteiroComplexoStateTest
      */
