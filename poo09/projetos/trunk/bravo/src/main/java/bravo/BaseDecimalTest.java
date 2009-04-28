@@ -7,7 +7,18 @@ package bravo;
  * @version 2.0 em 12 de abril de 2009
  */
 public class BaseDecimalTest extends junit.framework.TestCase {
-
+   /**
+    * Constante para representar o numero 1.
+    */
+    private static final int NUMERO_1 = 1;
+   /**
+    * Constante para representar o numero 11.
+    */
+    private static final int NUMERO_11 = 11;
+   /**
+    * Constante para representar o numero 111.
+    */
+    private static final int NUMERO_111 = 111;
     /**
      * Default constructor for test class BaseDecimalTest.
      */
@@ -33,7 +44,7 @@ public class BaseDecimalTest extends junit.framework.TestCase {
      */
     public void testPassandoValorUmRetornaStringUm() {
         bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
-        assertEquals("1", baseDeci1.converterBase(new Numero(1)));
+        assertEquals("1", baseDeci1.converterBase(new Numero(NUMERO_1)));
     }
 
     /**
@@ -41,7 +52,7 @@ public class BaseDecimalTest extends junit.framework.TestCase {
      */
     public void testPassandoValorOnzeRetornaStringOnze() {
         bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
-        assertEquals("11", baseDeci1.converterBase(new Numero(11)));
+        assertEquals("11", baseDeci1.converterBase(new Numero(NUMERO_11)));
     }
 
     /**
@@ -49,6 +60,6 @@ public class BaseDecimalTest extends junit.framework.TestCase {
      */
     public void testTestePassandoValorCentoeOnzeRetornaCentoeOnze() {
         bravo.BaseDecimal baseDeci1 = new bravo.BaseDecimal();
-        assertEquals("111", baseDeci1.converterBase(new Numero(111)));
+        assertEquals("111", baseDeci1.converterBase(new Numero(NUMERO_111)));
     }
 }

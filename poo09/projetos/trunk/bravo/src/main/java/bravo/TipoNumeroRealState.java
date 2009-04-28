@@ -10,13 +10,11 @@ package bravo;
  * Esta versão trabalha com os numeros Reais e Imaginarios
  * @since   (3.0)
  */
-public class TipoNumeroRealState implements ITipoNumeroState
-{
+public class TipoNumeroRealState implements ITipoNumeroState {
     /**
      * Constructor for objects of class TipoNumeroRealState.
      */
-    public TipoNumeroRealState()
-    {
+    public TipoNumeroRealState() {
         // initialise instance variables
     /**
      * Constructor for objects of class TipoNumeroRealState.
@@ -25,7 +23,7 @@ public class TipoNumeroRealState implements ITipoNumeroState
     /**
      * Constructor for objects of class TipoNumeroRealState.
      */    
-    public  String entraUm(StrategyBase base, Numero operador, 
+    public final String entraUm(StrategyBase base, Numero operador, 
         Numero operadorImaginario) {
         operador = base.entraUm(operador);
         return base.converterBase(operador);
@@ -33,7 +31,7 @@ public class TipoNumeroRealState implements ITipoNumeroState
     /**
      * Constructor for objects of class TipoNumeroRealState.
      */
-    public String soma(StrategyBase base, Numero operador, 
+    public final String soma(StrategyBase base, Numero operador, 
         Numero operadorImaginario, Numero acumulador, 
         Numero acumuladorImaginario) {
         acumulador.setX(acumulador.getX() + operador.getX());

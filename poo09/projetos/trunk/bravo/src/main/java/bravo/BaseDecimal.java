@@ -18,18 +18,22 @@ public class BaseDecimal implements StrategyBase {
     }
 
     /**
-     * Metodo de Entrada para Decimais.
-     * Entrada de valores
-     */    
+     * Metodo de Entrada para Binários.
+     * Entrada de valores.
+     * @param valor com o numero que foi 'inputado'
+     * @return o numero que foi digitado ate o momento
+     */
     public Numero entraUm(Numero valor) {
         valor.setX(valor.getX() * 10 + 1);
         return valor;
     }
 
-    /**
+     /**
      * Metodo conversor para base decimal.
+     * Utiliza o metodo estatico toBinaryString da classe Integer.
+     * Retornar a String.
      * @param valor
-     * @retorna uma String
+     * @return String com a representacao na base binaria do valor
      */
     public String converterBase(Numero valor) {
         return valor.getX().toString();    

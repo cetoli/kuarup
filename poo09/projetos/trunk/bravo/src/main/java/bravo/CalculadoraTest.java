@@ -5,10 +5,10 @@ package bravo;
  * A classe calculadora realiza operações matemáticas com números Imaginários.
  * @author  (Carlos Felippe Cardoso de Resende) O papagaio
  * @author  (Humberto Ferreira Ramos Junior) O pirata
- * @version (3.0) (27 de abril de 2009) 
+ * @version (3.0) (27 de abril de 2009)
  * Esta versão trabalha com os numeros Imaginarios
  */
-public class CalculadoraTest extends junit.framework.TestCase {
+public final class CalculadoraTest extends junit.framework.TestCase {
 
     /**
      * Default constructor for test class CalculadoraTest.
@@ -33,7 +33,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testSomaUmApatrirdoRepouso() {
+    public final void testSomaUmApatrirdoRepouso() {
         bravo.Calculadora c = new bravo.Calculadora();
         assertEquals("1", c.entraUm());
     }
@@ -41,7 +41,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testSomaOnzeApartirDoRepouso() {
+    public final void testSomaOnzeApartirDoRepouso() {
         bravo.Calculadora c = new bravo.Calculadora();
         c.entraUm();
         assertEquals("11", c.entraUm());
@@ -50,7 +50,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testLimpaRetornaZero() {
+    public final void testLimpaRetornaZero() {
         bravo.Calculadora c = new bravo.Calculadora();
         assertEquals("0", c.limpa());
     }
@@ -58,7 +58,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testRetornaCentoeOnzeApartirDoZero() {
+    public final void testRetornaCentoeOnzeApartirDoZero() {
         bravo.Calculadora c = new bravo.Calculadora();
         assertEquals("1", c.entraUm());
         assertEquals("11", c.entraUm());
@@ -68,7 +68,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testUmMaisUm() {
+    public final void testUmMaisUm() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("1", calculad1.entraUm());
         assertEquals("1", calculad1.comandoSoma());
@@ -79,7 +79,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testUmMaisUmLimpar() {
+    public final void testUmMaisUmLimpar() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("1", calculad1.entraUm());
         assertEquals("1", calculad1.comandoSoma());
@@ -90,7 +90,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testEntraUmLimpa() {
+    public final void testEntraUmLimpa() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("1", calculad1.entraUm());
         assertEquals("0", calculad1.limpa());
@@ -99,7 +99,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testSomaApartirDoRepousoRetornaZero() {
+    public final void testSomaApartirDoRepousoRetornaZero() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("0", calculad1.comandoSoma());
     }
@@ -107,7 +107,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testSomaUmMaisRetornaUm() {
+    public final void testSomaUmMaisRetornaUm() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("1", calculad1.entraUm());
         assertEquals("1", calculad1.comandoSoma());
@@ -116,7 +116,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testEntraUmComandoSomaValorAcumulador() {
+    public final void testEntraUmComandoSomaValorAcumulador() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.entraUm();
         calculad1.entraUm();
@@ -126,7 +126,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testComandoSomaDigitarUmSomar() {
+    public final void testComandoSomaDigitarUmSomar() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("1", calculad1.entraUm());
         assertEquals("1", calculad1.comandoSoma());
@@ -135,7 +135,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testComandoSomaSomar11e1111() {
+    public final void testComandoSomaSomar11e1111() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("1", calculad1.entraUm());
         assertEquals("11", calculad1.entraUm());
@@ -150,7 +150,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testBaseHexadecimalUmMaisUm() {
+    public final void testBaseHexadecimalUmMaisUm() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoHex();
         assertEquals("0x1", calculad1.entraUm());
@@ -162,7 +162,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testBaseDecimalSomandoUmMaisUmRetornaDois() {
+    public final void testBaseDecimalSomandoUmMaisUmRetornaDois() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         assertEquals("1", calculad1.entraUm());
         calculad1.modoDec();
@@ -174,7 +174,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testBaseBinariaEntraOnzeSomaEntraUmRetornaCem() {
+    public final void testBaseBinariaEntraOnzeSomaEntraUmRetornaCem() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoBin();
         assertEquals("0b1", calculad1.entraUm());
@@ -187,7 +187,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testBinariaOnzeSomaDecimalUmRetornaDecimalQuatro() {
+    public final void testBinariaOnzeSomaDecimalUmRetornaDecimalQuatro() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoBin();
         assertEquals("0b1", calculad1.entraUm());
@@ -201,7 +201,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testDecimalOnzeSomaBinariaUmSomaHexaUmRetornaHexaD() {
+    public final void testDecimalOnzeSomaBinariaUmSomaHexaUmRetornaHexaD() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoDec();
         assertEquals("1", calculad1.entraUm());
@@ -218,7 +218,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testeHexaUmSomaDecOnzeSomaBinOnzeRetornaEmBinMilCentoOnze() {
+    public final void testeHexaUmSomaDecOnzeSomaBinOnzeRetornaEmBinMilCentoOnze() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoHex();
         assertEquals("0x1", calculad1.entraUm());
@@ -237,7 +237,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testH1SomaB1RetornaB10() {
+    public final void testH1SomaB1RetornaB10() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoHex();
         assertEquals("0x1", calculad1.entraUm());
@@ -250,7 +250,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testEntraB1H1B1sai0b100011() {
+    public final void testEntraB1H1B1sai0b100011() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoBin();
         calculad1.entraUm();
@@ -263,7 +263,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testEntraB1H1D1sai171()	{
+    public final void testEntraB1H1D1sai171()    {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoBin();
         calculad1.entraUm();
@@ -276,7 +276,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testEntraB1H1sai0x11() {
+    public final void testEntraB1H1sai0x11() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.modoBin();
         calculad1.entraUm();
@@ -287,7 +287,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * teste de unidade, manipulacao dos metodos.
      */
-    public void testSomaB111Soma111sai0b1110() {
+    public final void testSomaB111Soma111sai0b1110() {
         bravo.Calculadora calculad1 = new bravo.Calculadora();
         calculad1.comandoSoma();
         calculad1.modoBin();
@@ -300,44 +300,44 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.entraUm();
         assertEquals("0b1110", calculad1.comandoSoma());
     }
-	
-	/**
+
+    /**
      * teste de unidade, manipulacao dos metodos.
      */
-	public void testEntraD1ImD1SomaD1sai2I1() {
-		bravo.Calculadora calculad1 = new bravo.Calculadora();
-		calculad1.entraUm();
-		calculad1.entraI();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		assertEquals("2I1", calculad1.comandoSoma());
-	}
-	
-	/**
+    public final void testEntraD1ImD1SomaD1sai2I1() {
+        bravo.Calculadora calculad1 = new bravo.Calculadora();
+        calculad1.entraUm();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("2I1", calculad1.comandoSoma());
+    }
+   
+    /**
      * teste de unidade, manipulacao dos metodos.
      */
-	public void testEntraD1SomaD1ImD1sai2I1() {
-		bravo.Calculadora calculad1 = new bravo.Calculadora();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		calculad1.entraI();
-		calculad1.entraUm();
-		assertEquals("2I1", calculad1.comandoSoma());
-	}
-		/**
+    public final void testEntraD1SomaD1ImD1sai2I1() {
+        bravo.Calculadora calculad1 = new bravo.Calculadora();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        calculad1.entraI();
+        calculad1.entraUm();
+        assertEquals("2I1", calculad1.comandoSoma());
+    }
+        /**
      * teste de unidade, manipulacao dos metodos.
      */
-	public void testEntraD1ImD1SomaD1ImD1sai2I2() {
-		bravo.Calculadora calculad1 = new bravo.Calculadora();
-		calculad1.entraUm();
-		calculad1.entraI();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		calculad1.entraI();
-		calculad1.entraUm();
-		assertEquals("2I2", calculad1.comandoSoma());
-	}
+    public final void testEntraD1ImD1SomaD1ImD1sai2I2() {
+        bravo.Calculadora calculad1 = new bravo.Calculadora();
+        calculad1.entraUm();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        calculad1.entraI();
+        calculad1.entraUm();
+        assertEquals("2I2", calculad1.comandoSoma());
+    }
 }
