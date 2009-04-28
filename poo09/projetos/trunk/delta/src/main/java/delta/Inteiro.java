@@ -37,70 +37,70 @@ public class Inteiro {
     /**
      *
      */
-    public int getParteReal() {
+    public final int getParteReal() {
         return parteReal;
     }
 
     /**
      *
      */
-    public int getParteImaginaria() {
+    public final int getParteImaginaria() {
         return parteImaginaria;
     }
 
     /**
      *
      */
-    public InteiroState getEstado() {
+    public final InteiroState getEstado() {
         return estado;
     }
 
     /**
      *
      */
-    public void setEstado(InteiroState inteiroState) {
+    public final void setEstado(final InteiroState inteiroState) {
         estado = inteiroState;
     }
 
     /**
      *
      */
-    public String toString(BaseStrategy base) {
+    public final String toString(final BaseStrategy base) {
         return estado.toString(this, base);
     }
 
     /**
      *
      */
-    public void entraUm(BaseStrategy base) {
+    public final void entraUm(final BaseStrategy base) {
         estado.entraUm(this, base);
     }
 
     /**
      *
      */
-    public void entraUmParteReal(BaseStrategy base) {
+    public final void entraUmParteReal(final BaseStrategy base) {
         parteReal = parteReal * base.getValorBase() + 1;
     }
 
     /**
      *
      */
-    public void entraUmParteImaginaria(BaseStrategy base) {
+    public final void entraUmParteImaginaria(final BaseStrategy base) {
         parteImaginaria = parteImaginaria * base.getValorBase() + 1;
     }
 
     /**
      *
      */
-    public void entraI() {
+    public final void entraI() {
         estado = new InteiroComplexoState();
     }
 
     /**
      *
      */
-    public void soma(Inteiro inteiro) {
+    public final void soma(Inteiro inteiro) {
         parteReal += inteiro.getParteReal();
         parteImaginaria += inteiro.getParteImaginaria();
 
