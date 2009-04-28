@@ -9,19 +9,23 @@ package delta;
 public class DecimalStrategy implements BaseStrategy {
 
     /**
-     *
+     * Guarda o valor da base decimal.
      */
     private final int valorBase = 10;
 
     /**
-     *
+     * Retorna o valor da base decimal.
+     * @return Valor da base decimal.
      */
     public final int getValorBase() {
         return valorBase;
     }
 
     /**
+     * Converte um inteiro para string usando base decimal.
      *
+     * @param integer Inteiro a ser convertido.
+     * @return String convertida.
      */
     public final String toString(final int integer) {
         return Integer.toString(integer);
