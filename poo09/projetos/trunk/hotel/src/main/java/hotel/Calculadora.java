@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package hotel;
-import labase.poo.ICalculadoraBase;
+import labase.poo.ICalculadoraComplexo;
 
 /**
  * @todo Escreva a descricao da classe Calculadora aqui.
@@ -15,11 +15,14 @@ import labase.poo.ICalculadoraBase;
  * @version (2.0)    $Revision$ (31/03/2009)      $Date$
  * @since   (versao) Soma 1 mais 1
  */
-public class Calculadora implements ICalculadoraBase {
+public class Calculadora implements ICalculadoraComplexo {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
+
   /**Operador da Caculadora. */
   private Integer operador = new Integer(0);
+  
+  private Integer operadorComplexo = new Integer(0);  
   
   private BaseState baseDecimal;
   private BaseState baseBinaria;
@@ -72,6 +75,14 @@ public class Calculadora implements ICalculadoraBase {
    */
   public final String entraUm() {
       return this.baseAtual.entraUm(this);
+  }
+  
+  /**
+   * Entra um numero complexo.
+   *
+   * @return  conteudo do operador
+   */
+  public final void entraI() {
   }
 
   /**

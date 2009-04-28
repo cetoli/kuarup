@@ -7,13 +7,18 @@ package hotel;
  * @version (a version number or a date)
  */
 
-public interface BaseState
+public abstract class BaseState
 {
     String entraUm(Calculadora calc);
+    String entraI(Calculadora calc);
     String comandoSoma(Calculadora calc);
     String limpa(Calculadora calc);
-    //void converterValores(Calculadora calc);
-    String converterParaDecimal(Integer valor);
-    String converterParaBinario(Integer valor);
-    String converterParaHexadecimal(Integer valor);
+    
+    public String converte() {
+        return converteReal() + converteImaginario();
+    }
+    
+    public abstract String converteReal();
+    
+    public abstract String converteImaginario();
 }
