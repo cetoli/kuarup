@@ -1,5 +1,7 @@
 package foxtrot;
 
+import com.sun.org.apache.xpath.internal.functions.Function;
+
 /**.
  * Descrição:
  * Design Pattern State - Estado Decimal
@@ -10,19 +12,24 @@ package foxtrot;
  * @version 3     Data 14/04/2009
  */
 
-public class Decimal implements State
+public class Decimal extends State
 {
+
+    public Decimal(int inicial) {
+        //str= Integer.toString(inicial);
+        valor= inicial;
+    }
+
     /**.
      * entra o valor 1 no operador
      * @param calculadora
      * @return conteúdo do operador
      */
     public String entraUm(Calculadora calc) {
-		Integer operador = calc.getOperador();
-		operador *= 10;
-		operador++;
-		calc.setOperador(operador);
-		return operador.toString();
+        valor *= 10;
+        valor++;
+
+        return toString();
     }
 
     /**.
@@ -31,9 +38,15 @@ public class Decimal implements State
      * @return conteúdo do acumulador
      */
     public String limpa(Calculadora calc) {
-		calc.setAcumulador(0);
-		calc.setOperador(0);
-		return "0";
+        valor= 0;
+        return "0";
+    }
+
+    /**
+     * retorna a representação em String.
+     */
+    public String toString() {
+    	return Integer.toString(valor);
     }
 
     /**.
@@ -42,12 +55,9 @@ public class Decimal implements State
      * @return conteúdo do acumulador
      */
     public String comandoSoma(Calculadora calc) {
-		Integer acumulador = calc.getAcumulador();
-		Integer operador = calc.getOperador();
-		acumulador += operador ;
-		operador = 0;
-		calc.setOperador(operador);
-		calc.setAcumulador(acumulador);
-		return acumulador.toString();
+        Integer operador = calc.getOperador().intValue();
+        valor += operador.intValue();
+
+        return toString();
     }
 }

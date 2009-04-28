@@ -14,11 +14,10 @@ import labase.poo.ICalculadoraBase;
 
 public class Calculadora implements ICalculadoraBase {
     /**. Acumulador da Caculadora. */
-    private Integer acumulador = new Integer(0);
+    private State acumulador = new Decimal(0);
     /**. Operador da Caculadora. */
-    private Integer operador = new Integer(0);
-    /**. Estado da Calculadora (Binário, Hexadecimal ou Decimal) */
-    private State estado = new Decimal();
+    private State operador = new Decimal(0);
+
 
     /**.
     * Construtor para objetos da classe Calculadora.
@@ -32,7 +31,7 @@ public class Calculadora implements ICalculadoraBase {
     * @return  conteudo do operador
     */
     public final String entraUm() {
-        return estado.entraUm(this);
+        return operador.entraUm(this);
     }
 
     /**.
@@ -40,7 +39,8 @@ public class Calculadora implements ICalculadoraBase {
     * @return  conteudo do acumulador
     */
     public final String limpa() {
-        return estado.limpa(this);
+    	operador.limpa(this);
+        return acumulador.limpa(this);
     }
 
     /**.
@@ -48,41 +48,64 @@ public class Calculadora implements ICalculadoraBase {
     * @return  conteudo do acumulador
     */
     public final String comandoSoma() {
-        return estado.comandoSoma(this);
+        String str= acumulador.comandoSoma(this);
+        operador.limpa(this);
+
+        return str;
     }
 
     /**.
     * Muda pro estado Binário
     */
     public void modoBin() {
-        estado = new Binario();
+        operador = operador.modoBin();
+        acumulador = acumulador.modoBin();
+
     }
 
     /**.
     * Muda pro estado Decimal
     */
     public void modoDec() {
-        estado = new Decimal();
+    	operador = operador.modoDec();
+    	acumulador = acumulador.modoDec();
     }
 
     /**.
-    * Muda pro estado Hexadecimal
+    * Muda pro operador Hexadecimal
     */
     public void modoHex() {
-        estado = new Hexadecimal();
+    	operador = operador.modoHex();
+    	acumulador = acumulador.modoHex();
     }
+
+    /**
+     * Muda pro operador Complexo.
+     * @throws CloneNotSupportedException
+     */
+     public void modoComplexo() {
+    	//comandoSoma();
+        try
+		{
+			operador = new Complexo(0,acumulador);
+			acumulador = new Complexo(0,acumulador);
+		} catch (CloneNotSupportedException e)
+		{
+			e.printStackTrace ();
+		}
+     }
 
     /**.
     * @return acumulador
     */
-    public Integer getAcumulador() {
+    public State getAcumulador() {
         return acumulador;
     }
 
     /**.
     * @return operador
     */
-    public Integer getOperador() {
+    public State getOperador() {
         return operador;
     }
 
@@ -90,7 +113,7 @@ public class Calculadora implements ICalculadoraBase {
     * setOperador
     * @param operador
     */
-    public void setOperador(Integer op) {
+    public void setOperador(State op) {
         this.operador = op;
     }
 
@@ -98,7 +121,8 @@ public class Calculadora implements ICalculadoraBase {
     * setAcumulador
     * @param acumulador
     */
-    public void setAcumulador(Integer ac) {
+    public void setAcumulador(State ac) {
         this.acumulador = ac;
     }
+
 }
