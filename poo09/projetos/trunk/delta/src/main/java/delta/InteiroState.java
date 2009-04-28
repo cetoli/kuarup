@@ -1,6 +1,5 @@
 package delta;
 
-
 /**
  * Write a description of interface State here.
  * 
@@ -24,5 +23,5 @@ public interface InteiroState {
     /**
      *
      */
-    void decideNovoEstado(Inteiro inteiro, InteiroState state);
+    void decideNovoEstado(Inteiro inteiro, InteiroState inteiroState);
 }

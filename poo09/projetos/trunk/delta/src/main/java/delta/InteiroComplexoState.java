@@ -6,7 +6,7 @@ package delta;
  * @version 0.3
  */
 public class InteiroComplexoState implements InteiroState {
-  
+
     /**
      *
      */
@@ -20,7 +20,7 @@ public class InteiroComplexoState implements InteiroState {
         return base.toString(inteiro.getParteReal()) + "I"
             + base.toString(inteiro.getParteImaginaria());
     }
-    
+
     /**
      * 
      */

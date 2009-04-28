@@ -1,20 +1,17 @@
 package delta;
 
-
-
 /**
  * The test class InteiroTest.
  *
  * @author  (your name)
  * @version (a version number or a date)
  */
-public class InteiroTest extends junit.framework.TestCase
-{
+public class InteiroTest extends junit.framework.TestCase {
+
     /**
      * Default constructor for test class InteiroTest
      */
-    public InteiroTest()
-    {
+    public InteiroTest() {
     }
 
     /**
@@ -22,8 +19,7 @@ public class InteiroTest extends junit.framework.TestCase
      *
      * Called before every test case method.
      */
-    protected void setUp()
-    {
+    protected void setUp() {
     }
 
     /**
@@ -31,7 +27,6 @@ public class InteiroTest extends junit.framework.TestCase
      *
      * Called after every test case method.
      */
-    protected void tearDown()
-    {
+    protected void tearDown() {
     }
 }
