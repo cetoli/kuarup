@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=acumuladorReal\ acumuladorImaginario\ baseNumericaUsada
+comment0.target=String\ retornaValor(Numero,\ Numero,\ StrategyBase)
+comment0.text=\nAssinatura\ do\ metodo\ que\ vai\ retornar\ o\ valor\ baseado\ no\ estado\nque\ a\ calculadora\ se\ encontrar.\ Para\ o\ caso\ da\ mesma\ estar\ num\ estado\nimaginario\ ou\ real.\n@param\ \ acumuladorReal\ -\ Acumulador\ real\ gerado\ pela\ soma.\n@param\ \ acumuladorImaginario\ -\ Acumul\ Imag\ gerado\ pela\ soma.\n@param\ \ baseNumericaUsada\ -\ qual\ a\ estrat\ de\ base\ num\u00E9rica\ q\ a\ ser\ usada.\n@return\ -\ retorna\ uma\ String\ com\ o\ devido\ valor\ preenchido\n\n
+numComments=1
