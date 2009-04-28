@@ -1,10 +1,10 @@
 /*------------------------------------------------------------------------------
-    Copyright  2002-2009        Carlo E. T. Oliveira et all
-    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+  Copyright  2002-2009        Carlo E. T. Oliveira et all
+  ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
-    This software is licensed as described in the file LICENSE.txt,
-    which you should have received as part of this distribution.
-------------------------------------------------------------------------------*/
+  This software is licensed as described in the file LICENSE.txt,
+  which you should have received as part of this distribution.
+  ------------------------------------------------------------------------------*/
 
 package delta;
 

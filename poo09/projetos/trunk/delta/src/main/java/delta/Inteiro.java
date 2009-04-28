@@ -40,7 +40,7 @@ public class Inteiro {
     public int getParteReal() {
         return parteReal;
     }
-    
+
     /**
      *
      */
@@ -75,7 +75,7 @@ public class Inteiro {
     public void entraUm(BaseStrategy base) {
         estado.entraUm(this, base);
     }
-    
+
     /**
      *
      */

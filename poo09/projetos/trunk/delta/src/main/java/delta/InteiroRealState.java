@@ -1,6 +1,5 @@
 package delta;
 
-
 /**
  * Write a description of class RealState here.
  * 
@@ -22,7 +21,7 @@ public class InteiroRealState implements InteiroState {
     public String toString(Inteiro inteiro, BaseStrategy base) {
         return base.toString(inteiro.getParteReal());
     }
-    
+
     /**
      * 
      */

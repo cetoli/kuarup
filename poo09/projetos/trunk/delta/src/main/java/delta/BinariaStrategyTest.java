@@ -1,7 +1,5 @@
 package delta;
 
-
-
 /**
  * The test class BinariaStrategyTest.
  * @author  Andre Sion
@@ -30,11 +28,9 @@ public class BinariaStrategyTest extends junit.framework.TestCase
     protected void tearDown() {
     }
 
-	public void testConverte2()
-	{
-		delta.BinariaStrategy binariaS1 = new delta.BinariaStrategy();
-		assertEquals("0b10", binariaS1.toString(2));
-	}
+    public void testConverte2()
+    {
+        delta.BinariaStrategy binariaS1 = new delta.BinariaStrategy();
+        assertEquals("0b10", binariaS1.toString(2));
+    }
 }
-
-

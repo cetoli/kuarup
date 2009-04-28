@@ -1,7 +1,5 @@
 package delta;
 
-
-
 /**
  * The test class InteiroComplexoStateTest.
  *
@@ -13,8 +11,7 @@ public class InteiroComplexoStateTest extends junit.framework.TestCase
     /**
      * Default constructor for test class InteiroComplexoStateTest
      */
-    public InteiroComplexoStateTest()
-    {
+    public InteiroComplexoStateTest() {
     }
 
     /**
@@ -22,8 +19,7 @@ public class InteiroComplexoStateTest extends junit.framework.TestCase
      *
      * Called before every test case method.
      */
-    protected void setUp()
-    {
+    protected void setUp() {
     }
 
     /**
@@ -31,7 +27,6 @@ public class InteiroComplexoStateTest extends junit.framework.TestCase
      *
      * Called after every test case method.
      */
-    protected void tearDown()
-    {
+    protected void tearDown() {
     }
 }
