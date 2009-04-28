@@ -19,19 +19,19 @@ public class DecimalStrategy implements BaseStrategy {
     /**
      *
      */
-    private final Integer valorBase = 10;
+    private final int valorBase = 10;
 
     /**
      *
      */
-    public Integer getValorBase() {
+    public final int getValorBase() {
         return valorBase;
     }
 
     /**
      *
      */
-    public String toString(Integer integer) {
+    public final String toString(final int integer) {
         return Integer.toString(integer);
     }
 }
