@@ -8,7 +8,7 @@ package delta;
  */
 public class InteiroComplexoStateTest extends junit.framework.TestCase {
     /**
-     * Default constructor for test class InteiroComplexoStateTest
+     * Default constructor for test class InteiroComplexoStateTest.
      */
     public InteiroComplexoStateTest() {
     }

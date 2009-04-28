@@ -9,7 +9,7 @@ package delta;
 public class InteiroTest extends junit.framework.TestCase {
 
     /**
-     * Default constructor for test class InteiroTest
+     * Default constructor for test class InteiroTest.
      */
     public InteiroTest() {
     }
