@@ -8,7 +8,7 @@ package delta;
  */
 public class InteiroRealStateTest extends junit.framework.TestCase {
     /**
-     * Default constructor for test class InteiroRealStateTest
+     * Default constructor for test class InteiroRealStateTest.
      */
     public InteiroRealStateTest() {
     }
