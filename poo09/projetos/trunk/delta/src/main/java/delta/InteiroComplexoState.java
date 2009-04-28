@@ -14,7 +14,9 @@ public class InteiroComplexoState implements InteiroState {
     }
 
     /**
-     *
+     * @param inteiro
+     * @param base
+     * @return
      */
     public final String toString(final Inteiro inteiro,
             final BaseStrategy base) {
@@ -23,14 +25,16 @@ public class InteiroComplexoState implements InteiroState {
     }
 
     /**
-     *
+     * @param inteiro
+     * @param base
      */
     public final void entraUm(final Inteiro inteiro, final BaseStrategy base) {
         inteiro.entraUmParteImaginaria(base);
     }
 
     /**
-     *
+     * @param inteiro
+     * @param inteiroState
      */
     public final void decideNovoEstado(final Inteiro inteiro,
             final InteiroState inteiroState) {
