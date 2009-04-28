@@ -1,11 +1,3 @@
-/*------------------------------------------------------------------------------
-  Copyright  2002-2009        Carlo E. T. Oliveira et all
-  ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
-
-  This software is licensed as described in the file LICENSE.txt,
-  which you should have received as part of this distribution.
-  ------------------------------------------------------------------------------*/
-
 package delta;
 
 /**
@@ -19,7 +11,7 @@ public class HexadecimalStrategy implements BaseStrategy {
     /**
      *
      */
-    private final Integer valorBase = 16;
+    private final int valorBase = 16;
 
     /**
      *
@@ -29,14 +21,14 @@ public class HexadecimalStrategy implements BaseStrategy {
     /**
      *
      */
-    public Integer getValorBase() {
+    public final int getValorBase() {
         return valorBase;
     }
 
     /**
      *
      */
-    public String toString(Integer integer) {
+    public final String toString(final int integer) {
         return prefixoBase + Integer.toHexString(integer);
     }
 }

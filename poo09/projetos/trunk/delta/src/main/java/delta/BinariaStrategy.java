@@ -19,7 +19,7 @@ public class BinariaStrategy implements BaseStrategy {
     /**
      *
      */
-    private final Integer valorBase = 2;
+    private final int valorBase = 2;
 
     /**
      *
@@ -29,14 +29,14 @@ public class BinariaStrategy implements BaseStrategy {
     /**
      *
      */
-    public Integer getValorBase() {
+    public final int getValorBase() {
         return valorBase;
     }
 
     /**
      *
      */
-    public String toString(Integer integer) {
+    public final String toString(final int integer) {
         return prefixoBase + Integer.toBinaryString(integer);
     }
 }
