@@ -6,8 +6,8 @@ package delta;
  * @author  Thiago Silva de Souza
  * @version 0.1 07/04/2009 Andre Sion e Thiago Silva de Souza
  */
-public class BinariaStrategyTest extends junit.framework.TestCase
-{
+public class BinariaStrategyTest extends junit.framework.TestCase {
+
     /**
      * Construtor default para a classe de teste BinariaTeste.
      */
@@ -28,8 +28,7 @@ public class BinariaStrategyTest extends junit.framework.TestCase
     protected void tearDown() {
     }
 
-    public void testConverte2()
-    {
+    public final void testConverte2() {
         delta.BinariaStrategy binariaS1 = new delta.BinariaStrategy();
         assertEquals("0b10", binariaS1.toString(2));
     }
