@@ -7,8 +7,7 @@ package delta;
  * @author Andre Abrantes
  * @version 0.3
  */
-public class Inteiro
-{
+public class Inteiro {
     /**
      * Variavel que guarda o valor da parte Real do Inteiro aqui representado.
      */
