@@ -10,8 +10,7 @@ package bravo;
  * Esta versão trabalha com os numeros Imaginarios
  * @since   (3.0)
  */
-public class TipoNumeroImaginarioState implements ITipoNumeroState
-{
+public class TipoNumeroImaginarioState implements ITipoNumeroState {
     /**
      * Constructor for objects of class TipoNumeroImaginarioState.
      */
@@ -20,7 +19,7 @@ public class TipoNumeroImaginarioState implements ITipoNumeroState
     /**
      * Constructor for objects of class TipoNumeroImaginarioState.
      */
-    public String entraUm(StrategyBase base, Numero operador,
+    public final String entraUm(StrategyBase base, Numero operador,
         Numero operadorImaginario) {
         operadorImaginario = base.entraUm(operadorImaginario);
         return base.converterBase(operadorImaginario);
@@ -30,7 +29,7 @@ public class TipoNumeroImaginarioState implements ITipoNumeroState
     /**
      * Constructor for objects of class TipoNumeroImaginarioState.
      */
-    public String soma(StrategyBase base, Numero operador, 
+    public final String soma(StrategyBase base, Numero operador, 
         Numero operadorImaginario, Numero acumulador, 
         Numero acumuladorImaginario) {
        

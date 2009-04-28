@@ -19,9 +19,11 @@ public class BaseBinaria implements StrategyBase {
     /**
      * Metodo de Entrada para Binários.
      * Entrada de valores.
+     * @param valor com o numero que foi 'inputado'
+     * @return o numero que foi digitado ate o momento
      */
     public Numero entraUm(Numero valor) {
-        valor.setX( valor.getX() * 2 + 1);
+        valor.setX(valor.getX() * 2 + 1);
         return valor;
     }
 
@@ -30,7 +32,7 @@ public class BaseBinaria implements StrategyBase {
      * Utiliza o metodo estatico toBinaryString da classe Integer.
      * Retornar a String.
      * @param valor
-     * @retorno String com a representacao na base binaria do valor
+     * @return String com a representacao na base binaria do valor
      */
     public String converterBase(Numero valor) {
         return "0b" + Integer.toBinaryString(valor.getX());
