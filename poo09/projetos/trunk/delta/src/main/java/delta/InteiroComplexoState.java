@@ -16,7 +16,7 @@ public class InteiroComplexoState implements InteiroState {
     /**
      * 
      */
-    public final String toString(Inteiro inteiro, BaseStrategy base) {
+    public final String toString(final Inteiro inteiro, final BaseStrategy base) {
         return base.toString(inteiro.getParteReal()) + "I"
             + base.toString(inteiro.getParteImaginaria());
     }
@@ -24,13 +24,13 @@ public class InteiroComplexoState implements InteiroState {
     /**
      * 
      */
-    public final void entraUm(Inteiro inteiro, BaseStrategy base) {
+    public final void entraUm(final Inteiro inteiro, final BaseStrategy base) {
         inteiro.entraUmParteImaginaria(base);
     }
 
     /**
      *
      */
-    public final void decideNovoEstado(Inteiro inteiro, InteiroState inteiroState) {
+    public final void decideNovoEstado(final Inteiro inteiro, final InteiroState inteiroState) {
     }
 }

@@ -100,7 +100,7 @@ public class Inteiro {
     /**
      *
      */
-    public final void soma(Inteiro inteiro) {
+    public final void soma(final Inteiro inteiro) {
         parteReal += inteiro.getParteReal();
         parteImaginaria += inteiro.getParteImaginaria();
 
