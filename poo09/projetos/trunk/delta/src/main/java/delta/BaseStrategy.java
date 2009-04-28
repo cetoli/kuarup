@@ -10,12 +10,16 @@ package delta;
 public interface BaseStrategy {
 
     /**
-     *
+     * Retorna o valor da base.
+     * @return Valor da base.
      */
     int getValorBase();
 
     /**
+     * Converte um inteiro para string usando uma base.
      *
+     * @param integer Inteiro a ser convertido.
+     * @return String convertida.
      */
     String toString(final int integer);
 }
