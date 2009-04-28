@@ -10,20 +10,31 @@ package foxtrot;
  *
  * @version 3     Data 07/04/2009
  */
-public class Binario implements State
+public class Binario extends State
 {
+    public Binario(int inicial) {
+        //str= Integer.toString(inicial);
+        valor= inicial;
+    }
+
     /**.
      * entra o valor 1 no operador
      * @param calculadora
      * @return conteúdo do operador
      */
     public String entraUm(Calculadora calc) {
-		Integer operador = calc.getOperador();
-		String operadorBin = Integer.toBinaryString(operador.intValue());
-		operadorBin += "1";
-		operador = Integer.parseInt(operadorBin, 2);
-		calc.setOperador(operador);
-		return "0b" + Integer.toBinaryString(operador.intValue());
+        String operadorBin = Integer.toBinaryString(valor);
+        operadorBin += "1";
+        valor = Integer.parseInt(operadorBin, 2);
+
+        return toString();
+    }
+
+    /**
+     * retorna a representação em String.
+     */
+    public String toString() {
+    	return "0b" + Integer.toBinaryString(intValue());
     }
 
     /**.
@@ -32,9 +43,8 @@ public class Binario implements State
      * @return conteúdo do acumulador
      */
     public String limpa(Calculadora calc) {
-		calc.setAcumulador(0);
-		calc.setOperador(0);
-		return "0b0";
+        valor= 0;
+        return "0b0";
     }
 
     /**.
@@ -43,12 +53,10 @@ public class Binario implements State
      * @return conteúdo do acumulador
      */
     public String comandoSoma(Calculadora calc) {
-		Integer acumulador = calc.getAcumulador();
-		Integer operador = calc.getOperador();
-		acumulador += operador ;
-		operador = 0;
-		calc.setAcumulador(acumulador);
-		calc.setOperador(operador);
-		return "0b" + Integer.toBinaryString(acumulador.intValue());
+        Integer operador = calc.getOperador().intValue();
+        valor += operador.intValue();
+        operador = 0;
+
+        return toString();
     }
 }

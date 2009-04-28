@@ -10,26 +10,65 @@ package foxtrot;
  * @version 3     Data 14/04/2009
  */
 
-public interface State
+public abstract class State implements Cloneable
 {
+	//protected String str;
+    protected int valor;
+
     /**.
      * entra o valor 1 no operador
      * @param calculadora
      * @return conteúdo do operador
      */
-    public String entraUm(Calculadora calc);
+    public abstract String entraUm(Calculadora calc);
 
     /**.
      * limpa o acumulador e o operador
      * @param calculadora
      * @return conteúdo do acumulador
      */
-    public String limpa(Calculadora calc);
+    public abstract String limpa(Calculadora calc);
 
     /**.
      * soma o acumulador com o operador, guarda em acumulador e limpa o operador
      * @param calculadora
      * @return conteúdo do acumulador
      */
-    public String comandoSoma(Calculadora calc);
+    public abstract String comandoSoma(Calculadora calc);
+
+    public void setValor (int valorDecimal)
+    {
+        valor= valorDecimal;
+    }
+
+    /**
+     * Obtém o valor inteiro.
+     *
+     * @return retorna o objeto Integer relativo ao valor.
+     */
+    public Integer intValue ()
+    {
+        return new Integer (valor);
+    }
+
+    /**
+     * Clona a instância.
+     */
+	protected Object clone () throws CloneNotSupportedException
+	{
+		return super.clone ();
+	}
+
+	public State modoHex() {
+		return new Hexadecimal(valor);
+	}
+
+	public State modoBin() {
+		return new Binario(valor);
+	}
+
+	public State modoDec() {
+		return new Decimal(valor);
+	}
+
 }

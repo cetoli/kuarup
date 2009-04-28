@@ -9,20 +9,33 @@ package foxtrot;
  *
  * @version 3     Data 14/04/2009
  */
-public class Hexadecimal implements State
+public class Hexadecimal extends State
 {
+
+    public Hexadecimal(int inicial) {
+        //str= Integer.toString(inicial);
+        valor= inicial;
+
+    }
+
+    /**
+     * retorna a representação em String.
+     */
+    public String toString() {
+    	return "0x" + Integer.toHexString(intValue());
+    }
+
     /**.
      * entra o valor 1 no operador
      * @param calculadora
      * @return conteúdo do operador
      */
     public String entraUm(Calculadora calc) {
-		Integer operador = calc.getOperador();
-		String hexadecimal = Integer.toHexString(operador);
-		hexadecimal += "1";
-		operador = Integer.parseInt(hexadecimal, 16);
-		calc.setOperador(operador);
-		return "0x" + Integer.toHexString(operador);
+        String hexadecimal = Integer.toHexString(valor);
+        hexadecimal += "1";
+        valor = Integer.parseInt(hexadecimal, 16);
+
+        return toString();
     }
 
     /**.
@@ -31,9 +44,8 @@ public class Hexadecimal implements State
      * @return conteúdo do acumulador
      */
     public String limpa(Calculadora calc) {
-		calc.setAcumulador(0);
-		calc.setOperador(0);
-		return "0x0";
+        valor= 0;
+        return "0x0";
     }
 
     /**.
@@ -42,12 +54,10 @@ public class Hexadecimal implements State
      * @return conteúdo do acumulador
      */
     public String comandoSoma(Calculadora calc) {
-		Integer acumulador = calc.getAcumulador();
-		Integer operador = calc.getOperador();
-		acumulador += operador ;
-		operador = 0;
-		calc.setAcumulador(acumulador);
-		calc.setOperador(operador);
-		return "0x" + Integer.toHexString(acumulador);
+        Integer operador = calc.getOperador().intValue();
+        valor += operador.intValue();
+        operador = 0;
+
+        return toString();
     }
 }
