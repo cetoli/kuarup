@@ -7,38 +7,22 @@ package hotel;
  * @version (2.0)    $Revision$ (10/04/2009)      $Date$
  * @since   (versao) Soma 1 mais 1
  */
-public class BaseDecimal implements BaseState
+public class BaseDecimal extends BaseState
 {
 
-    public String converterParaDecimal(Integer valor){
-        return valor.toString();
-    }
+    private static final int BASE_DECIMAL = 10;
     
-    public String converterParaBinario(Integer valor){
-        return Integer.toBinaryString(valor);
-    }
-    
-    public String converterParaHexadecimal(Integer valor){
-        return Integer.toHexString(valor);
-    }
+	protected String converte(Integer novoAcumulador) {
+		return novoAcumulador.toString();
+	}
 
-    public String entraUm(Calculadora calculadora){
-        Integer novoOperador = new Integer(calculadora.getOperador().toString() + "1");
-        calculadora.setOperador(novoOperador);
-        return novoOperador.toString();
-    }
+	@Override
+	protected int getBase() {
+		return BASE_DECIMAL;
+	}
 
-    public String comandoSoma(Calculadora calculadora){
-        Integer novoAcumulador = calculadora.getAcumulador() + calculadora.getOperador();
-        calculadora.setAcumulador(novoAcumulador);
-        calculadora.setOperador(0);
-        return novoAcumulador.toString();
-    }
-    
-    public String limpa(Calculadora calculadora){
-        calculadora.setOperador(0);
-        calculadora.setAcumulador(0);
-        return "0";
-    }
-    
+	@Override
+	protected String toString(Integer valor) {
+		return valor.toString();
+	}   
 }

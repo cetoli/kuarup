@@ -15,18 +15,14 @@ import labase.poo.ICalculadoraComplexo;
  * @version (2.0)    $Revision$ (31/03/2009)      $Date$
  * @since   (versao) Soma 1 mais 1
  */
-public class Calculadora implements ICalculadoraComplexo {
-  /**Acumulador da Caculadora. */
-  private Integer acumulador = new Integer(0);
-
-  /**Operador da Caculadora. */
-  private Integer operador = new Integer(0);
-  
-  private Integer operadorComplexo = new Integer(0);  
+public class Calculadora implements ICalculadoraComplexo {  
   
   private BaseState baseDecimal;
+  
   private BaseState baseBinaria;
+  
   private BaseState baseHexadecimal;
+  
   private BaseState baseAtual;
   
   /**
@@ -39,33 +35,20 @@ public class Calculadora implements ICalculadoraComplexo {
     this.baseHexadecimal = new BaseHexadecimal();
     this.baseAtual = this.baseDecimal;
   }
-
-  public Integer getOperador(){
-      return this.operador;
-  }
-  
-  public void setOperador(Integer operador){
-      this.operador = operador;
-  }
-  
-  public Integer getAcumulador(){
-      return this.acumulador;
-  }
-  
-  public void setAcumulador(Integer acumulador){
-      this.acumulador = acumulador;
-  }
   
   public void modoHex(){
-      this.baseAtual = this.baseHexadecimal;
+	  this.baseHexadecimal.init(baseAtual);
+	  this.baseAtual = this.baseHexadecimal;
   }
 
   public void modoBin(){
-      this.baseAtual = this.baseBinaria;
+	  this.baseBinaria.init(baseAtual);
+	  this.baseAtual = this.baseBinaria;
   }
   
   public void modoDec(){
-      this.baseAtual = this.baseDecimal;
+	  this.baseDecimal.init(baseAtual);
+	  this.baseAtual = this.baseDecimal;
   }
   
   /**
@@ -83,6 +66,8 @@ public class Calculadora implements ICalculadoraComplexo {
    * @return  conteudo do operador
    */
   public final void entraI() {
+	  this.baseAtual.setConverterStrategy(new ConverterImaginarioStrategy());
+	  this.baseAtual.setEntraNumeroStrategy(new EntraNumeroComplexoStrategy());
   }
 
   /**
