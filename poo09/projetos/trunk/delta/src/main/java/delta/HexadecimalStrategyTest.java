@@ -29,7 +29,8 @@ public class HexadecimalStrategyTest extends junit.framework.TestCase {
     }
 
     public final void testConverte16() {
+        final int dezesseis = 16;
         delta.HexadecimalStrategy hexadeci1 = new delta.HexadecimalStrategy();
-        assertEquals("0x10", hexadeci1.toString(16));
+        assertEquals("0x10", hexadeci1.toString(dezesseis));
     }
 }
