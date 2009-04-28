@@ -12,7 +12,7 @@ public interface BaseStrategy {
     /**
      *
      */
-    Integer getValorBase();
+    int getValorBase();
 
     /**
      *

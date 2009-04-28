@@ -18,21 +18,21 @@ public class InteiroRealState implements InteiroState {
     /**
      * 
      */
-    public String toString(Inteiro inteiro, BaseStrategy base) {
+    public final String toString(Inteiro inteiro, BaseStrategy base) {
         return base.toString(inteiro.getParteReal());
     }
 
     /**
      * 
      */
-    public void entraUm(Inteiro inteiro, BaseStrategy base) {
+    public final void entraUm(Inteiro inteiro, BaseStrategy base) {
         inteiro.entraUmParteReal(base);
     }
 
     /**
      *
      */
-    public void decideNovoEstado(Inteiro inteiro, InteiroState inteiroState) {
+    public final void decideNovoEstado(Inteiro inteiro, InteiroState inteiroState) {
         inteiro.setEstado(inteiroState);
     }
 }
