@@ -5,98 +5,101 @@
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
+
 package golf;
 
-import labase.poo.ICalculadoraBase;
+import labase.poo.ICalculadoraComplexo;
 
 /**
- * @Class Calculadora - equipe Golf.
- * 
- * @author Guga
- * @author Leandro
- * @version 1.0 31/03
- * @since 0.0 Descreva aqui as alterações desta versao
+ * Classe que implementa a calculadora.
+ * @author  Gustavo Taveira
+ * @version 2.0 28/04/2009 Gustavo Taveira
+ * @since   2.0 Incluídas as funcionalidades: numeros binarios e
+ * hexadecimais.
+ * @version 1.0 31/03/2009 André Sion e Thiago Silva de Souza
+ * @since   1.0 Incluídas as implementações dos métodos limpa(), entraUm() e
+ * comandoSoma().
  */
-public class Calculadora implements ICalculadoraBase {
-    /**
-     * Acumulador da Caculadora.
-     */
-    private AbstractNumero acumulador;
+public class Calculadora implements ICalculadoraComplexo {
 
+    // Estado da Caculadora
     /**
-     * Operador da Caculadora.
-     */
-    private AbstractNumero operador;
-
+     * Atributo acumulador guarda os resultados da soma.
+     **/
+    private int acumulador;
     /**
-     * Base da calculadora.
-     */
-    private final Integer base = 10;
+     * Atributo operando guarda o contéudo do operando.
+     **/
+    private int operando;
+    /**
+     * Atributo base especifica a base utilizada.
+     **/
+    private BaseStrategy base = null;
 
     /**
      * Construtor para objetos da classe Calculadora.
-     */
+     **/
     public Calculadora() {
-        operador = new NumeroDec(0);
-        acumulador = new NumeroDec(0);        
-    }
-
-    /**
-     * Entra a tecla um.
-     * 
-     * @return conteudo do operador
-     */
-    public final String entraUm() {
-        operador.setValor(operador.getValor() * operador.getBase() + 1);        
-        return operador.converte();
+        // inicializa variáveis de instância
+        this.acumulador = 0;
+        this.operando = 0;
+        this.base = new DecimalStrategy(); // base default
     }
 
     /**
      * Limpa o acumulador.
-     * 
-     * @return conteudo do acumulador
-     */
+     * @return conteúdo do acumulador
+     **/
     public final String limpa() {
-        operador.setValor(0);
-        acumulador.setValor(0);
+        this.operando = 0;
+        this.acumulador = 0;
         return "0";
     }
 
     /**
+     * Entra a tecla um.
+     * @return conteúdo do operador
+     **/
+    public String entraUm() {
+        operando = operando * base.getBase() + 1;
+        return base.getId() + base.toBase(operando);
+    }
+
+    /**
      * Entra o comando soma.
-     * 
-     * @return conteudo do acumulador
-     */
-    public final String comandoSoma() {
-        acumulador.setValor(acumulador.getValor() + operador.getValor());
-        operador.setValor(0);
-        return acumulador.converte();
+     * @return conteúdo do acumulador
+     **/
+    public String comandoSoma() {
+        acumulador = acumulador + operando;
+        String soma = base.getId() + base.toBase(acumulador);
+        operando = 0;
+        return soma;
     }
 
     /**
-     * Muda a base da calculadora para Hexadecimal.
-     * 
+     * Entra a base decimal.
      */
-    public final void modoHex() {
-        operador = new NumeroHex(operador.getValor());
-        acumulador = new NumeroHex(acumulador.getValor());
+    public void modoDec() {
+        base = new DecimalStrategy();
     }
 
     /**
-     * Muda a base da calculadora para Binario.
-     * 
+     * Entra a base binária.
      */
-    public final void modoBin() {
-        operador = new NumeroBin(operador.getValor());
-        acumulador = new NumeroBin(acumulador.getValor());
+    public void modoBin() {
+        base = new BinariaStrategy();
     }
 
     /**
-     * Muda a base da calculadora para Decimal.
-     * 
+     * Entra a base hexadecimal.
      */
-    public final void modoDec() {
-        operador = new NumeroDec(operador.getValor());
-        acumulador = new NumeroDec(acumulador.getValor());
+    public void modoHex() {
+        base = new HexadecimalStrategy();
+    }
+
+    /**
+     * Entra a base hexadecimal.
+     */
+    public void entraI() {
     }
 }
