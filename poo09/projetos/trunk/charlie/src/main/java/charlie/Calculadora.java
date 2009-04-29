@@ -20,9 +20,6 @@ public class Calculadora implements ICalculadoraComplexo {
     /**Operador da Caculadora. */
     private Integer operador = new Integer(0);
 
-    /**Acumulador da Caculadora. */
-//    private Integer acumulador = new Integer(0);
-
     /**Declaracao de variavel modo de operacao. */
     private BaseStrategy modo;
 
@@ -44,7 +41,6 @@ public class Calculadora implements ICalculadoraComplexo {
     public Calculadora() {
         // inicializa variaveis de instancia
         operador = 0;
-//        acumulador = 0;
         modo = new DecimalStrategy();
         estadoSoma = estadoSomaReal;
         exibeValor = new RealExibeValorState();
@@ -55,10 +51,10 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return  conteudo do operador
      */
     public final String entraUm() {
-        operador = modo.entraUm(operador);//entrar1 tem que diferenciar a cada chamada do método o operador tem que ser diferenciado entre Real e Imaginário
-        return modo.toString(operador);
-// se necessario, o retorno pode ser dado por exibeValor,
-// depende da exigencia dos testes do professor
+        operador = estadoSoma.getOperador();
+        operador = modo.entraUm(operador);
+        estadoSoma.setOperador(operador);
+        return modo.toString(operador);// esses métodos estão funcionado, mas não estão legais
     }
 
     /**
@@ -66,7 +62,6 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return  conteudo do acumulador
      */
     public final String limpa() {
-//        acumulador = 0;
         operador = 0;
         estadoSomaReal = new RealSomaState();
         estadoSomaImaginario = new ImaginarioSomaState();
@@ -82,6 +77,7 @@ public class Calculadora implements ICalculadoraComplexo {
         estadoSoma.soma(operador);
         estadoSoma = estadoSomaReal;
         operador = 0;
+        estadoSoma.setOperador(operador); // este método funciona, mas...
         Integer acumulReal = estadoSomaReal.getAcumulador();
         Integer acumulImag = estadoSomaImaginario.getAcumulador();
         return exibeValor.imprimeResultado(acumulReal, acumulImag, modo);
