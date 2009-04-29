@@ -75,9 +75,9 @@ public class Calculadora implements ICalculadoraComplexo {
      */
     public final String comandoSoma() {
         estadoSoma.soma(operador);
-        estadoSoma = estadoSomaReal;
         operador = 0;
         estadoSoma.setOperador(operador); // este método funciona, mas...
+        estadoSoma = estadoSomaReal;
         Integer acumulReal = estadoSomaReal.getAcumulador();
         Integer acumulImag = estadoSomaImaginario.getAcumulador();
         return exibeValor.imprimeResultado(acumulReal, acumulImag, modo);
