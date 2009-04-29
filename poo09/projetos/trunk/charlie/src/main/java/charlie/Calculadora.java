@@ -21,7 +21,7 @@ public class Calculadora implements ICalculadoraComplexo {
     private Integer operador = new Integer(0);
 
     /**Acumulador da Caculadora. */
-    private Integer acumulador = new Integer(0);
+//    private Integer acumulador = new Integer(0);
 
     /**Declaracao de variavel modo de operacao. */
     private BaseStrategy modo;
@@ -44,7 +44,7 @@ public class Calculadora implements ICalculadoraComplexo {
     public Calculadora() {
         // inicializa variaveis de instancia
         operador = 0;
-        acumulador = 0;
+//        acumulador = 0;
         modo = new DecimalStrategy();
         estadoSoma = estadoSomaReal;
         exibeValor = new RealExibeValorState();
@@ -55,7 +55,7 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return  conteudo do operador
      */
     public final String entraUm() {
-        operador = modo.entraUm(operador);
+        operador = modo.entraUm(operador);//entrar1 tem que diferenciar a cada chamada do método o operador tem que ser diferenciado entre Real e Imaginário
         return modo.toString(operador);
 // se necessario, o retorno pode ser dado por exibeValor,
 // depende da exigencia dos testes do professor
@@ -66,7 +66,7 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return  conteudo do acumulador
      */
     public final String limpa() {
-        acumulador = 0;
+//        acumulador = 0;
         operador = 0;
         estadoSomaReal = new RealSomaState();
         estadoSomaImaginario = new ImaginarioSomaState();
