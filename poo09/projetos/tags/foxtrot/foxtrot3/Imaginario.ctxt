@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=valor
+comment0.target=Imaginario(int)
+comment0.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment1.params=operando
+comment1.target=void\ adicionaParteReal(Operando)
+comment1.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment2.params=operando
+comment2.target=void\ adicionaParteImaginaria(Operando)
+comment2.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment3.params=base
+comment3.target=String\ mostra(Base)
+comment3.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment4.params=operando
+comment4.target=void\ soma(Operando)
+comment4.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment5.target=int\ getValor()
+comment5.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment6.target=Operando\ getParteReal()
+comment6.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment7.target=Operando\ getParteImaginaria()
+comment7.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+numComments=8
