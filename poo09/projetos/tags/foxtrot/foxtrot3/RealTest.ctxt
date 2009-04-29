@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=RealTest()
+comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ RealTest.\n\n
+comment1.target=void\ setUp()
+comment1.text=\nPrepara\u00E7\u00E3o\ do\ caso\ de\ teste.\n\nChamado\ antes\ de\ cada\ m\u00E9todo\ de\ caso\ de\ teste.\n\n
+comment2.target=void\ tearDown()
+comment2.text=\nLimpeza\ do\ caso\ de\ teste.\n\nChamado\ ap\u00F3s\ cada\ m\u00E9todo\ de\ teste\ de\ caso.\n\n
+comment3.target=void\ testAdicionarParteReal5()
+comment3.text=\nTeste\:\ adicionar\ o\ n\u00FAmero\ 5\ como\ parte\ real.\n\n
+comment4.target=void\ testAdicionarParteReal12()
+comment4.text=\nTeste\:\ adicionar\ o\ n\u00FAmero\ 12\ como\ parte\ real.\n\n
+comment5.target=void\ testAdicionarParteReal130()
+comment5.text=\nTeste\:\ adicionar\ o\ n\u00FAmero\ 130\ como\ parte\ real.\n\n
+comment6.target=void\ testAdicionarParteImaginaria5()
+comment6.text=\nTeste\:\ adicionar\ o\ n\u00FAmero\ 5\ como\ parte\ imagin\u00E1ria.\n\n
+comment7.target=void\ testAdicionarParteImaginaria12()
+comment7.text=\nTeste\:\ adicionar\ o\ n\u00FAmero\ 12\ como\ parte\ imagin\u00E1ria.\n\n
+comment8.target=void\ testAdicionarParteImaginaria130()
+comment8.text=\nTeste\:\ adicionar\ o\ n\u00FAmero\ 130\ como\ parte\ imagin\u00E1ria.\n\n
+numComments=9

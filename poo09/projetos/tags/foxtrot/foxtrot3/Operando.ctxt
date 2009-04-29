@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=operando
+comment0.target=void\ soma(Operando)
+comment0.text=\nM\u00E9todo\ que\ soma\ um\ operando\ a\ outro\ operando.\n@param\ operando\n\n
+comment1.params=operando
+comment1.target=void\ adicionaParteReal(Operando)
+comment1.text=\nM\u00E9todo\ que\ adiciona\ uma\ parte\ real\ a\ um\ operando.\n@param\ operando\n\n
+comment2.params=operando
+comment2.target=void\ adicionaParteImaginaria(Operando)
+comment2.text=\nM\u00E9todo\ que\ adiciona\ uma\ parte\ imagin\u00E1ria\ a\ um\ operando.\n@param\ operando\n\n
+comment3.params=base
+comment3.target=String\ mostra(Base)
+comment3.text=\nM\u00E9todo\ que\ mostra\ o\ operando\ na\ base\ especificada.\n@param\ base\n@return\ valor\ do\ operando\ na\ base\ especificada\n\n
+comment4.target=Operando\ getParteReal()
+comment4.text=\nM\u00E9todo\ que\ retorna\ a\ parte\ real\ do\ operando.\n@return\ operando\n\n
+comment5.target=Operando\ getParteImaginaria()
+comment5.text=\nM\u00E9todo\ que\ retorna\ a\ parte\ imagin\u00E1ria\ do\ operando.\n@return\ operando\n\n
+comment6.target=int\ getValor()
+comment6.text=\nM\u00E9todo\ que\ retorna\ o\ valor\ em\ decimal\ da\ parte\ real\ ou\ \nimagin\u00E1ria\ do\ operando\n@return\ valor\ em\ decimal\n\n
+numComments=7
