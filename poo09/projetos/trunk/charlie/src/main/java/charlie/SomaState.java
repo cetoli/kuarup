@@ -16,4 +16,14 @@ public interface SomaState {
      * Declaracao da assinatura do metodo getAcumulador.
      */
     public Integer getAcumulador();
+
+    /**
+     * Declaracao da assinatura do metodo getOperador.
+     */
+    public Integer getOperador();
+
+    /**
+     * Declaracao da assinatura do metodo setOperador.
+     */
+    public void setOperador(Integer operador);
 }
