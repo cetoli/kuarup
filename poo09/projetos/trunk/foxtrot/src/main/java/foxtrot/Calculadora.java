@@ -1,128 +1,115 @@
+/*------------------------------------------------------------------------------
+    Copyright  2002-2009        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
 package foxtrot;
-import labase.poo.ICalculadoraBase;
 
-/**.
- * Descrição:
- * Calculadora que exerce somente as funções de soma, limpa e tecla 1
+import labase.poo.ICalculadoraComplexo;
+
+/**
+ * Calculadora com tres botoes.
  *
- * @author Carlos Henrique Pinto Rodriguez
- * @author Carlos Eduardo Ferrão
- *
- * @version 3     Data 07/04/2009
+ * @author  (Marcos de Castro)  $Author$
+ * @author  (Rodrigo Santos Borges)  $Author$
+ * @version (2.0)    $Revision$ (07/04/09)      $Date$
+ * @since   (2.0) Botoes para entrar valores em binario, hexadecimal e decimal
  */
+public class Calculadora implements ICalculadoraComplexo {
+  /**
+   * Acumulador da Caculadora.
+   */
 
+  private Valor acumulador = new Valor(0);
 
-public class Calculadora implements ICalculadoraBase {
-    /**. Acumulador da Caculadora. */
-    private State acumulador = new Decimal(0);
-    /**. Operador da Caculadora. */
-    private State operador = new Decimal(0);
+  /**
+   * Acumulador da ultimo valor.
+   */
+  private Valor atual = new Valor(0);
 
+  /* *Operador da Caculadora. */
+  // private Valor operador = new Valor(0);
+  /**
+   * Construtor para objetos da classe Calculadora.
+   */
+  public Calculadora() {
 
-    /**.
-    * Construtor para objetos da classe Calculadora.
-    */
-    public Calculadora() {
-        // inicializa variaveis de instância
-    }
+  }
 
-    /**.
-    * Entra a tecla um.
-    * @return  conteudo do operador
-    */
-    public final String entraUm() {
-        return operador.entraUm(this);
-    }
+  /**
+   * Modo Complexo.
+   */
+  public void entraI () {
+	  acumulador.somarTudo(atual);
 
-    /**.
-    * Limpa o acumulador.
-    * @return  conteudo do acumulador
-    */
-    public final String limpa() {
-    	operador.limpa(this);
-        return acumulador.limpa(this);
-    }
+	  //Valor ac= (Valor)atual.clone();
+	  //atual.setValor("0");
+	  atual.limparValor();
 
-    /**.
-    * Entra o comando soma.
-    * @return  conteudo do acumulador
-    */
-    public final String comandoSoma() {
-        String str= acumulador.comandoSoma(this);
-        operador.limpa(this);
+      atual = atual.instanciarComplexo();
+      acumulador = acumulador.instanciarComplexo();
+  }
 
-        return str;
-    }
+  /**
+   * Botao para entrada de valores em hexadecimal.
+   */
+  public void modoHex() {
+    atual = atual.modoHexa();
+    acumulador = acumulador.modoHexa();
+  }
 
-    /**.
-    * Muda pro estado Binário
-    */
-    public void modoBin() {
-        operador = operador.modoBin();
-        acumulador = acumulador.modoBin();
+  /**
+   * Botao para entrada de valores em binario.
+   */
+  public void modoBin() {
+    atual = atual.modoBin();
+    acumulador = acumulador.modoBin();
+  }
 
-    }
+  /**
+   * Botao para entrada de valores em decimal.
+   */
+  public void modoDec() {
+    atual = atual.modoDec();
+    acumulador = acumulador.modoDec();
+  }
 
-    /**.
-    * Muda pro estado Decimal
-    */
-    public void modoDec() {
-    	operador = operador.modoDec();
-    	acumulador = acumulador.modoDec();
-    }
+  /**
+   * Entra a tecla um.
+   *
+   * @return  conteudo do operador
+   */
+  public final String entraUm() {
+    //String valor = atual.converterEmString()+"1";
+    return atual.adicionarDigito("1");
+  }
 
-    /**.
-    * Muda pro operador Hexadecimal
-    */
-    public void modoHex() {
-    	operador = operador.modoHex();
-    	acumulador = acumulador.modoHex();
-    }
+  /**
+   * Limpa o acumulador.
+   *
+   * @return  conteudo do acumulador
+   */
+  public final String limpa() {
+    atual.limparValor();
+    return acumulador.limparValor();
+  }
 
-    /**
-     * Muda pro operador Complexo.
-     * @throws CloneNotSupportedException
-     */
-     public void modoComplexo() {
-    	//comandoSoma();
-        try
-		{
-			operador = new Complexo(0,acumulador);
-			acumulador = new Complexo(0,acumulador);
-		} catch (CloneNotSupportedException e)
-		{
-			e.printStackTrace ();
-		}
-     }
+  /**
+   * Entra o comando soma.
+   *
+   * @return  conteudo do acumulador
+   */
+  public final String comandoSoma() {
+	    acumulador.somar(atual);
 
-    /**.
-    * @return acumulador
-    */
-    public State getAcumulador() {
-        return acumulador;
-    }
+	    atual.limparValor();
 
-    /**.
-    * @return operador
-    */
-    public State getOperador() {
-        return operador;
-    }
+	    acumulador.modoInteiro();
+	    atual.modoInteiro();
 
-    /**.
-    * setOperador
-    * @param operador
-    */
-    public void setOperador(State op) {
-        this.operador = op;
-    }
-
-    /**.
-    * setAcumulador
-    * @param acumulador
-    */
-    public void setAcumulador(State ac) {
-        this.acumulador = ac;
-    }
+	    return acumulador.converterEmString();
+	  }
 
 }
