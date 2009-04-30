@@ -92,34 +92,69 @@ if __name__ == "__main__":
     peixe.rotate(axis=(0,0,1), angle=pi/2)
     peixe.rotate(axis=(0,1,1), angle=pi)
 
-    peixe.start_moving()
+    altura = 5/2.0 - 0.5
+    peixe.move((0,altura,0))
+    altura -= 1
 
+    p = label(pos=( 5,-2,0), text='_')
+    y = label(pos=( 6,-2,0), text='_')
+    t = label(pos=( 7,-2,0), text='_')
+    h = label(pos=( 8,-2,0), text='_')
+    o = label(pos=( 9,-2,0), text='_')
+    n = label(pos=(10,-2,0), text='_')
 
-    h = 5/2.0
-    peixe.move((0,h,0))
-    h -= 1
+    for i in range(0,341):
 
-    time.sleep(1)
-    aquario.diminui_nivel()
-    peixe.move((0,h,0))
-    h -= 1
+        rate(30)
 
-    time.sleep(1)
-    aquario.diminui_nivel()
-    peixe.move((0,h,0))
-    h -= 1
-    
-    time.sleep(1)
-    aquario.diminui_nivel()
-    peixe.move((0,h,0))
-    h -= 1
-    
-    time.sleep(1)
-    aquario.diminui_nivel()
-    peixe.move((0,h,0))
-    h -= 1
-    
-    time.sleep(1)
-    aquario.diminui_nivel()
-    peixe.move((0,h,0))
-    h -= 1
+        if i == 30:
+            label(pos=(5,3,0), text='A')
+        if i == 40:
+            aquario.diminui_nivel()
+            peixe.move((0,altura,0))
+            altura -= 1
+
+        if i == 70:
+            label(pos=(6,3,0), text='E')
+        if i == 80:
+            aquario.diminui_nivel()
+            peixe.move((0,altura,0))
+            altura -= 1
+
+        if i == 110:
+            o.text = "O"
+            
+        if i == 150:
+            label(pos=(7,3,0), text='B')
+        if i == 160:
+            aquario.diminui_nivel()
+            peixe.move((0,altura,0))
+            altura -= 1
+        
+        if i == 190:
+            p.text = "P"
+
+        if i == 220:
+            t.text = "T"
+
+        if i == 250:
+            label(pos=(8,3,0), text='D')
+        if i == 260:
+            aquario.diminui_nivel()
+            peixe.move((0,altura,0))
+            altura -= 1
+
+        if i == 290:
+            n.text = "N"
+
+        if i == 320:
+            label(pos=(9,3,0), text='I')
+        if i == 340:
+            aquario.diminui_nivel()
+            peixe.move((0,altura+1,0))
+            peixe.rotate(axis=(1,0,0), angle=pi/2)
+            peixe.velocidade = 9
+            scene.autocenter = 0
+            scene.autoscale  = 0
+
+            peixe.start_moving()
