@@ -1,90 +1,133 @@
-/*------------------------------------------------------------------------------
-    Copyright  2002-2009        Carlo E. T. Oliveira et all
-    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
-
-    This software is licensed as described in the file LICENSE.txt,
-    which you should have received as part of this distribution.
-------------------------------------------------------------------------------*/
 package hotel;
-import labase.poo.ICalculadoraComplexo;
+import labase.poo.ICalculadoraBase;
 
-/**
- * @todo Escreva a descricao da classe Calculadora aqui.
+/**.
+ * Descrição:
+ * Calculadora que exerce somente as funções de soma, limpa, tecla 1, números complexos e mudança de base
  *
- * @author  (Alexandre Louzada & Marcio Reis)  $Author$
- * @version (2.0)    $Revision$ (31/03/2009)      $Date$
- * @since   (versao) Soma 1 mais 1
+ * @author Carlos Henrique Pinto Rodriguez
+ * @author Alexandre Neves Louzada
+ *
+ * @version 3     Data 30/04/2009
  */
-public class Calculadora implements ICalculadoraComplexo {  
-  
-  private BaseState baseDecimal;
-  
-  private BaseState baseBinaria;
-  
-  private BaseState baseHexadecimal;
-  
-  private BaseState baseAtual;
-  
-  /**
-   * Construtor para objetos da classe Calculadora.
-   */
-  public Calculadora() {
-    // inicializa variaveis de instância
-    this.baseDecimal = new BaseDecimal();
-    this.baseBinaria = new BaseBinaria();
-    this.baseHexadecimal = new BaseHexadecimal();
-    this.baseAtual = this.baseDecimal;
-  }
-  
-  public void modoHex(){
-	  this.baseHexadecimal.init(baseAtual);
-	  this.baseAtual = this.baseHexadecimal;
-  }
 
-  public void modoBin(){
-	  this.baseBinaria.init(baseAtual);
-	  this.baseAtual = this.baseBinaria;
-  }
-  
-  public void modoDec(){
-	  this.baseDecimal.init(baseAtual);
-	  this.baseAtual = this.baseDecimal;
-  }
-  
-  /**
-   * Entra a tecla um.
-   *
-   * @return  conteudo do operador
-   */
-  public final String entraUm() {
-      return this.baseAtual.entraUm(this);
-  }
-  
-  /**
-   * Entra um numero complexo.
-   *
-   * @return  conteudo do operador
-   */
-  public final void entraI() {
-	  this.baseAtual.setConverterStrategy(new ConverterImaginarioStrategy());
-	  this.baseAtual.setEntraNumeroStrategy(new EntraNumeroComplexoStrategy());
-  }
 
-  /**
-   * Limpa o acumulador.
-   *
-   * @return  conteudo do acumulador
-   */
-  public final String limpa() {
-      return this.baseAtual.limpa(this);
-  }
+public class Calculadora implements ICalculadoraBase {
+    /**. Acumulador da Caculadora. */
+    private Numero acumulador = new Numero(this);
+    /**. Operador da Caculadora. */
+    private Numero operador = new Numero(this);
+    /**. Estado da Calculadora (Binário, HexStrategy ou DecStrategy) */
+    private Strategy strategy = new DecStrategy();
 
-  /**
-   * Entra o comando soma.
-   *
-   * @return  conteudo do acumulador
-   */
-  public final String comandoSoma() {
-      return this.baseAtual.comandoSoma(this);
-  }
+    /**.
+    * Construtor para objetos da classe Calculadora.
+    */
+    public Calculadora() {
+        // inicializa variaveis de instância
+    }
+
+    /**.
+    * Entra a tecla um.
+    * @return  conteudo do operador
+    */
+    public final String entraUm() {
+        return strategy.entraUm(this);
+    }
+
+    /**.
+    * Limpa o acumulador.
+    * @return  conteudo do acumulador
+    */
+    public final String limpa() {
+        return strategy.limpa(this);
+    }
+
+    /**.
+    * Entra o comando soma.
+    * @return  conteudo do acumulador
+    */
+    public final String comandoSoma() {
+        return strategy.comandoSoma(this);
+    }
+
+    /**.
+    * Muda pro strategy Binário
+    */
+    public void modoBin() {
+        strategy = new BinStrategy();
+    }
+
+    /**.
+    * Muda pro strategy DecStrategy
+    */
+    public void modoDec() {
+        strategy = new DecStrategy();
+    }
+
+    /**.
+    * Muda pro strategy HexStrategy
+    */
+    public void modoHex() {
+        strategy = new HexStrategy();
+    }
+
+    /**.
+     * Muda pro strategy HexStrategy
+     */
+     public void entraI() {
+         operador.entraI();
+         acumulador.entraI();
+     }
+
+    /**.
+    * @return acumulador
+    */
+    public Numero getAcumulador() {
+        return acumulador;
+    }
+
+    /**.
+    * @return operador
+    */
+    public Numero getOperador() {
+        return operador;
+    }
+
+    /**.
+    * setOperador
+    * @param operador
+    */
+    public void setOperador(Numero op) {
+        this.operador = op;
+    }
+
+    /**.
+    * setAcumulador
+    * @param acumulador
+    */
+    public void setAcumulador(Numero ac) {
+        this.acumulador = ac;
+    }
+
+	public Strategy getStrategy() {
+		return strategy;
+	}
+	
+	public static void main(String [] args) {
+	    		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		System.out.println(calculad1.comandoSoma());
+	   }
 }
