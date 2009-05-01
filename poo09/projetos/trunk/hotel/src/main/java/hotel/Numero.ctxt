@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=calc
+comment0.target=Numero(Calculadora)
+comment1.params=base
+comment1.target=void\ entraUm(int)
+comment2.target=String\ toString()
+comment3.params=num
+comment3.target=String\ somar(Numero)
+comment4.target=int\ getValorImaginario()
+comment5.target=int\ getValorReal()
+comment6.params=novoValor
+comment6.target=void\ setValorReal(int)
+comment7.params=novoValor
+comment7.target=void\ setValorImaginario(int)
+comment8.target=void\ entraI()
+numComments=9
