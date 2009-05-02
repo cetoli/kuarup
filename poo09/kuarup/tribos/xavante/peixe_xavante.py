@@ -6,6 +6,7 @@ import os
 
 
 class Mesh:
+    "classe especializada em desenhar triangulos"
     def desenha_triangulo (self, v1, v2, v3, color=color.white):
         v1 = vector(v1)
         v2 = vector(v2)
@@ -77,7 +78,7 @@ class Corpo (Mesh):
 
         npontos = len(pontos)
         size = int ( sqrt( npontos ) )
-        mapa = zeros ( (size, size, 3), float )
+        mapa = zeros ( (size, size, 3), "double" )
 
         for i in range ( npontos ):
             mapa[ int(i / size) ][ int(i % size) ] = pontos[i]
@@ -107,14 +108,16 @@ class Corpo (Mesh):
             if dot(old_normal, normal[i]) >= 0:
                 vertex_map[tp] = normal[i] + old_normal
             else:
-                vertex_map_backface[tp] = normal[i] + vertex_map_backface.get(tp, (0,0,0))
+                vertex_map_backface[tp] = normal[i] + \
+                        vertex_map_backface.get(tp, (0,0,0))
 
         for i in range( len(pos) ):
             tp = tuple(pos[i])
             if dot(vertex_map[tp], normal[i]) >= 0:
                 normal[i] = vector(vertex_map[tp]) and norm( vertex_map[ tp ] )
             else:
-                normal[i] = vector(vertex_map_backface[tp]) and norm(vertex_map_backface[tp] )
+                normal[i] = vector(vertex_map_backface[tp]) and \
+                        norm(vertex_map_backface[tp] )
 
 
 class Cauda (Mesh):
@@ -337,7 +340,7 @@ class PeixeXavante (threading.Thread):
         self.velocidade = velocidade
         
         self.corpo           = Corpo (frame=self.frame, color=self.color, material=self.material, tamanho=self.tamanho)
-        self.corpo.DoSmoothShading()
+        #self.corpo.DoSmoothShading()
 
         self.cauda           = Cauda (frame=self.frame, color=self.color, material=self.material, tamanho=self.tamanho)
 
@@ -416,8 +419,8 @@ if __name__ == "__main__":
 
     cm = 255.0
     scene.background = (128/cm,128/cm,255/cm)
-    #material_global  = None
-    material_global  = materials.marble
+    material_global  = None
+    #material_global  = materials.marble
 
     peixe = PeixeXavante (color=color.white, material=material_global, tamanho=1, velocidade=2)
     peixe.start_moving()

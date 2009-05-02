@@ -67,9 +67,9 @@ class Aquario:
 
 
 def init_window ():
-    scene.title      = "Colaboradores"
-    scene.width      = 600 +  9
-    scene.height     = 600 + 30
+    scene.title      = "Letramento"
+    scene.width      = 200 +  9
+    scene.height     = 200 + 30
 
     scene.autocenter = 1
     scene.autoscale  = 1
