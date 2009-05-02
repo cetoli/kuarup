@@ -90,7 +90,7 @@ if __name__ == "__main__":
     velocidade_tubarao = 0.045
 
     #inicializacao dos peixes
-    peixe1 = PeixeXavante(material=materials.marble)
+    peixe1 = PeixeXavante()
     peixe1.rotate(angle=-pi/2, axis=(0,0,1))
 
     peixe2 = Pangacio (escala=0.025)

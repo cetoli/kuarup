@@ -5,6 +5,7 @@ from peixe_xavante import *
 from tubarao import *
 
 import random
+import threading
 
 class Cross:
 

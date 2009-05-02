@@ -2,9 +2,9 @@
 
 from visual import *
 
-class Triangulo:
-    "classe especializada em desenhar trinangulos"
-    def desenha_triangulo (self, v1, v2, v3):
+class Mesh:
+    "classe especializada em desenhar triangulos"
+    def desenha_triangulo (self, v1, v2, v3, color=color.white):
         v1 = vector(v1)
         v2 = vector(v2)
         v3 = vector(v3)
@@ -14,11 +14,11 @@ class Triangulo:
         except:
             normal = vector(0,0,0)
         for v in (v1, v2, v3):
-            self.model.append ( pos=v, color=self.color, normal=normal )
+            self.model.append ( pos=v, color=color, normal=normal )
         for v in (v1, v3, v2):
-            self.model.append ( pos=v, color=self.color, normal=-normal )
+            self.model.append ( pos=v, color=color, normal=-normal )
 
-class Casca (Triangulo):
+class Casca (Mesh):
     "classe que, dado um esqueleto, consegue desenhar uma casca ao seu redor"
     def desenha_casca (self, esqueleto=[], raio=1.0, passos=10.0, razao=0.93):
 
@@ -98,10 +98,12 @@ class Casca (Triangulo):
             # desenhamos as faces usando os pontos desta rodada e da anterior
             for i in range( -1, len(circulo) - 1 ):
                 self.desenha_triangulo (
-                        circulo[i], circulo_anterior[i+1], circulo_anterior[i]
+                        circulo[i], circulo_anterior[i+1], circulo_anterior[i],
+                        color=self.color
                         )
                 self.desenha_triangulo (
-                        circulo[i], circulo[i+1], circulo_anterior[i+1]
+                        circulo[i], circulo[i+1], circulo_anterior[i+1],
+                        color=self.color
                         )
 
             # guardamos esta rodada para ser usada pela proxima
@@ -126,7 +128,7 @@ class Casca (Triangulo):
         pos = self.model.pos
         normal = self.model.normal
 
-        vertex_map = {}  # vertex position -> vertex normal
+        vertex_map = {}
         vertex_map_backface = {}
         for i in range( len(pos) ):
             tp = tuple(pos[i])
@@ -145,14 +147,19 @@ class Casca (Triangulo):
                 normal[i] = vector(vertex_map_backface[tp]) and \
                         norm(vertex_map_backface[tp] )
 
-class Cabeca (Triangulo):
+class Cabeca (Mesh):
 
-    def __init__ (self, color=color.white, material=None, frame=frame(), model=None, tamanho=5.0):
+    def __init__ (self, color=color.white, material=None, frame=None, model=None, tamanho=5.0):
+
+        if frame == None:
+            self.frame = frame()
+        else:
+            self.frame = frame
+
         self.tamanho = tamanho
         self.color = color
         self.material = material
         
-        self.frame = frame
         if model == None:
             self.model = faces ( frame = self.frame )
         else:
@@ -198,22 +205,27 @@ class Cabeca (Triangulo):
         v1 = (0.6 *d, 2.2 *d,  0.0  )
         v2 = (1.0 *d, 2.64*d, -0.2*d)
         v3 = (0.96*d, 2.64*d,  0.0  )
-        self.desenha_triangulo ( v1,v2,v3 )
+        self.desenha_triangulo ( v1,v2,v3, self.color )
         
         v2 = (1.0 *d, 2.64*d, 0.2*d)
         v3 = (0.96*d, 2.64*d, 0.0  )
-        self.desenha_triangulo ( v1,v2,v3 )
+        self.desenha_triangulo ( v1,v2,v3, self.color )
 
         self.model.material = self.material
 
 class Corpo (Casca):
 
-    def __init__ (self, color=color.white, material=None, frame=frame(), model=None, tamanho=5.0):
+    def __init__ (self, color=color.white, material=None, frame=None, model=None, tamanho=5.0):
+
+        if frame == None:
+            self.frame = frame()
+        else:
+            self.frame = frame
+
         self.tamanho = tamanho
         self.color = color
         self.material = material
         
-        self.frame = frame
         if model == None:
             self.model = faces ( frame = self.frame )
         else:
@@ -273,12 +285,17 @@ class Corpo (Casca):
 
 class Cauda (Casca):
 
-    def __init__ (self, color=color.white, material=None, frame=frame(), model=None, tamanho=5.0):
+    def __init__ (self, color=color.white, material=None, frame=None, model=None, tamanho=5.0):
+
+        if frame == None:
+            self.frame = frame()
+        else:
+            self.frame = frame
+
         self.tamanho  = tamanho
         self.color    = color
         self.material = material
 
-        self.frame = frame
         if model == None:
             self.model = faces ( frame = self.frame )
         else:
@@ -331,14 +348,13 @@ class Cauda (Casca):
 
 class CavaloMarinho:
 
-    def __init__ (self, color=color.white, material=None, tamanho=5.0, pos=(0,0,0)):
+    def __init__ (self, color=color.white, material=None, tamanho=1.0):
         self.frame = frame()
         self.model = faces ( frame=self.frame )
 
         self.color    = color
         self.material = material
-        self.tamanho  = tamanho
-        self.pos      = pos
+        self.tamanho  = tamanho * 0.15
 
         cabeca = Cabeca (self.color, self.material, self.frame, \
                 self.model, self.tamanho)
@@ -347,28 +363,33 @@ class CavaloMarinho:
         corpo = Corpo   (self.color, self.material, self.frame, \
                 self.model, self.tamanho)
         corpo.desenha()
-        corpo.DoSmoothShading()
+        #corpo.DoSmoothShading()
 
         cauda = Cauda   (self.color, self.material, self.frame, \
                 self.model, self.tamanho)
         cauda.desenha()
-        cauda.DoSmoothShading()
+        #cauda.DoSmoothShading()
 
-        self.frame.pos = self.pos
+        self.rotate(axis=(1,0,0), angle=pi/2)
+        self.rotate(axis=(0,0,1), angle=pi/2)
+        self.move( (0,0,0) )
+
+    def move (self, pos=(0,0,0)):
+        self.frame.pos = pos
 
     def rotate (self, angle=0.0, axis=(0,0,0), origin=(0,0,0)):
         self.frame.rotate (angle=angle, axis=axis, origin=origin)
 
 """
 MAIN
-"""
 
 if __name__ == "__main__":
     scene.background = color.blue
     scene.autocenter = true
 
     cor_padrao = (0.8, 0.6, 0.0)
-    material_padrao = materials.marble
+    #material_padrao = materials.marble
+    material_padrao = None
 
     cavaloMarinho1 = CavaloMarinho (cor_padrao, material_padrao, 10)
 
@@ -377,3 +398,4 @@ if __name__ == "__main__":
 
     cavaloMarinho3 = CavaloMarinho (cor_padrao, material_padrao, 3, pos=(25,20,0))
     cavaloMarinho3.rotate (angle=-pi/2.0, axis=(0,1,0))
+"""

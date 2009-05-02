@@ -54,7 +54,7 @@ class AguaViva(SerMarinho):
         self.desenharElipse((0, 0, 0), 3, 2, 3, self.cor2, 0.4)
         self.desenharElipse ((0, 0.4, 0), 2, 1.5, 2, self.cor3, 0.4)
         #elipses central
-        self.desenharElipse ((0, 0, 0), 3, 2, 3, self.cor3, 0.4, materials.marble)
+        self.desenharElipse ((0, 0, 0), 3, 2, 3, self.cor3, 0.4, None)
         #elipses laterais de adorno
         self.desenharElipse ((0, -0.2, 1.2), 1.5, 1.5, 1, self.cor1, 0.3)
         self.desenharElipse ((0.7, -0.2, 0.2), 2, 1.75, 2, self.cor1, 0.3)
@@ -77,15 +77,15 @@ class AguaViva(SerMarinho):
         self.desenharAnel((0.1, 1, 0), (0, 0, 0), 0.5, 0.004, self.cor5) 
 
         #Espirais
-        self.desenharEspiral((0, -0.8, 0), (0, 1, 0), 1.4, 0.01, self.cor2, materials.marble)
-        self.desenharEspiral((0, -0.4, 0), (0, 1, 0), 0.8, 0.01, self.cor2, materials.marble)
+        self.desenharEspiral((0, -0.8, 0), (0, 1, 0), 1.4, 0.01, self.cor2, None)
+        self.desenharEspiral((0, -0.4, 0), (0, 1, 0), 0.8, 0.01, self.cor2, None)
 
-        self.desenharEspiral((0, -1.5, 0), (0, 1.5, 0), 0.3, 0.3, self.cor2, materials.marble)
-        self.desenharEspiral((0, -1.1, 0), (0, 0.7, 0), 0.8, 0.35, self.cor2, materials.marble)
+        self.desenharEspiral((0, -1.5, 0), (0, 1.5, 0), 0.3, 0.3, self.cor2, None)
+        self.desenharEspiral((0, -1.1, 0), (0, 0.7, 0), 0.8, 0.35, self.cor2, None)
 
-        self.desenharEspiral((0.5, -3, 0.3), (-0.5, 3, 0), 0.1, 0.15, self.cor2, materials.marble)
-        self.desenharEspiral((-0.5, -3, -0.2), (0.5, 3, 0), 0.1, 0.15, self.cor2, materials.marble)
-        self.desenharEspiral((0, -3, 0.3), (0, 3, 0), 0.1, 0.15, self.cor3, materials.marble)
+        self.desenharEspiral((0.5, -3, 0.3), (-0.5, 3, 0), 0.1, 0.15, self.cor2, None)
+        self.desenharEspiral((-0.5, -3, -0.2), (0.5, 3, 0), 0.1, 0.15, self.cor2, None)
+        self.desenharEspiral((0, -3, 0.3), (0, 3, 0), 0.1, 0.15, self.cor3, None)
 
         self.desenharEspiral((2, -2, 0.3), (-0.5, 1, 0), 0.05, 0.01, self.cor3)
         self.desenharEspiral((-2, -2, 0.3), (0.5, 1, 0), 0.05, 0.01, self.cor3)
@@ -129,7 +129,7 @@ class AguaViva(SerMarinho):
         self.desenharEspiral((-2, -2, 1), (0.5, 1, -0.5), 0.05, 0.01, self.cor2)
 
 
-    def desenharElipse(self, posicao=(0,0,0), comprimento=3, altura=2, largura=3, cor=color.yellow, opacidade=0.4, aparencia=materials.unshaded):
+    def desenharElipse(self, posicao=(0,0,0), comprimento=3, altura=2, largura=3, cor=color.yellow, opacidade=0.4, aparencia=None):
         return ellipsoid (
             frame = self.esqueleto,
             pos = (posicao[0] * self.escala, posicao[1] * self.escala, posicao[2] * self.escala),
@@ -155,7 +155,7 @@ class AguaViva(SerMarinho):
             thickness = 0.1 * self.escala,
             color = cor
             )
-    def desenharEspiral(self, posicao=(0,0,0), eixos=(1,1,1), raio=1, espessura=0.01, cor=color.yellow, aparencia=materials.unshaded):
+    def desenharEspiral(self, posicao=(0,0,0), eixos=(1,1,1), raio=1, espessura=0.01, cor=color.yellow, aparencia=None):
         return helix(
             frame = self.esqueleto,
             pos = (posicao[0] * self.escala, posicao[1] * self.escala, posicao[2] * self.escala),
