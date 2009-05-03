@@ -4,6 +4,9 @@ import visual
 from peixe_xavante import *
 from cavalo_marinho import *
 
+import random
+
+
 def init_window ():
     scene.title      = "Memoria"
     scene.width      = 600 +  9
@@ -19,68 +22,104 @@ def init_window ():
     scene.background=(128/cm,128/cm,255/cm)
 
 
+nfotos=0
+def grava_quadro ():
+    global nfotos
+    #os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
+    nfotos += 1
+
+    import time
+    time.sleep(1)
+
+
 if __name__ == "__main__":
 
     init_window()
+
+    animais = []
     
-    peixe1a = PeixeXavante(color=color.red)
-    peixe1b = PeixeXavante(color=color.red)
+    animais.append(PeixeXavante(color=color.red, tamanho=0.9))
+    animais[-1].id = 1
+    animais.append(PeixeXavante(color=color.red, tamanho=0.9))
+    animais[-1].id = 1
 
-    peixe2a = PeixeXavante(color=color.blue)
-    peixe2b = PeixeXavante(color=color.blue)
+    animais.append(PeixeXavante(color=color.blue, tamanho=0.9))
+    animais[-1].id = 2
+    animais.append(PeixeXavante(color=color.blue, tamanho=0.9))
+    animais[-1].id = 2
 
-    peixe3a = PeixeXavante(color=color.green)
-    peixe3b = PeixeXavante(color=color.green)
+    animais.append(PeixeXavante(color=color.green, tamanho=0.9))
+    animais[-1].id = 3
+    animais.append(PeixeXavante(color=color.green, tamanho=0.9))
+    animais[-1].id = 3
 
-    peixe4a = PeixeXavante(color=color.yellow)
-    peixe4b = PeixeXavante(color=color.yellow)
+    animais.append(PeixeXavante(color=color.yellow, tamanho=0.9))
+    animais[-1].id = 4
+    animais.append(PeixeXavante(color=color.yellow, tamanho=0.9))
+    animais[-1].id = 4
     
-    cavalo1a = CavaloMarinho(color=color.red)
-    cavalo1b = CavaloMarinho(color=color.red)
+    animais.append(CavaloMarinho(color=color.red, tamanho=0.9))
+    animais[-1].id = 5
+    animais.append(CavaloMarinho(color=color.red, tamanho=0.9))
+    animais[-1].id = 5
 
-    cavalo2a = CavaloMarinho(color=color.blue)
-    cavalo2b = CavaloMarinho(color=color.blue)
+    animais.append(CavaloMarinho(color=color.blue, tamanho=0.9))
+    animais[-1].id = 6
+    animais.append(CavaloMarinho(color=color.blue, tamanho=0.9))
+    animais[-1].id = 6
 
-    cavalo3a = CavaloMarinho(color=color.green)
-    cavalo3b = CavaloMarinho(color=color.green)
+    animais.append(CavaloMarinho(color=color.green, tamanho=0.9))
+    animais[-1].id = 7
+    animais.append(CavaloMarinho(color=color.green, tamanho=0.9))
+    animais[-1].id = 7
 
-    cavalo4a = CavaloMarinho(color=color.yellow)
-    cavalo4b = CavaloMarinho(color=color.yellow)
+    animais.append(CavaloMarinho(color=color.yellow, tamanho=0.9))
+    animais[-1].id = 8
+    animais.append(CavaloMarinho(color=color.yellow, tamanho=0.9))
+    animais[-1].id = 8
 
+    posicoes = {}
+    while len(posicoes) < 16:
+        pos = random.randint(0,15)
+        if pos not in posicoes:
+            animais[ len(posicoes) ].move((pos/4,pos%4,0))
+            posicoes[pos] = len(posicoes)
+ 
+    grava_quadro()
 
-    peixe1a.move (
-            (0,-1,0) )
-    peixe4a.move (
-            (1,-1,0) )
-    cavalo3a.move(
-            (2,-1,0) )
-    cavalo2b.move(
-            (3,-1,0) )
-    
-    peixe1b.move (
-            (0, 1,0) )
-    cavalo2a.move(
-            (1, 1,0) )
-    cavalo1a.move(
-            (2, 1,0) )
-    peixe4b.move (
-            (3, 1,0) )
+    scene.autocenter = 0
+    scene.autoscale  = 0
 
+    caixas = []
+    for i in range(0,16):
+        caixas.append(box(pos=(i/4, i%4, 0.1), size=(0.6,0.6,0.6)))
 
-    cavalo3b.move(
-            (0, 0,0) )
-    peixe2a.move (
-            (1, 0,0) )
-    peixe2b.move (
-            (2, 0,0) )
-    cavalo4b.move(
-            (3, 0,0) )
-    
-    peixe3a.move (
-            (0, 2,0) )
-    cavalo1b.move(
-            (1, 2,0) )
-    peixe3b.move (
-            (2, 2,0) )
-    cavalo4a.move(
-            (3, 2,0) )
+    grava_quadro()
+
+    while len(posicoes) > 0:
+
+        a = random.randint(0,16)
+        b = random.randint(0,16)
+
+        if (a != b) and (a in posicoes) and (b in posicoes):
+            caixas[a].visible = false
+
+            grava_quadro()
+
+            caixas[b].visible = false
+
+            grava_quadro()
+
+            if animais[ posicoes[a] ].id == animais[ posicoes[b] ].id:
+                animais[ posicoes[a] ].frame.visible = false
+                animais[ posicoes[b] ].frame.visible = false
+
+                del posicoes[a]
+                del posicoes[b]
+            else:
+                caixas[a].visible = true
+                caixas[b].visible = true
+                
+            grava_quadro()
+
+    print "fim"
