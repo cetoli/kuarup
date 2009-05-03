@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=operador\ operadorImaginario
+comment0.target=String\ entraUm(INumeroStrategy,\ INumeroStrategy)
+comment0.text=\nAssinatura\ do\ metodo\ entraUm.\n\n
+comment1.params=operador\ operadorImaginario\ acumulador\ acumuladorImaginario
+comment1.target=String\ soma(INumeroStrategy,\ INumeroStrategy,\ INumeroStrategy,\ INumeroStrategy)
+comment1.text=\nAssinatura\ do\ metodo\ soma.\n\n
+numComments=2
