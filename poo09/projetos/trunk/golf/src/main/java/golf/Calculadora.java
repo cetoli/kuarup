@@ -24,26 +24,41 @@ public class Calculadora implements ICalculadoraComplexo {
 
     // Estado da Caculadora
     /**
+     * Constante real.
+     **/
+    private final int real = 0;
+    /**
+     * Constante complexo.
+     **/
+    private final int complexo = 1;
+    /**
      * Atributo acumulador guarda os resultados da soma.
      **/
-    private int acumulador;
+    private ComponentNum acumulador;
     /**
      * Atributo operando guarda o contÈudo do operando.
      **/
-    private int operando;
+    private ComponentNum operando;
     /**
-     * Atributo base especifica a base utilizada.
+     * Atributo operando guarda o contÈudo do operando.
      **/
-    private BaseStrategy base = null;
+    private int tipo;
 
     /**
      * Construtor para objetos da classe Calculadora.
      **/
     public Calculadora() {
-        // inicializa vari·veis de inst‚ncia
-        this.acumulador = 0;
-        this.operando = 0;
-        this.base = new DecimalStrategy(); // base default
+        inicializa();
+        tipo = real;
+    }
+
+    /**
+     * Inicializa ambas as variáveis como reais de valor = 0.
+     **/
+    public void inicializa() {
+        // inicializa vari·veis de instância
+        acumulador = new RealNum(); //Default começa apenas como real
+        operando = new RealNum(); //Default começa apenas como real
     }
 
     /**
@@ -51,8 +66,7 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return conte˙do do acumulador
      **/
     public final String limpa() {
-        this.operando = 0;
-        this.acumulador = 0;
+        inicializa();
         return "0";
     }
 
@@ -61,8 +75,8 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return conte˙do do operador
      **/
     public String entraUm() {
-        operando = operando * base.getBase() + 1;
-        return base.getId() + base.toBase(operando);
+        operando.entraUm(tipo);
+        return operando.writeNum();
     }
 
     /**
@@ -70,36 +84,57 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return conte˙do do acumulador
      **/
     public String comandoSoma() {
-        acumulador = acumulador + operando;
-        String soma = base.getId() + base.toBase(acumulador);
-        operando = 0;
-        return soma;
+        for(int i = 0; i < operando.getComponentCount(); i++){
+            acumulador.setValue(i, acumulador.getValue(i) + operando.getValue(i));
+        }
+        tipo = real;
+        operando = new RealNum();
+        operando.setBase(acumulador.getBase());
+        return acumulador.writeNum();
     }
 
     /**
      * Entra a base decimal.
      */
     public void modoDec() {
-        base = new DecimalStrategy();
+        operando.modoDec();
+        acumulador.modoDec();
     }
 
     /**
      * Entra a base bin·ria.
      */
     public void modoBin() {
-        base = new BinariaStrategy();
+        operando.modoBin();
+        acumulador.modoBin();
     }
 
     /**
      * Entra a base hexadecimal.
      */
     public void modoHex() {
-        base = new HexadecimalStrategy();
+        operando.modoHex();
+        acumulador.modoHex();
     }
 
     /**
      * Entra a base hexadecimal.
      */
     public void entraI() {
+        ComponentNum aux1 = new CompositeNum(); //Default começa apenas como real
+        aux1.initialize(operando.getBase());
+        for(int i = 0; i < operando.getComponentCount(); i++){
+            aux1.setValue(i, operando.getValue(i));
+        }
+        operando = aux1;
+
+        ComponentNum aux2 = new CompositeNum(); //Default começa apenas como real
+        aux2.initialize(acumulador.getBase());
+        for(int i = 0; i < acumulador.getComponentCount(); i++){
+            aux2.setValue(i, acumulador.getValue(i));
+        }
+        acumulador = aux2;
+        
+        tipo = complexo;
     }
 }

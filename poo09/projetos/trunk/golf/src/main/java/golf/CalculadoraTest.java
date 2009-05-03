@@ -749,6 +749,97 @@ public class CalculadoraTest extends junit.framework.TestCase
     }
 
     /**
+     * Teste: somar b11111id11+h111ib111+ -> 0b100110000I0b10010.
+     */
+    public void testeSoma0b11111ID11e0x111I0b111sai0b100110000I0b10010() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraI();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraI();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("0b100110000I0b10010", calculadora.comandoSoma());
+    }
+
+    /**
+     * Teste: somar h11+Ib11+ -> 0b10001I0b11.
+     */
+    public void testeSoma0x11eI0b11sai0b10001I0b11() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();    
+        calculadora.comandoSoma();
+        calculadora.entraI();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("0b10001I0b11", calculadora.comandoSoma());
+    }
+
+    /**
+     * Teste: somar 11id1+id1+ -> 11I2.
+     */
+    public void testeSomaD11ID1eID1sai11I2() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.entraI();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraI();
+        calculadora.modoDec();
+        calculadora.entraUm();
+        assertEquals("11I2", calculadora.comandoSoma());
+    }
+
+    /**
+     * Teste: somar 1i1+1+ -> 2I1.
+     */
+    public void testeSomaD1ID1eD1sai2I1() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraUm();
+        calculadora.entraI();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraUm();
+        assertEquals("2I1", calculadora.comandoSoma());
+    }
+
+    /**
+     * Teste: somar Ib11+Ih11 -> 0x0I0x14.
+     */
+    public void testeSomaI0b11eI0x11sai0x0I0x14() {
+        Calculadora calculadora = new Calculadora();
+        calculadora.entraI();
+        calculadora.modoBin();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        calculadora.comandoSoma();
+        calculadora.entraI();
+        calculadora.modoHex();
+        calculadora.entraUm();
+        calculadora.entraUm();
+        assertEquals("0x0I0x14", calculadora.comandoSoma());
+    }
+
+    /**
      * Sets up the test fixture.
      * Called before every test case method.
      */
