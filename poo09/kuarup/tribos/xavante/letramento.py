@@ -82,6 +82,16 @@ def init_window ():
     scene.background=(128/cm,128/cm,255/cm)
 
 
+nfotos=0
+def grava_quadro ():
+    global nfotos
+    #os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
+    nfotos += 1
+
+    import time
+    time.sleep(1)
+
+
 if __name__ == "__main__":
 
     init_window()
@@ -106,6 +116,8 @@ if __name__ == "__main__":
     for i in range(0,341):
 
         rate(30)
+
+        grava_quadro()
 
         if i == 30:
             label(pos=(5,3,0), text='A')
