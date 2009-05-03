@@ -12,12 +12,76 @@ public class CompositeNum extends ComponentNum {
     private ArrayList elements = new ArrayList();
 
     /**
+     * Metodo que inicializa os valores dos atributos da instancia
+     */
+    public void initialize(BaseStrategy umaBase) {
+        //Adiciona uma parte real e uma parte complexa ao numero
+        ComponentNum aux1 = new RealNum();
+        ComponentNum aux2 = new ComplexNum();
+        addComponent(aux1);
+        addComponent(aux2);
+        base = umaBase;
+    }
+
+    /**
+     * Metodo que respons‡vel por alterar o valor de um componente especifico
+     * @param  index    o indice do componente a ser alterado
+     * @param  valor    valor a ser colocado no componente especifico
+     */
+    public void setValue(int index, int x) {
+        ComponentNum aux = getComponent(index);
+        aux.setValue(index, x);
+    }
+
+    /**
+     * Metodo que retorna o valor de um componente especifico
+     * @param  index    o indice do valor a ser retornado
+     */
+    public int getValue(int index) {
+        ComponentNum aux = getComponent(index);
+        return aux.getValue(index);
+    }
+
+    /**
+     * Entra a base decimal.
+     */
+    public void modoDec() {
+        base = new DecimalStrategy();
+        for(int i = 0; i < elements.size(); i++){
+            ComponentNum elem = getComponent(i);
+            elem.setBase(base);
+        }
+    }
+
+    /**
+     * Entra a base binária.
+     */
+    public void modoBin() {
+        base = new BinariaStrategy();
+        for(int i = 0; i < elements.size(); i++){
+            ComponentNum elem = getComponent(i);
+            elem.setBase(base);
+        }
+    }
+
+    /**
+     * Entra a base hexadecimal.
+     */
+    public void modoHex() {
+        base = new HexadecimalStrategy();
+        for(int i = 0; i < elements.size(); i++){
+            ComponentNum elem = getComponent(i);
+            elem.setBase(base);
+        }
+    }
+
+    /**
      * Metodo que realiza o entra um
      * @param  base    a base atual do numero
      */
-    public void entraUm() {
-        ComponentNum elem = getComponent(elements.size()-1);
-        elem.entraUm();
+    public void entraUm(int index) {
+        ComponentNum elem = getComponent(index);
+        elem.entraUm(index);
     }
 
     /**
@@ -43,6 +107,15 @@ public class CompositeNum extends ComponentNum {
      */
     public ComponentNum getComponent(int index) {
         return (ComponentNum) elements.get(index);
+    }
+
+    /**
+     * Metodo que respons‡vel por alterar um componente especifico
+     * @param  index    o indice do componente a ser alterado
+     * @param  componente    componente a ser colocado na posicao especifica
+     */
+    public void setComponent(int index, ComponentNum componente) {
+        elements.set(index, componente);
     }
 
     /**

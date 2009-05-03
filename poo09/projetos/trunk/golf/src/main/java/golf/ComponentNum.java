@@ -16,12 +16,51 @@ public abstract class ComponentNum {
     /**
      * Atributo base especifica a base utilizada.
      **/
-    private BaseStrategy base = new DecimalStrategy();
+    protected BaseStrategy base = new DecimalStrategy();
+
+    /**
+     * Metodo que inicializa os valores dos atributos da instancia
+     */
+    public void initialize(BaseStrategy umaBase) {
+        base = umaBase;
+    }
+
+    /**
+     * Metodo que retorna o conteœdo do atributo valor
+     * @result valor
+     */
+    public int getValue(int index) {
+        return valor;
+    }
+
+    /**
+     * Metodo que atualiza o conteœdo do atributo valor
+     * @param  x    novo valor
+     */
+    public void setValue(int index, int x) {
+        valor = x;
+    }
+
+    /**
+     * Metodo que retorna o conteœdo do atributo valor
+     * @result valor
+     */
+    public BaseStrategy getBase() {
+        return base;
+    }
+
+    /**
+     * Metodo que atualiza o conteœdo do atributo valor
+     * @param  x    novo valor
+     */
+    public void setBase(BaseStrategy b) {
+        base = b;
+    }
 
     /**
      * Metodo que realiza o entra um
      */
-    public void entraUm() {
+    public void entraUm(int index) {
         valor = valor * base.getBase() + 1;
     }
 
@@ -50,14 +89,17 @@ public abstract class ComponentNum {
      * Metodo que respons‡vel por adicionar um componente
      * @param  componente    o elemento a ser adicionado
      */
-    public abstract void addComponent(ComponentNum componente);
+    public void addComponent(ComponentNum componente) {
+        //n‹o faz nada
+    }
 
     /**
      * Metodo que respons‡vel por remover um componente
      * @param  componente    o elemento a ser adicionado
      */
-    public abstract void removeComponent();
-    
+    public void removeComponent() {
+        //n‹o faz nada
+    }
     
     /**
      * Metodo que respons‡vel por retornar um componente
@@ -66,6 +108,15 @@ public abstract class ComponentNum {
      */
     public ComponentNum getComponent(int index) {
         return this;
+    }
+
+    /**
+     * Metodo que respons‡vel por alterar um componente especifico
+     * @param  index    o indice do componente a ser alterado
+     * @param  componente    componente a ser colocado na posicao especifica
+     */
+    public void setComponent(int index, ComponentNum componente) {
+        //n‹o faz nada
     }
 
     /**
@@ -78,16 +129,16 @@ public abstract class ComponentNum {
     }
 
     /**
-     * Metodo que respons‡vel por retornar o prefixo do componente
-     * @result String
-     */
-    public abstract String getPrefix();
-
-    /**
      * Metodo respons‡vel por escrever o numero corretamente
      * @result String
      */
     public String writeNum() {
         return getPrefix() + base.getId() + base.toBase(valor);
     }
+
+    /**
+     * Metodo que respons‡vel por retornar o prefixo do componente
+     * @result String
+     */
+    public abstract String getPrefix();
 }

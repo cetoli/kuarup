@@ -1,18 +1,20 @@
 #BlueJ class context
 comment0.target=Calculadora()
 comment0.text=\nConstrutor\ para\ objetos\ da\ classe\ Calculadora.\n\n
-comment1.target=String\ limpa()
-comment1.text=\nLimpa\ o\ acumulador.\n@return\ conte\u02D9do\ do\ acumulador\n\n
-comment2.target=String\ entraUm()
-comment2.text=\nEntra\ a\ tecla\ um.\n@return\ conte\u02D9do\ do\ operador\n\n
-comment3.target=String\ comandoSoma()
-comment3.text=\nEntra\ o\ comando\ soma.\n@return\ conte\u02D9do\ do\ acumulador\n\n
-comment4.target=void\ modoDec()
-comment4.text=\nEntra\ a\ base\ decimal.\n\n
-comment5.target=void\ modoBin()
-comment5.text=\nEntra\ a\ base\ bin\u00B7ria.\n\n
-comment6.target=void\ modoHex()
-comment6.text=\nEntra\ a\ base\ hexadecimal.\n\n
-comment7.target=void\ entraI()
+comment1.target=void\ inicializa()
+comment1.text=\nInicializa\ ambas\ as\ vari\u00E1veis\ como\ reais\ de\ valor\ \=\ 0.\n\n
+comment2.target=String\ limpa()
+comment2.text=\nLimpa\ o\ acumulador.\n@return\ conte\u02D9do\ do\ acumulador\n\n
+comment3.target=String\ entraUm()
+comment3.text=\nEntra\ a\ tecla\ um.\n@return\ conte\u02D9do\ do\ operador\n\n
+comment4.target=String\ comandoSoma()
+comment4.text=\nEntra\ o\ comando\ soma.\n@return\ conte\u02D9do\ do\ acumulador\n\n
+comment5.target=void\ modoDec()
+comment5.text=\nEntra\ a\ base\ decimal.\n\n
+comment6.target=void\ modoBin()
+comment6.text=\nEntra\ a\ base\ bin\u00B7ria.\n\n
+comment7.target=void\ modoHex()
 comment7.text=\nEntra\ a\ base\ hexadecimal.\n\n
-numComments=8
+comment8.target=void\ entraI()
+comment8.text=\nEntra\ a\ base\ hexadecimal.\n\n
+numComments=9

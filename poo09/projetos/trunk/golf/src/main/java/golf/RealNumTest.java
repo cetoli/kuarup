@@ -36,8 +36,8 @@ public class RealNumTest extends junit.framework.TestCase{
      */
 	public void testEntra11(){
 		golf.RealNum realNum1 = new golf.RealNum();
-		realNum1.entraUm();
-		realNum1.entraUm();
+		realNum1.entraUm(0);
+		realNum1.entraUm(0);
 		assertEquals("11", realNum1.writeNum());
 	}
 
@@ -46,8 +46,8 @@ public class RealNumTest extends junit.framework.TestCase{
      */
 	public void testEntra11EMostraBinario(){
 		golf.RealNum realNum1 = new golf.RealNum();
-		realNum1.entraUm();
-		realNum1.entraUm();
+		realNum1.entraUm(0);
+		realNum1.entraUm(0);
 		realNum1.modoBin();
 		assertEquals("0b1011", realNum1.writeNum());
 	}
@@ -57,9 +57,9 @@ public class RealNumTest extends junit.framework.TestCase{
      */
 	public void testEntra111EMostraHexa(){
 		golf.RealNum realNum1 = new golf.RealNum();
-		realNum1.entraUm();
-		realNum1.entraUm();
-		realNum1.entraUm();
+		realNum1.entraUm(0);
+		realNum1.entraUm(0);
+		realNum1.entraUm(0);
 		realNum1.modoHex();
 		assertEquals("0x6f", realNum1.writeNum());
 	}

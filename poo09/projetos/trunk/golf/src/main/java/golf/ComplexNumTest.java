@@ -35,7 +35,7 @@ public class ComplexNumTest extends junit.framework.TestCase{
      */
 	public void testEntra1(){
 		golf.ComplexNum complexN1 = new golf.ComplexNum();
-		complexN1.entraUm();
+		complexN1.entraUm(0);
 		assertEquals("I1", complexN1.writeNum());
 	}
 
@@ -44,8 +44,8 @@ public class ComplexNumTest extends junit.framework.TestCase{
      */
 	public void testEntra11EMostraBinario(){
 		golf.ComplexNum complexN1 = new golf.ComplexNum();
-		complexN1.entraUm();
-		complexN1.entraUm();
+		complexN1.entraUm(0);
+		complexN1.entraUm(0);
 		complexN1.modoBin();
 		assertEquals("I0b1011", complexN1.writeNum());
 	}
@@ -55,9 +55,9 @@ public class ComplexNumTest extends junit.framework.TestCase{
      */
 	public void testEntra111EMostraHex(){
 		golf.ComplexNum complexN1 = new golf.ComplexNum();
-		complexN1.entraUm();
-		complexN1.entraUm();
-		complexN1.entraUm();
+		complexN1.entraUm(0);
+		complexN1.entraUm(0);
+		complexN1.entraUm(0);
 		complexN1.modoHex();
 		assertEquals("I0x6f", complexN1.writeNum());
 	}
