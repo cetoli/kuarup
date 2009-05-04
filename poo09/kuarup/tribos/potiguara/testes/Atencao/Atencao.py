@@ -40,7 +40,7 @@ orientacao.y = 80
 orientacao.x = 20
 
 tarefa = label()
-tarefa.text = 'Selecione as quatro.'
+tarefa.text = 'Selecione as tres.'
 tarefa.y = 70
 tarefa.x = 20
 
