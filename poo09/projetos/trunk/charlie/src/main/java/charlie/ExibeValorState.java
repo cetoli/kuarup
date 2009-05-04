@@ -9,7 +9,7 @@ package charlie;
 public interface ExibeValorState {
     /**
      * Assinatura do metodo imprimeResultados.
-     */ 
+     */
     public String imprimeResultado(Integer acumuladorReal,
             Integer acumuladorImaginario, BaseStrategy modo);
 }

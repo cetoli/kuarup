@@ -9,9 +9,13 @@ package charlie;
 public class ImaginarioExibeValorState implements ExibeValorState {
     /**
      * Implementacao do medotodo imprimeResultado para valores imaginarios.
+     * @return Retorna resultado.
+     * @param Acumulador Real 'acumuladorReal'.
+     * @param Acumulador Imaginario 'acumuladorImaginario'.
+     * @param Modo 'modo'.
      */
-    public final String imprimeResultado(Integer acumuladorReal,
-                    Integer acumuladorImaginario, BaseStrategy modo) {
+    public final String imprimeResultado(final Integer acumuladorReal,
+                    final Integer acumuladorImaginario, final BaseStrategy modo) {
         String resultado = modo.toString(acumuladorReal);
         resultado = resultado + "I" + modo.toString(acumuladorImaginario);
         return resultado;

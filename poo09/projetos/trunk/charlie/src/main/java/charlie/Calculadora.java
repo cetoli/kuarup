@@ -72,6 +72,7 @@ public class Calculadora implements ICalculadoraComplexo {
 
     /**
      * Entra o comando soma.
+     * @return  Retorna o valor
      */
     public final String comandoSoma() {
         estadoSomaReal.soma(estadoSomaReal.getOperador());
@@ -109,7 +110,7 @@ public class Calculadora implements ICalculadoraComplexo {
 
     /**
      * Entra no estado Complexo.
-     */ 
+     */
     public final void entraI() {
         estadoSoma = estadoSomaImaginario;
         exibeValor = new ImaginarioExibeValorState();

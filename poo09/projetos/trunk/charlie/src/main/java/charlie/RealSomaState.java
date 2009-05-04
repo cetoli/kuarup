@@ -15,21 +15,25 @@ public class RealSomaState implements SomaState {
 
     /**
      * Implementacao do metodo soma para valores reais.
-     */    
-    public final Integer soma(Integer operador) {
+     * @param Operador 'operador'.
+     * @return Acumulador real.
+     */
+    public final Integer soma(final Integer operador) {
         acumuladorReal = acumuladorReal + operador;
         return acumuladorReal;
     }
 
     /**
      * Implementacao do metodo getAcumulador.
-     */ 
+     * @return Acumulador real.
+     */
     public final Integer getAcumulador() {
         return acumuladorReal;
     }
 
     /**
      * Declaracao da assinatura do metodo getOperador.
+     * @return Operador real.
      */
     public final Integer getOperador() {
         return operadorReal;
@@ -37,8 +41,9 @@ public class RealSomaState implements SomaState {
 
     /**
      * Declaracao da assinatura do metodo setOperador.
+     * @param Operador 'operador'.
      */
-    public final void setOperador(Integer operador) {
+    public final void setOperador(final Integer operador) {
         operadorReal = operador;
     }
 }

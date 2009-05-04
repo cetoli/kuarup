@@ -16,21 +16,25 @@ public class ImaginarioSomaState implements SomaState {
 
     /**
      * Implementacao do metodo soma para valores imaginarios.
-     */    
-    public final Integer soma(Integer operador) {
+     * @return Acumulador Imaginario.
+     * @param Operador 'operador'.
+     */
+    public final Integer soma(final Integer operador) {
         acumuladorImaginario = acumuladorImaginario + operador;
         return acumuladorImaginario;
     }
 
     /**
      * Implementacao do metodo getAcumulador.
-     */ 
+     * @return Acumulador Imaginario.
+     */
     public final Integer getAcumulador() {
         return acumuladorImaginario;
     }
 
     /**
      * Declaracao da assinatura do metodo getOperador.
+     * @return Operador Imaginario.
      */
     public final Integer getOperador() {
         return operadorImaginario;
@@ -38,8 +42,9 @@ public class ImaginarioSomaState implements SomaState {
 
     /**
      * Declaracao da assinatura do metodo setOperador.
+     * @param Operador 'operador'.
      */
-    public final void setOperador(Integer operador) {
+    public final void setOperador(final Integer operador) {
         operadorImaginario = operador;
     }
 }
