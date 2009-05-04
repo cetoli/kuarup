@@ -54,7 +54,7 @@ public class Calculadora implements ICalculadoraComplexo {
         operador = estadoSoma.getOperador();
         operador = modo.entraUm(operador);
         estadoSoma.setOperador(operador);
-        return modo.toString(operador);// esses métodos estão funcionado, mas não estão legais
+        return modo.toString(operador);
     }
 
     /**
@@ -74,9 +74,12 @@ public class Calculadora implements ICalculadoraComplexo {
      * Entra o comando soma.
      */
     public final String comandoSoma() {
-        estadoSoma.soma(operador);
+        estadoSomaReal.soma(estadoSomaReal.getOperador());
+        estadoSomaImaginario.soma(estadoSomaImaginario.getOperador());
         operador = 0;
-        estadoSoma.setOperador(operador); // este método funciona, mas...
+        estadoSomaReal.setOperador(0);
+        estadoSomaImaginario.setOperador(0);
+        estadoSoma.setOperador(operador); //este método funciona, mas...
         estadoSoma = estadoSomaReal;
         Integer acumulReal = estadoSomaReal.getAcumulador();
         Integer acumulImag = estadoSomaImaginario.getAcumulador();
