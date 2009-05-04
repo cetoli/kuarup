@@ -31,76 +31,84 @@ wallBK = box(pos=(0, 0, -5), length=s2,  height=s2,  width=thk, color = color.wh
 
 #lamp = local_light(pos=(1,1,1), color=color.yellow)
 
-sleep(5)# gambiarra pra ajustar a tela, é só ajustar o imagegrab ou o local em que a tela se apresenta...
-
 pangacio = Pangacio(escala =1, axis=(1,0,1), pos= (0,-50,5))
 pangacio.esqueleto.rotate(angle = pi/2, axis=(1,1,1), original=(1,1,1))
 
 orientacao = label()
-orientacao.text = 'Observe a sequencia para remonta-la'
+orientacao.text = 'Tres formas sao necessarias para criar esta flor.'
 orientacao.y = 80
+orientacao.x = 20
 
-dica = label()
-dica.text = 'Considera as cores, os objetos e sequencia sao importantes'
-dica.y = 70
+tarefa = label()
+tarefa.text = 'Selecione as quatro.'
+tarefa.y = 70
+tarefa.x = 20
 
 # Sequencia determinada
-oBase1 = Objeto(escala=15,pos=(-60,50,0),obj='caixa',cor=color.red)
-oBase2 = Objeto(escala=15,pos=(-20,50,0),obj='cone',cor=color.yellow)
-oBase3 = Objeto(escala=15,pos=(20,50,0),obj='piramide',cor=color.green)
-oBase4 = Objeto(escala=15,pos=(60,50,0),obj='circulo',cor=color.white)
+petala1 = Objeto(escala=15,pos=(-77,50,0),obj='elipse',cor=color.yellow)
+petala1.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+petala1.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
 
-#opções de escolha para remontar a sequencia determinada
-#
-o1 = Objeto(escala=10,pos=(-85,-65,0),obj='caixa',cor=color.red)
-o1_2 = Objeto(escala=10,pos=(-65,-68,0),obj='caixa',cor=color.green)
-o1_3 = Objeto(escala=10,pos=(-83,-85,0),obj='caixa',cor=color.orange)
+petala2 = Objeto(escala=15,pos=(-42,50,0),obj='elipse',cor=color.yellow)
+petala2.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+petala2.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
 
-o2 = Objeto(escala=10,pos=(-75,-23,0),obj='cone',cor=color.yellow)
-o2_2 = Objeto(escala=10,pos=(-55,-35,0),obj='cone',cor=color.cyan)
-o2_3 = Objeto(escala=10,pos=(-80,-40,0),obj='cone',cor=color.white)
+petala3 = Objeto(escala=12,pos=(-60,65,0),obj='elipse',cor=color.yellow)
+petala3.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+petala3.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
+petala3.esqueleto.rotate(angle = pi, axis=(1,1,0), original=(0,1,0))
 
-o3 = Objeto(escala=10,pos=(12,-57,0),obj='piramide',cor=color.white)
-o3_2 = Objeto(escala=10,pos=(-10,-65,0),obj='piramide',cor=color.green)
-o3_3 = Objeto(escala=10,pos=(10,-77,0),obj='piramide',cor=color.red)
+petala4 = Objeto(escala=14,pos=(-68,35,0),obj='elipse',cor=color.yellow)
+petala4.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+petala4.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
+petala4.esqueleto.rotate(angle = pi, axis=(-0.6,1,0), original=(0,1,0))
 
-o4 = Objeto(escala=10,pos=(85,-65,0),obj='circulo',cor=color.white)
-o4_2 = Objeto(escala=10,pos=(65,-68,0),obj='circulo',cor=color.magenta)
-o4_3 = Objeto(escala=10,pos=(83,-85,0),obj='circulo',cor=color.orange)
+petala5 = Objeto(escala=14,pos=(-52,35,0),obj='elipse',cor=color.yellow)
+petala5.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+petala5.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
+petala5.esqueleto.rotate(angle = pi, axis=(0.6,1,0), original=(0,1,0))
 
-o5 = Objeto(escala=10,pos=(75,-23,0),obj='cilindro',cor=color.orange)
-o5_2 = Objeto(escala=10,pos=(55,-35,0),obj='cilindro',cor=color.cyan)
-o5_3 = Objeto(escala=10,pos=(80,-40,0),obj='cilindro',cor=color.yellow)
+centro = Objeto(escala=7,pos=(-60,49,0),obj='circulo',cor=color.red)
+
+talo = Objeto(escala=60,radius=0.01,pos=(-60,-20,-0.2),obj='cilindro',cor=color.green)
+
+folha = Objeto(escala=10,pos=(-50,10,0),obj='elipse',cor=color.green)
+folha.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+folha.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
+
+#Formas
+o1 = Objeto(escala=10,pos=(-80,-45,0),obj='caixa',cor=color.white)
+o2 = Objeto(escala=10,pos=(-50,-45,0),obj='cone',cor=color.white)
+o3 = Objeto(escala=10,pos=(-20,-45,0),obj='piramide',cor=color.white)
+o4 = Objeto(escala=10,pos=(10,-45,0),obj='circulo',cor=color.white)
+o5 = Objeto(escala=10,pos=(40,-50,0),obj='cilindro',cor=color.white)
+o5.objeto.radius = 1
+o6 = Objeto(escala=10,pos=(70,-45,0),obj='elipse',cor=color.white)
+o6.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+o6.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
+
+#Formas utilizadas
+forma1 = Objeto(escala=10,pos=(15,35,0),obj='elipse',cor=color.orange)
+forma1.esqueleto.rotate(angle = pi/2, axis=(0,0,1), original=(1,0,0))
+forma1.esqueleto.rotate(angle = pi/2, axis=(1,0,0), original=(1,0,0))
+forma2 = Objeto(escala=10,pos=(50,35,0),obj='circulo',cor=color.orange)
+forma3 = Objeto(escala=10,pos=(85,35,0),obj='cilindro',cor=color.orange)
+forma3.objeto.radius = 1
+
+#Ocultando a resposta
+forma1.esqueleto.visible = 0
+forma2.esqueleto.visible = 0
+forma3.esqueleto.visible = 0
 
 sleep(2)
 
 #utilizado para marcar a primeira posicao dos objtos
-auxObjeto = Objeto(escala=5,pos=(-132.5,0,0),visible=0,obj='caixa')#obj='caixa' seria default
+auxObjeto = Objeto(escala=5,pos=(-10.5,0,0),visible=0,obj='caixa')#obj='caixa' seria default
 selecionador = Posicionador(auxObjeto)
 
 
-
-aux = 4 #iniciar em uma posicao proximo para gravacao
+aux = 0
 quadro = 0
-
-while (oBase4.objeto.opacity > 0): #poderia utiliza qq objeto OBase
-    rate(20)
-    
-    im = ImageGrab.grab((0,0,585,585))
-    fn = "Pangacio-teste-letramento-"+str(quadro)+".png"
-    #im.save(fn)
-    quadro += 1
-        
-    oBase1.apagarExibir(oBase1.objeto.opacity - 0.1)
-    oBase2.apagarExibir(oBase2.objeto.opacity - 0.1)
-    oBase3.apagarExibir(oBase3.objeto.opacity - 0.1)
-    oBase4.apagarExibir(oBase4.objeto.opacity - 0.1)
-
-oBase1.esqueleto.visible = 0
-oBase2.esqueleto.visible = 0
-oBase3.esqueleto.visible = 0
-oBase4.esqueleto.visible = 0
-
 auxEsquerdaDireita = 0
 auxLado = 0
 t = 0
@@ -155,61 +163,27 @@ while 1:
             selecionador.exibe(o1)
             auxObjetoPosicao = o1
             
-        elif ((fabs( pangacio.esqueleto.y - o1_2.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o1_2.esqueleto.x) < 7) ):
-            selecionador.exibe(o1_2)
-            auxObjetoPosicao = o1_2
-
-        elif ((fabs( pangacio.esqueleto.y - o1_3.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o1_3.esqueleto.x) < 7) ):
-            selecionador.exibe(o1_3)
-            auxObjetoPosicao = o1_3
-
         elif ((fabs( pangacio.esqueleto.y - o2.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o2.esqueleto.x) < 7) ):
             selecionador.exibe(o2)
             auxObjetoPosicao = o2
-
-        elif ((fabs( pangacio.esqueleto.y - o2_2.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o2_2.esqueleto.x) < 7) ):
-            selecionador.exibe(o2_2)
-            auxObjetoPosicao = o2_2
-
-        elif ((fabs( pangacio.esqueleto.y - o2_3.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o2_3.esqueleto.x) < 7) ):
-            selecionador.exibe(o2_3)
-            auxObjetoPosicao = o2_3
 
         elif ((fabs( pangacio.esqueleto.y - o3.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o3.esqueleto.x) < 7) ):
             selecionador.exibe(o3)
             auxObjetoPosicao = o3
 
-        elif ((fabs( pangacio.esqueleto.y - o3_2.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o3_2.esqueleto.x) < 7) ):
-            selecionador.exibe(o3_2)
-            auxObjetoPosicao = o3_2
-
-        elif ((fabs( pangacio.esqueleto.y - o3_3.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o3_3.esqueleto.x) < 7) ):
-            selecionador.exibe(o3_3)
-            auxObjetoPosicao = o3_3
-
         elif ((fabs( pangacio.esqueleto.y - o4.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o4.esqueleto.x) < 7) ):
             selecionador.exibe(o4)
             auxObjetoPosicao = o4
 
-        elif ((fabs( pangacio.esqueleto.y - o4_2.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o4_2.esqueleto.x) < 7) ):
-            selecionador.exibe(o4_2)
-            auxObjetoPosicao = o4_2
-
-        elif ((fabs( pangacio.esqueleto.y - o4_3.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o4_3.esqueleto.x) < 7) ):
-            selecionador.exibe(o4_3)
-            auxObjetoPosicao = o4_3
 
         elif ((fabs( pangacio.esqueleto.y - o5.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o5.esqueleto.x) < 7) ):
+            #o5.esqueleto.pos = (o5.esqueleto.x,o5.esqueleto.y-5,o5.esqueleto.z) # corrindo o posicionamento do cilindro
             selecionador.exibe(o5)
             auxObjetoPosicao = o5
 
-        elif ((fabs( pangacio.esqueleto.y - o5_2.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o5_2.esqueleto.x) < 7) ):
-            selecionador.exibe(o5_2)
-            auxObjetoPosicao = o5_2
-
-        elif ((fabs( pangacio.esqueleto.y - o5_3.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o5_3.esqueleto.x) < 7) ):
-            selecionador.exibe(o5_3)
-            auxObjetoPosicao = o5_3
+        elif ((fabs( pangacio.esqueleto.y - o6.esqueleto.y) < 7) and (fabs( pangacio.esqueleto.x - o6.esqueleto.x) < 7) ):
+            selecionador.exibe(o6)
+            auxObjetoPosicao = o6
 
         else:
             auxObjetoPosicao = auxObjeto # nenhum objeto do campo de escolha foi selecionado/tocado
@@ -222,31 +196,23 @@ while 1:
 
         # Captura de GIFs
         aux += 1
-        if( aux == 7) :
-            #im = ImageGrab.grab((0,0,585,585)) # já tem um imageGrab
-            fn = "Pangacio-teste-letramento-"+str(quadro)+".png"
-            #im.save(fn)
+        if( aux == 3) :
+            im = ImageGrab.grab((0,0,585,585)) # já tem um imageGrab
+            fn = "Pangacio-teste-Atencao-"+str(quadro)+".png"
+            im.save(fn)
             aux = 0
             quadro += 1
             
 # se todas as letras estiverem acima da posicao inical, entao todas foram selecionadas
-        if (contadorEscolhas == 4): 
-            oBase1.apagarExibir(1)
-            oBase1.esqueleto.visible = 1
-            
-            oBase2.apagarExibir(1)
-            oBase2.esqueleto.visible = 1
-            
-            oBase3.apagarExibir(1)
-            oBase3.esqueleto.visible = 1
-
-            oBase4.apagarExibir(1)
-            oBase4.esqueleto.visible = 1
-            
+        if (contadorEscolhas == 3): 
             final = label()
             final.text = 'FIM'
             final.color = color.red
             final.y = -40
+            #Exibindo as formas utilizadas
+            forma1.esqueleto.visible = 1
+            forma2.esqueleto.visible = 1
+            forma3.esqueleto.visible = 1
 
             #break
 
