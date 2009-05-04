@@ -10,8 +10,8 @@ public class RealExibeValorState implements ExibeValorState {
     /**
      * Implementacao do medotodo imprimeResultado para valores reais.
      */
-    public final String imprimeResultado(Integer acumuladorReal,
-                    Integer acumuladorImaginario, BaseStrategy modo) {
+    public final String imprimeResultado(final Integer acumuladorReal,
+                    final Integer acumuladorImaginario, final BaseStrategy modo) {
         return modo.toString(acumuladorReal);
     }
 }

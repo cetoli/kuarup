@@ -9,6 +9,7 @@ package charlie;
 public interface SomaState {
     /**
      * Declaracao da assinatura do metodo soma.
+     * @param Operador.
      */
     public Integer soma(Integer operador);
 
@@ -24,6 +25,7 @@ public interface SomaState {
 
     /**
      * Declaracao da assinatura do metodo setOperador.
+     * @param Operador.
      */
     public void setOperador(Integer operador);
 }

@@ -192,7 +192,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testImagEntra1SomaEntra1sai1I1.
      */
-    public void testImagEntra1SomaEntra1sai1I1() {
+    public final void testImagEntra1SomaEntra1sai1I1() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraI();
         calculad1.entraUm();
@@ -204,7 +204,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testEntra1SomaIEntra1SomaIEntra1Somasai1I2.
      */
-    public void testEntra1SomaIEntra1SomaIEntra1Somasai1I2() {
+    public final void testEntra1SomaIEntra1SomaIEntra1Somasai1I2() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
@@ -219,7 +219,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testEntra1SomaIEntra1SomaEntra1Somasai2I1.
      */
-    public void testEntra1SomaIEntra1SomaEntra1Somasai2I1() {
+    public final void testEntra1SomaIEntra1SomaEntra1Somasai2I1() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
@@ -233,7 +233,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testEntra1SomaEntrI1SomaLimpasai0.
      */
-    public void testEntra1SomaEntrI1SomaLimpasai0() {
+    public final void testEntra1SomaEntrI1SomaLimpasai0() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.entraUm();
         calculad1.comandoSoma();
@@ -244,9 +244,9 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     /**
-     * testHexEntra11SomaEntraI1SomaEntra1saiox12I1.
+     * TestHexEntra11SomaEntraI1SomaEntra1saiox12I1.
      */
-    public void testHexEntra11SomaEntraI1SomaEntra1saiox12I1() {
+    public final void testHexEntra11SomaEntraI1SomaEntra1saiox12I1() {
         charlie.Calculadora calculad1 = new charlie.Calculadora();
         calculad1.modoHex();
         calculad1.entraUm();
@@ -262,15 +262,14 @@ public class CalculadoraTest extends junit.framework.TestCase {
     /**
      * Teste testSomaD1ID1eD1sai2I1.
      */
-	public void testSomaD1ID1eD1sai2I1()
-	{
-		charlie.Calculadora calculad1 = new charlie.Calculadora();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraI();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		assertEquals("2I1", calculad1.comandoSoma());
-	}
+    public final void testSomaD1ID1eD1sai2I1() {
+        charlie.Calculadora calculad1 = new charlie.Calculadora();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraI();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("2I1", calculad1.comandoSoma());
+    }
 }
