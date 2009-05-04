@@ -4,9 +4,9 @@ import visual
 from peixe_xavante import *
 
 def init_window ():
-    scene.title      = "Memoria"
-    scene.width      = 600 +  9
-    scene.height     = 600 + 30
+    scene.title      = "Atencao"
+    scene.width      = 300 +  9
+    scene.height     = 300 + 30
 
 
     scene.forward = (0, 2, -1)
@@ -19,7 +19,7 @@ def init_window ():
 nfotos=0
 def grava_quadro ():
     global nfotos
-    #os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
+    os.system ("import -window Atencao atencao%03d.jpg" % nfotos)
     nfotos += 1
 
 
@@ -50,6 +50,12 @@ def move_peixes(peixes):
         peixes[i].frame.pos = (x,y,z)
 
         err = 0.0000001
+
+        if -6-err < y < -6+err:
+            peixes[i].lamp = local_light(pos=(x,y,z), color=color.white)
+        if y < -6-err:
+            peixes[i].lamp.visible = false
+        
         if -7-err < y < -7+err:
             remover.append(i)
         
@@ -64,28 +70,27 @@ if __name__ == "__main__":
 
     linha1 = cylinder( pos=(-2,13,0), axis=(0,-20,0), radius=0.03 )
     #linha1.color = color.green
-    anel1  = ring(pos=(-2,-5,0), axis=(0,0,1), radius=0.25, thickness=0.02)
-    #anel1.color = color.green
-    #lamp1 = local_light(pos=(-2,-5,2), color=color.yellow)
+    anel1  = ring(pos=(-2,-5,0.1), axis=(0,0,1), radius=0.25, thickness=0.02)
+    anel1.color = color.green
 
     linha2 = cylinder( pos=(-1,13,0), axis=(0,-20,0), radius=0.03 )
     #linha2.color = color.red
-    anel2  = ring(pos=(-1,-5,0), axis=(0,0,1), radius=0.25, thickness=0.02)
+    anel2  = ring(pos=(-1,-5,0.1), axis=(0,0,1), radius=0.25, thickness=0.02)
     anel2.color = color.red
 
     linha3 = cylinder( pos=( 0,13,0), axis=(0,-20,0), radius=0.03 )
     #linha3.color = color.yellow
-    anel3  = ring(pos=( 0,-5,0), axis=(0,0,1), radius=0.25, thickness=0.02)
+    anel3  = ring(pos=( 0,-5,0.1), axis=(0,0,1), radius=0.25, thickness=0.02)
     anel3.color = color.yellow
 
     linha4 = cylinder( pos=( 1,13,0), axis=(0,-20,0), radius=0.03 )
     #linha4.color = color.blue
-    anel4  = ring(pos=( 1,-5,0), axis=(0,0,1), radius=0.25, thickness=0.02)
+    anel4  = ring(pos=( 1,-5,0.1), axis=(0,0,1), radius=0.25, thickness=0.02)
     anel4.color = color.blue
 
     linha5 = cylinder( pos=( 2,13,0), axis=(0,-20,0), radius=0.03 )
     #linha5.color = color.orange
-    anel5  = ring(pos=( 2,-5,0), axis=(0,0,1), radius=0.25, thickness=0.02)
+    anel5  = ring(pos=( 2,-5,0.1), axis=(0,0,1), radius=0.25, thickness=0.02)
     anel5.color = color.orange
 
     peixes = []

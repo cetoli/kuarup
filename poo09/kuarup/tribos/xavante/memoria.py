@@ -9,14 +9,13 @@ import random
 
 def init_window ():
     scene.title      = "Memoria"
-    scene.width      = 600 +  9
-    scene.height     = 600 + 30
+    scene.width      = 300 +  9
+    scene.height     = 300 + 30
 
     scene.autocenter = 1
-    scene.autoscale  = 1
 
     scene.forward = (0, 1, -1)
-    #scene.scale   = (0.095, 0.095, 0.095)
+    scene.scale   = (0.4,0.4,0.4)
 
     cm=255.0
     scene.background=(128/cm,128/cm,255/cm)
@@ -25,11 +24,8 @@ def init_window ():
 nfotos=0
 def grava_quadro ():
     global nfotos
-    #os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
+    os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
     nfotos += 1
-
-    import time
-    time.sleep(1)
 
 
 if __name__ == "__main__":

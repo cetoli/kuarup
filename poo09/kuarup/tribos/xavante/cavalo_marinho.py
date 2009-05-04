@@ -363,12 +363,12 @@ class CavaloMarinho:
         corpo = Corpo   (self.color, self.material, self.frame, \
                 self.model, self.tamanho)
         corpo.desenha()
-        #corpo.DoSmoothShading()
+        corpo.DoSmoothShading()
 
         cauda = Cauda   (self.color, self.material, self.frame, \
                 self.model, self.tamanho)
         cauda.desenha()
-        #cauda.DoSmoothShading()
+        cauda.DoSmoothShading()
 
         self.rotate(axis=(1,0,0), angle=pi/2)
         self.rotate(axis=(0,0,1), angle=pi/2)
