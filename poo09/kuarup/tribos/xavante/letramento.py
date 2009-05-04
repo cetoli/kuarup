@@ -68,8 +68,8 @@ class Aquario:
 
 def init_window ():
     scene.title      = "Letramento"
-    scene.width      = 200 +  9
-    scene.height     = 200 + 30
+    scene.width      = 300 +  9
+    scene.height     = 300 + 30
 
     scene.autocenter = 1
     scene.autoscale  = 1
@@ -85,11 +85,8 @@ def init_window ():
 nfotos=0
 def grava_quadro ():
     global nfotos
-    #os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
+    os.system ("import -window Letramento letramento%03d.jpg" % nfotos)
     nfotos += 1
-
-    import time
-    time.sleep(1)
 
 
 if __name__ == "__main__":
@@ -98,7 +95,7 @@ if __name__ == "__main__":
 
     aquario = Aquario(niveis=5)
 
-    peixe = PeixeXavante(tamanho=2)
+    peixe = PeixeXavante(tamanho=2, material=materials.marble)
     peixe.rotate(axis=(0,0,1), angle=pi/2)
     peixe.rotate(axis=(0,1,1), angle=pi)
 
@@ -106,28 +103,26 @@ if __name__ == "__main__":
     peixe.move((0,altura,0))
     altura -= 1
 
-    p = label(pos=( 5,-2,0), text='_')
-    y = label(pos=( 6,-2,0), text='_')
-    t = label(pos=( 7,-2,0), text='_')
-    h = label(pos=( 8,-2,0), text='_')
-    o = label(pos=( 9,-2,0), text='_')
-    n = label(pos=(10,-2,0), text='_')
+    p = label(pos=( 4.5,-2,0), text='_')
+    y = label(pos=( 5.7,-2,0), text='_')
+    t = label(pos=( 6.9,-2,0), text='_')
+    h = label(pos=( 8.1,-2,0), text='_')
+    o = label(pos=( 9.3,-2,0), text='_')
+    n = label(pos=(10.5,-2,0), text='_')
 
     for i in range(0,341):
-
-        rate(30)
 
         grava_quadro()
 
         if i == 30:
-            label(pos=(5,3,0), text='A')
+            label(pos=(4.5,3,0), text='A')
         if i == 40:
             aquario.diminui_nivel()
             peixe.move((0,altura,0))
             altura -= 1
 
         if i == 70:
-            label(pos=(6,3,0), text='E')
+            label(pos=(5.7,3,0), text='E')
         if i == 80:
             aquario.diminui_nivel()
             peixe.move((0,altura,0))
@@ -137,7 +132,7 @@ if __name__ == "__main__":
             o.text = "O"
             
         if i == 150:
-            label(pos=(7,3,0), text='B')
+            label(pos=(6.9,3,0), text='B')
         if i == 160:
             aquario.diminui_nivel()
             peixe.move((0,altura,0))
@@ -150,7 +145,7 @@ if __name__ == "__main__":
             t.text = "T"
 
         if i == 250:
-            label(pos=(8,3,0), text='D')
+            label(pos=(8.1,3,0), text='D')
         if i == 260:
             aquario.diminui_nivel()
             peixe.move((0,altura,0))
@@ -160,7 +155,7 @@ if __name__ == "__main__":
             n.text = "N"
 
         if i == 320:
-            label(pos=(9,3,0), text='I')
+            label(pos=(9.3,3,0), text='I')
         if i == 340:
             aquario.diminui_nivel()
             peixe.move((0,altura+1,0))
@@ -170,3 +165,6 @@ if __name__ == "__main__":
             scene.autoscale  = 0
 
             peixe.start_moving()
+
+    for i in range(0,30):
+        grava_quadro()

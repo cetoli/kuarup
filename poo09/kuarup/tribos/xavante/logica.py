@@ -5,9 +5,9 @@ import random
 from peixe_xavante import *
 
 def init_window ():
-    scene.title      = "Memoria"
-    scene.width      = 600 +  9
-    scene.height     = 600 + 30
+    scene.title      = "Logica"
+    scene.width      = 300 +  9
+    scene.height     = 300 + 30
 
     scene.autoscale  = true
     scene.autocenter = true
@@ -22,12 +22,8 @@ def init_window ():
 nfotos=0
 def grava_quadro ():
     global nfotos
-    #os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
+    os.system ("import -window Logica logica%03d.jpg" % nfotos)
     nfotos += 1
-
-    import time
-    time.sleep(1)
-
 
 
 
@@ -95,10 +91,31 @@ def faz_jogada(j):
 
     peixes[b] = p1
 
-    grava_quadro()
-
     dir = norm( (b[0]-a[0], b[1]-a[1]) )
-    ang = acos(dir[0]*p1.angle[0] + dir[1]*p1.angle[1])
+    ang = acos( dot(dir, p1.angle) )
+
+    asd = cross (dir, p1.angle)
+    if asd[2] > 0:
+        ang = - ang
+
+    p1.angle = dir
+
+    if ang != 0.0:
+        for i in range(0,5):
+            p1.rotate(axis=(0,0,1), angle=ang/5)
+            grava_quadro()
+
+    dx = (b[0] - a[0]) / 10.
+    dy = (b[1] - a[1]) / 10.
+    for i in range(0,10):
+        x = p1.frame.pos[0]
+        y = p1.frame.pos[1]
+        z = p1.frame.pos[2]
+
+        p1.move( (x+dx,y+dy,z) )
+
+        grava_quadro()
+
 
     p1.move( (b[0],b[1],0) )
     grava_quadro()

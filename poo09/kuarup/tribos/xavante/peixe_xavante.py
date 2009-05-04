@@ -340,7 +340,7 @@ class PeixeXavante (threading.Thread):
         self.velocidade = velocidade
         
         self.corpo           = Corpo (frame=self.frame, color=self.color, material=self.material, tamanho=self.tamanho)
-        #self.corpo.DoSmoothShading()
+        self.corpo.DoSmoothShading()
 
         self.cauda           = Cauda (frame=self.frame, color=self.color, material=self.material, tamanho=self.tamanho)
 
