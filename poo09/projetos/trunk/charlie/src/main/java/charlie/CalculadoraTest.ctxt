@@ -28,6 +28,7 @@ comment2.text=\nTears\ down\ the\ test\ fixture.\nCalled\ after\ every\ test\ ca
 comment20.target=void\ testHexEntra11SomaEntraI1SomaEntra1saiox12I1()
 comment20.text=\ntestHexEntra11SomaEntraI1SomaEntra1saiox12I1.\n\n
 comment21.target=void\ testSomaD1ID1eD1sai2I1()
+comment21.text=\nTeste\ testSomaD1ID1eD1sai2I1.\n\n
 comment3.target=void\ testSomaUmAPartirDoRepouso()
 comment3.text=\nTeste\ testSomaUmAPartirDoRepouso.\n\n
 comment4.target=void\ testEntraOnzeAPartirDoRepouso()

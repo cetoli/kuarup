@@ -259,6 +259,9 @@ public class CalculadoraTest extends junit.framework.TestCase {
         assertEquals("0x12I0x1", calculad1.comandoSoma());
     }
 
+    /**
+     * Teste testSomaD1ID1eD1sai2I1.
+     */
 	public void testSomaD1ID1eD1sai2I1()
 	{
 		charlie.Calculadora calculad1 = new charlie.Calculadora();
@@ -271,4 +274,3 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		assertEquals("2I1", calculad1.comandoSoma());
 	}
 }
-
