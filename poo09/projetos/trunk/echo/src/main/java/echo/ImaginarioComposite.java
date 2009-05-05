@@ -15,7 +15,18 @@ package echo;
  * @version (4.0)    $Revision$ (04/05/09)      $Date$
  * @since   (3.0) suporte a notacao de engenharia
  */
-public class Nulo implements Inteiro {
+public class ImaginarioComposite implements Inteiro {
+
+    private int mantissa;
+    private Inteiro expoente;
+    
+    /**
+     * Metodo herdado de Inteiro.
+     */
+    public ImaginarioComposite(int valor) {
+        mantissa = valor;
+        expoente = new Nulo();
+    }
 
     /**
      * Metodo herdado de Inteiro.
@@ -27,39 +38,43 @@ public class Nulo implements Inteiro {
      * Metodo herdado de Inteiro.
      */
     public void adicionaParteImaginaria(Inteiro inteiro) {
+        mantissa = inteiro.getParteImaginaria().getValor();
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void adicionaExpoente(Inteiro inteiro) {
+        expoente = inteiro;
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public String mostra(BaseStrategy base) {
-        return "";
+        return "I" + base.getId() + base.converteBase(mantissa) + expoente.mostra(base);
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void soma(Inteiro inteiro) {
+        int diff = inteiro.getExpoente().getValor() - expoente.getValor();
+        mantissa += inteiro.getParteImaginaria().getValor() / Math.pow(10, diff);
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public int getValor() {
-        return 0;
+        return mantissa;
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public Inteiro getParteReal() {
-        return this;
+        return new Nulo();
     }
 
     /**
@@ -73,6 +88,6 @@ public class Nulo implements Inteiro {
      * Metodo herdado de Inteiro.
      */
     public Inteiro getExpoente() {
-        return this;
+        return expoente;
     }
 }

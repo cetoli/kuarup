@@ -448,7 +448,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculadora.entraI();
         calculadora.modoHex();
         calculadora.entraUm();
-        assertEquals("0xcI0x2", calculadora.comandoSoma());
+        assertEquals("0xCI0x2", calculadora.comandoSoma());
     }
     
     /**

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=valor
-comment0.target=Expoente(int)
+comment0.target=ImaginarioComposite(int)
 comment0.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
 comment1.params=inteiro
 comment1.target=void\ adicionaParteReal(Inteiro)

@@ -15,37 +15,70 @@ package echo;
  * @version (4.0)    $Revision$ (04/05/09)      $Date$
  * @since   (3.0) suporte a notacao de engenharia
  */
-public class Nulo implements Inteiro {
+public class ComplexoComposite implements Inteiro {
+
+    private Inteiro real;
+    private Inteiro imaginario;
+    private Inteiro estado;
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void adicionaParteReal(Inteiro inteiro) {
+        real = inteiro;
+        estado = real;
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void adicionaParteImaginaria(Inteiro inteiro) {
+        imaginario = inteiro;
+        estado = imaginario;
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void adicionaExpoente(Inteiro inteiro) {
+        estado.adicionaExpoente(inteiro);
     }
+
 
     /**
      * Metodo herdado de Inteiro.
      */
     public String mostra(BaseStrategy base) {
-        return "";
+        return real.mostra(base) + imaginario.mostra(base);
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void soma(Inteiro inteiro) {
+        real.soma(inteiro.getParteReal());
+        imaginario.soma(inteiro.getParteImaginaria());
+    }
+
+    /**
+     * Metodo herdado de Inteiro.
+     */
+    public Inteiro getParteReal() {
+        return real;
+    }
+
+    /**
+     * Metodo herdado de Inteiro.
+     */
+    public Inteiro getParteImaginaria() {
+        return imaginario;
+    }
+
+    /**
+     * Metodo herdado de Inteiro.
+     */
+    public Inteiro getExpoente() {
+        return new Nulo();
     }
 
     /**
@@ -53,26 +86,5 @@ public class Nulo implements Inteiro {
      */
     public int getValor() {
         return 0;
-    }
-
-    /**
-     * Metodo herdado de Inteiro.
-     */
-    public Inteiro getParteReal() {
-        return this;
-    }
-
-    /**
-     * Metodo herdado de Inteiro.
-     */
-    public Inteiro getParteImaginaria() {
-        return this;
-    }
-
-    /**
-     * Metodo herdado de Inteiro.
-     */
-    public Inteiro getExpoente() {
-        return this;
     }
 }

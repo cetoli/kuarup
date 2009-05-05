@@ -22,11 +22,11 @@ public class Calculadora implements ICalculadoraEngenharia {
     // Estado da Caculadora
     private int opDecimal;
     private String opString;
-    private Operando operando;
-    private Operando acumulador;
-    private Compositor compositor;
+    private Inteiro inteiro;
+    private Inteiro acumulador;
+    private Dispatcher dispatcher;
     private String display;
-    private Base base;
+    private BaseStrategy base;
 
     /**
      * Construtor para objetos da classe Calculadora.
@@ -39,15 +39,18 @@ public class Calculadora implements ICalculadoraEngenharia {
 
     /**
      * Entra a tecla um.
-     * @return conteudo do operando.
+     * @return conteudo do inteiro.
      */
     public String entraUm() {
         opString = base.converteBase(opDecimal) + "1";
         opDecimal = base.converteBaseParaDecimal(opString);
-        compositor.adicionaParteReal(opDecimal, operando);
-        compositor.adicionaParteImaginaria(opDecimal, operando);
-        compositor.adicionaExpoente(opDecimal, operando);
-        display = operando.mostra(base);
+
+        dispatcher.adicionaParteReal(opDecimal, inteiro);
+        dispatcher.adicionaParteImaginaria(opDecimal, inteiro);
+        dispatcher.adicionaExpoente(opDecimal, inteiro);
+
+        display = inteiro.mostra(base);
+
         return display;
     }
 
@@ -60,19 +63,19 @@ public class Calculadora implements ICalculadoraEngenharia {
         opString = "";
         display = "";
 
-        operando = new Complexo();
-        acumulador = new Complexo();
-        compositor = new CompositorParteReal();
+        inteiro = new ComplexoComposite();
+        acumulador = new ComplexoComposite();
+        dispatcher = new ParteRealDispatcher();
 
-        compositor.adicionaParteReal(0, operando);
-        compositor.adicionaParteImaginaria(0, operando);
-        compositor.adicionaExpoente(0, operando);
+        dispatcher.adicionaParteReal(0, inteiro);
+        dispatcher.adicionaParteImaginaria(0, inteiro);
+        dispatcher.adicionaExpoente(0, inteiro);
 
-        compositor.adicionaParteReal(0, acumulador);
-        compositor.adicionaParteImaginaria(0, acumulador);
-        compositor.adicionaExpoente(0, acumulador);
+        dispatcher.adicionaParteReal(0, acumulador);
+        dispatcher.adicionaParteImaginaria(0, acumulador);
+        dispatcher.adicionaExpoente(0, acumulador);
 
-        base = new BaseDecimal();
+        base = new BaseDecimalStrategy();
 
         return acumulador.mostra(base);
     }
@@ -82,14 +85,17 @@ public class Calculadora implements ICalculadoraEngenharia {
      * @return conteudo do acumulador
      */
     public String comandoSoma() {
-        acumulador.soma(operando);
+        acumulador.soma(inteiro);
         display = acumulador.mostra(base);
+
         opDecimal = 0;
         opString = "";
-        compositor = new CompositorParteReal();
-        compositor.adicionaParteReal(0, operando);
-        compositor.adicionaParteImaginaria(0, operando);
-        compositor.adicionaExpoente(0, operando);
+
+        dispatcher = new ParteRealDispatcher();
+        dispatcher.adicionaParteReal(0, inteiro);
+        dispatcher.adicionaParteImaginaria(0, inteiro);
+        dispatcher.adicionaExpoente(0, inteiro);
+
         return display;
     }
 
@@ -97,40 +103,40 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra a base hexadecimal.
      */
     public void modoHex() {
-        base = new BaseHexadecimal();
+        base = new BaseHexadecimalStrategy();
     }
 
     /**
      * Entra a base binaria.
      */  
     public void modoBin() {
-        base = new BaseBinaria();
+        base = new BaseBinariaStrategy();
     }
 
     /**
      * Entra a base decimal.
      */   
     public void modoDec() {
-        base = new BaseDecimal();
+        base = new BaseDecimalStrategy();
     }
 
     /**
      * Entra a parte imaginaria do numero complexo.
      */
     public void entraI() {
-        compositor = new CompositorParteImaginaria();
+        dispatcher = new ParteImaginariaDispatcher();
         opDecimal = 0;
         opString = "";
-        compositor.adicionaParteImaginaria(acumulador.getParteImaginaria().getValor(), acumulador);
+        dispatcher.adicionaParteImaginaria(acumulador.getParteImaginaria().getValor(), acumulador);
     }
 
     /**
      * Entra o expoente da notacao de engenharia.
      */
     public void entraN() {
-        compositor = new CompositorExpoente();
+        dispatcher = new ExpoenteDispatcher();
         opDecimal = 0;
         opString = "";
-        compositor.adicionaExpoente(0, acumulador);
+        dispatcher.adicionaExpoente(0, acumulador);
     }
 }

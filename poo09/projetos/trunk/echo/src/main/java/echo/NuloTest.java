@@ -47,9 +47,9 @@ public class NuloTest extends junit.framework.TestCase {
         Nulo nulo2 = new Nulo();
         nulo1.soma(new Nulo());
         assertEquals(0, nulo1.getValor());
-        assertEquals("", nulo1.mostra(new BaseDecimal()));
-        assertEquals("", nulo1.mostra(new BaseBinaria()));
-        assertEquals("", nulo1.mostra(new BaseHexadecimal()));
+        assertEquals("", nulo1.mostra(new BaseDecimalStrategy()));
+        assertEquals("", nulo1.mostra(new BaseBinariaStrategy()));
+        assertEquals("", nulo1.mostra(new BaseHexadecimalStrategy()));
     }
 
     /**
@@ -57,12 +57,12 @@ public class NuloTest extends junit.framework.TestCase {
      */
     public void testeNuloSomaReal0() {
         Nulo nulo1 = new Nulo();
-        Real real1 = new Real(0);
-        nulo1.soma(new Real(0));
+        RealComposite real1 = new RealComposite(0);
+        nulo1.soma(new RealComposite(0));
         assertEquals(0, nulo1.getValor());
-        assertEquals("", nulo1.mostra(new BaseDecimal()));
-        assertEquals("", nulo1.mostra(new BaseBinaria()));
-        assertEquals("", nulo1.mostra(new BaseHexadecimal()));
+        assertEquals("", nulo1.mostra(new BaseDecimalStrategy()));
+        assertEquals("", nulo1.mostra(new BaseBinariaStrategy()));
+        assertEquals("", nulo1.mostra(new BaseHexadecimalStrategy()));
     }
 
     /**
@@ -70,12 +70,12 @@ public class NuloTest extends junit.framework.TestCase {
      */
     public void testeNuloSomaReal10() {
         Nulo nulo1 = new Nulo();
-        Real real1 = new Real(10);
+        RealComposite real1 = new RealComposite(10);
         real1.soma(new Nulo());
         assertEquals(10, real1.getValor());
-        assertEquals("10", real1.mostra(new BaseDecimal()));
-        assertEquals("0b1010", real1.mostra(new BaseBinaria()));
-        assertEquals("0xa", real1.mostra(new BaseHexadecimal()));
+        assertEquals("10", real1.mostra(new BaseDecimalStrategy()));
+        assertEquals("0b1010", real1.mostra(new BaseBinariaStrategy()));
+        assertEquals("0xA", real1.mostra(new BaseHexadecimalStrategy()));
     }
 
     /**
@@ -83,12 +83,12 @@ public class NuloTest extends junit.framework.TestCase {
      */
     public void testeNuloSomaImaginario0() {
         Nulo nulo1 = new Nulo();
-        Imaginario imaginario1 = new Imaginario(0);
-        nulo1.soma(new Imaginario(0));
+        ImaginarioComposite imaginario1 = new ImaginarioComposite(0);
+        nulo1.soma(new ImaginarioComposite(0));
         assertEquals(0, nulo1.getValor());
-        assertEquals("", nulo1.mostra(new BaseDecimal()));
-        assertEquals("", nulo1.mostra(new BaseBinaria()));
-        assertEquals("", nulo1.mostra(new BaseHexadecimal()));
+        assertEquals("", nulo1.mostra(new BaseDecimalStrategy()));
+        assertEquals("", nulo1.mostra(new BaseBinariaStrategy()));
+        assertEquals("", nulo1.mostra(new BaseHexadecimalStrategy()));
     }
 
     /**
@@ -96,11 +96,11 @@ public class NuloTest extends junit.framework.TestCase {
      */
     public void testeNuloSomaImaginario10() {
         Nulo nulo1 = new Nulo();
-        Imaginario imaginario1 = new Imaginario(10);
+        ImaginarioComposite imaginario1 = new ImaginarioComposite(10);
         imaginario1.soma(new Nulo());
         assertEquals(10, imaginario1.getValor());
-        assertEquals("I10", imaginario1.mostra(new BaseDecimal()));
-        assertEquals("I0b1010", imaginario1.mostra(new BaseBinaria()));
-        assertEquals("I0xa", imaginario1.mostra(new BaseHexadecimal()));
+        assertEquals("I10", imaginario1.mostra(new BaseDecimalStrategy()));
+        assertEquals("I0b1010", imaginario1.mostra(new BaseBinariaStrategy()));
+        assertEquals("I0xA", imaginario1.mostra(new BaseHexadecimalStrategy()));
     }
 }
