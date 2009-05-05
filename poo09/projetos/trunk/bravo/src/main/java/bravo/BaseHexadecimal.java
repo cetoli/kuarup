@@ -4,10 +4,10 @@ package bravo;
  * Classe concreta que implementa a interface StrategyBase.
  * Retorna uma String.
  * A classe calculadora realiza operações matemáticas com números Imaginários.
- * @author  (Carlos Felippe Cardoso de Resende) O papagaio
+ * @author  (Marcio Reis Teixeira) O papagaio
  * @author  (Humberto Ferreira Ramos Junior) O pirata
- * @version (3.0) (27 de abril de 2009) 
- * Esta versão trabalha com os numeros Imaginarios
+ * @version (4.0) (04 de maio de 2009) 
+ * Esta versão trabalha com exponencial
  */
 public class BaseHexadecimal implements StrategyBase {
 
@@ -16,16 +16,13 @@ public class BaseHexadecimal implements StrategyBase {
      */
     public BaseHexadecimal() {
     }
-
-    /**
-     * Metodo de Entrada para Hexadecimal.
-     * Entrada de valores.
-     * @param valor com o numero que foi 'inputado'
-     * @return o numero que foi digitado ate o momento
-     */
-    public Numero entraUm(Numero valor) {
-        valor.setX( valor.getX() * 16 + 1);
-        return valor;
+    
+    public String getId(){
+        return "0x";   
+    }
+        
+    public int toDecimal(String numero) {
+        return Integer.parseInt(numero, 16);
     }
 
     /**
@@ -35,7 +32,7 @@ public class BaseHexadecimal implements StrategyBase {
      * @param valor
      * @return String com a representacao na base hexadecimal do valor
      */
-    public String converterBase(Numero valor) {
-        return "0x" + Integer.toHexString(valor.getX());
+    public String converterBase(int valor) {
+        return Integer.toHexString(valor).toUpperCase();
     }
 }

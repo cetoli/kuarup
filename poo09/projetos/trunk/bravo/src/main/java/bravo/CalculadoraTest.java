@@ -1,343 +1,138 @@
 package bravo;
 
+
+
 /**
  * The test class CalculadoraTest.
- * A classe calculadora realiza operações matemáticas com números Imaginários.
- * @author  (Carlos Felippe Cardoso de Resende) O papagaio
- * @author  (Humberto Ferreira Ramos Junior) O pirata
- * @version (3.0) (27 de abril de 2009)
- * Esta versão trabalha com os numeros Imaginarios
+ *
+ * @author  (your name)
+ * @version (a version number or a date)
  */
-public final class CalculadoraTest extends junit.framework.TestCase {
-
+public class CalculadoraTest extends junit.framework.TestCase
+{
     /**
-     * Default constructor for test class CalculadoraTest.
+     * Default constructor for test class CalculadoraTest
      */
-    public CalculadoraTest() {
+    public CalculadoraTest()
+    {
     }
 
     /**
      * Sets up the test fixture.
+     *
      * Called before every test case method.
      */
-    protected void setUp() {
+    protected void setUp()
+    {
     }
 
     /**
      * Tears down the test fixture.
+     *
      * Called after every test case method.
      */
-    protected void tearDown() {
+    protected void tearDown()
+    {
     }
 
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testSomaUmApatrirdoRepouso() {
-        bravo.Calculadora c = new bravo.Calculadora();
-        assertEquals("1", c.entraUm());
-    }
+	public void testEntraB1H1D1sai171()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.modoBin();
+		assertEquals("0b1", calculad1.entraUm());
+		calculad1.modoHex();
+		assertEquals("0x11", calculad1.entraUm());
+		calculad1.modoDec();
+		assertEquals("171", calculad1.entraUm());
+	}
 
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testSomaOnzeApartirDoRepouso() {
-        bravo.Calculadora c = new bravo.Calculadora();
-        c.entraUm();
-        assertEquals("11", c.entraUm());
-    }
+	public void testSomaB11eH11eD11sai31()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.modoBin();
+		assertEquals("0b1", calculad1.entraUm());
+		assertEquals("0b11", calculad1.entraUm());
+		assertEquals("0b11", calculad1.comandoSoma());
+		calculad1.modoHex();
+		assertEquals("0x1", calculad1.entraUm());
+		assertEquals("0x11", calculad1.entraUm());
+		assertEquals("0x14", calculad1.comandoSoma());
+		calculad1.modoDec();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("11", calculad1.entraUm());
+		assertEquals("31", calculad1.comandoSoma());
+	}
 
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testLimpaRetornaZero() {
-        bravo.Calculadora c = new bravo.Calculadora();
-        assertEquals("0", c.limpa());
-    }
+	public void testSomaD11ID1eID1sai11I2()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("11", calculad1.entraUm());
+		calculad1.entraI();
+		assertEquals("11I1", calculad1.entraUm());
+		assertEquals("11I1", calculad1.comandoSoma());
+		calculad1.entraI();
+		assertEquals("0I1", calculad1.entraUm());
+		assertEquals("11I2", calculad1.comandoSoma());
+	}
 
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testRetornaCentoeOnzeApartirDoZero() {
-        bravo.Calculadora c = new bravo.Calculadora();
-        assertEquals("1", c.entraUm());
-        assertEquals("11", c.entraUm());
-        assertEquals("111", c.entraUm());
-    }
+	public void testSomaI0b11eI0x11sai0x0I0x14()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		calculad1.entraI();
+		calculad1.modoBin();
+		assertEquals("0b0I0b1", calculad1.entraUm());
+		assertEquals("0b0I0b11", calculad1.entraUm());
+		assertEquals("0b0I0b11", calculad1.comandoSoma());
+		calculad1.entraI();
+		calculad1.modoHex();
+		assertEquals("0x0I0x1", calculad1.entraUm());
+		assertEquals("0x0I0x11", calculad1.entraUm());
+		assertEquals("0x0I0x14", calculad1.comandoSoma());
+	}
 
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testUmMaisUm() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("1", calculad1.comandoSoma());
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("2", calculad1.comandoSoma());
-    }
+	public void testSomaELimpa()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("1", calculad1.comandoSoma());
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("11", calculad1.entraUm());
+		assertEquals("12", calculad1.comandoSoma());
+		assertEquals(0, calculad1.limpa());
+	}
 
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testUmMaisUmLimpar() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("1", calculad1.comandoSoma());
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("0", calculad1.limpa());
-    }
+	public void testEntraD1IB11N1sai0b1I0b11N1()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		calculad1.entraI();
+		calculad1.modoBin();
+		assertEquals("0b1I0b1", calculad1.entraUm());
+		assertEquals("0b1I0b11", calculad1.entraUm());
+		calculad1.entraN();
+		assertEquals("0b1I0b11N0b1", calculad1.entraUm());
+	}
 
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraUmLimpa() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("0", calculad1.limpa());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testSomaApartirDoRepousoRetornaZero() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("0", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testSomaUmMaisRetornaUm() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("1", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraUmComandoSomaValorAcumulador() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.entraUm();
-        calculad1.entraUm();
-        assertEquals("11", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testComandoSomaDigitarUmSomar() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("1", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testComandoSomaSomar11e1111() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("11", calculad1.entraUm());
-        assertEquals("11", calculad1.comandoSoma());
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("11", calculad1.entraUm());
-        assertEquals("111", calculad1.entraUm());
-        assertEquals("1111", calculad1.entraUm());
-        assertEquals("1122", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testBaseHexadecimalUmMaisUm() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoHex();
-        assertEquals("0x1", calculad1.entraUm());
-        assertEquals("0x1", calculad1.comandoSoma());
-        assertEquals("0x1", calculad1.entraUm());
-        assertEquals("0x2", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testBaseDecimalSomandoUmMaisUmRetornaDois() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        assertEquals("1", calculad1.entraUm());
-        calculad1.modoDec();
-        assertEquals("1", calculad1.comandoSoma());
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("2", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testBaseBinariaEntraOnzeSomaEntraUmRetornaCem() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoBin();
-        assertEquals("0b1", calculad1.entraUm());
-        assertEquals("0b11", calculad1.entraUm());
-        assertEquals("0b11", calculad1.comandoSoma());
-        assertEquals("0b1", calculad1.entraUm());
-        assertEquals("0b100", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testBinariaOnzeSomaDecimalUmRetornaDecimalQuatro() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoBin();
-        assertEquals("0b1", calculad1.entraUm());
-        assertEquals("0b11", calculad1.entraUm());
-        assertEquals("0b11", calculad1.comandoSoma());
-        calculad1.modoDec();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("4", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testDecimalOnzeSomaBinariaUmSomaHexaUmRetornaHexaD() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoDec();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("11", calculad1.entraUm());
-        assertEquals("11", calculad1.comandoSoma());
-        calculad1.modoBin();
-        assertEquals("0b1", calculad1.entraUm());
-        assertEquals("0b1100", calculad1.comandoSoma());
-        calculad1.modoHex();
-        assertEquals("0x1", calculad1.entraUm());
-        assertEquals("0xd", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testeHexaUmSomaDecOnzeSomaBinOnzeRetornaEmBinMilCentoOnze() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoHex();
-        assertEquals("0x1", calculad1.entraUm());
-        assertEquals("0x1", calculad1.comandoSoma());
-        calculad1.modoDec();
-        assertEquals("1", calculad1.entraUm());
-        assertEquals("11", calculad1.entraUm());
-        calculad1.comandoSoma();
-        calculad1.modoBin();
-        assertEquals("0b1", calculad1.entraUm());
-        calculad1.modoBin();
-        assertEquals("0b11", calculad1.entraUm());
-        assertEquals("0b1111", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testH1SomaB1RetornaB10() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoHex();
-        assertEquals("0x1", calculad1.entraUm());
-        assertEquals("0x1", calculad1.comandoSoma());
-        calculad1.modoBin();
-        assertEquals("0b1", calculad1.entraUm());
-        assertEquals("0b10", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraB1H1B1sai0b100011() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoBin();
-        calculad1.entraUm();
-        calculad1.modoHex();
-        calculad1.entraUm();
-        calculad1.modoBin();
-        assertEquals("0b100011", calculad1.entraUm());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraB1H1D1sai171()    {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoBin();
-        calculad1.entraUm();
-        calculad1.modoHex();
-        calculad1.entraUm();
-        calculad1.modoDec();
-        assertEquals("171", calculad1.entraUm());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraB1H1sai0x11() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.modoBin();
-        calculad1.entraUm();
-        calculad1.modoHex();
-        assertEquals("0x11", calculad1.entraUm());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testSomaB111Soma111sai0b1110() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.comandoSoma();
-        calculad1.modoBin();
-        calculad1.entraUm();
-        calculad1.entraUm();
-        calculad1.entraUm();
-        calculad1.comandoSoma();
-        calculad1.entraUm();
-        calculad1.entraUm();
-        calculad1.entraUm();
-        assertEquals("0b1110", calculad1.comandoSoma());
-    }
-
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraD1ImD1SomaD1sai2I1() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.entraUm();
-        calculad1.entraI();
-        calculad1.entraUm();
-        calculad1.comandoSoma();
-        calculad1.entraUm();
-        assertEquals("2I1", calculad1.comandoSoma());
-    }
-   
-    /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraD1SomaD1ImD1sai2I1() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.entraUm();
-        calculad1.comandoSoma();
-        calculad1.entraUm();
-        calculad1.entraI();
-        calculad1.entraUm();
-        assertEquals("2I1", calculad1.comandoSoma());
-    }
-        /**
-     * teste de unidade, manipulacao dos metodos.
-     */
-    public final void testEntraD1ImD1SomaD1ImD1sai2I2() {
-        bravo.Calculadora calculad1 = new bravo.Calculadora();
-        calculad1.entraUm();
-        calculad1.entraI();
-        calculad1.entraUm();
-        calculad1.comandoSoma();
-        calculad1.entraUm();
-        calculad1.entraI();
-        calculad1.entraUm();
-        assertEquals("2I2", calculad1.comandoSoma());
-    }
+	public void testSoma11N1mais1N11sai1N11()
+	{
+		bravo.Calculadora calculad1 = new bravo.Calculadora();
+		assertEquals("1", calculad1.entraUm());
+		assertEquals("11", calculad1.entraUm());
+		calculad1.entraN();
+		assertEquals("11N1", calculad1.entraUm());
+		assertEquals("11N1", calculad1.comandoSoma());
+		assertEquals("1", calculad1.entraUm());
+		calculad1.entraN();
+		assertEquals("1N1", calculad1.entraUm());
+		assertEquals("1N11", calculad1.entraUm());
+		assertEquals("1N11", calculad1.comandoSoma());
+	}
 }
+
+
+
+
+
+
+
