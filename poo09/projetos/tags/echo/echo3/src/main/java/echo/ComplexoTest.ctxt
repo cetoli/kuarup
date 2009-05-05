@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=ComplexoTest()
+comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ ComplexoTest.\n\n
+comment1.target=void\ setUp()
+comment1.text=\nPreparauuo\ do\ caso\ de\ teste.\n\nChamado\ antes\ de\ cada\ metodo\ de\ caso\ de\ teste.\n\n
+comment10.target=void\ testSoma111I10e101I11()
+comment10.text=\nTeste\:\ somar\ 111I10\ e\ 101I11\n\n
+comment11.target=void\ testSoma85I24e9I13()
+comment11.text=\nTeste\:\ somar\ 85I24\ e\ 9I13\n\n
+comment2.target=void\ tearDown()
+comment2.text=\nLimpeza\ do\ caso\ de\ teste.\n\nChamado\ apus\ cada\ metodo\ de\ teste\ de\ caso.\n\n
+comment3.target=void\ testAdicionarParteReal11()
+comment3.text=\nTeste\:\ adicionar\ o\ numero\ 11\ como\ parte\ real.\n\n
+comment4.target=void\ testAdicionarParteReal101()
+comment4.text=\nTeste\:\ adicionar\ o\ numero\ 101\ como\ parte\ real.\n\n
+comment5.target=void\ testAdicionarParteReal1101()
+comment5.text=\nTeste\:\ adicionar\ o\ numero\ 1101\ como\ parte\ real.\n\n
+comment6.target=void\ testAdicionarParteImaginaria11()
+comment6.text=\nTeste\:\ adicionar\ o\ numero\ 11\ como\ parte\ imaginaria.\n\n
+comment7.target=void\ testAdicionarParteImaginaria101()
+comment7.text=\nTeste\:\ adicionar\ o\ numero\ 101\ como\ parte\ imaginaria.\n\n
+comment8.target=void\ testAdicionarParteImaginaria1101()
+comment8.text=\nTeste\:\ adicionar\ o\ numero\ 1101\ como\ parte\ imaginaria.\n\n
+comment9.target=void\ testSoma12I24e1I115()
+comment9.text=\nTeste\:\ somar\ 12I24\ e\ 1I115\ \n\n
+numComments=12

@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=operando
+comment0.target=void\ soma(Operando)
+comment0.text=\nMetodo\ que\ soma\ um\ operando\ a\ outro\ operando.\n@param\ operando\n\n
+comment1.params=operando
+comment1.target=void\ adicionaParteReal(Operando)
+comment1.text=\nMetodo\ que\ adiciona\ uma\ parte\ real\ a\ um\ operando.\n@param\ operando\n\n
+comment2.params=operando
+comment2.target=void\ adicionaParteImaginaria(Operando)
+comment2.text=\nMetodo\ que\ adiciona\ uma\ parte\ imaginaria\ a\ um\ operando.\n@param\ operando\n\n
+comment3.params=operando
+comment3.target=void\ adicionaExpoente(Operando)
+comment3.text=\nMetodo\ que\ adiciona\ um\ expoente\ a\ um\ operando.\n@param\ operando\n\n
+comment4.params=base
+comment4.target=String\ mostra(Base)
+comment4.text=\nMetodo\ que\ mostra\ o\ operando\ na\ base\ especificada.\n@param\ base\n@return\ valor\ do\ operando\ na\ base\ especificada\n\n
+comment5.target=Operando\ getParteReal()
+comment5.text=\nMetodo\ que\ retorna\ a\ parte\ real\ do\ operando.\n@return\ operando\n\n
+comment6.target=Operando\ getParteImaginaria()
+comment6.text=\nMetodo\ que\ retorna\ a\ parte\ imaginaria\ do\ operando.\n@return\ operando\n\n
+comment7.target=Operando\ getExpoente()
+comment7.text=\nMetodo\ que\ retorna\ o\ expoente\ do\ operando.\n@return\ operando\n\n
+comment8.target=int\ getValor()
+comment8.text=\nMetodo\ que\ retorna\ o\ valor\ em\ decimal\ da\ parte\ real\ ou\ \nimaginaria\ do\ operando\n@return\ valor\ em\ decimal\n\n
+numComments=9
