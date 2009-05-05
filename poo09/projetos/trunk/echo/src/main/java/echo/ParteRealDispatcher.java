@@ -38,7 +38,7 @@ public class ParteRealDispatcher implements Dispatcher {
      * @param inteiro
      */
     public void adicionaExpoente(int i, Inteiro inteiro) {
-        inteiro.adicionaExpoente(new Nulo());
+        inteiro.getParteReal().adicionaExpoente(new Nulo());
     }
 
     /**

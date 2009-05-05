@@ -37,7 +37,7 @@ public class ParteImaginariaDispatcher implements Dispatcher {
      * @param inteiro
      */
     public void adicionaExpoente(int i, Inteiro inteiro) {
-        inteiro.adicionaExpoente(new Nulo());
+        inteiro.getParteImaginaria().adicionaExpoente(new Nulo());
     }
 
     /**

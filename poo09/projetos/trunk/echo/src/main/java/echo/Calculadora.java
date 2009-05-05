@@ -22,7 +22,7 @@ public class Calculadora implements ICalculadoraEngenharia {
     // Estado da Caculadora
     private int opDecimal;
     private String opString;
-    private Inteiro inteiro;
+    private Inteiro operando;
     private Inteiro acumulador;
     private Dispatcher dispatcher;
     private String display;
@@ -34,24 +34,8 @@ public class Calculadora implements ICalculadoraEngenharia {
      */
     public Calculadora() {
         // inicializa variaveis de instancia
+        base = new BaseDecimalStrategy();
         limpa();
-    }
-
-    /**
-     * Entra a tecla um.
-     * @return conteudo do inteiro.
-     */
-    public String entraUm() {
-        opString = base.converteBase(opDecimal) + "1";
-        opDecimal = base.converteBaseParaDecimal(opString);
-
-        dispatcher.adicionaParteReal(opDecimal, inteiro);
-        dispatcher.adicionaParteImaginaria(opDecimal, inteiro);
-        dispatcher.adicionaExpoente(opDecimal, inteiro);
-
-        display = inteiro.mostra(base);
-
-        return display;
     }
 
     /**
@@ -61,23 +45,38 @@ public class Calculadora implements ICalculadoraEngenharia {
     public String limpa() {
         opDecimal = 0;
         opString = "";
-        display = "";
 
-        inteiro = new ComplexoComposite();
+        operando = new ComplexoComposite();
         acumulador = new ComplexoComposite();
         dispatcher = new ParteRealDispatcher();
 
-        dispatcher.adicionaParteReal(0, inteiro);
-        dispatcher.adicionaParteImaginaria(0, inteiro);
-        dispatcher.adicionaExpoente(0, inteiro);
+        dispatcher.adicionaParteReal(0, operando);
+        dispatcher.adicionaParteImaginaria(0, operando);
+        dispatcher.adicionaExpoente(0, operando);
 
         dispatcher.adicionaParteReal(0, acumulador);
         dispatcher.adicionaParteImaginaria(0, acumulador);
         dispatcher.adicionaExpoente(0, acumulador);
 
-        base = new BaseDecimalStrategy();
+        display = operando.mostra(base);
+        return display;
+    }
+    
+    /**
+     * Entra a tecla um.
+     * @return conteudo do operando.
+     */
+    public String entraUm() {
+        opString = base.converteBase(opDecimal) + "1";
+        opDecimal = base.converteBaseParaDecimal(opString);
 
-        return acumulador.mostra(base);
+        dispatcher.adicionaParteReal(opDecimal, operando);
+        dispatcher.adicionaParteImaginaria(opDecimal, operando);
+        dispatcher.adicionaExpoente(opDecimal, operando);
+
+        display = operando.mostra(base);
+
+        return display;
     }
 
     /**
@@ -85,16 +84,18 @@ public class Calculadora implements ICalculadoraEngenharia {
      * @return conteudo do acumulador
      */
     public String comandoSoma() {
-        acumulador.soma(inteiro);
-        display = acumulador.mostra(base);
+        acumulador.soma(operando);
+
+        dispatcher = new ParteRealDispatcher();
+
+        operando = new ComplexoComposite();
+        dispatcher.adicionaParteReal(0, operando);
+        dispatcher.adicionaParteImaginaria(0, operando);
+        dispatcher.adicionaExpoente(0, operando);
 
         opDecimal = 0;
         opString = "";
-
-        dispatcher = new ParteRealDispatcher();
-        dispatcher.adicionaParteReal(0, inteiro);
-        dispatcher.adicionaParteImaginaria(0, inteiro);
-        dispatcher.adicionaExpoente(0, inteiro);
+        display = acumulador.mostra(base);
 
         return display;
     }
@@ -127,6 +128,7 @@ public class Calculadora implements ICalculadoraEngenharia {
         dispatcher = new ParteImaginariaDispatcher();
         opDecimal = 0;
         opString = "";
+        dispatcher.adicionaParteImaginaria(0, operando);
         dispatcher.adicionaParteImaginaria(acumulador.getParteImaginaria().getValor(), acumulador);
     }
 
@@ -134,10 +136,9 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra o expoente da notacao de engenharia.
      */
     public void entraN() {
+        dispatcher = dispatcher.entraExpoente();
         opDecimal = 0;
         opString = "";
-
-        dispatcher = dispatcher.entraExpoente();
-        dispatcher.adicionaExpoente(0, acumulador);
+        dispatcher.adicionaExpoente(0, operando);
     }
 }

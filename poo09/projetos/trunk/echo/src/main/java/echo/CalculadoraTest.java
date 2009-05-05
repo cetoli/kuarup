@@ -600,4 +600,27 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculadora.entraUm();
         assertEquals("0b100110000I0b10010", calculadora.comandoSoma());
     }
+
+	public void testTestEntra1N1()
+	{
+		echo.Calculadora calculad1 = new echo.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraN();
+		assertEquals("1N1", calculad1.entraUm());
+	}
+
+	public void testTestSoma1N1e1N1()
+	{
+		echo.Calculadora calculad1 = new echo.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		assertEquals("2N1", calculad1.comandoSoma());
+	}
 }
+
+
