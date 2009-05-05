@@ -59,8 +59,18 @@ public class ImaginarioComposite implements Inteiro {
      * Metodo herdado de Inteiro.
      */
     public void soma(Inteiro inteiro) {
-        int diff = inteiro.getExpoente().getValor() - expoente.getValor();
-        mantissa += inteiro.getParteImaginaria().getValor() / Math.pow(10, diff);
+        int diff = expoente.getValor() - inteiro.getExpoente().getValor();
+
+        if (diff == 0) {
+            mantissa += inteiro.getParteImaginaria().getValor();
+        }
+        else if (diff > 0) {
+            mantissa += inteiro.getParteImaginaria().getValor() / (int)Math.pow(10, diff);
+        }
+        else {
+            mantissa = mantissa / (int)Math.pow(10, -diff) + inteiro.getParteImaginaria().getValor();
+            expoente = new Expoente(inteiro.getExpoente().getValor());
+        }
     }
 
     /**

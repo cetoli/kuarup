@@ -59,8 +59,18 @@ public class RealComposite implements Inteiro {
      * Metodo herdado de Inteiro.
      */
     public void soma(Inteiro inteiro) {
-        int diff = inteiro.getExpoente().getValor() - expoente.getValor();
-        mantissa += inteiro.getParteReal().getValor() / Math.pow(10, diff);
+        int diff = expoente.getValor() - inteiro.getExpoente().getValor();
+
+        if (diff == 0) {
+            mantissa += inteiro.getParteReal().getValor();
+        }
+        else if (diff > 0) {
+            mantissa += inteiro.getParteReal().getValor() / (int)Math.pow(10, diff);
+        }
+        else {
+            mantissa = mantissa / (int)Math.pow(10, -diff) + inteiro.getParteReal().getValor();
+            expoente = new Expoente(inteiro.getExpoente().getValor());
+        }
     }
 
     /**
