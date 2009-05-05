@@ -7,7 +7,7 @@ package hotel;
  * @author Carlos Henrique Pinto Rodriguez
  * @author Alexandre Neves Louzada
  *
- * @version 3     Data 30/04/2009
+ * @version 4     Data 05/04/2009
  */
 
 public class BinStrategy implements Strategy
@@ -54,10 +54,19 @@ public class BinStrategy implements Strategy
 		return calc.getAcumulador().toString();
     }
 	
+    /**.
+     * converte um número para uma String na sua base correspondente
+     * @param valor
+     * @return número convertido
+     */
     public String converter(int valor) {
 		return Integer.toString(valor, 2);
 	}
 
+    /**.
+     * retorna a representação da base
+     * @return representação
+     */
     public String getRepresentacao() {
 		return "0b";
 	}
