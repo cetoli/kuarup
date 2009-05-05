@@ -2,11 +2,11 @@
 comment0.target=BaseHexadecimalTest()
 comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ testbaseHexa.\n\n
 comment1.target=void\ setUp()
-comment1.text=\nDefine\ a\ .\n\nChamado\ antes\ de\ cada\ m\uFFFDtodo\ de\ caso\ de\ teste.\n\n
+comment1.text=\nDefine\ a\ .\n\nChamado\ antes\ de\ cada\ m\u00EF\u00BF\u00BDtodo\ de\ caso\ de\ teste.\n\n
 comment10.target=void\ testConverterParaDecimal1111()
 comment10.text=\nTeste\:\ converter\ para\ base\ decimal\ um\ numero\ na\ base\ hexadecimal.\n\n
 comment2.target=void\ tearDown()
-comment2.text=\nTears\ down\ the\ test\ fixture.\n\nChamado\ ap\uFFFDs\ cada\ m\uFFFDtodo\ de\ teste\ de\ caso.\n\n
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nChamado\ ap\u00EF\u00BF\u00BDs\ cada\ m\u00EF\u00BF\u00BDtodo\ de\ teste\ de\ caso.\n\n
 comment3.target=void\ testConverterBase1()
 comment3.text=\nTeste\:\ converter\ para\ base\ hexadecimal\ um\ numero\ na\ base\ decimal.\n\n
 comment4.target=void\ testConverterBase11()

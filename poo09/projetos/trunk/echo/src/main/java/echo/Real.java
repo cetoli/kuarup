@@ -17,19 +17,21 @@ package echo;
  */
 public class Real implements Operando {
 
-    private int valor;
+    private int mantissa;
+    private Operando expoente;
 
     /**
      * Metodo herdado de Operando.
      */
-    public Real(int valor) {
-        this.valor = valor;
+    public Real (int valor) {
+        mantissa = valor;
     }
 
     /**
      * Metodo herdado de Operando.
      */
-    public void adicionaParteReal(Operando operando) {    
+    public void adicionaParteReal(Operando operando) {
+        mantissa += operando.getValor();
     }
 
     /**
@@ -41,28 +43,30 @@ public class Real implements Operando {
     /**
      * Metodo herdado de Operando.
      */
-    public void adicionaExpoente(Operando operando) {    
+    public void adicionaExpoente(Operando operando) {
+        expoente = operando;
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public String mostra(Base base) {
-        return base.getId() + base.converteBase(this.valor);
+        return base.getId() + base.converteBase(mantissa) + expoente.mostra(base);
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public void soma(Operando operando) {
-        this.valor += operando.getValor();
+        mantissa += operando.getValor();
+        //TODO
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public int getValor() {
-        return this.valor;
+        return 0;
     }
 
     /**
@@ -83,6 +87,6 @@ public class Real implements Operando {
      * Metodo herdado de Operando.
      */
     public Operando getExpoente() {
-        return new Nulo();
+        return expoente;
     }
 }

@@ -14,7 +14,7 @@ import labase.poo.ICalculadoraEngenharia;
  * @author  (Marcos de Castro)  $Author$
  * @author  (Andre de Abrantes)  $Author$
  * @version (4.0)    $Revision$ (04/05/09)      $Date$
- * @since   (4.0) suporte a notacao de engenharia
+ * @since   (3.0) suporte a notacao de engenharia
  */
 
 public class Calculadora implements ICalculadoraEngenharia {
@@ -33,7 +33,7 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Sempre inicializa como decimal
      */
     public Calculadora() {
-        // inicializa vari�veis de inst�ncia
+        // inicializa variaveis de instancia
         limpa();
     }
 
@@ -67,6 +67,7 @@ public class Calculadora implements ICalculadoraEngenharia {
         compositor.adicionaParteReal(0, operando);
         compositor.adicionaParteImaginaria(0, operando);
         compositor.adicionaExpoente(0, operando);
+
         compositor.adicionaParteReal(0, acumulador);
         compositor.adicionaParteImaginaria(0, acumulador);
         compositor.adicionaExpoente(0, acumulador);
