@@ -8,7 +8,7 @@
 
 package golf;
 
-import labase.poo.ICalculadoraComplexo;
+import labase.poo.ICalculadoraEngenharia;
 
 /**
  * Classe que implementa a calculadora.
@@ -20,7 +20,7 @@ import labase.poo.ICalculadoraComplexo;
  * @since   1.0 IncluÌdas as implementaÁıes dos mÈtodos limpa(), entraUm() e
  * comandoSoma().
  */
-public class Calculadora implements ICalculadoraComplexo {
+public class Calculadora implements ICalculadoraEngenharia {
 
     // Estado da Caculadora
     /**
@@ -118,7 +118,7 @@ public class Calculadora implements ICalculadoraComplexo {
     }
 
     /**
-     * Entra a base hexadecimal.
+     * Entra a base parte complexa do numero.
      */
     public void entraI() {
         ComponentNum aux1 = new CompositeNum(); //Default começa apenas como real
@@ -137,4 +137,11 @@ public class Calculadora implements ICalculadoraComplexo {
         
         tipo = complexo;
     }
+
+    /**
+     * Entra a base parte complexa do numero.
+     */
+    public void entraN() {
+    }
+
 }
