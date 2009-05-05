@@ -1,19 +1,12 @@
-/*-----------------------------------------------------------------------------
-    Copyright 2002-2006        Carlo E. T. Oliveira et all
-    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
-
-    This software is licensed as described in the file LICENSE.txt,
-    which you should have received as part of this distribution.
-----------------------------------------------------------------------------*/
 package echo;
 
 /**
- * Calculadora com n�meros complexos.
+ * Write a description of class Expoente here.
  * 
  * @author  (Marcos de Castro)  $Author$
  * @author  (Andre de Abrantes)  $Author$
  * @version (4.0)    $Revision$ (04/05/09)      $Date$
- * @since   (3.0) suporte a notacao de engenharia.
+ * @since   (3.0) suporte a numeros complexos
  */
 public class Expoente implements Operando {
 
@@ -23,7 +16,7 @@ public class Expoente implements Operando {
      * Metodo herdado de Operando.
      */
     public Expoente(int valor) {
-        this.valor = valor;    
+        this.valor = valor;
     }
 
     /**
@@ -35,34 +28,35 @@ public class Expoente implements Operando {
     /**
      * Metodo herdado de Operando.
      */
-    public void adicionaParteImaginaria(Operando operando) {    
+    public void adicionaParteImaginaria(Operando operando) { 
     }
 
     /**
      * Metodo herdado de Operando.
      */
-    public void adicionaExpoente(Operando operando) {    
+    public void adicionaExpoente(Operando operando) {
+        valor = operando.getValor();
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public String mostra(Base base) {
-        return "N" + base.getId() + base.converteBase(this.valor);
+        return base.getId() + base.converteBase(valor);
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public void soma(Operando operando) {
-        this.valor += operando.getValor();
+        //TODO
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public int getValor() {
-        return this.valor;
+        return valor;
     }
 
     /**

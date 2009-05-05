@@ -19,27 +19,29 @@ public class Complexo implements Operando {
 
     private Operando real;
     private Operando imaginario;
-    private Operando expoente;
+    private Operando estado;
 
     /**
      * Metodo herdado de Operando.
      */
     public void adicionaParteReal(Operando operando) {
-        this.real = operando;
+        real = operando;
+        estado = real;
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public void adicionaParteImaginaria(Operando operando) {
-        this.imaginario = operando;
+        imaginario = operando;
+        estado = imaginario;
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public void adicionaExpoente(Operando operando) {
-        this.expoente = operando;
+        estado.adicionaExpoente(operando);
     }
 
 
@@ -47,37 +49,36 @@ public class Complexo implements Operando {
      * Metodo herdado de Operando.
      */
     public String mostra(Base base) {
-        return this.real.mostra(base) + this.imaginario.mostra(base) + this.expoente.mostra(base);
+        return real.mostra(base) + imaginario.mostra(base);
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public void soma(Operando operando) {
-        this.real.soma(operando.getParteReal());
-        this.imaginario.soma(operando.getParteImaginaria());
-        this.expoente.soma(operando.getExpoente());
+        real.soma(operando.getParteReal());
+        imaginario.soma(operando.getParteImaginaria());
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public Operando getParteReal() {
-        return this.real;
+        return real;
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public Operando getParteImaginaria() {
-        return this.imaginario;
+        return imaginario;
     }
 
     /**
      * Metodo herdado de Operando.
      */
     public Operando getExpoente() {
-        return this.expoente;
+        return new Nulo();
     }
 
     /**
