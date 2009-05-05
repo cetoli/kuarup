@@ -1,4 +1,5 @@
-package golf;
+package golf.num;
+
 
 
 
@@ -35,7 +36,7 @@ public class ExponentTest extends junit.framework.TestCase{
      * Testa se ao entrar um o valor Ž N1
      */
 	public void testEntra1(){
-		golf.Exponent exponent1 = new golf.Exponent();
+		golf.num.Exponent exponent1 = new golf.num.Exponent();
 		exponent1.entraUm();
 		assertEquals("N1", exponent1.writeNum());
 	}
@@ -44,7 +45,7 @@ public class ExponentTest extends junit.framework.TestCase{
      * Testa se ao entrar um duas vezes o valor em bin‡rio Ž N1011
      */
 	public void testEntra11EMostraBin(){
-		golf.Exponent exponent1 = new golf.Exponent();
+		golf.num.Exponent exponent1 = new golf.num.Exponent();
 		exponent1.entraUm();
 		exponent1.entraUm();
 		exponent1.modoBin();
@@ -55,7 +56,7 @@ public class ExponentTest extends junit.framework.TestCase{
      * Testa se ao entrar um tres vezes o valor em hexadecimal Ž N6f
      */
 	public void testEntra111EMostraHex(){
-		golf.Exponent exponent1 = new golf.Exponent();
+		golf.num.Exponent exponent1 = new golf.num.Exponent();
 		exponent1.entraUm();
 		exponent1.entraUm();
 		exponent1.entraUm();

@@ -1,4 +1,5 @@
-package golf;
+package golf.num;
+
 
 
 
@@ -37,7 +38,7 @@ public class ImaginarioTest extends junit.framework.TestCase
      * Testa se ao entrar um duas vezes o valor em bin‡rio Ž 0b1011
      */
 	public void testEntra1(){
-		golf.Imaginario imaginario1 = new golf.Imaginario();
+		golf.num.Imaginario imaginario1 = new golf.num.Imaginario();
 		imaginario1.entraUm();
 		assertEquals("I1", imaginario1.writeNum());
 	}
@@ -46,7 +47,7 @@ public class ImaginarioTest extends junit.framework.TestCase
      * Testa se ao entrar um duas vezes o valor em bin‡rio Ž I0b1011
      */
 	public void testEntra11EMostraBinario(){
-		golf.Imaginario imaginario1 = new golf.Imaginario();
+		golf.num.Imaginario imaginario1 = new golf.num.Imaginario();
 		imaginario1.entraUm();
 		imaginario1.entraUm();
 		imaginario1.modoBin();
@@ -57,7 +58,7 @@ public class ImaginarioTest extends junit.framework.TestCase
      * Testa se ao entrar um tres vezes o valor em hexadecimal Ž I0x6f
      */
 	public void testEntra111EMostraHex(){
-		golf.Imaginario imaginario1 = new golf.Imaginario();
+		golf.num.Imaginario imaginario1 = new golf.num.Imaginario();
 		imaginario1.entraUm();
 		imaginario1.entraUm();
 		imaginario1.entraUm();

@@ -1,4 +1,9 @@
-package golf;
+package golf.num;
+
+import golf.bases.BaseStrategy;
+import golf.bases.BinariaStrategy;
+import golf.bases.DecimalStrategy;
+import golf.bases.HexadecimalStrategy;
 
 
 /**
@@ -19,14 +24,14 @@ public abstract class ComponentNum {
     protected BaseStrategy base = new DecimalStrategy();
 
     /**
-     * Metodo que inicializa os valores dos atributos da instancia
+     * Metodo que inicializa os valores dos atributos da instancia.
      */
     public void initialize(BaseStrategy umaBase) {
         base = umaBase;
     }
 
     /**
-     * Metodo que retorna o conteœdo do atributo valor
+     * Metodo que retorna o contendo do atributo valor.
      * @result valor
      */
     public int getValue(int index) {
@@ -34,7 +39,7 @@ public abstract class ComponentNum {
     }
 
     /**
-     * Metodo que atualiza o conteœdo do atributo valor
+     * Metodo que atualiza o contendo do atributo valor.
      * @param  x    novo valor
      */
     public void setValue(int index, int x) {
@@ -42,7 +47,7 @@ public abstract class ComponentNum {
     }
 
     /**
-     * Metodo que retorna o conteœdo do atributo valor
+     * Metodo que retorna o conteœdo do atributo valor.
      * @result valor
      */
     public BaseStrategy getBase() {
@@ -50,7 +55,7 @@ public abstract class ComponentNum {
     }
 
     /**
-     * Metodo que atualiza o conteœdo do atributo valor
+     * Metodo que atualiza o conteœdo do atributo valor.
      * @param  x    novo valor
      */
     public void setBase(BaseStrategy b) {
@@ -58,7 +63,7 @@ public abstract class ComponentNum {
     }
 
     /**
-     * Metodo que realiza o entra um
+     * Metodo que realiza o entra um.
      */
     public void entraUm() {
         valor = valor * base.getBase() + 1;
@@ -72,7 +77,7 @@ public abstract class ComponentNum {
     }
 
     /**
-     * Entra a base binária.
+     * Entra a base binaria.
      */
     public void modoBin() {
         base = new BinariaStrategy();
@@ -86,59 +91,59 @@ public abstract class ComponentNum {
     }
 
     /**
-     * Metodo que respons‡vel por adicionar um componente
-     * @param  componente    o elemento a ser adicionado
+     * Metodo que responsavel por adicionar um componente.
+     * @param  componente    o elemento a ser adicionado.
      */
     public void addComponent(ComponentNum componente) {
         //n‹o faz nada
     }
 
     /**
-     * Metodo que respons‡vel por remover um componente
-     * @param  componente    o elemento a ser adicionado
+     * Metodo que responsavel por remover um componente.
+     * @param  componente    o elemento a ser adicionado.
      */
     public void removeComponent() {
         //n‹o faz nada
     }
-    
+
     /**
-     * Metodo que respons‡vel por retornar um componente
-     * @param  index    o indice do componente a ser retornado
-     * @result ComponentNum
+     * Metodo que responsavel por retornar um componente.
+     * @param  index    o indice do componente a ser retornado.
+     * @result ComponentNum.
      */
     public ComponentNum getComponent(int index) {
         return this;
     }
 
     /**
-     * Metodo que respons‡vel por alterar um componente especifico
-     * @param  index    o indice do componente a ser alterado
-     * @param  componente    componente a ser colocado na posicao especifica
+     * Metodo que responsavel por alterar um componente especifico.
+     * @param  index    o indice do componente a ser alterado.
+     * @param  componente    componente a ser colocado na posicao especifica.
      */
     public void setComponent(int index, ComponentNum componente) {
-        //n‹o faz nada
+        //nao faz nada
     }
 
     /**
-     * Metodo que respons‡vel por retornar o nœmero de componentes
-     * @param  componente    o elemento a ser adicionado
-     * @result int
+     * Metodo que responsavel por retornar o numero de componentes.
+     * @param  componente    o elemento a ser adicionado.
+     * @result int.
      */
     public int getComponentCount() {
         return 1;
     }
 
     /**
-     * Metodo respons‡vel por escrever o numero corretamente
-     * @result String
+     * Metodo responsavel por escrever o numero corretamente.
+     * @result String.
      */
     public String writeNum() {
         return getPrefix() + base.getId() + base.toBase(valor);
     }
 
     /**
-     * Metodo que respons‡vel por retornar o prefixo do componente
-     * @result String
+     * Metodo que responsavel por retornar o prefixo do componente.
+     * @result String.
      */
     public abstract String getPrefix();
 }

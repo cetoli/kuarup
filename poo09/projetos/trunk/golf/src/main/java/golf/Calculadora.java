@@ -8,6 +8,11 @@
 
 package golf;
 
+import golf.num.ComplexNum;
+import golf.num.ComponentNum;
+import golf.num.Exponent;
+import golf.num.Imaginario;
+import golf.num.Real;
 import labase.poo.ICalculadoraEngenharia;
 
 /**
@@ -36,11 +41,11 @@ public class Calculadora implements ICalculadoraEngenharia {
      **/
     private ComponentNum acumulador;
     /**
-     * Atributo operando guarda o contÈudo do operando.
+     * Atributo operando guarda o conte˙do do operando.
      **/
     private ComponentNum operando;
     /**
-     * Atributo operando guarda o contÈudo do operando.
+     * Atributo operando guarda o conte˙do do operando.
      **/
     private int tipo;
 
@@ -53,12 +58,12 @@ public class Calculadora implements ICalculadoraEngenharia {
     }
 
     /**
-     * Inicializa ambas as variáveis como reais de valor = 0.
+     * Inicializa ambas as vari·veis como reais de valor = 0.
      **/
     public void inicializa() {
         // inicializa vari·veis de instância
-        acumulador = new Real(); //Default começa apenas como real
-        operando = new Real(); //Default começa apenas como real
+        acumulador = new Real(); //Default comeca apenas como real
+        operando = new Real(); //Default comeca apenas como real
     }
 
     /**
@@ -123,24 +128,24 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra a base parte complexa do numero.
      */
     public void entraI() {
-/*        
-        ComponentNum aux1 = new CompositeNum(); //Default começa apenas como real
+/*
+        ComponentNum aux1 = new CompositeNum(); //Default comeca apenas como real
         aux1.initialize(operando.getBase());
         for(int i = 0; i < operando.getComponentCount(); i++){
             aux1.setValue(i, operando.getValue(i));
         }
         operando = aux1;
 
-        ComponentNum aux2 = new CompositeNum(); //Default começa apenas como real
+        ComponentNum aux2 = new CompositeNum(); //Default comeca apenas como real
         aux2.initialize(acumulador.getBase());
         for(int i = 0; i < acumulador.getComponentCount(); i++){
             aux2.setValue(i, acumulador.getValue(i));
         }
         acumulador = aux2;
-        
+
         tipo = complexo;
 */
-        
+
         ComponentNum composite = new ComplexNum();
         ComponentNum aux = new Imaginario();
         composite.addComponent(operando);

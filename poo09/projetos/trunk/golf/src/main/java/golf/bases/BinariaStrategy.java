@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 
-package golf;
+package golf.bases;
 
 /**
  * Classe da base binária.

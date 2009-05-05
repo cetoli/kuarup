@@ -1,16 +1,16 @@
-package golf;
+package golf.num;
 
 
 /**
- * Suporta operações com expoentes de engenharia.
- * 
- * @author Gustavo Taveira 
+ * Suporta operacoes com expoentes de engenharia.
+ *
+ * @author Gustavo Taveira
  * @version 4.0
  */
 public class Exponent extends ComponentNum{
 
     /**
-     * Metodo que responsável por retornar o prefixo do componente
+     * Metodo que responsavel por retornar o prefixo do componente
      * @result String
      */
     public String getPrefix() {
@@ -18,7 +18,7 @@ public class Exponent extends ComponentNum{
     }
 
     /**
-     * Metodo responsável por escrever o numero corretamente
+     * Metodo responsavel por escrever o numero corretamente
      * @result String
      */
     public String writeNum() {
