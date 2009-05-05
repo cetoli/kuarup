@@ -73,12 +73,20 @@ public class Calculadora implements ICalculadoraBase {
     }
 
     /**.
-     * Muda pro strategy HexStrategy
+     * Indica que os próximos valores entrados serão irreais
      */
      public void entraI() {
          operador.entraI();
-         acumulador.entraI();
+         //acumulador.entraI();
      }
+
+     /**.
+      * Indica que os próximos valores entrados serão irreais
+      */
+      public void entraN() {
+          operador.entraN();
+          //acumulador.entraN();
+      }
 
     /**.
     * @return acumulador
@@ -115,19 +123,32 @@ public class Calculadora implements ICalculadoraBase {
 	}
 	
 	public static void main(String [] args) {
-	    		hotel.Calculadora calculad1 = new hotel.Calculadora();
-		calculad1.entraUm();
-		calculad1.entraUm();
+	    hotel.Calculadora calculad1 = new hotel.Calculadora();
+	    calculad1.modoHex();
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
+		calculad1.entraN();
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
 		calculad1.entraI();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.comandoSoma();
-		calculad1.entraUm();
-		calculad1.entraUm();
-		calculad1.entraI();
-		calculad1.entraUm();
-		calculad1.entraUm();
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
+		calculad1.entraN();
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
 		System.out.println(calculad1.comandoSoma());
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
+		calculad1.entraN();
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
+		calculad1.entraI();
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
+		calculad1.entraN();
+	    System.out.println(calculad1.entraUm());
+	    System.out.println(calculad1.entraUm());
+		System.out.println(calculad1.comandoSoma());
+		System.out.println("~");
 	   }
 }

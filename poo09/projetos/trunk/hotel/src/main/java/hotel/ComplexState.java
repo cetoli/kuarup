@@ -11,20 +11,22 @@ package hotel;
  */
 
 
-public class ComplexState implements State {
+public class ComplexState implements StateComplex {
 	
 	public void entraUm(int base, Numero num) {
-		int valorImaginario = num.getValorImaginario();
-		valorImaginario *= base;
-		valorImaginario++;
-		num.setValorImaginario(valorImaginario);
+		num.getParteImaginaria().entraUm(base);
 	}
 	
 	public String toString(Calculadora calc, Numero num) {
-		Strategy strategy = calc.getStrategy();
-		String representacaoBase = strategy.getRepresentacao();
-		String valorReal = strategy.converter(num.getValorReal());
-		String valorImaginario = strategy.converter(num.getValorImaginario());
-		return representacaoBase + valorReal + "I" + valorImaginario;
+		return num.getParteReal().toString(calc) + "I" + num.getParteImaginaria().toString(calc);
 	}
+
+	public void entraN(Numero num) {
+		num.getParteImaginaria().entraN();
+	}
+
+	public int getPrioridade() {
+		return 1;
+	}
+
 }

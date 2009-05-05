@@ -10,18 +10,21 @@ package hotel;
  * @version 3     Data 30/04/2009
  */
 
-public class RealState implements State {
+public class RealState implements StateComplex {
 
 	public void entraUm(int base, Numero num) {
-		int valorReal = num.getValorReal();
-		valorReal *= base;
-		valorReal++;
-		num.setValorReal(valorReal);
+		num.getParteReal().entraUm(base);
 	}
 	
 	public String toString(Calculadora calc, Numero num) {
-		Strategy strategy = calc.getStrategy();
-		String representacaoBase = strategy.getRepresentacao();
-		return representacaoBase + strategy.converter(num.getValorReal());
+		return num.getParteReal().toString(calc);
+	}
+
+	public void entraN(Numero num) {
+		num.getParteReal().entraN();
+	}
+
+	public int getPrioridade() {
+		return 0;
 	}
 }
