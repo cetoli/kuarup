@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=base\ operador\ operadorImaginario
-comment0.target=String\ entraUm(StrategyBase,\ Numero,\ Numero)
-comment0.text=\nString\ entraUm.\n\n
-comment1.params=base\ operador\ operadorImaginario\ acumulador\ acumuladorImaginario
-comment1.target=String\ soma(StrategyBase,\ Numero,\ Numero,\ Numero,\ Numero)
-comment1.text=\nString\ soma.\n\n
-numComments=2
