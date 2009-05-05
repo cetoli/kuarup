@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.params=i\ operando
 comment0.target=void\ adicionaParteReal(int,\ Operando)
-comment0.text=\nM\u00E9todo\ que\ adiciona\ a\ parte\ real\ ao\ operando.\n@param\ operando\n\n
+comment0.text=\nMetodo\ que\ adiciona\ a\ parte\ real\ ao\ operando.\n@param\ operando\n\n
 comment1.params=i\ operando
 comment1.target=void\ adicionaParteImaginaria(int,\ Operando)
-comment1.text=\nM\u00E9todo\ que\ adiciona\ a\ parte\ imagin\u00E1ria\ ao\ operando.\n@param\ operando\n\n
-numComments=2
+comment1.text=\nMetodo\ que\ adiciona\ a\ parte\ imaginaria\ ao\ operando.\n@param\ operando\n\n
+comment2.params=i\ operando
+comment2.target=void\ adicionaExpoente(int,\ Operando)
+comment2.text=\nMetodo\ que\ adiciona\ expoente\ ao\ operando.\n@param\ operando\n\n
+numComments=3

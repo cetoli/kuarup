@@ -1,62 +1,74 @@
-/*------------------------------------------------------------------------------
-    Copyright © 2002-2006        Carlo E. T. Oliveira et all
+/*-----------------------------------------------------------------------------
+    Copyright 2002-2006        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
-------------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 package echo;
 
 /**
- * Calculadora com números complexos.
+ * Calculadora com numeros complexos.
  * 
  * @author  (Marcos de Castro)  $Author$
- * @author  (Thiago Silva de Souza)  $Author$
- * @version (3.0)    $Revision$ (28/04/09)      $Date$
- * @since   (3.0) Suporte a números complexos
+ * @author  (Andre de Abrantes)  $Author$
+ * @version (4.0)    $Revision$ (04/05/09)      $Date$
+ * @since   (3.0) suporte a notacao de engenharia
  */
 public interface Operando {
-    
+
     /**
-     * Método que soma um operando a outro operando.
+     * Metodo que soma um operando a outro operando.
      * @param operando
      */
     public void soma(Operando operando);
-    
+
     /**
-     * Método que adiciona uma parte real a um operando.
+     * Metodo que adiciona uma parte real a um operando.
      * @param operando
      */
     public void adicionaParteReal(Operando operando);
-    
+
     /**
-     * Método que adiciona uma parte imaginária a um operando.
+     * Metodo que adiciona uma parte imaginaria a um operando.
      * @param operando
      */
     public void adicionaParteImaginaria(Operando operando);
-    
+
     /**
-     * Método que mostra o operando na base especificada.
+     * Metodo que adiciona um expoente a um operando.
+     * @param operando
+     */
+    public void adicionaExpoente(Operando operando);
+
+    /**
+     * Metodo que mostra o operando na base especificada.
      * @param base
      * @return valor do operando na base especificada
      */
     public String mostra(Base base);
-    
+
     /**
-     * Método que retorna a parte real do operando.
+     * Metodo que retorna a parte real do operando.
      * @return operando
      */
     public Operando getParteReal();
-    
+
     /**
-     * Método que retorna a parte imaginária do operando.
+     * Metodo que retorna a parte imaginaria do operando.
      * @return operando
      */
     public Operando getParteImaginaria();
-    
+
     /**
-     * Método que retorna o valor em decimal da parte real ou 
-     * imaginária do operando
+     * Metodo que retorna o expoente do operando.
+     * @return operando
+     */
+    public Operando getExpoente();
+
+    /**
+     * Metodo que retorna o valor em decimal da parte real ou 
+     * imaginaria do operando
      * @return valor em decimal
      */
     public int getValor();

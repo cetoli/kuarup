@@ -1,22 +1,21 @@
-/*------------------------------------------------------------------------------
-    Copyright © 2002-2006          Carlo E. T. Oliveira et all
+/*-----------------------------------------------------------------------------
+    Copyright 2002-2006          Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
-------------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 package echo;
 
 /**
- * Calculadora com números complexos.
+ * Calculadora com numeros complexos.
  * 
  * @author  (Marcos de Castro)  $Author$
- * @author  (Thiago Silva de Souza)  $Author$
- * @version (3.0)    $Revision$ (28/04/09)      $Date$
- * @since   (3.0) Suporte a números complexos
+ * @author  (Andre de Abrantes)  $Author$
+ * @version (4.0)    $Revision$ (04/05/09)      $Date$
+ * @since   (3.0) suporte a notacao de engenharia
  */
-public class RealTest extends junit.framework.TestCase
-{   
+public class RealTest extends junit.framework.TestCase {
     /**
      * Construtor default para a classe de teste RealTest.
      */
@@ -24,9 +23,9 @@ public class RealTest extends junit.framework.TestCase
     }
 
     /**
-     * Preparação do caso de teste.
+     * Preparauuo do caso de teste.
      *
-     * Chamado antes de cada método de caso de teste.
+     * Chamado antes de cada mutodo de caso de teste.
      */
     protected void setUp() {
     }
@@ -34,16 +33,15 @@ public class RealTest extends junit.framework.TestCase
     /**
      * Limpeza do caso de teste.
      *
-     * Chamado após cada método de teste de caso.
+     * Chamado apus cada mutodo de teste de caso.
      */
     protected void tearDown() {
     }    
 
     /**
-     * Teste: adicionar o número 5 como parte real.
+     * Teste: adicionar o numero 5 como parte real.
      */
-    public void testAdicionarParteReal5()
-    {
+    public void testAdicionarParteReal5() {
         Real real1 = new Real(1);
         Real real2 = new Real(5);
         real1.adicionaParteReal(real2);
@@ -54,10 +52,9 @@ public class RealTest extends junit.framework.TestCase
     }
     
     /**
-     * Teste: adicionar o número 12 como parte real.
+     * Teste: adicionar o numero 12 como parte real.
      */
-    public void testAdicionarParteReal12()
-    {
+    public void testAdicionarParteReal12() {
         Real real1 = new Real(2);
         Real real2 = new Real(12);
         real1.adicionaParteReal(real2);
@@ -68,10 +65,9 @@ public class RealTest extends junit.framework.TestCase
     }
     
     /**
-     * Teste: adicionar o número 130 como parte real.
+     * Teste: adicionar o numero 130 como parte real.
      */
-    public void testAdicionarParteReal130()
-    {
+    public void testAdicionarParteReal130() {
         Real real1 = new Real(5);
         Real real2 = new Real(130);
         real1.adicionaParteReal(real2);
@@ -82,10 +78,9 @@ public class RealTest extends junit.framework.TestCase
     }
     
     /**
-     * Teste: adicionar o número 5 como parte imaginária.
+     * Teste: adicionar o numero 5 como parte imaginaria.
      */
-    public void testAdicionarParteImaginaria5()
-    {
+    public void testAdicionarParteImaginaria5() {
         Real real1 = new Real(10);
         Imaginario real2 = new Imaginario(5);
         real1.adicionaParteImaginaria(real2);
@@ -96,10 +91,9 @@ public class RealTest extends junit.framework.TestCase
     }
     
     /**
-     * Teste: adicionar o número 12 como parte imaginária.
+     * Teste: adicionar o numero 12 como parte imaginaria.
      */
-    public void testAdicionarParteImaginaria12()
-    {
+    public void testAdicionarParteImaginaria12() {
         Real real1 = new Real(15);
         Imaginario real2 = new Imaginario(12);
         real1.adicionaParteImaginaria(real2);
@@ -110,10 +104,9 @@ public class RealTest extends junit.framework.TestCase
     }
     
     /**
-     * Teste: adicionar o número 130 como parte imaginária.
+     * Teste: adicionar o numero 130 como parte imaginaria.
      */
-    public void testAdicionarParteImaginaria130()
-    {
+    public void testAdicionarParteImaginaria130() {
         Real real1 = new Real(30);
         Imaginario real2 = new Imaginario(130);
         real1.adicionaParteImaginaria(real2);
