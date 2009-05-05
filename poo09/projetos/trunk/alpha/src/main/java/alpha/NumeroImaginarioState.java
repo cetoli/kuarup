@@ -11,14 +11,14 @@ public class NumeroImaginarioState implements INumeroState {
     /**
      * Metodo que executa a entrada de numeros Imaginarios.
      */
-    public String entraUm(INumeroStrategy operador, INumeroStrategy operadorImaginario) {
+    public String entraUm(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy operadorExpoente, INumeroStrategy operadorImaginarioExpoente) {
         operadorImaginario.entraUm();
         return operadorImaginario.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
     /**
      * Metodo que executa a soma de numeros reais.
      */
-    public String soma(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy acumulador, INumeroStrategy acumuladorImaginario) {
+    public String soma(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy acumulador, INumeroStrategy acumuladorImaginario, INumeroStrategy operadorExpoente, INumeroStrategy operadorImaginarioExpoente, INumeroStrategy acumuladorExpoente, INumeroStrategy acumuladorImaginarioExpoente) {
         Integer temp = operador.converteEmNumeroDecimal().intValue()
                 + acumulador.converteEmNumeroDecimal().intValue();   
         operador.converterValorParaBase(temp, acumulador);
