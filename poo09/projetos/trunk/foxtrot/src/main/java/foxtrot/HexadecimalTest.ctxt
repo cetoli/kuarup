@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=HexadecimalTest()
+comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ testbaseHexa\n\n
+comment1.target=void\ setUp()
+comment1.text=\nDefine\ a\ .\n\nChamado\ antes\ de\ cada\ m\u00E9todo\ de\ caso\ de\ teste.\n\n
+comment2.target=void\ tearDown()
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nChamado\ ap\u00F3s\ cada\ m\u00E9todo\ de\ teste\ de\ caso.\n\n
+comment3.target=void\ testConversaoDecimalUm()
+comment3.text=\nTesta\ a\ convers\u00E3o\ de\ 1\ em\ bin\u00E1rio\ para\ decimal\ \nO\ retorno\ esperado\ \u00E9\ 1\n\n
+comment4.target=void\ testConversaoDecimalUmUm()
+comment4.text=\nTesta\ a\ convers\u00E3o\ de\ 11\ em\ bin\u00E1rio\ para\ decimal\ \nO\ retorno\ esperado\ \u00E9\ 17\n\n
+comment5.target=void\ testDesconversaoHexadecimal()
+comment5.text=\nTesta\ a\ visualiza\u00E7\u00E3o\ concatenando\ com\ D\ do\ valor\ 10\ \nO\ retorno\ esperado\ \u00E9\ H10\n\n
+comment6.target=void\ testDesconversaoParaBaseDecimal()
+comment6.text=\nTesta\ a\ convers\u00E3o\ do\ valor\ 11\ em\ Decimal\ para\ base\ Hexadecimal\nO\ retorno\ esperado\ \u00E9\ \n\n
+numComments=7
