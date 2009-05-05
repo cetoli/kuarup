@@ -3,10 +3,10 @@ package bravo;
 /**
  * Classe concreta que implementa a interface StrategyBase.
  * A classe calculadora realiza operações matemáticas com números Imaginários.
- * @author  (Carlos Felippe Cardoso de Resende) O papagaio
+ * @author  (Marcio Reis Teixeira) O papagaio
  * @author  (Humberto Ferreira Ramos Junior) O pirata
- * @version (3.0) (27 de abril de 2009) 
- * Esta versão trabalha com os numeros Imaginarios
+ * @version (4.0) (04 de maio de 2009) 
+ * Esta versão trabalha com exponencial
  */
 public class BaseBinaria implements StrategyBase {
 
@@ -15,16 +15,13 @@ public class BaseBinaria implements StrategyBase {
      */
     public BaseBinaria() {
     }
+    
+    public String getId(){
+        return "0b";   
+    }
 
-    /**
-     * Metodo de Entrada para Binários.
-     * Entrada de valores.
-     * @param valor com o numero que foi 'inputado'
-     * @return o numero que foi digitado ate o momento
-     */
-    public Numero entraUm(Numero valor) {
-        valor.setX(valor.getX() * 2 + 1);
-        return valor;
+    public int toDecimal(String numero) {
+        return Integer.parseInt(numero, 2);
     }
 
     /**
@@ -34,7 +31,7 @@ public class BaseBinaria implements StrategyBase {
      * @param valor
      * @return String com a representacao na base binaria do valor
      */
-    public String converterBase(Numero valor) {
-        return "0b" + Integer.toBinaryString(valor.getX());
+    public String converterBase(int valor) {
+        return Integer.toBinaryString(valor);
     }
 }

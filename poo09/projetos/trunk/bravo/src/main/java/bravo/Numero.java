@@ -1,46 +1,33 @@
 package bravo;
 
-
 /**
  * Define  a classe número.
  * A classe calculadora realiza operações matemáticas com números Imaginários.
- * @author  (Carlos Felippe Cardoso de Resende) O papagaio
+ * @author  (Marcio Reis Teixeira) O papagaio
  * @author  (Humberto Ferreira Ramos Junior) O pirata
- * @version (3.0) (27 de abril de 2009) 
- * Esta versão trabalha com os numeros Imaginarios
+ * @version (4.0) (04 de maio de 2009) 
+ * Esta versão trabalha com exponencial
  */
-public class Numero
-{
+
+public interface Numero {
+     
+   public void adicionaParteReal(Numero numero);
+   
+   public void adicionaParteImaginaria(Numero numero);
+     
+   public void adicionaParteExponencial(Numero numero);
+     
+   public String mostra(StrategyBase base);
+     
+   public void soma(Numero numero);
+     
+   public int getValor();
+     
+   public void setValor(int valor);
+     
+   public Numero getParteReal();
     
-    private Integer x;
-
-    /**
-     * Constructor for objects of class Numero.
-     */
-    public Numero()
-    {
-        x = 0;
-    }
-
-    /**
-     * Constructor for objects of class Numero.
-     */    
-    public Numero(Integer i)
-    {
-        x = i;
-    }
-
-    /**
-     * Constructor for objects of class Numero.
-     */    
-    public Integer getX() {
-        return x;
-    }
-
-    /**
-     * Constructor for objects of class Numero.
-     */    
-    public void setX(Integer y) {
-        this.x = y;
-    }
+   public Numero getParteImaginaria();
+    
+   public Numero getParteExponencial();
 }

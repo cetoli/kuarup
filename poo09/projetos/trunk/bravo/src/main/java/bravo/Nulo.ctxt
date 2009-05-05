@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.params=operando
+comment0.target=void\ adicionaParteReal(Numero)
+comment1.params=operando
+comment1.target=void\ adicionaParteImaginaria(Numero)
+comment1.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment2.params=operando
+comment2.target=void\ adicionaParteExponencial(Numero)
+comment2.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment3.params=base
+comment3.target=String\ mostra(StrategyBase)
+comment3.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment4.params=operando
+comment4.target=void\ soma(Numero)
+comment4.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment5.target=int\ getValor()
+comment5.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment6.params=valor
+comment6.target=void\ setValor(int)
+comment6.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment7.target=Numero\ getParteReal()
+comment7.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment8.target=Numero\ getParteImaginaria()
+comment8.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+comment9.target=Numero\ getParteExponencial()
+comment9.text=\nM\u00E9todo\ herdado\ de\ Operando.\n\n
+numComments=10
