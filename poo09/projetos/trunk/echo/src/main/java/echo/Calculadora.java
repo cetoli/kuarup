@@ -134,9 +134,10 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra o expoente da notacao de engenharia.
      */
     public void entraN() {
-        dispatcher = new ExpoenteDispatcher();
         opDecimal = 0;
         opString = "";
+
+        dispatcher = dispatcher.entraExpoente();
         dispatcher.adicionaExpoente(0, acumulador);
     }
 }

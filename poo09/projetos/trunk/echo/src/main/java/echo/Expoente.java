@@ -42,14 +42,13 @@ public class Expoente implements Inteiro {
      * Metodo herdado de Inteiro.
      */
     public String mostra(BaseStrategy base) {
-        return base.getId() + base.converteBase(valor);
+        return "N" + base.getId() + base.converteBase(valor);
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void soma(Inteiro inteiro) {
-        //TODO
     }
 
     /**

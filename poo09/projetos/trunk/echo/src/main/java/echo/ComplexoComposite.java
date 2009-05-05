@@ -19,14 +19,20 @@ public class ComplexoComposite implements Inteiro {
 
     private Inteiro real;
     private Inteiro imaginario;
-    private Inteiro estado;
+
+    /**
+     * Construtor.
+     */
+    public ComplexoComposite() {
+        real = new Nulo();
+        imaginario = new Nulo();
+    }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void adicionaParteReal(Inteiro inteiro) {
         real = inteiro;
-        estado = real;
     }
 
     /**
@@ -34,16 +40,15 @@ public class ComplexoComposite implements Inteiro {
      */
     public void adicionaParteImaginaria(Inteiro inteiro) {
         imaginario = inteiro;
-        estado = imaginario;
     }
 
     /**
      * Metodo herdado de Inteiro.
      */
     public void adicionaExpoente(Inteiro inteiro) {
-        estado.adicionaExpoente(inteiro);
+        real.adicionaExpoente(inteiro);
+        imaginario.adicionaExpoente(inteiro);
     }
-
 
     /**
      * Metodo herdado de Inteiro.
