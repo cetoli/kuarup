@@ -12,9 +12,9 @@ public interface INumeroState {
     /**
      * Assinatura do metodo entraUm.
      */
-    public String entraUm(INumeroStrategy operador, INumeroStrategy operadorImaginario);
+    public String entraUm(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy operadorExpoente, INumeroStrategy operadorImaginarioExpoente);
     /**
      * Assinatura do metodo soma.
      */
-    public String soma(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy acumulador, INumeroStrategy acumuladorImaginario);
+    public String soma(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy acumulador, INumeroStrategy acumuladorImaginario, INumeroStrategy operadorExpoente, INumeroStrategy operadorImaginarioExpoente, INumeroStrategy acumuladorExpoente, INumeroStrategy acumuladorImaginarioExpoente);
 }

@@ -15,4 +15,6 @@ comment6.target=void\ modoDec()
 comment6.text=\nOpera\ em\ modo\ decimal.\n\n
 comment7.target=void\ entraI()
 comment7.text=\nHabilita\ numeros\ complexos.\n\n\n
-numComments=8
+comment8.target=void\ entraN()
+comment8.text=\nHabilita\ notacao\ cientifica.\n\n\n
+numComments=9

@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package alpha;
-import labase.poo.ICalculadoraComplexo;
+import labase.poo.ICalculadoraEngenharia;
 
 /**
  * Esta é a classe principal da calculadora do time alpha.
@@ -16,7 +16,7 @@ import labase.poo.ICalculadoraComplexo;
  * @version 3.0    $Revision$ 2.0      $Date$ 26/04/09
  * @since   2.0 Calculadora com numeros decimais, binarios e hexadecimais
  */
-public class Calculadora implements ICalculadoraComplexo {
+public class Calculadora implements ICalculadoraEngenharia {
     /**Acumulador da Caculadora. */
     private INumeroStrategy acumulador = new NumeroDecimalStrategy();
     /**Operador da Caculadora. */
@@ -31,6 +31,15 @@ public class Calculadora implements ICalculadoraComplexo {
      * operador ser imaginario e o segundo nao.
      */
     private INumeroState previousState = state;
+    /**Acumulador da Caculadora. */
+    private INumeroStrategy acumuladorExpoente = new NumeroDecimalStrategy();
+    /**Operador da Caculadora. */
+    private INumeroStrategy operadorExpoente = new NumeroDecimalStrategy();
+    /**Acumulador Imaginario da Caculadora. */
+    private INumeroStrategy acumuladorImaginarioExpoente = new NumeroDecimalStrategy();
+    /**Operador Imaginario da Caculadora. */
+    private INumeroStrategy operadorImaginarioExpoente = new NumeroDecimalStrategy();
+    /**Estado do Numero.*/
     /**
      * Construtor para objetos da classe Calculadora.
      */
@@ -51,7 +60,7 @@ public class Calculadora implements ICalculadoraComplexo {
      * @return  conteudo do operador
      */
     public final String entraUm() {
-        String retorno = state.entraUm(operador, operadorImaginario);
+        String retorno = state.entraUm(operador, operadorImaginario, operadorExpoente, operadorImaginarioExpoente);
         return retorno;
     }
     /**
@@ -60,7 +69,7 @@ public class Calculadora implements ICalculadoraComplexo {
      *@return conteudo do acumulador tratado para ir a tela
      */
     public final String comandoSoma() {
-        String retorno = previousState.soma(operador, operadorImaginario, acumulador, acumuladorImaginario);
+        String retorno = previousState.soma(operador, operadorImaginario, acumulador, acumuladorImaginario, operadorExpoente, operadorImaginarioExpoente, acumuladorExpoente, acumuladorImaginarioExpoente);
         operador.zeraRepresentacaoNumerica();
         operadorImaginario.zeraRepresentacaoNumerica();
         state = new NumeroRealState();
@@ -86,6 +95,22 @@ public class Calculadora implements ICalculadoraComplexo {
         i = temp.converteEmNumeroDecimal();
         acumuladorImaginario = new NumeroHexadecimalStrategy();
         acumuladorImaginario = acumuladorImaginario.converterParaBase(i);
+        temp = operadorExpoente;
+        i = temp.converteEmNumeroDecimal();
+        operadorExpoente = new NumeroHexadecimalStrategy();
+        operadorExpoente = operadorExpoente.converterParaBase(i);
+        temp = operadorImaginarioExpoente;
+        i = temp.converteEmNumeroDecimal();
+        operadorImaginarioExpoente = new NumeroHexadecimalStrategy();
+        operadorImaginarioExpoente = operadorImaginarioExpoente.converterParaBase(i);
+        temp = acumuladorExpoente;
+        i = temp.converteEmNumeroDecimal();
+        acumuladorExpoente = new NumeroHexadecimalStrategy();
+        acumuladorExpoente = acumuladorExpoente.converterParaBase(i);
+        temp = acumuladorImaginarioExpoente;
+        i = temp.converteEmNumeroDecimal();
+        acumuladorImaginarioExpoente = new NumeroHexadecimalStrategy();
+        acumuladorImaginarioExpoente = acumuladorImaginarioExpoente.converterParaBase(i);
     }
     /**
      * Opera em modo binario.
@@ -107,6 +132,22 @@ public class Calculadora implements ICalculadoraComplexo {
         i = temp.converteEmNumeroDecimal();
         acumuladorImaginario = new NumeroBinarioStrategy();
         acumuladorImaginario = acumuladorImaginario.converterParaBase(i);
+        temp = operadorExpoente;
+        i = temp.converteEmNumeroDecimal();
+        operadorExpoente = new NumeroBinarioStrategy();
+        operadorExpoente = operadorExpoente.converterParaBase(i);
+        temp = operadorImaginarioExpoente;
+        i = temp.converteEmNumeroDecimal();
+        operadorImaginarioExpoente = new NumeroBinarioStrategy();
+        operadorImaginarioExpoente = operadorImaginarioExpoente.converterParaBase(i);
+        temp = acumuladorExpoente;
+        i = temp.converteEmNumeroDecimal();
+        acumuladorExpoente = new NumeroBinarioStrategy();
+        acumuladorExpoente = acumuladorExpoente.converterParaBase(i);
+        temp = acumuladorImaginarioExpoente;
+        i = temp.converteEmNumeroDecimal();
+        acumuladorImaginarioExpoente = new NumeroBinarioStrategy();
+        acumuladorImaginarioExpoente = acumuladorImaginarioExpoente.converterParaBase(i);
     }
     /**
      * Opera em modo decimal.
@@ -128,6 +169,22 @@ public class Calculadora implements ICalculadoraComplexo {
         i = temp.converteEmNumeroDecimal();
         acumuladorImaginario = new NumeroDecimalStrategy();
         acumuladorImaginario = acumuladorImaginario.converterParaBase(i);
+        temp = operadorExpoente;
+        i = temp.converteEmNumeroDecimal();
+        operadorExpoente = new NumeroDecimalStrategy();
+        operadorExpoente = operadorExpoente.converterParaBase(i);
+        temp = operadorImaginarioExpoente;
+        i = temp.converteEmNumeroDecimal();
+        operadorImaginarioExpoente = new NumeroDecimalStrategy();
+        operadorImaginarioExpoente = operadorImaginarioExpoente.converterParaBase(i);
+        temp = acumuladorExpoente;
+        i = temp.converteEmNumeroDecimal();
+        acumuladorExpoente = new NumeroDecimalStrategy();
+        acumuladorExpoente = acumuladorExpoente.converterParaBase(i);
+        temp = acumuladorImaginarioExpoente;
+        i = temp.converteEmNumeroDecimal();
+        acumuladorImaginarioExpoente = new NumeroDecimalStrategy();
+        acumuladorImaginarioExpoente = acumuladorImaginarioExpoente.converterParaBase(i);
     }
     /**
      * Habilita numeros complexos.
@@ -136,5 +193,12 @@ public class Calculadora implements ICalculadoraComplexo {
     public void entraI() {
         state = new NumeroImaginarioState();
         previousState = state;
+    }
+    /**
+     * Habilita notacao cientifica.
+     *
+     */
+    public void entraN() {
+        //state = new
     }
 }
