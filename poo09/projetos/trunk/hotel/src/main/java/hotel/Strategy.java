@@ -33,7 +33,16 @@ public interface Strategy
      */
     public String comandoSoma(Calculadora calc);
 
+    /**.
+     * converte um número para uma String na sua base correspondente
+     * @param valor
+     * @return número convertido
+     */
 	public String converter(int valor);
 	
+    /**.
+     * retorna a representação da base
+     * @return representação
+     */
 	public String getRepresentacao();
 }

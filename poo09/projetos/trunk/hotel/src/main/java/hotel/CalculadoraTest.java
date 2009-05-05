@@ -7,7 +7,7 @@ package hotel;
  * @author Carlos Henrique Pinto Rodriguez
  * @author Alexandre Neves Louzada
  *
- * @version 3     Data 30/04/2009
+ * @version 4     Data 05/04/2009
  */
 
 public class CalculadoraTest extends junit.framework.TestCase
@@ -474,7 +474,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.entraI();
 		calculad1.entraUm();
 		calculad1.entraUm();
-		assertEquals("0b110I1010", calculad1.comandoSoma());
+		assertEquals("0b110I0b1010", calculad1.comandoSoma());
 	}
 	/**.
 	 * teste
@@ -508,9 +508,137 @@ public class CalculadoraTest extends junit.framework.TestCase
 		calculad1.entraI();
 		calculad1.entraUm();
 		calculad1.entraUm();
-		assertEquals("0x22I122", calculad1.comandoSoma());
+		assertEquals("0x22I0x122", calculad1.comandoSoma());
+	}
+	/**.
+	 * teste
+	 */
+	public void testeEntraD1IB11N1sai0b1I0b11N1() 
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraN();
+		assertEquals("0b1I0b11N1", calculad1.entraUm());
+	}
+	
+	/**.
+	 * teste
+	 */
+	public void testeEntraD1N11IH11N1sai0x1NBI0x11N1()
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraN();
+		assertEquals("0x1NbI0x11N1", calculad1.entraUm());
+	}
+	
+	/**.
+	 * teste
+	 */
+	public void testeEntraD1N1IB11sai0b1N1I0b11() 
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		assertEquals("0b1N1I0b11", calculad1.entraUm());
 	}
 
+	/**.
+	 * teste
+	 */
+	public void testeSoma11N1mais1N11sai1N11() 
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		assertEquals("1N11", calculad1.comandoSoma());
+	}
+	/**.
+	 * teste
+	 */
+	public void testeSoma11NB11maisB1NB11sai0b1100N11() 
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		assertEquals("0b1100N11", calculad1.comandoSoma());
+	}
+	/**.
+	 * teste
+	 */
+	public void testeSoma1N1mais11N1sai12N1() 
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		assertEquals("12N1", calculad1.comandoSoma());
+	}
+	
+	/**.
+	 * teste
+	 */
+	public void testeSomaH1N1ID11N1maisB11N11Hsai0x3N3I0xBN1() 
+	{
+		hotel.Calculadora calculad1 = new hotel.Calculadora();
+		calculad1.modoHex();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.entraI();
+		calculad1.modoDec();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.comandoSoma();
+		calculad1.modoBin();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.entraN();
+		calculad1.entraUm();
+		calculad1.entraUm();
+		calculad1.modoHex();
+		assertEquals("0x3N3I0xbN1", calculad1.comandoSoma());
+	}	
 }
 
 

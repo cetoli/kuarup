@@ -8,7 +8,7 @@ import labase.poo.ICalculadoraBase;
  * @author Carlos Henrique Pinto Rodriguez
  * @author Alexandre Neves Louzada
  *
- * @version 3     Data 30/04/2009
+ * @version 4     Data 05/04/2009
  */
 
 
@@ -121,34 +121,4 @@ public class Calculadora implements ICalculadoraBase {
 	public Strategy getStrategy() {
 		return strategy;
 	}
-	
-	public static void main(String [] args) {
-	    hotel.Calculadora calculad1 = new hotel.Calculadora();
-	    calculad1.modoHex();
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		calculad1.entraN();
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		calculad1.entraI();
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		calculad1.entraN();
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		System.out.println(calculad1.comandoSoma());
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		calculad1.entraN();
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		calculad1.entraI();
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		calculad1.entraN();
-	    System.out.println(calculad1.entraUm());
-	    System.out.println(calculad1.entraUm());
-		System.out.println(calculad1.comandoSoma());
-		System.out.println("~");
-	   }
 }
