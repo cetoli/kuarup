@@ -8,4 +8,6 @@ comment1.text=\nMetodo\ que\ adiciona\ a\ parte\ imaginaria\ ao\ inteiro.\n@para
 comment2.params=i\ inteiro
 comment2.target=void\ adicionaExpoente(int,\ Inteiro)
 comment2.text=\nMetodo\ que\ adiciona\ expoente\ ao\ inteiro.\n@param\ inteiro\n\n
-numComments=3
+comment3.target=Dispatcher\ entraExpoente()
+comment3.text=\nMetodo\ que\ muda\ o\ dispatcher\ para\ o\ expoente\ da\ parte\ atual\ do\ inteiro.\n@return\ novo\ dispatcher\n\n
+numComments=4

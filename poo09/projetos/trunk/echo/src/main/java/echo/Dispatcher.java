@@ -34,4 +34,10 @@ public interface Dispatcher {
      * @param inteiro
      */
     void adicionaExpoente(int i, Inteiro inteiro);
+
+    /**
+     * Metodo que muda o dispatcher para o expoente da parte atual do inteiro.
+     * @return novo dispatcher
+     */
+    Dispatcher entraExpoente();
 }

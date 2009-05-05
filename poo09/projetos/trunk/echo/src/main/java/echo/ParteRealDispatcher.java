@@ -40,4 +40,12 @@ public class ParteRealDispatcher implements Dispatcher {
     public void adicionaExpoente(int i, Inteiro inteiro) {
         inteiro.adicionaExpoente(new Nulo());
     }
+
+    /**
+     * Metodo que muda o dispatcher para o expoente da parte atual do inteiro.
+     * @return novo dispatcher
+     */
+    public Dispatcher entraExpoente() {
+        return new ExpoenteParteRealDispatcher();
+    }
 }
