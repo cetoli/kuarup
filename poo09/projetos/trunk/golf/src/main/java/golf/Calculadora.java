@@ -57,8 +57,8 @@ public class Calculadora implements ICalculadoraEngenharia {
      **/
     public void inicializa() {
         // inicializa vari·veis de instância
-        acumulador = new RealNum(); //Default começa apenas como real
-        operando = new RealNum(); //Default começa apenas como real
+        acumulador = new Real(); //Default começa apenas como real
+        operando = new Real(); //Default começa apenas como real
     }
 
     /**
@@ -75,7 +75,8 @@ public class Calculadora implements ICalculadoraEngenharia {
      * @return conte˙do do operador
      **/
     public String entraUm() {
-        operando.entraUm(tipo);
+        //operando.entraUm(tipo);
+        operando.entraUm();
         return operando.writeNum();
     }
 
@@ -84,11 +85,12 @@ public class Calculadora implements ICalculadoraEngenharia {
      * @return conte˙do do acumulador
      **/
     public String comandoSoma() {
+        //PROBLEMA!!!!!
         for(int i = 0; i < operando.getComponentCount(); i++){
             acumulador.setValue(i, acumulador.getValue(i) + operando.getValue(i));
         }
         tipo = real;
-        operando = new RealNum();
+        operando = new Real();
         operando.setBase(acumulador.getBase());
         return acumulador.writeNum();
     }
@@ -121,6 +123,7 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra a base parte complexa do numero.
      */
     public void entraI() {
+/*        
         ComponentNum aux1 = new CompositeNum(); //Default começa apenas como real
         aux1.initialize(operando.getBase());
         for(int i = 0; i < operando.getComponentCount(); i++){
@@ -136,12 +139,24 @@ public class Calculadora implements ICalculadoraEngenharia {
         acumulador = aux2;
         
         tipo = complexo;
+*/
+        
+        ComponentNum composite = new ComplexNum();
+        ComponentNum aux = new Imaginario();
+        composite.addComponent(operando);
+        composite.addComponent(aux);
+        operando = composite;
     }
 
     /**
      * Entra a base parte complexa do numero.
      */
     public void entraN() {
+        //ComponentNum root = new EngenhariaNum();
+        ComponentNum composite = new Exponent();
+        composite.addComponent(operando);
+        composite.addComponent(composite);
+        operando = composite;
     }
 
 }

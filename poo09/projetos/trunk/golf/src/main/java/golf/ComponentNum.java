@@ -60,7 +60,7 @@ public abstract class ComponentNum {
     /**
      * Metodo que realiza o entra um
      */
-    public void entraUm(int index) {
+    public void entraUm() {
         valor = valor * base.getBase() + 1;
     }
 

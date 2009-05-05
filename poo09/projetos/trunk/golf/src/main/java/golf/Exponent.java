@@ -7,7 +7,7 @@ package golf;
  * @author Gustavo Taveira 
  * @version 4.0
  */
-public class ExponentNum extends ComponentNum{
+public class Exponent extends ComponentNum{
 
     /**
      * Metodo que respons‡vel por retornar o prefixo do componente
