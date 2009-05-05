@@ -27,4 +27,8 @@ public class NumeroImaginarioExpoenteState implements INumeroState {
         operadorExpoente.converterValorParaBase(temp, acumuladorImaginarioExpoente);
         return acumuladorExpoente.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay() + "I" + acumuladorImaginarioExpoente.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
+    
+    public INumeroState getNextState() {
+		return null;
+	}
 }

@@ -7,7 +7,7 @@ package alpha;
  * @author  Marcio Reis Teixeira
  * @version 1.0
  */
-public class NumeroRealExpoenteState implements INumeroState
+public class NumeroRealExpoenteState extends NumeroRealState
 {
     /**
      * Metodo que executa a entrada de numeros reais.
@@ -16,13 +16,23 @@ public class NumeroRealExpoenteState implements INumeroState
         operadorExpoente.entraUm();
         return operadorExpoente.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
+ 
     /**
      * Metodo que executa a soma de numeros reais.
      */
     public String soma(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy acumulador, INumeroStrategy acumuladorImaginario, INumeroStrategy operadorExpoente, INumeroStrategy operadorImaginarioExpoente, INumeroStrategy acumuladorExpoente, INumeroStrategy acumuladorImaginarioExpoente) {
-        Integer temp = operadorExpoente.converteEmNumeroDecimal().intValue()
-                + acumuladorExpoente.converteEmNumeroDecimal().intValue();
-        operadorExpoente.converterValorParaBase(temp, acumuladorExpoente);
-        return acumuladorExpoente.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
+        Integer temp = operador.converteEmNumeroDecimal().intValue() + acumulador.converteEmNumeroDecimal().intValue();
+        operador.converterValorParaBase(temp, acumulador);
+        
+        String expoenteStr = "";
+        try {
+        	expoenteStr += "N" + operadorExpoente.mostraNumeroNaMinhaRepresentacaoBase();
+        } catch(NullPointerException e) {
+        }
+        
+        return acumulador.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay() + expoenteStr;
     }
+	public INumeroState getNextState() {
+		return null;
+	}
 }

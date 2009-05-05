@@ -9,7 +9,10 @@ package alpha;
  * @version 1.0
  */
 public interface INumeroState {
-    /**
+    
+	public INumeroState getNextState();
+	
+	/**
      * Assinatura do metodo entraUm.
      */
     public String entraUm(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy operadorExpoente, INumeroStrategy operadorImaginarioExpoente);

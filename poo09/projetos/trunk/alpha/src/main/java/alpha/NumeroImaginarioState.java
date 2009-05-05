@@ -8,7 +8,7 @@ package alpha;
  * @version 1.0
  */
 public class NumeroImaginarioState implements INumeroState {
-    /**
+	/**
      * Metodo que executa a entrada de numeros Imaginarios.
      */
     public String entraUm(INumeroStrategy operador, INumeroStrategy operadorImaginario, INumeroStrategy operadorExpoente, INumeroStrategy operadorImaginarioExpoente) {
@@ -25,6 +25,11 @@ public class NumeroImaginarioState implements INumeroState {
         temp = operadorImaginario.converteEmNumeroDecimal().intValue()
                 + acumuladorImaginario.converteEmNumeroDecimal().intValue();
         operador.converterValorParaBase(temp, acumuladorImaginario);
+
         return acumulador.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay() + "I" + acumuladorImaginario.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
+
+    public INumeroState getNextState() {
+		return new NumeroImaginarioExpoenteState();
+	}
 }
