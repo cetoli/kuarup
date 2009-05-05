@@ -25,4 +25,7 @@ public class NumeroRealState implements INumeroState
         operador.converterValorParaBase(temp, acumulador);
         return acumulador.mostraNumeroNaMinhaRepresentacaoBaseParaODisplay();
     }
+	public INumeroState getNextState() {
+		return new NumeroRealExpoenteState();
+	}
 }
