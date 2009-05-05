@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=BaseBinariaTest()
+comment0.text=\nDefault\ constructor\ for\ test\ class\ BaseBinariaTest.\n\n
+comment1.target=void\ setUp()
+comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
+comment2.target=void\ tearDown()
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
+comment3.target=void\ testPassandoUmRetornaStringUm()
+comment3.text=\nTeste\ de\ Passagem\ de\ valores\ para\ o\ metodo.\n\n
+comment4.target=void\ testPassandoOnzeRetornaStringMileOnze()
+comment4.text=\nTeste\ de\ Passagem\ de\ valores\ para\ o\ metodo.\n\n
+comment5.target=void\ testPassandoCentoeOnzeRetorna1101111()
+comment5.text=\nTeste\ de\ Passagem\ de\ valores\ para\ o\ metodo.\n\n
+numComments=6
