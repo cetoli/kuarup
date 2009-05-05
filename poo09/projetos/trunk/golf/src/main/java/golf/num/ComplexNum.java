@@ -1,4 +1,9 @@
-package golf;
+package golf.num;
+import golf.bases.BaseStrategy;
+import golf.bases.BinariaStrategy;
+import golf.bases.DecimalStrategy;
+import golf.bases.HexadecimalStrategy;
+
 import java.util.ArrayList;
 
 /**
@@ -11,7 +16,7 @@ public class ComplexNum extends ComponentNum {
     private ArrayList elements = new ArrayList();
 
     /**
-     * Metodo que inicializa os valores dos atributos da instancia
+     * Metodo que inicializa os valores dos atributos da instancia.
      */
     public void initialize(BaseStrategy umaBase) {
         //Adiciona uma parte real e uma parte complexa ao numero
@@ -23,9 +28,9 @@ public class ComplexNum extends ComponentNum {
     }
 
     /**
-     * Metodo que respons‡vel por alterar o valor de um componente especifico
-     * @param  index    o indice do componente a ser alterado
-     * @param  valor    valor a ser colocado no componente especifico
+     * Metodo que responsavel por alterar o valor de um componente especifico.
+     * @param  index    o indice do componente a ser alterado.
+     * @param  valor    valor a ser colocado no componente especifico.
      */
     public void setValue(int index, int x) {
         ComponentNum aux = getComponent(index);
@@ -33,8 +38,8 @@ public class ComplexNum extends ComponentNum {
     }
 
     /**
-     * Metodo que retorna o valor de um componente especifico
-     * @param  index    o indice do valor a ser retornado
+     * Metodo que retorna o valor de um componente especifico.
+     * @param  index    o indice do valor a ser retornado.
      */
     public int getValue(int index) {
         ComponentNum aux = getComponent(index);
@@ -53,7 +58,7 @@ public class ComplexNum extends ComponentNum {
     }
 
     /**
-     * Entra a base binária.
+     * Entra a base binaria.
      */
     public void modoBin() {
         base = new BinariaStrategy();
@@ -75,8 +80,8 @@ public class ComplexNum extends ComponentNum {
     }
 
     /**
-     * Metodo que realiza o entra um
-     * @param  base    a base atual do numero
+     * Metodo que realiza o entra um.
+     * @param  base    a base atual do numero.
      */
     public void entraUm() {
         ComponentNum elem = getComponent(elements.size()-1);
@@ -84,59 +89,59 @@ public class ComplexNum extends ComponentNum {
     }
 
     /**
-     * Metodo que respons‡vel por adicionar um componente
-     * @param  componente    o elemento a ser adicionado
+     * Metodo que responsavel por adicionar um componente.
+     * @param  componente    o elemento a ser adicionado.
      */
     public void addComponent(ComponentNum componente) {
         elements.add(componente);
     }
 
     /**
-     * Metodo que respons‡vel por remover um componente
-     * @param  componente    o elemento a ser adicionado
+     * Metodo que responsavel por remover um componente.
+     * @param  componente    o elemento a ser adicionado.
      */
     public void removeComponent() {
         elements.remove(elements.size()-1);
     }
-    
+
     /**
-     * Metodo que respons‡vel por retornar um componente
-     * @param  index    o indice do componente a ser retornado
-     * @result ComponentNum
+     * Metodo que responsavel por retornar um componente.
+     * @param  index    o indice do componente a ser retornado.
+     * @result ComponentNum.
      */
     public ComponentNum getComponent(int index) {
         return (ComponentNum) elements.get(index);
     }
 
     /**
-     * Metodo que respons‡vel por alterar um componente especifico
-     * @param  index    o indice do componente a ser alterado
-     * @param  componente    componente a ser colocado na posicao especifica
+     * Metodo que responsavel por alterar um componente especifico.
+     * @param  index    o indice do componente a ser alterado.
+     * @param  componente    componente a ser colocado na posicao especifica.
      */
     public void setComponent(int index, ComponentNum componente) {
         elements.set(index, componente);
     }
 
     /**
-     * Metodo que respons‡vel por retornar o nœmero de componentes
-     * @param  componente    o elemento a ser adicionado
-     * @result int
+     * Metodo que responsavel por retornar o numero de componentes.
+     * @param  componente    o elemento a ser adicionado.
+     * @result int.
      */
     public int getComponentCount() {
         return elements.size();
     }
 
     /**
-     * Metodo que respons‡vel por retornar o prefixo do componente
-     * @result String
+     * Metodo que responsavel por retornar o prefixo do componente.
+     * @result String.
      */
     public String getPrefix() {
         return "";
     }
 
     /**
-     * Metodo respons‡vel por escrever o numero corretamente
-     * @result String
+     * Metodo responsavel por escrever o numero corretamente.
+     * @result String.
      */
     public String writeNum() {
         String num = "";

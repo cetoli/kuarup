@@ -1,4 +1,5 @@
-package golf;
+package golf.num;
+
 
 
 
@@ -34,7 +35,7 @@ public class ComplexNumTest extends junit.framework.TestCase{
      * Testa se ao entrar um o valor Ž 1
      */
 	public void testEntra1(){
-		golf.ComplexNum composit1 = new golf.ComplexNum();
+		golf.num.ComplexNum composit1 = new golf.num.ComplexNum();
 		ComponentNum aux1 = new Real();
 		composit1.addComponent(aux1);
 		composit1.entraUm();
@@ -45,7 +46,7 @@ public class ComplexNumTest extends junit.framework.TestCase{
      * Testa se ao entrar um duas vezes o valor em bin‡rio Ž 0b1011
      */
 	public void testEntra11EMostraBin(){
-		golf.ComplexNum composit1 = new golf.ComplexNum();
+		golf.num.ComplexNum composit1 = new golf.num.ComplexNum();
 		ComponentNum aux1 = new Real();
 		composit1.addComponent(aux1);
 		composit1.entraUm();
@@ -58,7 +59,7 @@ public class ComplexNumTest extends junit.framework.TestCase{
      * Testa se ao entrar um tres vezes o valor em hexadecimal Ž 0x6f
      */
 	public void testEntra111EMostraHex(){
-		golf.ComplexNum composit1 = new golf.ComplexNum();
+		golf.num.ComplexNum composit1 = new golf.num.ComplexNum();
 		ComponentNum aux1 = new Real();
 		composit1.addComponent(aux1);
 		composit1.entraUm();
@@ -72,7 +73,7 @@ public class ComplexNumTest extends junit.framework.TestCase{
      * Testa se ao entrar "1I1" o valor Ž "1I1"
      */
 	public void testEntra1I1(){
-		golf.ComplexNum composit1 = new golf.ComplexNum();
+		golf.num.ComplexNum composit1 = new golf.num.ComplexNum();
 		ComponentNum aux1 = new Real();
 		composit1.addComponent(aux1);
 		composit1.entraUm();
@@ -86,7 +87,7 @@ public class ComplexNumTest extends junit.framework.TestCase{
      * Testa se ao entrar "11I11B" o valor Ž "0b1011I0b1011"
      */
 	public void testEntra11I11EMostraBin(){
-		golf.ComplexNum composit1 = new golf.ComplexNum();
+		golf.num.ComplexNum composit1 = new golf.num.ComplexNum();
 		ComponentNum aux1 = new Real();
 		composit1.addComponent(aux1);
 		composit1.entraUm();
@@ -103,7 +104,7 @@ public class ComplexNumTest extends junit.framework.TestCase{
      * Testa se ao entrar "111I111H" o valor Ž "0x6fI0x6f"
      */
 	public void testEntra111I111EMostraHex(){
-		golf.ComplexNum composit1 = new golf.ComplexNum();
+		golf.num.ComplexNum composit1 = new golf.num.ComplexNum();
 		ComponentNum aux1 = new Real();
 		composit1.addComponent(aux1);
 		composit1.entraUm();

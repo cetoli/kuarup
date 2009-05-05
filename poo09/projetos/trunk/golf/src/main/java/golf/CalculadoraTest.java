@@ -272,7 +272,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.entraUm();
         assertEquals("0b10", calculadora.comandoSoma());
     }
-    
+
      /**
      * Testa a soma de 11 + 11 binário.
      */
@@ -286,7 +286,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.entraUm();
         assertEquals("0b110", calculadora.comandoSoma());
     }
-    
+
      /**
      * Testa a soma de 111 + 111 binário.
      */
@@ -302,7 +302,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.entraUm();
         assertEquals("0b1110", calculadora.comandoSoma());
     }
-    
+
      /**
      * Testa a soma de 1 + 1 hexadecimal.
      */
@@ -314,7 +314,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.entraUm();
         assertEquals("0x2", calculadora.comandoSoma());
     }
-    
+
      /**
      * Testa a soma de 11 + 11 hexadecimal.
      */
@@ -328,7 +328,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.entraUm();
         assertEquals("0x22", calculadora.comandoSoma());
     }
-    
+
      /**
      * Testa a soma de 1 + 111 hexadecimal.
      */
@@ -342,8 +342,8 @@ public class CalculadoraTest extends junit.framework.TestCase
         calculadora.entraUm();
         assertEquals("0x112", calculadora.comandoSoma());
     }
-    
-    
+
+
     /**
      * Validação dos métodos testeEntraOpBaseXSomaEntraOpBaseY()
      * O objetivo é verificar se as entradas dos operandos nas bases decimal,
@@ -783,7 +783,7 @@ public class CalculadoraTest extends junit.framework.TestCase
         Calculadora calculadora = new Calculadora();
         calculadora.modoHex();
         calculadora.entraUm();
-        calculadora.entraUm();    
+        calculadora.entraUm();
         calculadora.comandoSoma();
         calculadora.entraI();
         calculadora.modoBin();
@@ -839,6 +839,227 @@ public class CalculadoraTest extends junit.framework.TestCase
         assertEquals("0x0I0x14", calculadora.comandoSoma());
     }
 
+    /*
+     * Teste Engenharia.
+     */
+
+
+    /**
+     *         Teste: entrar com o número D1N1IB11 (1e1+0b11i) -> 0b1N1I0b11.
+     */
+    public void testeEntraD1N1IB11sai0b1N1I0b11() {
+    	// entrar com o número D1N1 IB11 (1e1+0b11i)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	// D1N1
+    	calculad2.modoDec();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+
+    	// IB11
+    	calculad2.entraI();
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+
+    	assertEquals("0b1N1I0b11",calculad2.comandoSoma());
+    }
+
+    /**
+     *         Teste: entrar com o número D1IB11N1 (1+0b11e1) -> 0b1I0b11N0b1.
+     */
+    public void testeEntraD1IB11N1sai0b1I0b11N1() {
+    	// entrar com o número D1 IB11N1 (1+0b11e1)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	// D1
+    	calculad2.modoDec();
+    	calculad2.entraUm();
+
+    	// IB11N1
+    	calculad2.entraI();
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+
+    	assertEquals("0b1I0b11N0b1",calculad2.comandoSoma());
+    }
+
+    /**
+     *         Teste: entrar com o número D1N11IH11N1 (1e11+ 0x11e1i) -> 0x1N11I0x11N1.
+     */
+    public void testeEntraD1N11IH11N1sai0x1NBI0x11N1() {
+    	// entrar com o número D1N11 IH11N1 (1e11+ 0x11e1i)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	// D1N11
+    	calculad2.modoDec();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+
+    	// IH11N1
+    	calculad2.entraI();
+    	calculad2.modoHex();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+
+    	assertEquals("0x1N11I0x11N1",calculad2.comandoSoma());
+    }
+
+    /**
+     *         Teste: entrar com o número B1NB11IB11ND1 (0b1e0b11 + 0b11e1i) -> 1N3I3N1.
+     */
+    public void testeEntraB1IB11sai1N3I3N1() {
+    	// entrar com o número B1NB11 IB11ND1 (0b1e0b11 + 0b11e1i)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	// B1NB11
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+
+    	// IB11ND1
+    	calculad2.entraI();
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.modoDec();
+    	calculad2.entraUm();
+
+    	assertEquals("1N3I3N1",calculad2.comandoSoma());
+    }
+
+    /**
+     *         Teste: Somar 1N1 mais 11N1 (1e1 + 11e1) -> 12N1.
+     */
+    public void testeSoma1N1mais11N1sai12N1() {
+    	// Somar 1N1 mais 11N1 (1e1 + 11e1)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	// 1N1
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+
+    	calculad2.comandoSoma();
+
+    	// 11N1
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+
+    	assertEquals("12N1",calculad2.comandoSoma());
+    }
+
+    /**
+ 	 * Teste: Somar 11N1 mais 1N11 (11e1 + 1e11) -> 1N11.
+     */
+    public void testeSoma11N1mais1N11sai1N11() {
+    	// Somar 11N1 mais 1N11 (11e1 + 1e11)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	// 11N1
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+
+    	calculad2.comandoSoma();
+
+    	// 1N11
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+
+    	assertEquals("1N11",calculad2.comandoSoma());
+    }
+
+    /**
+     *         Teste: Somar 11NB11 mais B1NB11 (11e0b11 + 0b1e0b11) -> 0b1100N11.
+     */
+    public void testeSoma11NB11maisB1NB11sai0b1100N11() {
+    	// Somar 11NB11 mais B1NB11 (11e0b11 + 0b1e0b11)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	//11NB11
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+
+    	calculad2.comandoSoma();
+
+    	// B1NB11
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+
+    	assertEquals("0b1100N11",calculad2.comandoSoma());
+    }
+
+    /**
+     *         Teste: Somar H1N1ID11N1 mais B11N11H (0x1e0x1+11e1i + 0b11e0b11) -> 0x3N3I0xBN1.
+     */
+    public void testeSomaH1N1ID11N1maisB11N11Hsai0x3N3I0xBN1() {
+    	// H1N1 ID11N1 mais B11N11H (0x1e0x1 + 11e1i + 0b11e0b11)
+
+    	Calculadora calculad2 = new Calculadora();
+
+    	// H1N1
+    	calculad2.modoHex();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+    	calculad2.modoDec();
+    	calculad2.comandoSoma();
+
+    	// ID11N1
+    	calculad2.entraI();
+    	calculad2.modoDec();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+
+    	calculad2.comandoSoma();
+
+    	// B11N11H
+    	calculad2.modoBin();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.entraN();
+    	calculad2.entraUm();
+    	calculad2.entraUm();
+    	calculad2.modoHex();
+
+    	assertEquals("0x3N3I0xBN1",calculad2.comandoSoma());
+    }
+
     /**
      * Sets up the test fixture.
      * Called before every test case method.
@@ -852,4 +1073,5 @@ public class CalculadoraTest extends junit.framework.TestCase
      */
     protected void tearDown() {
     }
+
 }

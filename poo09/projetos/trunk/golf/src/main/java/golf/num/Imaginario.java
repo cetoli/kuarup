@@ -1,4 +1,4 @@
-package golf;
+package golf.num;
 
 
 /**
@@ -9,7 +9,7 @@ package golf;
 public class Imaginario extends ComponentNum{
 
     /**
-     * Metodo que respons‡vel por retornar o prefixo do componente
+     * Metodo que responsavel por retornar o prefixo do componente
      * @result String
      */
     public String getPrefix() {

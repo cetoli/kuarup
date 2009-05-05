@@ -6,37 +6,34 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 
-package golf;
+package golf.bases;
 
 /**
- * Classe da base hexadecimal.
+ * Interface que define os métodos das bases da calculadora.
  * @author  André Sion
  * @author  Thiago Silva de Souza
- * @version 0.1 07/04/2009 André Sion e Thiago Silva de Souza
- * @since   0.1 Incluídas as implementações dos métodos toBase() e
- * toDecValue().
+ * @version 2.0 07/04/2009 André Sion e Thiago Silva de Souza
+ * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * hexadecimais.
+ * @version 1.0 31/03/2009 André Sion e Thiago Silva de Souza
+ * @since   1.0 Incluídas as implementações dos métodos limpa(), entraUm() e
+ * comandoSoma().
  */
-public class HexadecimalStrategy implements BaseStrategy {
-
-    private final int hexadecimal = 16;
+public interface BaseStrategy {
 
     /**
      * Retorna o identificador da base decimal, binária ou hexadecimal.
      * @return o identificador da respectiva base.
      */
-    public String getId() {
-        return "0x";
-    }
+    public String getId();
 
     /**
-     * Retorna o valor em decimal do número dado em base decimal, binária
-     * ou hexadecimal.
+     * Retorna o valor em decimal do número dado em base decimal, binária ou
+     * hexadecimal.
      * @param n string do número dado na respectiva base.
      * @return o valor em decimal do número dado.
      */
-    public int toDecValue(String n) {
-        return Integer.parseInt(n, 16);
-    }
+    public int toDecValue(String n);
 
     /**
      * Retorna um número em base decimal, binária ou hexadecimal de acordo com
@@ -44,17 +41,13 @@ public class HexadecimalStrategy implements BaseStrategy {
      * @param v valor em decimal do número dado.
      * @return a string do número dado na respectiva base.
      */
-    public String toBase(int v) {
-        return Integer.toHexString(v);
-    }
+    public String toBase(int v);
 
     /**
      * Retorna o valor em decimal da base decimal, binaria ou
      * hexadecimal.
      * @return o valor em decimal do número dado.
      */
-    public int getBase() {
-        return hexadecimal;
-    }
+    public int getBase();
 
 }
