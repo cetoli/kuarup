@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=int\ getPrioridade()
+comment0.text=.\num\ estado\ tem\ prioridade\ sobre\ o\ outro\n@return\ prioridade\n\n
+comment1.params=base\ num
+comment1.target=void\ entraUm(int,\ Numero)
+comment1.text=.\nentra\ o\ valor\ 1\n@param\ base\ corrente\n@param\ objeto\ N\u00FAmero\n\n
+comment2.params=num
+comment2.target=void\ entraN(Numero)
+comment2.text=.\nentraN\n@param\ objeto\ N\u00FAmero\n\n
+comment3.params=calc\ num
+comment3.target=String\ toString(Calculadora,\ Numero)
+comment3.text=.\nconverte\ objeto\ para\ String\n@param\ Calculadora\n@param\ objeto\ N\u00FAmero\n\n
+numComments=4
