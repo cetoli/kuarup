@@ -40,7 +40,7 @@ public class Exponencial implements Numero
     * Método herdado de Operando.
     */
    public String mostra(StrategyBase base) {
-      return "N"+base.getId()+base.converterBase(this.valor);
+      return "N"+base.converterBase(this.valor);
    }
 
    /**

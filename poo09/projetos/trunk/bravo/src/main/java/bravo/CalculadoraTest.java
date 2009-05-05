@@ -99,7 +99,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("1", calculad1.entraUm());
 		assertEquals("11", calculad1.entraUm());
 		assertEquals("12", calculad1.comandoSoma());
-		assertEquals(0, calculad1.limpa());
+		assertEquals("0", calculad1.limpa());
 	}
 
 	public void testEntraD1IB11N1sai0b1I0b11N1()
@@ -111,7 +111,7 @@ public class CalculadoraTest extends junit.framework.TestCase
 		assertEquals("0b1I0b1", calculad1.entraUm());
 		assertEquals("0b1I0b11", calculad1.entraUm());
 		calculad1.entraN();
-		assertEquals("0b1I0b11N0b1", calculad1.entraUm());
+		assertEquals("0b1I0b11N1", calculad1.entraUm());
 	}
 
 	public void testSoma11N1mais1N11sai1N11()
