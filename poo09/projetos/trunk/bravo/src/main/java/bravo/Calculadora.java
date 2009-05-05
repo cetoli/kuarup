@@ -16,7 +16,7 @@ import labase.poo.ICalculadoraEngenharia;
  * Esta versão trabalha com exponencial
  * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária
  */
-public class Calculadora {
+public class Calculadora implements ICalculadoraEngenharia{
 
     // Estado da Caculadora
     private int opDecimal;
@@ -54,7 +54,7 @@ public class Calculadora {
      * Limpa o acumulador
      * @return conteúdo do acumulador
      */
-    public int limpa() {
+    public String limpa() {
         opDecimal = 0;
         opString = "";
         operando = new Complexo();
@@ -69,7 +69,8 @@ public class Calculadora {
         adicionador.adicionaParteReal(0, display, montador);
         adicionador.adicionaParteImaginaria(0, display, montador);
         base = new BaseDecimal();
-        return acumulador.getValor();
+        //return acumulador.getValor() + "";
+        return "0";
     }
 
     /**
