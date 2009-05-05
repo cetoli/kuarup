@@ -1,69 +1,87 @@
-/*------------------------------------------------------------------------------
-    Copyright © 2002-2006        Carlo E. T. Oliveira et all
+/*-----------------------------------------------------------------------------
+    Copyright 2002-2006        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
-------------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 package echo;
 
 /**
- * Calculadora com números complexos.
+ * Calculadora com numeros complexos.
  * 
  * @author  (Marcos de Castro)  $Author$
- * @author  (Thiago Silva de Souza)  $Author$
- * @version (3.0)    $Revision$ (28/04/09)      $Date$
- * @since   (3.0) Suporte a números complexos
+ * @author  (Andre de Abrantes)  $Author$
+ * @version (4.0)    $Revision$ (04/05/09)      $Date$
+ * @since   (3.0) suporte a notacao de engenharia
  */
 public class Complexo implements Operando {
-    
+
     private Operando real;
     private Operando imaginario;
-    
+    private Operando expoente;
+
     /**
-     * Método herdado de Operando.
+     * Metodo herdado de Operando.
      */
     public void adicionaParteReal(Operando operando) {
         this.real = operando;
     }
+
     /**
-     * Método herdado de Operando.
+     * Metodo herdado de Operando.
      */
     public void adicionaParteImaginaria(Operando operando) {
         this.imaginario = operando;
     }
-    
+
     /**
-     * Método herdado de Operando.
+     * Metodo herdado de Operando.
+     */
+    public void adicionaExpoente(Operando operando) {
+        this.expoente = operando;
+    }
+
+
+    /**
+     * Metodo herdado de Operando.
      */
     public String mostra(Base base) {
-        return this.real.mostra(base)+this.imaginario.mostra(base);
+        return this.real.mostra(base) + this.imaginario.mostra(base) + this.expoente.mostra(base);
     }
-    
+
     /**
-     * Método herdado de Operando.
+     * Metodo herdado de Operando.
      */
     public void soma(Operando operando) {
         this.real.soma(operando.getParteReal());
         this.imaginario.soma(operando.getParteImaginaria());
+        this.expoente.soma(operando.getExpoente());
     }
-    
+
     /**
-     * Método herdado de Operando.
+     * Metodo herdado de Operando.
      */
     public Operando getParteReal() {
         return this.real;
     }
-    
+
     /**
-     * Método herdado de Operando.
+     * Metodo herdado de Operando.
      */
     public Operando getParteImaginaria() {
         return this.imaginario;
     }
-    
+
     /**
-     * Método herdado de Operando.
+     * Metodo herdado de Operando.
+     */
+    public Operando getExpoente() {
+        return this.expoente;
+    }
+
+    /**
+     * Metodo herdado de Operando.
      */
     public int getValor() {
         return 0;

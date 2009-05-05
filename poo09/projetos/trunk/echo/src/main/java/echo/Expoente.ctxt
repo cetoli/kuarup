@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=valor
-comment0.target=Real(int)
+comment0.target=Expoente(int)
 comment0.text=\nMetodo\ herdado\ de\ Operando.\n\n
 comment1.params=operando
 comment1.target=void\ adicionaParteReal(Operando)
