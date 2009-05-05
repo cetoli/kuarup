@@ -41,9 +41,16 @@ public class HexStrategy implements Strategy
     public String comandoSoma(Calculadora calc) {
 		Numero acumulador = calc.getAcumulador();
 		Numero operador = calc.getOperador();
-		acumulador.somar(operador) ;
+		acumulador.somar(operador); 
 		calc.setOperador(new Numero(calc));
-		return acumulador.toString();
+		if(operador.getEstado().getPrioridade() > acumulador.getEstado().getPrioridade())
+			acumulador.setEstado(operador.getEstado());
+		if(operador.getParteReal().getEstado().getPrioridade() > acumulador.getParteReal().getEstado().getPrioridade())
+			acumulador.getParteReal().setEstado(operador.getParteReal().getEstado());
+		if(operador.getParteImaginaria().getEstado().getPrioridade() > acumulador.getParteImaginaria().getEstado().getPrioridade())
+			acumulador.getParteImaginaria().setEstado(operador.getParteImaginaria().getEstado());
+
+		return calc.getAcumulador().toString();
     }
 
 	public String converter(int valor) {

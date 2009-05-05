@@ -2,7 +2,7 @@ package hotel;
 
 /**.
  * Descrição:
- * Design Pattern State
+ * Design Pattern StateComplex
  *
  * @author Carlos Henrique Pinto Rodriguez
  * @author Alexandre Neves Louzada
@@ -10,9 +10,13 @@ package hotel;
  * @version 3     Data 30/04/2009
  */
 
-public interface State {
+public interface StateComplex {
+
+	public int getPrioridade();
 
 	public void entraUm(int base, Numero num);
+	
+	public void entraN(Numero num);
 	
 	public String toString(Calculadora calc, Numero num);
 	

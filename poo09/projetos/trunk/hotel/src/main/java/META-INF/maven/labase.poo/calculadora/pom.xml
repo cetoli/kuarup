@@ -4,7 +4,7 @@
   <groupId>labase.poo</groupId>
   <artifactId>calculadora</artifactId>
   <packaging>jar</packaging>
-  <version>2.0</version>
+  <version>4.0</version>
   <name>Calculadora</name>
   <url>http://labase.nce.ufrj.br/maven2/labase/poo</url>
   <properties>
