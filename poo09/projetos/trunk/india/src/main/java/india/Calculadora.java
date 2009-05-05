@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package india;
-import labase.poo.ICalculadoraBase;
+import labase.poo.ICalculadoraEngenharia;
 
 /**
  * @todo Escreva a descricao da classe Calculadora aqui.
@@ -15,7 +15,7 @@ import labase.poo.ICalculadoraBase;
  * @version (versao)    $Revision$ (data)      $Date$
  * @since   (versao) Descreva aqui as alteracoes desta versao
  */
-public class Calculadora implements ICalculadoraBase {
+public class Calculadora implements ICalculadoraEngenharia {
   /**Acumulador da Caculadora. */
   private Integer acumulador = new Integer(0);
   /**Operador da Caculadora. */
@@ -64,6 +64,18 @@ public class Calculadora implements ICalculadoraBase {
    * Ativa o modo Binário.
    */
   public final void modoBin() {
+  }
+
+  /**
+   * Ativa o modo Engenharia.
+   */
+  public final void entraN() {
+  }
+
+  /**
+   * Ativa o modo Complexo.
+   */
+  public final void entraI() {
   }
 
   /**
