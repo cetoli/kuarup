@@ -2,7 +2,7 @@
 comment0.target=Calculadora()
 comment0.text=\nConstrutor\ para\ objetos\ da\ classe\ Calculadora.\n\n
 comment1.target=void\ inicializa()
-comment1.text=\nInicializa\ ambas\ as\ vari\u00E1veis\ como\ reais\ de\ valor\ \=\ 0.\n\n
+comment1.text=\nInicializa\ ambas\ as\ vari\u00B7veis\ como\ reais\ de\ valor\ \=\ 0.\n\n
 comment2.target=String\ limpa()
 comment2.text=\nLimpa\ o\ acumulador.\n@return\ conte\u02D9do\ do\ acumulador\n\n
 comment3.target=String\ entraUm()
