@@ -24,7 +24,7 @@ class SacoPlastico (Lixo):
         self.posicao.setPontoCima (x-obj.length-10, y+obj.height, z-obj.width)
         """
 
-        obj= label(frame= self.esqueleto, pos=(x,y,z), text='Batata', opacity= 0.20, color= (0.75,0.75,0.75))
+        obj= label(frame= self.esqueleto, pos=(x,y,z), text='Batata', opacity= 0.20, color= (0.75,0.75,0.75), box= 0, border= 0)
         self.elementos.append (obj)
 
 
