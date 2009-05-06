@@ -8,11 +8,7 @@
 
 package golf;
 
-import golf.num.ComplexNum;
-import golf.num.ComponentNum;
-import golf.num.Exponent;
-import golf.num.Imaginario;
-import golf.num.Real;
+import golf.num.*;
 import labase.poo.ICalculadoraEngenharia;
 
 /**
@@ -157,10 +153,10 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra a base parte complexa do numero.
      */
     public void entraN() {
-        //ComponentNum root = new EngenhariaNum();
-        ComponentNum composite = new Exponent();
+        ComponentNum composite = new EngenhariaNum();
+        ComponentNum aux = new Exponent();
         composite.addComponent(operando);
-        composite.addComponent(composite);
+        composite.addComponent(aux);
         operando = composite;
     }
 

@@ -1,16 +1,15 @@
 package golf.num;
-import golf.bases.BaseStrategy;
-import golf.bases.BinariaStrategy;
-import golf.bases.DecimalStrategy;
-import golf.bases.HexadecimalStrategy;
+import golf.bases.*;
 import java.util.ArrayList;
 
+
 /**
- * Write a description of class ComplexNum here.
- * @author  Gustavo Taveira
- * @version 2.0 28/04/2009 Gustavo Taveira
+ * Adição e Subtração usando vetores.
+ * 
+ * @author Gustavo Taveira
+ * @version 5.0
  */
-public class ComplexNum extends ComponentNum {
+public class VetorNum extends ComponentNum{
 
     private ArrayList elements = new ArrayList();
 
