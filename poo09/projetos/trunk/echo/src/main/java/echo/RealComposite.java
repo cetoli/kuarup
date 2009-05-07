@@ -56,10 +56,10 @@ public class RealComposite implements Inteiro {
     }
 
     /**
-     * Metodo herdado de Inteiro.
+     * Metodo herdado de Inteiro. Conforme o Prof. Carlo, esse if eh aritmetico, e nao logico. Logo, esta liberado.
      */
     public void soma(Inteiro inteiro) {
-        int diff = expoente.getValor() - inteiro.getExpoente().getValor();
+        int diff = expoente.getValor() - inteiro.getParteReal().getExpoente().getValor();
 
         if (diff == 0) {
             mantissa += inteiro.getParteReal().getValor();
@@ -69,7 +69,7 @@ public class RealComposite implements Inteiro {
         }
         else {
             mantissa = mantissa / (int)Math.pow(10, -diff) + inteiro.getParteReal().getValor();
-            expoente = new Expoente(inteiro.getExpoente().getValor());
+            expoente = new Expoente(inteiro.getParteReal().getExpoente().getValor());
         }
     }
 

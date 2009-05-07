@@ -129,7 +129,10 @@ public class Calculadora implements ICalculadoraEngenharia {
         opDecimal = 0;
         opString = "";
         dispatcher.adicionaParteImaginaria(0, operando);
+
+        Inteiro expoente = acumulador.getParteImaginaria().getExpoente();
         dispatcher.adicionaParteImaginaria(acumulador.getParteImaginaria().getValor(), acumulador);
+        acumulador.getParteImaginaria().adicionaExpoente(expoente);
     }
 
     /**
