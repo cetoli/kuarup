@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=inteiro
+comment0.target=void\ adicionaParteReal(Inteiro)
+comment0.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment1.params=inteiro
+comment1.target=void\ adicionaParteImaginaria(Inteiro)
+comment1.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment2.params=inteiro
+comment2.target=void\ adicionaExpoente(Inteiro)
+comment2.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment3.params=base
+comment3.target=String\ mostra(BaseStrategy)
+comment3.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment4.params=inteiro
+comment4.target=void\ soma(Inteiro)
+comment4.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment5.target=int\ getValor()
+comment5.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment6.target=Inteiro\ getParteReal()
+comment6.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment7.target=Inteiro\ getParteImaginaria()
+comment7.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+comment8.target=Inteiro\ getExpoente()
+comment8.text=\nMetodo\ herdado\ de\ Inteiro.\n\n
+numComments=9

@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=inteiro
+comment0.target=void\ soma(Inteiro)
+comment0.text=\nMetodo\ que\ soma\ um\ inteiro\ a\ outro\ inteiro.\n@param\ inteiro\n\n
+comment1.params=inteiro
+comment1.target=void\ adicionaParteReal(Inteiro)
+comment1.text=\nMetodo\ que\ adiciona\ uma\ parte\ real\ a\ um\ inteiro.\n@param\ inteiro\n\n
+comment2.params=inteiro
+comment2.target=void\ adicionaParteImaginaria(Inteiro)
+comment2.text=\nMetodo\ que\ adiciona\ uma\ parte\ imaginaria\ a\ um\ inteiro.\n@param\ inteiro\n\n
+comment3.params=inteiro
+comment3.target=void\ adicionaExpoente(Inteiro)
+comment3.text=\nMetodo\ que\ adiciona\ um\ expoente\ a\ um\ inteiro.\n@param\ inteiro\n\n
+comment4.params=base
+comment4.target=String\ mostra(BaseStrategy)
+comment4.text=\nMetodo\ que\ mostra\ o\ inteiro\ na\ base\ especificada.\n@param\ base\n@return\ valor\ do\ inteiro\ na\ base\ especificada\n\n
+comment5.target=Inteiro\ getParteReal()
+comment5.text=\nMetodo\ que\ retorna\ a\ parte\ real\ do\ inteiro.\n@return\ inteiro\n\n
+comment6.target=Inteiro\ getParteImaginaria()
+comment6.text=\nMetodo\ que\ retorna\ a\ parte\ imaginaria\ do\ inteiro.\n@return\ inteiro\n\n
+comment7.target=Inteiro\ getExpoente()
+comment7.text=\nMetodo\ que\ retorna\ o\ expoente\ do\ inteiro.\n@return\ inteiro\n\n
+comment8.target=int\ getValor()
+comment8.text=\nMetodo\ que\ retorna\ o\ valor\ em\ decimal\ da\ parte\ real\ ou\ \nimaginaria\ do\ inteiro\n@return\ valor\ em\ decimal\n\n
+numComments=9

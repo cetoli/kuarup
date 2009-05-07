@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=i\ inteiro
+comment0.target=void\ adicionaParteReal(int,\ Inteiro)
+comment0.text=\nMetodo\ que\ adiciona\ a\ parte\ real\ ao\ inteiro.\n@param\ inteiro\n\n
+comment1.params=i\ inteiro
+comment1.target=void\ adicionaParteImaginaria(int,\ Inteiro)
+comment1.text=\nMetodo\ que\ adiciona\ a\ parte\ imaginaria\ ao\ inteiro.\n@param\ inteiro\n\n
+comment2.params=i\ inteiro
+comment2.target=void\ adicionaExpoente(int,\ Inteiro)
+comment2.text=\nMetodo\ que\ adiciona\ expoente\ ao\ inteiro.\n@param\ inteiro\n\n
+comment3.target=Dispatcher\ entraExpoente()
+comment3.text=\nMetodo\ que\ muda\ o\ dispatcher\ para\ o\ expoente\ da\ parte\ atual\ do\ inteiro.\n@return\ novo\ dispatcher\n\n
+numComments=4
