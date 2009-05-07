@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=HexadecimalStrategyTest()
-comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ HexadecimalTeste.\n\n
-comment1.target=void\ setUp()
-comment1.text=\nPrepara\uFFFD\uFFFDo\ do\ caso\ de\ teste.\nChamado\ antes\ de\ cada\ m\uFFFDtodo\ de\ caso\ de\ teste.\n\n
-comment2.target=void\ tearDown()
-comment2.text=\nLimpeza\ do\ caso\ de\ teste.\nChamado\ ap\uFFFDs\ cada\ m\uFFFDtodo\ de\ teste\ de\ caso.\n\n
-comment3.target=void\ testConverte16()
-numComments=4
