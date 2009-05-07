@@ -24,8 +24,10 @@ def init_window ():
 nfotos=0
 def grava_quadro ():
     global nfotos
-    os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
+    #os.system ("import -window Memoria memoria%03d.jpg" % nfotos)
     nfotos += 1
+    import time
+    time.sleep(.5)
 
 
 if __name__ == "__main__":
@@ -81,6 +83,7 @@ if __name__ == "__main__":
             animais[ len(posicoes) ].move((pos/4,pos%4,0))
             posicoes[pos] = len(posicoes)
  
+    grava_quadro()
     grava_quadro()
 
     scene.autocenter = 0
