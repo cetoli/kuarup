@@ -71,6 +71,14 @@ public class NotEngenRealComposite implements OperacaoComposite {
      * @param inteiro
      * @param base
      */
+    public final OperacaoComposite getOperando(OperacaoComposite real) {
+        return this;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
     public final OperacaoComposite getInstancia() {
         return this;
     }

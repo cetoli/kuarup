@@ -61,6 +61,14 @@ public class ImaginarioComposite implements OperacaoComposite {
      * @param inteiro
      * @param base
      */
+    public final OperacaoComposite getOperando(OperacaoComposite real) {
+        return real;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
     public final OperacaoComposite getInstancia() {
         return this;
     }
