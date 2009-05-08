@@ -28,6 +28,10 @@ public class BinariaStrategyTest extends junit.framework.TestCase {
     protected void tearDown() {
     }
 
+    /**
+     * Limpeza do caso de teste.
+     * Chamado ap�s cada m�todo de teste de caso.
+     */
     public final void testConverte2() {
         delta.BinariaStrategy binariaS1 = new delta.BinariaStrategy();
         assertEquals("0b10", binariaS1.toString(2));
