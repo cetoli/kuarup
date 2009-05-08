@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=numero
+comment0.target=NotEngenImaginarioComposite(OperacaoComposite)
+comment0.text=\nContrutor\ da\ classe.\n\n
+comment1.params=base
+comment1.target=String\ toString(BaseStrategy)
+comment1.text=\n@param\ base\n@return\n\n
+comment2.params=base
+comment2.target=String\ toStringOperando(BaseStrategy)
+comment2.text=\n@param\ base\n@return\n\n
+comment3.params=base
+comment3.target=void\ entraUm(BaseStrategy)
+comment3.text=\nImplementacao\ do\ metodo\ entraUm.\n@param\ base\n\n
+comment4.target=void\ soma()
+comment4.text=\n@param\ inteiro\n@param\ base\n\n
+comment5.target=OperacaoComposite\ getOperando()
+comment5.text=\n@param\ inteiro\n@param\ base\n\n
+comment6.params=real
+comment6.target=OperacaoComposite\ getOperando(OperacaoComposite)
+comment6.text=\n@param\ inteiro\n@param\ base\n\n
+comment7.target=OperacaoComposite\ getInstancia()
+comment7.text=\n@param\ inteiro\n@param\ base\n\n
+comment8.target=OperacaoComposite\ getExpoente()
+comment8.text=\n@param\ inteiro\n@param\ base\n\n
+numComments=9
