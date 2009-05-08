@@ -16,9 +16,9 @@ public class ComplexoComposite implements OperacaoComposite {
     /**
      * Contrutor exigido para instanciar o complexo.
      */
-    public ComplexoComposite(OperacaoComposite real, OperacaoComposite imaginario) {
+    public ComplexoComposite(OperacaoComposite real) {
         this.real = real;
-        this.imaginario = imaginario;
+        this.imaginario = new ImaginarioComposite();
     }
 
     /**
@@ -60,4 +60,35 @@ public class ComplexoComposite implements OperacaoComposite {
         imaginario.soma();
     }
 
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getOperando() {
+        return imaginario;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getInstancia() {
+        return this;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getExpoente() {
+        return this;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final void setReal(OperacaoComposite real) {
+        this.real = real;
+    }
 }

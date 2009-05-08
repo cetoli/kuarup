@@ -49,4 +49,28 @@ public class ImaginarioComposite implements OperacaoComposite {
         operando = 0;
     }
 
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getOperando() {
+        return this;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getInstancia() {
+        return this;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getExpoente() {
+        return this;
+    }
+
 }

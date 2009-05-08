@@ -19,29 +19,28 @@ import labase.poo.ICalculadoraEngenharia;
  */
 public class Calculadora implements ICalculadoraEngenharia {
 
-    /**
-     * Guarda os resultados da soma.
-     **/
+    /** Guarda os resultados da soma. */
     private OperacaoComposite acumulador;
 
-    /**
-     * Guarda o conteudo do operando.
-     **/
+    /** Guarda o conteudo do operando. */
     private OperacaoComposite operando;
 
-    /**
-     * Guarda o conteudo do operando Real.
-     **/
+    /** Guarda o conteudo do operando Real. */
     private OperacaoComposite operandoReal;
 
-    /**
-     * Guarda o conteudo do operando Imaginario.
-     **/
-    private OperacaoComposite operandoImaginario;
+    /** Guarda o conteudo do operando complexo. */
+    private OperacaoComposite complexo;
 
-    /**
-     * Guarda a base atual.
-     **/
+    /** Guarda o conteudo do operando Real. */
+    private OperacaoComposite engenhariaR;
+
+    /** Guarda o conteudo do operando Imaginario. */
+    private OperacaoComposite engenhariaI;
+
+    /** Guarda o conteudo do operando Imaginario. */
+    private OperacaoComposite engenharia;
+
+    /** Guarda a base atual. */
     private BaseStrategy base;
 
     /**
@@ -50,9 +49,12 @@ public class Calculadora implements ICalculadoraEngenharia {
     public Calculadora() {
         base = new DecimalStrategy();        
         operandoReal = new RealComposite();
-        operandoImaginario = new ImaginarioComposite();
+        complexo = new ComplexoComposite(operandoReal);
         operando = operandoReal;
         acumulador = operandoReal;
+        engenhariaR = new NotEngenRealComposite(operandoReal);
+        engenhariaI = new NotEngenImaginarioComposite(complexo);
+        engenharia = engenhariaR;
     }
 
     /**
@@ -62,7 +64,7 @@ public class Calculadora implements ICalculadoraEngenharia {
     public final String limpa() {
         base = new DecimalStrategy();        
         operandoReal = new RealComposite();
-        operandoImaginario = new ImaginarioComposite();
+        complexo = new ComplexoComposite(operandoReal);
         operando = operandoReal;
         acumulador = operandoReal;
         return operando.toString(base);
@@ -82,8 +84,8 @@ public class Calculadora implements ICalculadoraEngenharia {
      * @return resultado da soma do acumulador e do operando.
      **/
     public final String comandoSoma() {
-        this.acumulador.soma();
-        this.operando = operandoReal;
+        acumulador.soma();
+        operando = engenhariaR.getOperando();
         return this.acumulador.toString(base);
     }
 
@@ -112,14 +114,19 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra numero complexo.
      */
     public final void entraI() {
-        operando = operandoImaginario;
-        acumulador = new ComplexoComposite(operandoReal, operandoImaginario);
+        engenharia = engenhariaI;
+        acumulador = complexo;
+        operando = complexo.getOperando();//retorna imaginario
     }
 
     /**
      * Entra numero notação de Engenharia.
      */
     public final void entraN() {
+        operandoReal = engenhariaR;
+        ((ComplexoComposite)complexo).setReal(operandoReal);
+        acumulador = engenharia.getInstancia();
+        operando = engenharia.getExpoente();        
     }
 
 }
