@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=real\ imaginario
-comment0.target=ComplexoComposite(OperacaoComposite,\ OperacaoComposite)
+comment0.params=real
+comment0.target=ComplexoComposite(OperacaoComposite)
 comment0.text=\nContrutor\ exigido\ para\ instanciar\ o\ complexo.\n\n
 comment1.params=base
 comment1.target=String\ toString(BaseStrategy)
@@ -13,4 +13,13 @@ comment3.target=void\ entraUm(BaseStrategy)
 comment3.text=\n@param\ inteiro\n@param\ base\n\n
 comment4.target=void\ soma()
 comment4.text=\n@param\ inteiro\n@param\ base\n\n
-numComments=5
+comment5.target=OperacaoComposite\ getOperando()
+comment5.text=\n@param\ inteiro\n@param\ base\n\n
+comment6.target=OperacaoComposite\ getInstancia()
+comment6.text=\n@param\ inteiro\n@param\ base\n\n
+comment7.target=OperacaoComposite\ getExpoente()
+comment7.text=\n@param\ inteiro\n@param\ base\n\n
+comment8.params=real
+comment8.target=void\ setReal(OperacaoComposite)
+comment8.text=\n@param\ inteiro\n@param\ base\n\n
+numComments=9

@@ -11,9 +11,7 @@ public class NotEngenRealComposite implements OperacaoComposite {
     /** Guarda a referencia para o numero. */
     private OperacaoComposite numReal;
     /** Guarda a referencia para o expoente, sempre do tipo Real. */
-    private Integer expoente = new Integer(0);
-    /** Guarda a referencia para o expoente, sempre do tipo Real. */
-    private Integer acumuladorExp = new Integer(0);
+    private OperacaoComposite expoente = new RealComposite();
 
     /**
      * Contrutor da classe.
@@ -29,7 +27,7 @@ public class NotEngenRealComposite implements OperacaoComposite {
     public final String toString(BaseStrategy base) {
         //só imprime acumulador
         String retorno;
-        retorno = numReal.toString(base) + "N" + acumuladorExp.toString();
+        retorno = numReal.toString(base) + "N" + expoente.toString(base);
         return retorno;
     }
 
@@ -39,7 +37,7 @@ public class NotEngenRealComposite implements OperacaoComposite {
      */
     public String toStringOperando(BaseStrategy base){
         String retorno;
-        retorno = numReal.toStringOperando(base) + "N" + expoente.toString();
+        retorno = numReal.toStringOperando(base) + "N" + expoente.toStringOperando(base);
         return retorno;
     }
 
@@ -48,7 +46,7 @@ public class NotEngenRealComposite implements OperacaoComposite {
      * @param base
      */
     public final void entraUm(BaseStrategy base) {
-        expoente = expoente * base.getValorBase() + 1;
+        expoente.entraUm(base);
     }
 
     /**
@@ -57,8 +55,31 @@ public class NotEngenRealComposite implements OperacaoComposite {
      */
     public final void soma() {
         numReal.soma();
-        acumuladorExp += expoente;
-        expoente = 0;
+        expoente.soma();
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getOperando() {
+        return numReal;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getInstancia() {
+        return this;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getExpoente() {
+        return expoente;
     }
 
 }

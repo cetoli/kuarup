@@ -17,5 +17,10 @@ public interface OperacaoComposite {
     public void soma();
     /** Assinatura do método de entrada. */
     public void entraUm(BaseStrategy base);
-    /** Assinatura do método de instancia. */
+    /** Assinatura do método de retorno de operando. */
+    public OperacaoComposite getOperando();
+    /** Assinatura do método de retorno de operando. */
+    public OperacaoComposite getInstancia();
+    /** Assinatura do método de retorno de operando. */
+    public OperacaoComposite getExpoente();
 }

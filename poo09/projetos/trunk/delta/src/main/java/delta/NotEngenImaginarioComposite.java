@@ -9,19 +9,15 @@ package delta;
  */
 public class NotEngenImaginarioComposite implements OperacaoComposite {
     /** Guarda a referencia para o numero. */
-    private OperacaoComposite numImaginario;
-    /** Guarda a referencia para o numero. */
-    private OperacaoComposite numReal;
+    private OperacaoComposite complexo;
     /** Guarda a referencia para o expoente, sempre do tipo Real. */
-    private Integer expoente = new Integer(0);
-    /** Guarda a referencia para o expoente, sempre do tipo Real. */
-    private Integer acumuladorExp = new Integer(0);
+    private OperacaoComposite expoente = new RealComposite();
 
     /**
      * Contrutor da classe.
      */
     public NotEngenImaginarioComposite(OperacaoComposite numero) {
-        this.numImaginario = numero;
+        this.complexo = numero;
     }
     
     /**
@@ -31,7 +27,7 @@ public class NotEngenImaginarioComposite implements OperacaoComposite {
     public final String toString(BaseStrategy base) {
         //só imprime acumulador
         String retorno;
-        retorno = numImaginario.toString(base) + "N" +  acumuladorExp.toString();
+        retorno = complexo.toString(base) + "N" +  expoente.toString(base);
         return retorno;
     }
 
@@ -41,8 +37,8 @@ public class NotEngenImaginarioComposite implements OperacaoComposite {
      */
     public String toStringOperando(BaseStrategy base){
         String retorno;
-        retorno = numImaginario.toStringOperando(base) +
-                            "N" + expoente.toString();
+        retorno = complexo.toStringOperando(base) +
+                      "N" + expoente.toStringOperando(base);
         return retorno;
     }
 
@@ -51,7 +47,7 @@ public class NotEngenImaginarioComposite implements OperacaoComposite {
      * @param base
      */
     public final void entraUm(BaseStrategy base) {
-        expoente = expoente * base.getValorBase() + 1;
+        expoente.entraUm(base);
     }
 
     /**
@@ -59,9 +55,32 @@ public class NotEngenImaginarioComposite implements OperacaoComposite {
      * @param base
      */
     public final void soma() {
-        numImaginario.soma();
-        acumuladorExp += expoente;
-        expoente = 0;
+        complexo.soma();
+        expoente.soma();
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getOperando() {
+        return complexo.getOperando();
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getInstancia() {
+        return this;
+    }
+
+    /**
+     * @param inteiro
+     * @param base
+     */
+    public final OperacaoComposite getExpoente() {
+        return expoente;
     }
 
 }
