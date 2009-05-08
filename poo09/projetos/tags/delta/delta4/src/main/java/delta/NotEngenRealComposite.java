@@ -25,9 +25,9 @@ public class NotEngenRealComposite implements OperacaoComposite {
      * @return
      */
     public final String toString(BaseStrategy base) {
-        //só imprime acumulador
+        BaseStrategy baseAux = new DecimalStrategy();
         String retorno;
-        retorno = numReal.toString(base) + "N" + expoente.toString(base);
+        retorno = numReal.toString(base) + "N" + expoente.toString(baseAux);
         return retorno;
     }
 
@@ -37,7 +37,8 @@ public class NotEngenRealComposite implements OperacaoComposite {
      */
     public String toStringOperando(BaseStrategy base){
         String retorno;
-        retorno = numReal.toStringOperando(base) + "N" + expoente.toStringOperando(base);
+        BaseStrategy baseAux = new DecimalStrategy();
+        retorno = numReal.toStringOperando(base) + "N" + expoente.toStringOperando(baseAux);
         return retorno;
     }
 
