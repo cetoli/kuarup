@@ -123,7 +123,7 @@ public class Calculadora implements ICalculadoraEngenharia {
      * Entra numero notação de Engenharia.
      */
     public final void entraN() {
-        operandoReal = engenhariaR;
+        operandoReal = engenharia.getOperando(operandoReal);
         ((ComplexoComposite)complexo).setReal(operandoReal);
         acumulador = engenharia.getInstancia();
         operando = engenharia.getExpoente();        

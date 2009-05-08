@@ -23,4 +23,6 @@ public interface OperacaoComposite {
     public OperacaoComposite getInstancia();
     /** Assinatura do método de retorno de operando. */
     public OperacaoComposite getExpoente();
+    /** Assinatura do método. */
+    public OperacaoComposite getOperando(OperacaoComposite real);
 }
