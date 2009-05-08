@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=int\ getValorBase()
-comment0.text=\nRetorna\ o\ valor\ da\ base.\n@return\ Valor\ da\ base.\n\n
-comment1.params=integer
-comment1.target=String\ toString(Integer)
-comment1.text=\nConverte\ um\ inteiro\ para\ string\ usando\ uma\ base.\n\n@param\ integer\ Inteiro\ a\ ser\ convertido.\n@return\ String\ convertida.\n\n
-numComments=2
