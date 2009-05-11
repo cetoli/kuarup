@@ -2,9 +2,9 @@
 comment0.target=RealTest()
 comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ RealTest.\n\n
 comment1.target=void\ setUp()
-comment1.text=\nPrepara\u00E7\u00E3o\ do\ caso\ de\ teste.\n\nChamado\ antes\ de\ cada\ m\u00E9todo\ de\ caso\ de\ teste.\n\n
+comment1.text=\nPrepara\uFFFD\uFFFDo\ do\ caso\ de\ teste.\n\nChamado\ antes\ de\ cada\ m\uFFFDtodo\ de\ caso\ de\ teste.\n\n
 comment2.target=void\ tearDown()
-comment2.text=\nLimpeza\ do\ caso\ de\ teste.\n\nChamado\ ap\u00F3s\ cada\ m\u00E9todo\ de\ teste\ de\ caso.\n\n
+comment2.text=\nLimpeza\ do\ caso\ de\ teste.\n\nChamado\ ap\uFFFDs\ cada\ m\uFFFDtodo\ de\ teste\ de\ caso.\n\n
 comment3.target=void\ testInstanciar()
 comment3.text=\nTeste\:\ INSTANCIAR\n\n
 comment4.target=void\ testMostraBase()

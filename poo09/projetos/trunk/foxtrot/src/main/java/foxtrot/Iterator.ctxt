@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Operando\ getOperando()
+comment1.params=base
+comment1.target=String\ mostra(Base)
+comment2.target=Iterator\ next()
+comment3.params=iterator
+comment3.target=void\ setNext(Iterator)
+comment4.target=String\ getPrefixo()
+comment5.params=iterator
+comment5.target=void\ soma(Iterator)
+numComments=6

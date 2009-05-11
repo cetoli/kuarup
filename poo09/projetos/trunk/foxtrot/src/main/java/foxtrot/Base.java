@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-    Copyright © 2002-2009        Carlo E. T. Oliveira et all
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
@@ -11,34 +11,34 @@ package foxtrot;
  * Classe que implementa a calculadora.
  * @author  Carlos Eduardo e Thiago Silva de Souza
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
- * @since   4.0 Incluídas as funcionalidades: números com notação científica.
+ * @since   4.0 Incluï¿½das as funcionalidades: nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
- * @since   3.0 Incluídas as funcionalidades: números complexos.
+ * @since   3.0 Incluï¿½das as funcionalidades: nï¿½meros complexos.
  * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
- * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * @since   2.0 Incluï¿½das as funcionalidades: nï¿½meros em bases binï¿½rias e
  * hexadecimais.
  */
 public interface Base {
 
     /**
-     * Retorna o identificador da base decimal, binária ou hexadecimal.
+     * Retorna o identificador da base decimal, binï¿½ria ou hexadecimal.
      * @return o identificador da respectiva base.
      */
     public String getId();
 
     /**
-     * Retorna o valor em decimal do número dado em base decimal, binária ou
+     * Retorna o valor em decimal do nï¿½mero dado em base decimal, binï¿½ria ou
      * hexadecimal.
-     * @param n string do número dado na respectiva base.
-     * @return o valor em decimal do número dado.
+     * @param n string do nï¿½mero dado na respectiva base.
+     * @return o valor em decimal do nï¿½mero dado.
      */
     public int toDecimal(String n);
 
     /**
-     * Retorna um número em base decimal, binária ou hexadecimal de acordo com
+     * Retorna um nï¿½mero em base decimal, binï¿½ria ou hexadecimal de acordo com
      * o valor em decimal dado.
-     * @param v valor em decimal do número dado.
-     * @return a string do número dado na respectiva base.
+     * @param v valor em decimal do nï¿½mero dado.
+     * @return a string do nï¿½mero dado na respectiva base.
      */
     public String toBase(int v);
 }

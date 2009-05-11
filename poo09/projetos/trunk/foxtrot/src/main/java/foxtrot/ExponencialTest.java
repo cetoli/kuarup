@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-    Copyright © 2002-2009        Carlo E. T. Oliveira et all
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
@@ -11,11 +11,11 @@ package foxtrot;
  * Classe que implementa a calculadora.
  * @author  Carlos Eduardo e Thiago Silva de Souza
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
- * @since   4.0 Incluídas as funcionalidades: números com notação científica.
+ * @since   4.0 Incluï¿½das as funcionalidades: nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
- * @since   3.0 Incluídas as funcionalidades: números complexos.
+ * @since   3.0 Incluï¿½das as funcionalidades: nï¿½meros complexos.
  * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
- * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * @since   2.0 Incluï¿½das as funcionalidades: nï¿½meros em bases binï¿½rias e
  * hexadecimais.
  */
 public class ExponencialTest extends junit.framework.TestCase
@@ -27,9 +27,9 @@ public class ExponencialTest extends junit.framework.TestCase
     }
 
     /**
-     * Preparação do caso de teste.
+     * Preparaï¿½ï¿½o do caso de teste.
      *
-     * Chamado antes de cada método de caso de teste.
+     * Chamado antes de cada mï¿½todo de caso de teste.
      */
     protected void setUp() {
     }
@@ -37,7 +37,7 @@ public class ExponencialTest extends junit.framework.TestCase
     /**
      * Limpeza do caso de teste.
      *
-     * Chamado após cada método de teste de caso.
+     * Chamado apï¿½s cada mï¿½todo de teste de caso.
      */
     protected void tearDown() {
     }
@@ -56,7 +56,7 @@ public class ExponencialTest extends junit.framework.TestCase
     public void testMostraBase() {
         Exponencial exponencial = new Exponencial(17);
         Hexadecimal base = new Hexadecimal();
-        assertEquals("E0x11", exponencial.mostra(base));
+        assertEquals("N0x11", exponencial.mostra(base));
     }
     
     /**

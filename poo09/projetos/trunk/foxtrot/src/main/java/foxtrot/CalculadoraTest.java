@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-    Copyright © 2002-2009        Carlo E. T. Oliveira et all
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
@@ -11,11 +11,11 @@ package foxtrot;
  * Classe que implementa a calculadora.
  * @author  Carlos Eduardo e Thiago Silva de Souza
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
- * @since   4.0 Incluídas as funcionalidades: números com notação científica.
+ * @since   4.0 Incluï¿½das as funcionalidades: nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
- * @since   3.0 Incluídas as funcionalidades: números complexos.
+ * @since   3.0 Incluï¿½das as funcionalidades: nï¿½meros complexos.
  * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
- * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * @since   2.0 Incluï¿½das as funcionalidades: nï¿½meros em bases binï¿½rias e
  * hexadecimais.
  */
 public class CalculadoraTest extends junit.framework.TestCase {    
@@ -125,7 +125,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
     }
   
     /**
@@ -134,7 +134,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
      */
     public void testLimpaSemOperador() {
         Calculadora calculadora = new Calculadora();
-        assertFalse(calculadora.limpa() != 0);
+        assertEquals(calculadora.limpa(), "0");
     }
   
     /** 
@@ -145,7 +145,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
         assertEquals("1", calculadora.entraUm()); // testa se operador foi limpo
     }  
   
@@ -160,190 +160,190 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculadora.comandoSoma();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        assertEquals(0, calculadora.limpa());
+        assertEquals("0", calculadora.limpa());
         assertEquals("1", calculadora.entraUm()); // testa se operador foi limpo
     }
   
     /** 
      * Entra com valor 1 em Hexadecimal
-     * Retorno esperado é H1.
+     * Retorno esperado ï¿½ H1.
      */
     public void testEntraHexaEntraUm() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         assertEquals("0x1", calculadora.entraUm());
     }
 
     /** 
      * Entra com valor 11 em Hexadecimal
-     * Retorno esperado é H11.
+     * Retorno esperado ï¿½ H11.
      */
     public void testEntraHexaEntraUmUm() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         calculadora.entraUm();
         assertEquals("0x11", calculadora.entraUm());
     }
 
     /** 
-     * Entra com valor 1 em Binário
-     * Retorno esperado é B1.
+     * Entra com valor 1 em Binï¿½rio
+     * Retorno esperado ï¿½ B1.
      */
     public void testEntraBinarioEntraUm() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         assertEquals("0b1", calculadora.entraUm());
     }
 
     /** 
-     * Entra com valor 11 em Binário
-     * Retorno esperado é B1011.
+     * Entra com valor 11 em Binï¿½rio
+     * Retorno esperado ï¿½ B1011.
      */
     public void testEntraBinarioEntraUmUm() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         calculadora.entraUm();
         assertEquals("0b11", calculadora.entraUm());
     }
 
     /** 
      * Entra com valor 1 em Decimal
-     * Retorno esperado é D1.
+     * Retorno esperado ï¿½ D1.
      */
     public void testEntraDecimalEntraUm() {
        Calculadora calculadora = new Calculadora();
-       calculadora.entraDecimal();
+       calculadora.modoDec();
        assertEquals("1",  calculadora.entraUm());
     }
 
     /** 
      * Entra com valor 11 em Decimal
-     * Retorno esperado é D11.
+     * Retorno esperado ï¿½ D11.
      */
     public void testEntraDecimalEntraUmUm() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         calculadora.entraUm();
         assertEquals("11",calculadora.entraUm());
     }
   
     /** 
      * Entra com valor 1 em Decimal
-     * Retorno esperado é D1.
+     * Retorno esperado ï¿½ D1.
      * Entra com mais um valor 1 em Decimal
-     * Retorno esperado é D11.
-     * Muda a base para Binário
-     * Retorno esperado é B1011  (Cálculo validado na calculadora cientifica do Windows)
-     * Entra com valor 1 em Binário (Aqui é diferente da calculadora do Windows, pois nesta Calculadora o valor é acumulado, com isso, 
-     *                               é adicionado o valor 1 no final da String, enquanto que na calculadora do Windows é substituído por 1
-     *                               obs: Para funcionar como a calculadora do Windows, basta utilizar o método limpa())
-     * Retorno esperado é B10111 
+     * Retorno esperado ï¿½ D11.
+     * Muda a base para Binï¿½rio
+     * Retorno esperado ï¿½ B1011  (Cï¿½lculo validado na calculadora cientifica do Windows)
+     * Entra com valor 1 em Binï¿½rio (Aqui ï¿½ diferente da calculadora do Windows, pois nesta Calculadora o valor ï¿½ acumulado, com isso, 
+     *                               ï¿½ adicionado o valor 1 no final da String, enquanto que na calculadora do Windows ï¿½ substituï¿½do por 1
+     *                               obs: Para funcionar como a calculadora do Windows, basta utilizar o mï¿½todo limpa())
+     * Retorno esperado ï¿½ B10111 
      * Muda a base para Hexadecimal 
-     * Retorno esperado é H17    (Cálculo validado na calculadora cientifica do Windows)
-     * Entra com valor 1 em Hexadecimal  (Aqui é diferente da calculadora do Windows, pois nesta Calculadora o valor é acumulado, com isso, 
-     *                                    é adicionado o valor 1 no final da String, enquanto que na calculadora do Windows é substituído por 1
-     *                                    obs: Para funcionar como a calculadora do Windows, basta utilizar o método limpa())
-     * Retorno esperado é H171
+     * Retorno esperado ï¿½ H17    (Cï¿½lculo validado na calculadora cientifica do Windows)
+     * Entra com valor 1 em Hexadecimal  (Aqui ï¿½ diferente da calculadora do Windows, pois nesta Calculadora o valor ï¿½ acumulado, com isso, 
+     *                                    ï¿½ adicionado o valor 1 no final da String, enquanto que na calculadora do Windows ï¿½ substituï¿½do por 1
+     *                                    obs: Para funcionar como a calculadora do Windows, basta utilizar o mï¿½todo limpa())
+     * Retorno esperado ï¿½ H171
      * Muda a base para Decimal
-     * Retorno esperado é 369    (Cálculo validado na calculadora cientifica do Windows)
+     * Retorno esperado ï¿½ 369    (Cï¿½lculo validado na calculadora cientifica do Windows)
      **/
      public void testEntraHexaBinarioDecimal() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         assertEquals("1", calculadora.entraUm());
         assertEquals("11", calculadora.entraUm());
-        assertEquals("0b1011", calculadora.entraBinario());
+        calculadora.modoBin();
         assertEquals("0b10111", calculadora.entraUm());        
-        assertEquals("0x17", calculadora.entraHexadecimal());        
+        calculadora.modoHex();
         calculadora.entraUm();
-        assertEquals("369", calculadora.entraDecimal());        
+        calculadora.modoDec();
     }
   
     /** 
      * Entra com valor 1 em Hexadecimal
-     * Retorno esperado é H1.
+     * Retorno esperado ï¿½ H1.
      * Entra com mais um valor 1 em Hexadecimal
-     * Retorno esperado é H11.
+     * Retorno esperado ï¿½ H11.
      * Realiza a soma do valor (11) em Hexadecimal
-     * Retorno esperado será o valor igual a 12 em Hexadecimal.    (Cálculo validado na calculadora cientifica do Windows)
+     * Retorno esperado serï¿½ o valor igual a 12 em Hexadecimal.    (Cï¿½lculo validado na calculadora cientifica do Windows)
      **/
     public void testEntraSomaHexa() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         assertEquals("0x1", calculadora.entraUm());
         assertEquals("0x11", calculadora.entraUm());
         assertEquals("0x11", calculadora.comandoSoma());
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         assertEquals("0x1", calculadora.entraUm()); 
         assertEquals("0x12", calculadora.comandoSoma());
     }
   
     /** 
      * Entra com valor 1 em Decimal
-     * Retorno esperado é D1.
+     * Retorno esperado ï¿½ D1.
      * Entra com mais um valor 1  Decimal
-     * Retorno esperado é D11.
+     * Retorno esperado ï¿½ D11.
      * Realiza a soma do valor (11) em Decimal
-     * Retorno esperado será o valor do  11.
+     * Retorno esperado serï¿½ o valor do  11.
      * Entra com 1 em Decimal
-     * Retorno esperado é D1.
+     * Retorno esperado ï¿½ D1.
      * 
      * Realiza a soma 
      * Retorno esperado igual a 12 em Decimal.
      **/
     public void testEntraSomaDecimal() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         assertEquals("1", calculadora.entraUm());
         assertEquals("11", calculadora.entraUm());
         assertEquals("11", calculadora.comandoSoma());
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         assertEquals("1", calculadora.entraUm()); 
         assertEquals("12", calculadora.comandoSoma());
     }    
   
     /** 
-     * Entra com valor 1 em Binário
-     * Retorno esperado é B1.
-     * Entra com mais um valor 1 em Binário
-     * Retorno esperado é B11.
-     * Realiza a soma do valor (11) em Binário
-     * Retorno esperado igual a 11 em Binário.
-     * Entra com 1 em Binário
-     * Retorno esperado é B1.
+     * Entra com valor 1 em Binï¿½rio
+     * Retorno esperado ï¿½ B1.
+     * Entra com mais um valor 1 em Binï¿½rio
+     * Retorno esperado ï¿½ B11.
+     * Realiza a soma do valor (11) em Binï¿½rio
+     * Retorno esperado igual a 11 em Binï¿½rio.
+     * Entra com 1 em Binï¿½rio
+     * Retorno esperado ï¿½ B1.
      * Realiza a soma 
-     * Retorno esperado é igual 100 em Binário. (Cálculo validado na calculadora cientifica do Windows)
+     * Retorno esperado ï¿½ igual 100 em Binï¿½rio. (Cï¿½lculo validado na calculadora cientifica do Windows)
      **/
     public void testEntraSomaBinario() {
         Calculadora calculadora = new Calculadora();    
-        calculadora.entraBinario();
+        calculadora.modoBin();
         assertEquals("0b1", calculadora.entraUm());
         assertEquals("0b11", calculadora.entraUm());
         assertEquals("0b11", calculadora.comandoSoma());
-        calculadora.entraBinario();
+        calculadora.modoBin();
         assertEquals("0b1", calculadora.entraUm()); 
         assertEquals("0b100", calculadora.comandoSoma());
     }      
  
     /** 
-     * ******* Binário **************
-     * Entra com valor 1 em Binário
-     * Retorno esperado é B1.
-     * Entra com mais um valor 1 em Binário
-     * Retorno esperado é B11.
-     * Realiza a soma do valor (11) em Binário
+     * ******* Binï¿½rio **************
+     * Entra com valor 1 em Binï¿½rio
+     * Retorno esperado ï¿½ B1.
+     * Entra com mais um valor 1 em Binï¿½rio
+     * Retorno esperado ï¿½ B11.
+     * Realiza a soma do valor (11) em Binï¿½rio
      * Retorno esperado igual a 11.
-     * Entra com 1 em Binário
-     * Retorno esperado é B1.
-     * Realiza a soma dos valores em binário
-     * Retorno esperado é igual 100. (Cálculo validado na calculadora cientifica do Windows)
+     * Entra com 1 em Binï¿½rio
+     * Retorno esperado ï¿½ B1.
+     * Realiza a soma dos valores em binï¿½rio
+     * Retorno esperado ï¿½ igual 100. (Cï¿½lculo validado na calculadora cientifica do Windows)
      * ********** Hexadecimal *************
      * Entra com valor 1 em Hexadecimal
-     * Retorno esperado é igual H1
+     * Retorno esperado ï¿½ igual H1
      * Entra com outro valor 1 em Hexadecimal
-     * Retorno esperador é igual H11
-     * Realiza soma do valor em Binário (100) com valor em Hexadecimal (11)
-     * Retorno esperador é igual á 15 (Cálculo validado na calculadora cientifica do Windows)
+     * Retorno esperador ï¿½ igual H11
+     * Realiza soma do valor em Binï¿½rio (100) com valor em Hexadecimal (11)
+     * Retorno esperador ï¿½ igual ï¿½ 15 (Cï¿½lculo validado na calculadora cientifica do Windows)
      * ********* Decimal *************
      * Muda a base para Decimal
      * Entra com valor 1 em Decimal
@@ -351,29 +351,29 @@ public class CalculadoraTest extends junit.framework.TestCase {
      * Entra com outro valor 1 em Decimal
      * Retorno esperado D11
      * Realiza a soma do valor acumulado (15) em hexadecimal que passado para decimal ficou igual a (21) mais o valor (11) em decimal 
-     * Retorno esperado é igual a 32 (Cálculo validado na calculadora cientifica do Windows)
+     * Retorno esperado ï¿½ igual a 32 (Cï¿½lculo validado na calculadora cientifica do Windows)
      **/
     public void testEntraSomaHexaDecimalBinario() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         assertEquals("0b1", calculadora.entraUm());
         assertEquals("0b11", calculadora.entraUm());
         assertEquals("0b11", calculadora.comandoSoma());
-        calculadora.entraBinario();
+        calculadora.modoBin();
         assertEquals("0b1", calculadora.entraUm()); 
         assertEquals("0b100", calculadora.comandoSoma());
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         assertEquals("0x1", calculadora.entraUm());
         assertEquals("0x11", calculadora.entraUm());
         assertEquals("0x15", calculadora.comandoSoma());
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         assertEquals("1", calculadora.entraUm());
         assertEquals("11", calculadora.entraUm());
         assertEquals("32", calculadora.comandoSoma());       
     }        
   
     /** 
-     * Testes Para Números Complexos
+     * Testes Para Nï¿½meros Complexos
      **/
     public void testEntraUmEntraIEntraUm() {
         Calculadora a = new Calculadora();
@@ -386,7 +386,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
         Calculadora a = new Calculadora();
         a.entraUm();
         a.entraI();
-        a.entraBinario();
+        a.modoBin();
         assertEquals("0b1I0b1", a.entraUm());
     }  
     
@@ -394,7 +394,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
         Calculadora a = new Calculadora();
         a.entraUm();
         a.entraI();
-        a.entraHexadecimal();
+        a.modoHex();
         assertEquals("0x1I0x1", a.entraUm());
     }  
 
@@ -432,7 +432,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 
     public void testEntraISomaBinario() {
         Calculadora b = new foxtrot.Calculadora();
-        b.entraBinario();
+        b.modoBin();
         b.entraUm();
         b.entraI();
         b.entraUm();
@@ -443,7 +443,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 
     public void testEntraISomaIBinario() {
         Calculadora b = new foxtrot.Calculadora();
-        b.entraBinario();
+        b.modoBin();
         b.entraUm();
         b.entraI();
         b.entraUm();
@@ -456,7 +456,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 
     public void testEntraISomaEntraIBinario() {
         Calculadora b = new foxtrot.Calculadora();
-        b.entraBinario();
+        b.modoBin();
         b.entraI();
         b.entraUm();
         b.comandoSoma();
@@ -467,7 +467,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 
     public void testEntraISomaHexa() {
         Calculadora b = new foxtrot.Calculadora();
-        b.entraHexadecimal();
+        b.modoHex();
         b.entraUm();
         b.entraUm();
         b.entraI();
@@ -481,7 +481,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 
     public void testEntraISomaIHexa() {
         Calculadora b = new foxtrot.Calculadora();
-        b.entraHexadecimal();
+        b.modoHex();
         b.entraUm();
         b.entraUm();
         b.entraI();
@@ -498,7 +498,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 
     public void testEntraISomaEntraIHexa() {
         Calculadora b = new foxtrot.Calculadora();
-        b.entraHexadecimal();
+        b.modoHex();
         b.entraI();
         b.entraUm();
         b.entraUm();
@@ -510,206 +510,206 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
     
     /**
-     * Trabalho 4: Casos de testes para números com notação científica.
-     * Testes de Entrada: REAL, IMAGINÁRIO, COMPLEXO.
-     * Testes de Soma:    REAL+REAL, REAL+IMAGINÁRIO, IMAGINÁRIO+IMAGINÁRIO,
-     *                    REAL+COMPLEXO, IMAGINÁRIO+COMPLEXO, COMPLEXO+COMPLEXO.
+     * Trabalho 4: Casos de testes para nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
+     * Testes de Entrada: REAL, IMAGINï¿½RIO, COMPLEXO.
+     * Testes de Soma:    REAL+REAL, REAL+IMAGINï¿½RIO, IMAGINï¿½RIO+IMAGINï¿½RIO,
+     *                    REAL+COMPLEXO, IMAGINï¿½RIO+COMPLEXO, COMPLEXO+COMPLEXO.
      */     
     
     /**
      * Teste de Entrada: REAL
      */
-    public void testEntraD11ED1() {
+    public void testEntraD11ND1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
-        assertEquals("11E1", calculadora.entraUm());
+        calculadora.entraN();
+        assertEquals("11N1", calculadora.entraUm());
     }
     
     /**
-     * Teste de Entrada: IMAGINÁRIO
+     * Teste de Entrada: IMAGINï¿½RIO
      */
-    public void testEntraID11EB1() {
+    public void testEntraID11NB1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraI();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
-        calculadora.entraBinario();
-        assertEquals("0b0I0b1011E0b1", calculadora.entraUm());
+        calculadora.entraN();
+        calculadora.modoBin();
+        assertEquals("0b0I0b1011N0b1", calculadora.entraUm());
     }
     
     /**
      * Teste de Entrada: COMPLEXO
      */
-    public void testEntraB1ED1ID1B1EH1() {
+    public void testEntraB1ND1ID1B1NH1() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraI();
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         calculadora.entraUm();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         calculadora.entraUm();
-        calculadora.entraE();
-        calculadora.entraHexadecimal();
-        assertEquals("0x1E0x1I0x3E0x1", calculadora.entraUm());
+        calculadora.entraN();
+        calculadora.modoHex();
+        assertEquals("0x1N0x1I0x3N0x1", calculadora.entraUm());
     }
     
     /**
      * Teste de Soma: REAL+REAL
      */
-    public void testSomaD11ED1eD11ED1() {
+    public void testSomaD11ND1eD11ND1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.comandoSoma();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
-        assertEquals("22E1", calculadora.comandoSoma());
+        assertEquals("22N1", calculadora.comandoSoma());
     }
     
     /**
-     * Teste de Soma: REAL+IMAGINÁRIO
+     * Teste de Soma: REAL+IMAGINï¿½RIO
      */
-    public void testSomaD11ED1eID1EB1() {
+    public void testSomaD11ND1eID1NB1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.comandoSoma();
         calculadora.entraI();
         calculadora.entraUm();
-        calculadora.entraE();
-        calculadora.entraBinario();
+        calculadora.entraN();
+        calculadora.modoBin();
         calculadora.entraUm();
-        assertEquals("0b1011E0b1I0b1E0b1", calculadora.comandoSoma());
+        assertEquals("0b1011N0b1I0b1N0b1", calculadora.comandoSoma());
     }
     
     /**
-     * Teste de Soma: IMAGINÁRIO+IMAGINÁRIO
+     * Teste de Soma: IMAGINï¿½RIO+IMAGINï¿½RIO
      */
-    public void testSomaID1EB1eID1EH1() {
+    public void testSomaID1NB1eID1NH1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraI();
         calculadora.entraUm();
-        calculadora.entraE();
-        calculadora.entraBinario();
+        calculadora.entraN();
+        calculadora.modoBin();
         calculadora.entraUm();
         calculadora.comandoSoma();
         calculadora.entraI();
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         calculadora.entraUm();
-        calculadora.entraE();
-        calculadora.entraHexadecimal();
+        calculadora.entraN();
+        calculadora.modoHex();
         calculadora.entraUm();
-        assertEquals("0x0I0x2E0x1", calculadora.comandoSoma());
+        assertEquals("0x0I0x2N0x1", calculadora.comandoSoma());
     }
     
     /**
      * Teste de Soma: REAL+COMPLEXO
      */
-    public void testSomaH1EH1eB1EB1ID1ED1() {
+    public void testSomaH1NH1eB1EB1ID1ND1() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraI();
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
-        assertEquals("2E1I1E1", calculadora.comandoSoma());
+        assertEquals("2N1I1N1", calculadora.comandoSoma());
     }
     
     /**
-     * Teste de Soma: IMAGINÁRIO+COMPLEXO
+     * Teste de Soma: IMAGINï¿½RIO+COMPLEXO
      */
-    public void testSomaID11ED1eH1EH1IB1EB1() {
+    public void testSomaID11ND1eH1NH1IB1NB1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraI();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraI();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
-        assertEquals("0b1E0b1I0b1100E0b1", calculadora.comandoSoma());
+        assertEquals("0b1N0b1I0b1100N0b1", calculadora.comandoSoma());
     }
     
     /**
      * Teste de Soma: COMPLEXO+COMPLEXO
      */
-    public void testSomaH1EH1ID1ED1eB1EB1IH1EH1() {
+    public void testSomaH1NH1ID1ND1eB1NB1IH1NH1() {
         Calculadora calculadora = new Calculadora();
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraI();
-        calculadora.entraDecimal();
+        calculadora.modoDec();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraI();
-        calculadora.entraHexadecimal();
+        calculadora.modoHex();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
-        assertEquals("0x2E0x1I0x2E0x1", calculadora.comandoSoma());
+        assertEquals("0x2N0x1I0x2N0x1", calculadora.comandoSoma());
     }
     
     /**
      * EXTRA: Teste de Soma: COMPLEXO+COMPLEXO
      */
-    public void testSomaD1ED1ID11ED1eD11ED1ID11ED1() {
+    public void testSomaD1ND1ID11ND1eD11ND1ID11ND1() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraI();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.comandoSoma();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraI();
         calculadora.entraUm();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
-        assertEquals("12E1I22E1", calculadora.comandoSoma());
+        assertEquals("12N1I22N1", calculadora.comandoSoma());
     }
     
     /**
@@ -719,14 +719,14 @@ public class CalculadoraTest extends junit.framework.TestCase {
     public void testSomaOperandosExpoentesDiferentes() {
         Calculadora calculadora = new Calculadora();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.comandoSoma();
-        calculadora.entraBinario();
+        calculadora.modoBin();
         calculadora.entraUm();
-        calculadora.entraE();
+        calculadora.entraN();
         calculadora.entraUm();
         calculadora.entraUm();
-        assertEquals("0b1E0b11", calculadora.comandoSoma());
+        assertEquals("0b1N0b11", calculadora.comandoSoma());
     }
 }
