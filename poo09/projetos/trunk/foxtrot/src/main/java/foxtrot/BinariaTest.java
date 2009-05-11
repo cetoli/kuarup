@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-    Copyright © 2002-2009        Carlo E. T. Oliveira et all
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
@@ -11,11 +11,11 @@ package foxtrot;
  * Classe que implementa a calculadora.
  * @author  Carlos Eduardo e Thiago Silva de Souza
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
- * @since   4.0 Incluídas as funcionalidades: números com notação científica.
+ * @since   4.0 Incluï¿½das as funcionalidades: nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
- * @since   3.0 Incluídas as funcionalidades: números complexos.
+ * @since   3.0 Incluï¿½das as funcionalidades: nï¿½meros complexos.
  * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
- * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * @since   2.0 Incluï¿½das as funcionalidades: nï¿½meros em bases binï¿½rias e
  * hexadecimais.
  */
 public class BinariaTest extends junit.framework.TestCase
@@ -30,7 +30,7 @@ public class BinariaTest extends junit.framework.TestCase
     /**
      * Define a .
      *
-     * Chamado antes de cada método de caso de teste.
+     * Chamado antes de cada mï¿½todo de caso de teste.
      */
     protected void setUp() {
     }
@@ -38,14 +38,14 @@ public class BinariaTest extends junit.framework.TestCase
     /**
      * Tears down the test fixture.
      *
-     * Chamado após cada método de teste de caso.
+     * Chamado apï¿½s cada mï¿½todo de teste de caso.
      */
     protected void tearDown() {
     }
 
     /**
-     * Testa a conversão de 1 em binário para decimal 
-     * O retorno esperado é 1
+     * Testa a conversï¿½o de 1 em binï¿½rio para decimal 
+     * O retorno esperado ï¿½ 1
      */
     public void testConversaoDecimalUm() {
         Binaria base = new Binaria();
@@ -53,8 +53,8 @@ public class BinariaTest extends junit.framework.TestCase
     }    
     
     /**
-     * Testa a conversão de 11 em binário para decimal 
-     * O retorno esperado é 3
+     * Testa a conversï¿½o de 11 em binï¿½rio para decimal 
+     * O retorno esperado ï¿½ 3
      */ 
     public void testConversaoDecimalUmUm(){
         Binaria base = new Binaria();
@@ -62,8 +62,8 @@ public class BinariaTest extends junit.framework.TestCase
     }   
     
     /**
-     * Testa a visualização concatenando com D do valor 10 
-     * O retorno esperado é B10
+     * Testa a visualizaï¿½ï¿½o concatenando com D do valor 10 
+     * O retorno esperado ï¿½ B10
      */
     public void testDesconversaoBinario() {
         Binaria base = new Binaria(); 
@@ -71,8 +71,8 @@ public class BinariaTest extends junit.framework.TestCase
     }
     
     /**
-     * Testa a conversão do valor 11 em Decimal para base Binária 
-     * O retorno esperado é 1011
+     * Testa a conversï¿½o do valor 11 em Decimal para base Binï¿½ria 
+     * O retorno esperado ï¿½ 1011
      */
     public void testDesconversaoParaBaseDecimal() {
         Binaria base = new Binaria();

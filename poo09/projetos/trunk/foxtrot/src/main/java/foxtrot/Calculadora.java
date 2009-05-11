@@ -1,24 +1,25 @@
 /*------------------------------------------------------------------------------
-    Copyright © 2002-2009        Carlo E. T. Oliveira et all
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package foxtrot;
+import labase.poo.ICalculadoraVetorial;
 
 /**
  * Classe que implementa a calculadora.
  * @author  Carlos Eduardo e Thiago Silva de Souza
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
- * @since   4.0 Incluídas as funcionalidades: números com notação científica.
+ * @since   3.0 Incluï¿½das as funcionalidades: nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
- * @since   3.0 Incluídas as funcionalidades: números complexos.
+ * @since   2.0 Incluï¿½das as funcionalidades: nï¿½meros complexos.
  * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
- * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * @since   1.0 Incluï¿½das as funcionalidades: nï¿½meros em bases binï¿½rias e
  * hexadecimais.
  */
-public class Calculadora {
+public class Calculadora implements ICalculadoraVetorial {
 
     // Estado da Caculadora
     private int opDecimal;
@@ -35,13 +36,13 @@ public class Calculadora {
      * Sempre inicializa como decimal
      */
     public Calculadora() {
-        // inicializa variáveis de instância
+        // inicializa variï¿½veis de instï¿½ncia
         limpa();
     }
 
     /**
      * Entra a tecla um
-     * @return conteúdo do operando.
+     * @return conteï¿½do do operando.
      */
     public String entraUm() {
         opString = base.toBase(opDecimal) + "1";
@@ -54,9 +55,9 @@ public class Calculadora {
 
     /**
      * Limpa o acumulador
-     * @return conteúdo do acumulador
+     * @return conteï¿½do do acumulador
      */
-    public int limpa() {
+    public String limpa() {
         opDecimal = 0;
         opString = "";
         operando = new Complexo();
@@ -71,12 +72,12 @@ public class Calculadora {
         adicionador.adicionaParteReal(0, display, montador);
         adicionador.adicionaParteImaginaria(0, display, montador);
         base = new Decimal();
-        return acumulador.getValor();
+        return acumulador.mostra(base);
     }
 
     /**
      * Entra o comando soma.
-     * @return conteúdo do acumulador
+     * @return conteï¿½do do acumulador
      */
     public String comandoSoma() {
         acumulador.soma(operando);
@@ -93,31 +94,36 @@ public class Calculadora {
     }
     
     /**
+     * Entra o comando subtrai.
+     * @return conteï¿½do do acumulador
+     */
+    public String comandoSubtrai() {
+        return "";
+    }
+    
+    /**
      * Entra a base hexadecimal.
      */
-    public String entraHexadecimal() {
+    public void modoHex() {
         base = new Hexadecimal();
-        return display.mostra(base);
     }
    
     /**
-     * Entra a base binária.
+     * Entra a base binï¿½ria.
      */  
-    public String entraBinario() {
+    public void modoBin() {
         base = new Binaria();
-        return display.mostra(base);
     }
     
     /**
      * Entra a base decimal.
      */   
-    public String entraDecimal() {
+    public void modoDec() {
         base = new Decimal();
-        return display.mostra(base);
     }
     
     /**
-     * Entra a parte imaginária do número complexo.
+     * Entra a parte imaginï¿½ria do nï¿½mero complexo.
      */
     public void entraI() {
         adicionador = new ParteImaginaria();
@@ -130,13 +136,20 @@ public class Calculadora {
     }
     
     /**
-     * Entra a parte exponencial do número.
+     * Entra a parte exponencial do nï¿½mero.
      */
-    public void entraE() {
+    public void entraN() {
         montador = new ParteExponencial();
         opDecimal = 0;
         opString = "";
         adicionador.adicionaParteReal(acumulador.getParteReal().getParteExponencial().getValor(), acumulador, montador);
         adicionador.adicionaParteImaginaria(acumulador.getParteImaginaria().getParteExponencial().getValor(), acumulador, montador);
+    }
+    
+    /**
+     *
+     */
+    public void entraV() {
+        operando = operando.entraV();
     }
 }

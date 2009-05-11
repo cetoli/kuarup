@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-    Copyright © 2002-2009        Carlo E. T. Oliveira et all
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
@@ -11,17 +11,17 @@ package foxtrot;
  * Classe que implementa a calculadora.
  * @author  Carlos Eduardo e Thiago Silva de Souza
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
- * @since   4.0 Incluídas as funcionalidades: números com notação científica.
+ * @since   4.0 Incluï¿½das as funcionalidades: nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
- * @since   3.0 Incluídas as funcionalidades: números complexos.
+ * @since   3.0 Incluï¿½das as funcionalidades: nï¿½meros complexos.
  * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
- * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * @since   2.0 Incluï¿½das as funcionalidades: nï¿½meros em bases binï¿½rias e
  * hexadecimais.
  */
 public class ParteMantissa implements Adicionador {
     
     /**
-     * Método que adiciona a parte real ao operando.
+     * Mï¿½todo que adiciona a parte real ao operando.
      * @param operando
      */
     public void adicionaParteReal(int i, Operando operando, Adicionador montador) {
@@ -29,7 +29,7 @@ public class ParteMantissa implements Adicionador {
     }
 
     /**
-     * Método que adiciona a parte imaginária ao operando.
+     * Mï¿½todo que adiciona a parte imaginï¿½ria ao operando.
      * @param operando
      */
     public void adicionaParteImaginaria(int i, Operando operando, Adicionador montador) {

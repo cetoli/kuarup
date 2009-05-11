@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-    Copyright © 2002-2009        Carlo E. T. Oliveira et all
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
@@ -11,73 +11,77 @@ package foxtrot;
  * Classe que implementa a calculadora.
  * @author  Carlos Eduardo e Thiago Silva de Souza
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
- * @since   4.0 Incluídas as funcionalidades: números com notação científica.
+ * @since   4.0 Incluï¿½das as funcionalidades: nï¿½meros com notaï¿½ï¿½o cientï¿½fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
- * @since   3.0 Incluídas as funcionalidades: números complexos.
+ * @since   3.0 Incluï¿½das as funcionalidades: nï¿½meros complexos.
  * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
- * @since   2.0 Incluídas as funcionalidades: números em bases binárias e
+ * @since   2.0 Incluï¿½das as funcionalidades: nï¿½meros em bases binï¿½rias e
  * hexadecimais.
  */
 public interface Operando {
     
     /**
-     * Método que adiciona uma parte real a um operando.
+     * Mï¿½todo que adiciona uma parte real a um operando.
      * @param operando
      */
     public void adicionaParteReal(Operando operando);
     
     /**
-     * Método que adiciona uma parte imaginária a um operando.
+     * Mï¿½todo que adiciona uma parte imaginï¿½ria a um operando.
      * @param operando
      */
     public void adicionaParteImaginaria(Operando operando);
     
     /**
-     * Método herdado de Operando.
+     * Mï¿½todo herdado de Operando.
      */
     public void adicionaParteExponencial(Operando operando);
     
     /**
-     * Método que mostra o operando na base especificada.
+     * Mï¿½todo que mostra o operando na base especificada.
      * @param base
      * @return valor do operando na base especificada
      */
     public String mostra(Base base);
     
     /**
-     * Método que soma um operando a outro operando.
+     * Mï¿½todo que soma um operando a outro operando.
      * @param operando
      */
     public void soma(Operando operando);
-    
+
     /**
-     * Método que retorna o valor em decimal da parte real ou 
-     * imaginária do operando
+     * Mï¿½todo que retorna o valor em decimal da parte real ou 
+     * imaginï¿½ria do operando
      * @return valor em decimal
      */
     public int getValor();
     
     /**
-     * Método que adiciona o valor em decimal da parte real ou 
-     * imaginária do operando
+     * Mï¿½todo que adiciona o valor em decimal da parte real ou 
+     * imaginï¿½ria do operando
      */
     public void setValor(int valor);
     
     /**
-     * Método que retorna a parte real do operando.
+     * Mï¿½todo que retorna a parte real do operando.
      * @return operando
      */
     public Operando getParteReal();
     
     /**
-     * Método que retorna a parte imaginária do operando.
+     * Mï¿½todo que retorna a parte imaginï¿½ria do operando.
      * @return operando
      */
     public Operando getParteImaginaria();
     
     /**
-     * Método que retorna a parte imaginária do operando.
+     * Mï¿½todo que retorna a parte imaginï¿½ria do operando.
      * @return operando
      */
     public Operando getParteExponencial();
+
+    Operando entraV();
+    
+    Iterator getIterator();
 }
