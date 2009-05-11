@@ -8,15 +8,15 @@ package foxtrot;
  * @version (a version number or a date)
  */
 public class Vetor implements Operando {
-    private Iterator primeiro;
-    private Iterator ultimo;
+    private Visitor primeiro;
+    private Visitor ultimo;
 
     public Vetor() {
-        primeiro = ultimo = new OperandoIterator();
+        primeiro = ultimo = new OperandoVisitor(new Complexo());
     }
 
     public Vetor(Operando operando) {
-        primeiro = ultimo = new OperandoIterator(operando);
+        primeiro = ultimo = new OperandoEscalarVisitor(operando);
     }
     
     public Operando getParteExponencial() {
@@ -34,12 +34,21 @@ public class Vetor implements Operando {
     public void setValor(int i) {
     }
     
+    public void setPrimeiro(Visitor visitor) {
+        primeiro = ultimo = visitor;
+    }
+
+    public void setUltimo(Visitor visitor) {
+        ultimo = visitor;
+    }
+    
     public int getValor() {
         return 0;
     }
     
     public void soma(Operando operando) {
-        primeiro.soma(operando.getIterator());
+        primeiro = primeiro.soma(operando.getVisitor());
+        ultimo = primeiro.descobreUltimo(primeiro);
     }
 
     public String mostra(Base base) {
@@ -62,12 +71,10 @@ public class Vetor implements Operando {
      * 
      */
     public Operando entraV() {
-        ultimo.setNext(new OperandoIterator(new Complexo()));
-        ultimo = ultimo.next();
-        return this;
+        return ultimo.entraV(this);
     }
 
-    public Iterator getIterator() {
+    public Visitor getVisitor() {
         return primeiro;
     }
 }

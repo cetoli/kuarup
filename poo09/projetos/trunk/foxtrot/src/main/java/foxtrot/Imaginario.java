@@ -114,7 +114,7 @@ public class Imaginario implements Operando {
     /**
      * 
      */
-    public Iterator getIterator() {
-        return new OperandoIterator(this);
+    public Visitor getVisitor() {
+        return new OperandoEscalarVisitor(this);
     }
 }

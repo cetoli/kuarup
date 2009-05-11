@@ -19,7 +19,7 @@ package foxtrot;
  * hexadecimais.
  */
 public class ParteReal implements Adicionador {
-  
+
     /**
      * M�todo que adiciona a parte real ao operando.
      * @param operando

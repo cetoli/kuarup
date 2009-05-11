@@ -729,4 +729,30 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculadora.entraUm();
         assertEquals("0b1N0b11", calculadora.comandoSoma());
     }
+
+	public void testTestSoma1V1e1()
+	{
+		foxtrot.Calculadora calculad2 = new foxtrot.Calculadora();
+		calculad2.entraUm();
+		calculad2.entraV();
+		calculad2.entraUm();
+		calculad2.comandoSoma();
+		calculad2.entraUm();
+		assertEquals("2V2", calculad2.comandoSoma());
+	}
+
+	public void testTestSoma1V1e1V1()
+	{
+		foxtrot.Calculadora calculad2 = new foxtrot.Calculadora();
+		calculad2.entraUm();
+		calculad2.entraV();
+		calculad2.entraUm();
+		assertEquals("1V1", calculad2.comandoSoma());
+		calculad2.entraUm();
+		calculad2.entraV();
+		calculad2.entraUm();
+		assertEquals("2V2", calculad2.comandoSoma());
+	}
 }
+
+
