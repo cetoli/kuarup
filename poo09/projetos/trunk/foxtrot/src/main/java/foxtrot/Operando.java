@@ -83,5 +83,5 @@ public interface Operando {
 
     Operando entraV();
     
-    Iterator getIterator();
+    Visitor getVisitor();
 }

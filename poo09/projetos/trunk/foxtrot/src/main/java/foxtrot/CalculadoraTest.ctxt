@@ -76,8 +76,10 @@ comment47.target=void\ testSomaD1ND1ID11ND1eD11ND1ID11ND1()
 comment47.text=\nEXTRA\:\ Teste\ de\ Soma\:\ COMPLEXO+COMPLEXO\n\n
 comment48.target=void\ testSomaOperandosExpoentesDiferentes()
 comment48.text=\nTeste\ de\ Soma\ de\ expoentes\ diferentes\nD1E1\ +\ B1E11\ \=\ B1EB11\n\n
+comment49.target=void\ testTestSoma1V1e1()
 comment5.target=void\ testEntraUmTresVezes()
 comment5.text=\nTeste\ do\ metodo\ entraUm\ sendo\ executado\ tres\ vezes,\ certificando\ que\ \n111\ e\ retornado\ na\ sua\ terceira\ chamada.\n\n
+comment50.target=void\ testTestSoma1V1e1V1()
 comment6.target=void\ testEntraUmAlteraDisplay()
 comment6.text=\nTeste\ do\ metodo\ entraUm\ certificando\ que\ altera\ o\ display.\n\n
 comment7.target=void\ testComandoSomaBasico()
@@ -86,4 +88,4 @@ comment8.target=void\ testComandoSomaDoisOperadores()
 comment8.text=\nTeste\ do\ metodo\ comandoSoma\ com\ dois\ operadores.\n\n
 comment9.target=void\ testComandoSomaSemOperador()
 comment9.text=\nTeste\ do\ metodo\ comandoSoma\ sem\ operador,\ ou\ seja,\ sem\ \nentrar\ nenhum\ numero.\n\n
-numComments=49
+numComments=51

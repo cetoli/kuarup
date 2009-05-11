@@ -60,15 +60,15 @@ public class Calculadora implements ICalculadoraVetorial {
     public String limpa() {
         opDecimal = 0;
         opString = "";
-        operando = new Complexo();
-        acumulador = new Complexo();
+        operando = new Vetor(new Complexo());
+        acumulador = new Vetor(new Complexo());
         adicionador = new ParteReal();
         montador = new ParteMantissa();
         adicionador.adicionaParteReal(0, operando, montador);
         adicionador.adicionaParteImaginaria(0, operando, montador);
         adicionador.adicionaParteReal(0, acumulador, montador);
         adicionador.adicionaParteImaginaria(0, acumulador, montador);
-        display = new Complexo();
+        display = new Vetor(new Complexo());
         adicionador.adicionaParteReal(0, display, montador);
         adicionador.adicionaParteImaginaria(0, display, montador);
         base = new Decimal();
@@ -87,7 +87,7 @@ public class Calculadora implements ICalculadoraVetorial {
         opString = "";
         adicionador = new ParteReal();
         montador = new ParteMantissa();
-        operando = new Complexo();
+        operando = new Vetor(new Complexo());
         adicionador.adicionaParteReal(0, operando, montador);
         adicionador.adicionaParteImaginaria(0, operando, montador);
         return res;
@@ -132,6 +132,7 @@ public class Calculadora implements ICalculadoraVetorial {
         opString = "";
         Operando exponencial = acumulador.getParteImaginaria().getParteExponencial();
         adicionador.adicionaParteImaginaria(acumulador.getParteImaginaria().getValor(), acumulador, montador);
+        adicionador.adicionaParteImaginaria(operando.getParteImaginaria().getValor(), operando, montador);
         acumulador.getParteImaginaria().adicionaParteExponencial(exponencial);
     }
     
@@ -151,5 +152,7 @@ public class Calculadora implements ICalculadoraVetorial {
      */
     public void entraV() {
         operando = operando.entraV();
+        opDecimal = 0;
+        opString = "";
     }
 }

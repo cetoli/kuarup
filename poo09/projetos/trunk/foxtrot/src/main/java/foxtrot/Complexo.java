@@ -103,13 +103,13 @@ public class Complexo implements Operando {
      * 
      */
     public Operando entraV() {
-        return new Vetor(this);
+        return this;
     }
     
     /**
      * 
      */
-    public Iterator getIterator() {
-        return new OperandoIterator(this);
+    public Visitor getVisitor() {
+        return new OperandoEscalarVisitor(this);
     }
 }
