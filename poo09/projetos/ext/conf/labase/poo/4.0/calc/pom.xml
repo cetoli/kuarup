@@ -32,7 +32,7 @@
     <dependency>
       <groupId>labase.poo</groupId>
       <artifactId>calculadora</artifactId>
-      <version>4.0</version>
+      <version>5.0</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
