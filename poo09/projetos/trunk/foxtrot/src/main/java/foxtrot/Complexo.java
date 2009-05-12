@@ -9,7 +9,9 @@ package foxtrot;
 
 /**
  * Classe que implementa a calculadora.
- * @author  Carlos Eduardo e Thiago Silva de Souza
+ * @author  Carlos Eduardo e Andre de Abrantes
+ * @version 5.0 12/05/2009 Carlos Eduardo e Andre de Abrantes
+ * @since   4.0 Inclu�das as funcionalidades: numeros vetoriais e subtracao
  * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
  * @since   3.0 Inclu�das as funcionalidades: n�meros com nota��o cient�fica.
  * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
