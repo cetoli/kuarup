@@ -23,7 +23,10 @@ public class Calculadora implements ICalculadoraVetorial {
 
 	Numero acumulador;
 
+	ICommand comando;
+
 	public Calculadora() {
+		comando = new SomaCommand();
 		limpa();
 	}
 
@@ -76,7 +79,8 @@ public class Calculadora implements ICalculadoraVetorial {
 	 * Soma o operando com o acumulador
 	 */
 	public String comandoSoma() {
-		acumulador = acumulador.soma(operando);
+		acumulador = comando.execute(acumulador, operando);
+		comando = new SomaCommand();
 
 		operando = new Real(0);
 		operando.setBase(acumulador.getBase());
@@ -88,7 +92,8 @@ public class Calculadora implements ICalculadoraVetorial {
 	 * Subtrai o operando do acumulador
 	 */
 	public String comandoSubtrai() {
-		acumulador = acumulador.subtrai(operando);
+		acumulador = comando.execute(acumulador, operando);
+		comando = new SubtracaoCommand();
 
 		operando = new Real(0);
 		acumulador.setBase(new BaseDecimalStrategy());

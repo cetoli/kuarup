@@ -44,7 +44,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 		calculad1.modoBin();
 		assertEquals("0b1", calculad1.entraUm());
 		assertEquals("0b11", calculad1.entraUm());
-		assertEquals("0b11", calculad1.comandoSoma());
+		assertEquals("0", calculad1.comandoSoma());
 		calculad1.modoHex();
 		assertEquals("0x1", calculad1.entraUm());
 		assertEquals("0x11", calculad1.entraUm());
@@ -84,7 +84,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
 	public void testSomaELimpa() {
 		bravo.Calculadora calculad1 = new bravo.Calculadora();
 		assertEquals("1", calculad1.entraUm());
-		assertEquals("1", calculad1.comandoSoma());
+		assertEquals("0", calculad1.comandoSoma());
 		assertEquals("1", calculad1.entraUm());
 		assertEquals("11", calculad1.entraUm());
 		assertEquals("12", calculad1.comandoSoma());
