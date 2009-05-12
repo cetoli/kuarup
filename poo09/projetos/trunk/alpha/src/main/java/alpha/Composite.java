@@ -4,6 +4,7 @@ package alpha;
  * Interface trata as partes do numero.
  * 
  * @author Diego Mury G. de Lima 
+ * @author Leandro Oliveira Gomes
  * @version 1.0
  */
 public interface Composite {

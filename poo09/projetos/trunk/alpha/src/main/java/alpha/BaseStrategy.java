@@ -5,6 +5,7 @@ package alpha;
  * com numeros nas diversas bases.
  * 
  * @author Diego Mury Gomes de Lima
+ * @author Leandro Oliveira Gomes
  * @version 1.0
  */
 public interface BaseStrategy {

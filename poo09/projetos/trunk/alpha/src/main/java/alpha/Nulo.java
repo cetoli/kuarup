@@ -3,7 +3,8 @@ package alpha;
 /**
  * Define a parte nula dos numeros.
  * 
- * @author Diego Mury G. de Lima 
+ * @author Diego Mury G. de Lima
+ * @author Leandro Oliveira Gomes
  * @version 1.0
  */
 public class Nulo implements INumero
