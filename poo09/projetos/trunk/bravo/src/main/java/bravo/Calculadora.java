@@ -96,7 +96,7 @@ public class Calculadora implements ICalculadoraVetorial {
 		comando = new SubtracaoCommand();
 
 		operando = new Real(0);
-		acumulador.setBase(new BaseDecimalStrategy());
+		operando.setBase(acumulador.getBase());
 
 		return acumulador.mostrar();
 	}
