@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Calculadora()
+comment1.target=void\ entraV()
+comment1.text=\nEntra\ um\ vetor\n\n
+comment10.target=String\ limpa()
+comment10.text=\nLimpa\ os\ valores\n\n
+comment2.target=void\ entraN()
+comment2.text=\nEntra\ um\ numero\ cientifico\n\n
+comment3.target=void\ entraI()
+comment3.text=\nEntra\ um\ numero\ complexo\n\n
+comment4.target=void\ modoBin()
+comment4.text=\nPassa\ para\ o\ modo\ binario\n\n
+comment5.target=void\ modoDec()
+comment5.text=\nPassa\ para\ o\ modo\ decimal\n\n
+comment6.target=void\ modoHex()
+comment6.text=\nPassa\ para\ o\ modo\ hexadecimal\n\n
+comment7.target=String\ comandoSoma()
+comment7.text=\nSoma\ o\ operando\ com\ o\ acumulador\n\n
+comment8.target=String\ comandoSubtrai()
+comment8.text=\nSubtrai\ o\ operando\ do\ acumulador\n\n
+comment9.target=String\ entraUm()
+comment9.text=\nEntra\ com\ o\ d\u00EDgito\ 1\n\n
+numComments=11
