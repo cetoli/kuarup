@@ -1,5 +1,0 @@
-#BlueJ class context
-comment0.params=acumuladorReal\ acumuladorImaginario\ modo
-comment0.target=String\ imprimeResultado(Integer,\ Integer,\ BaseStrategy)
-comment0.text=\nImplementacao\ do\ medotodo\ imprimeResultado\ para\ valores\ imaginarios.\n@return\ Retorna\ resultado.\n@param\ Acumulador\ Real\ 'acumuladorReal'.\n@param\ Acumulador\ Imaginario\ 'acumuladorImaginario'.\n@param\ Modo\ 'modo'.\n\n
-numComments=1
