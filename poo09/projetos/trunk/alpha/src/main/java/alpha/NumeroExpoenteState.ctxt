@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.params=operador\ operadorImaginario
-comment0.target=String\ entraUm(INumeroStrategy,\ INumeroStrategy)
-comment1.params=operador\ operadorImaginario\ acumulador\ acumuladorImaginario
-comment1.target=String\ soma(INumeroStrategy,\ INumeroStrategy,\ INumeroStrategy,\ INumeroStrategy)
-numComments=2
