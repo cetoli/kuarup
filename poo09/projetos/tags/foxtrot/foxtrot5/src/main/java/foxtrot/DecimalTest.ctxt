@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=DecimalTest()
+comment0.text=\nDefault\ constructor\ for\ test\ class\ DecimalTest\n\n
+comment1.target=void\ setUp()
+comment1.text=\nDefine\ a\ .\n\nChamado\ antes\ de\ cada\ m\uFFFDtodo\ de\ caso\ de\ teste.\n\n
+comment2.target=void\ tearDown()
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nChamado\ ap\uFFFDs\ cada\ m\uFFFDtodo\ de\ teste\ de\ caso.\n\n
+comment3.target=void\ testConversaoDecimalUm()
+comment3.text=\nTesta\ a\ convers\uFFFDo\ de\ 1\ em\ decimal\ para\ decimal\ \nO\ retorno\ esperado\ \uFFFD\ 1\n\n
+comment4.target=void\ testConversaoDecimalUmUm()
+comment4.text=\nTesta\ a\ convers\uFFFDo\ de\ 1\ em\ decimal\ para\ decimal\ \nO\ retorno\ esperado\ \uFFFD\ 11\n\n
+comment5.target=void\ testDesconversaoDecimal()
+comment5.text=\nTesta\ a\ visualiza\uFFFD\uFFFDo\ concatenando\ com\ D\ do\ valor\ 10\ \nO\ retorno\ esperado\ \uFFFD\ D10\n\n
+comment6.target=void\ testDesconversaoParaBaseDecimal()
+comment6.text=\nTesta\ a\ convers\uFFFDo\ para\ base\ decimal\ \nO\ retorno\ esperado\ \uFFFD\ D10\n\n
+numComments=7

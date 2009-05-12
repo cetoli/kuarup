@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.params=operando
+comment0.target=OperandoVisitor(Operando)
+comment1.target=String\ getPrefixo()
+comment10.params=visitor
+comment10.target=Visitor\ subtraiEscalarDeEscalar(Visitor)
+comment11.params=visitor
+comment11.target=Visitor\ subtrai(Visitor)
+comment12.params=vetor
+comment12.target=Operando\ entraV(Vetor)
+comment13.params=visitor
+comment13.target=Visitor\ descobreUltimo(Visitor)
+comment2.target=Operando\ getOperando()
+comment3.params=base
+comment3.target=String\ mostra(Base)
+comment4.target=Visitor\ next()
+comment5.params=visitor
+comment5.target=void\ setNext(Visitor)
+comment6.params=visitor
+comment6.target=Visitor\ somaComEscalar(Visitor)
+comment7.params=visitor
+comment7.target=Visitor\ somaEscalarComEscalar(Visitor)
+comment8.params=visitor
+comment8.target=Visitor\ soma(Visitor)
+comment9.params=visitor
+comment9.target=Visitor\ subtraiDeEscalar(Visitor)
+numComments=14
