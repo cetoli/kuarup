@@ -1,0 +1,120 @@
+/*------------------------------------------------------------------------------
+    Copyright 2002-2009        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
+package foxtrot;
+
+/**
+ * Classe que implementa a calculadora.
+ * @author  Carlos Eduardo e Andre de Abrantes
+ * @version 5.0 12/05/2009 Carlos Eduardo e Andre de Abrantes
+ * @since   4.0 Inclu�das as funcionalidades: numeros vetoriais e subtracao
+ * @version 4.0 05/05/2009 Carlos Eduardo e Thiago Silva de Souza
+ * @since   3.0 Inclu�das as funcionalidades: n�meros com nota��o cient�fica.
+ * @version 3.0 28/04/2009  Carlos Eduardo e Rodrigo Borges
+ * @since   2.0 Inclu�das as funcionalidades: n�meros complexos.
+ * @version 2.0 14/04/2009 Carlos Eduardo e Carlos Henrique
+ * @since   1.0 Inclu�das as funcionalidades: n�meros em bases bin�rias e
+ * hexadecimais.
+ */
+public class ComplexoTest extends junit.framework.TestCase {
+  
+    /**
+     * Construtor default para a classe de teste ComplexoTest.
+     */
+    public ComplexoTest() {
+    }
+
+    /**
+     * Prepara��o do caso de teste.
+     *
+     * Chamado antes de cada m�todo de caso de teste.
+     */
+    protected void setUp() {
+    }
+
+    /**
+     * Limpeza do caso de teste.
+     *
+     * Chamado ap�s cada m�todo de teste de caso.
+     */
+    protected void tearDown() {
+    }
+    
+    /**
+     * Teste: INSTANCIAR
+     */
+    public void testInstanciar() {
+        Decimal base = new Decimal();
+        Complexo complexo = new Complexo();
+        complexo.adicionaParteReal(new Real(0));
+        complexo.adicionaParteImaginaria(new Imaginario(0));
+        assertEquals("0I0", complexo.mostra(base));
+    }
+    
+    /**
+     * Teste: INSTANCIAR 2
+     */
+    public void testInstanciar2() {
+        Decimal base = new Decimal();
+        Complexo complexo = new Complexo();
+        complexo.adicionaParteReal(new Real(3));
+        complexo.adicionaParteImaginaria(new Imaginario(111));
+        assertEquals("3I111", complexo.mostra(base));
+    }
+    
+    /**
+     * Teste: MOSTRAR NA BASE
+     */
+    public void testMostraBase()
+    {
+        Hexadecimal base = new Hexadecimal();
+        Complexo complexo = new Complexo();
+        Real real = new Real(5);
+        Imaginario imag = new Imaginario(18);
+        complexo.adicionaParteReal(real);
+        complexo.adicionaParteImaginaria(imag);
+        assertEquals("0x5I0x12", complexo.mostra(base));
+    }
+    
+    /**
+     * Teste: SOMA COMPLEXO+COMPLEXO
+     */
+    public void testSomaComplexoEComplexo() {
+        Decimal base = new Decimal();
+        Complexo complexo1 = new Complexo();
+        Real real1 = new Real(5);
+        Imaginario imag1 = new Imaginario(18);
+        complexo1.adicionaParteReal(real1);
+        complexo1.adicionaParteImaginaria(imag1);
+        Complexo complexo2 = new Complexo();
+        Real real2 = new Real(7);
+        Imaginario imag2 = new Imaginario(32);
+        complexo2.adicionaParteReal(real2);
+        complexo2.adicionaParteImaginaria(imag2);
+        complexo1.soma(complexo2);
+        assertEquals("12I50", complexo1.mostra(base));
+    }
+    
+    /**
+     * Teste: SOMA COMPLEXO+COMPLEXO 2
+     */
+    public void testSomaComplexoEComplexo2() {
+        Decimal base = new Decimal();
+        Complexo complexo1 = new Complexo();
+        Real real1 = new Real(1);
+        Imaginario imag1 = new Imaginario(1);
+        complexo1.adicionaParteReal(real1);
+        complexo1.adicionaParteImaginaria(imag1);
+        Complexo complexo2 = new Complexo();
+        Real real2 = new Real(1);
+        Imaginario imag2 = new Imaginario(1);
+        complexo2.adicionaParteReal(real2);
+        complexo2.adicionaParteImaginaria(imag2);
+        complexo1.soma(complexo2);
+        assertEquals("2I2", complexo1.mostra(base));
+    }
+}

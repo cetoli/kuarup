@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=i\ operando\ montador
+comment0.target=void\ adicionaParteReal(int,\ Operando,\ Adicionador)
+comment0.text=\nM\uFFFDtodo\ que\ adiciona\ a\ parte\ real\ ao\ operando.\n@param\ operando\n\n
+comment1.params=i\ operando\ montador
+comment1.target=void\ adicionaParteImaginaria(int,\ Operando,\ Adicionador)
+comment1.text=\nM\uFFFDtodo\ que\ adiciona\ a\ parte\ imagin\uFFFDria\ ao\ operando.\n@param\ operando\n\n
+numComments=2
