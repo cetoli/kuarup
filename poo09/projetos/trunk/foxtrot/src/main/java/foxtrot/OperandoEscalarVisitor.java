@@ -35,10 +35,10 @@ public class OperandoEscalarVisitor implements Visitor {
     }
     
     public Visitor somaComEscalar(Visitor visitor) {
-        return visitor.somaComEscalarDeVerdade(this);
+        return visitor.somaEscalarComEscalar(this);
     }
     
-    public Visitor somaComEscalarDeVerdade(Visitor visitor) {
+    public Visitor somaEscalarComEscalar(Visitor visitor) {
         operando.soma(visitor.getOperando());
         return this;
     }
@@ -48,10 +48,10 @@ public class OperandoEscalarVisitor implements Visitor {
     }
     
     public Visitor subtraiDeEscalar(Visitor visitor) {
-        return visitor.subtraiDeEscalarDeVerdade(this);
+        return visitor.subtraiEscalarDeEscalar(this);
     }
     
-    public Visitor subtraiDeEscalarDeVerdade(Visitor visitor) {
+    public Visitor subtraiEscalarDeEscalar(Visitor visitor) {
         operando.subtrai(visitor.getOperando());
         return this;
     }

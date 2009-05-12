@@ -30,6 +30,7 @@ public class Calculadora implements ICalculadoraVetorial {
     private Adicionador montador;
     private Operando display;
     private Base base;
+    private OperacaoState operacaoState;
   
     /**
      * Construtor para objetos da classe Calculadora
@@ -72,6 +73,9 @@ public class Calculadora implements ICalculadoraVetorial {
         adicionador.adicionaParteReal(0, display, montador);
         adicionador.adicionaParteImaginaria(0, display, montador);
         base = new Decimal();
+
+        operacaoState = new OperacaoSomaState();
+
         return acumulador.mostra(base);
     }
 
@@ -80,7 +84,9 @@ public class Calculadora implements ICalculadoraVetorial {
      * @return conte�do do acumulador
      */
     public String comandoSoma() {
-        acumulador.soma(operando);
+        operacaoState.fazOperacao(acumulador, operando);
+        operacaoState = new OperacaoSomaState();
+
         String res = acumulador.mostra(base);
         display = acumulador;
         opDecimal = 0;
@@ -98,7 +104,9 @@ public class Calculadora implements ICalculadoraVetorial {
      * @return conte�do do acumulador
      */
     public String comandoSubtrai() {
-        acumulador.subtrai(operando);
+        operacaoState.fazOperacao(acumulador, operando);
+        operacaoState = new OperacaoSubtracaoState();
+
         String res = acumulador.mostra(base);
         display = acumulador;
         opDecimal = 0;

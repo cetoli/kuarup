@@ -41,7 +41,7 @@ public class OperandoVisitor implements Visitor {
         return soma(visitor);
     }
     
-    public Visitor somaComEscalarDeVerdade(Visitor visitor) {
+    public Visitor somaEscalarComEscalar(Visitor visitor) {
         return soma(visitor);
     }
 
@@ -55,7 +55,7 @@ public class OperandoVisitor implements Visitor {
         return subtrai(visitor);
     }
     
-    public Visitor subtraiDeEscalarDeVerdade(Visitor visitor) {
+    public Visitor subtraiEscalarDeEscalar(Visitor visitor) {
         return subtrai(visitor);
     }
     
