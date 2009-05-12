@@ -22,13 +22,13 @@ public interface Visitor {
 
     Visitor somaComEscalar(Visitor visitor);
     
-    Visitor somaComEscalarDeVerdade(Visitor visitor);
+    Visitor somaEscalarComEscalar(Visitor visitor);
 
     Visitor soma(Visitor visitor);
     
     Visitor subtraiDeEscalar(Visitor visitor);
     
-    Visitor subtraiDeEscalarDeVerdade(Visitor visitor);
+    Visitor subtraiEscalarDeEscalar(Visitor visitor);
 
     Visitor subtrai(Visitor visitor);
     

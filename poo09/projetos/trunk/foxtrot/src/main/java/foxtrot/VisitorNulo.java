@@ -32,7 +32,7 @@ public class VisitorNulo implements Visitor {
         return new VisitorNulo();
     }
     
-    public Visitor somaComEscalarDeVerdade(Visitor visitor) {
+    public Visitor somaEscalarComEscalar(Visitor visitor) {
         return new VisitorNulo();
     }
 
@@ -44,7 +44,7 @@ public class VisitorNulo implements Visitor {
         return new VisitorNulo();
     }
     
-    public Visitor subtraiDeEscalarDeVerdade(Visitor visitor) {
+    public Visitor subtraiEscalarDeEscalar(Visitor visitor) {
         return new VisitorNulo();
     }
     
