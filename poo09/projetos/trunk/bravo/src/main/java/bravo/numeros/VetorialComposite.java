@@ -25,6 +25,7 @@ public class VetorialComposite extends Numero {
 		numeros = new ArrayList<Numero>();
 		numeros.add(numero);
 		numeros.add(new Real(0));
+		this.setBase(base);
 	}
 
 	/**
