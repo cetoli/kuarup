@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=BaseDecimalStrategy()
+comment0.text=\nConstructor\ for\ objects\ of\ class\ BaseDecimal.\n\n
+comment1.target=String\ getId()
+comment1.text=\nMetodo\ que\ retorna\ o\ Id\ da\ base.\n@return\ id\ da\ base\ decimal.\n\n
+comment2.params=numero
+comment2.target=int\ toDecimal(String)
+comment2.text=\nMetodo\ conversor\ para\ a\ base\ decimal.\n@param\ numero\ na\ base\ decimal.\n@return\ numero\ na\ base\ decimal.\n\n
+comment3.params=valor
+comment3.target=String\ converterBase(int)
+comment3.text=\nMetodo\ conversor\ para\ base\ Decimal.\nUtiliza\ o\ metodo\ estatico\ valueOf\ da\ classe\ String.\n@param\ valor.\n@return\ String\ com\ a\ representacao\ na\ base\ decimal\ do\ valor.\n\n
+numComments=4

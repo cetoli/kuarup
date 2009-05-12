@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=valorDecimal\ operando\ montador
+comment0.target=void\ adicionaParteReal(int,\ INumero,\ Composite)
+comment0.text=\nMetodo\ abstrato.\nAdiciona\ a\ parte\ real\ ao\ operando.\n@param\ valorDecimal\n@param\ operando\n@param\ montador\n\n
+comment1.params=valorDecimal\ operando\ montador
+comment1.target=void\ adicionaParteImaginaria(int,\ INumero,\ Composite)
+comment1.text=\nMetodo\ abstrato.\nAdiciona\ a\ parte\ imagin\u00E1ria\ ao\ operando.\n@param\ valorDecimal\n@param\ operando\n@param\ montador\n\n
+numComments=2
