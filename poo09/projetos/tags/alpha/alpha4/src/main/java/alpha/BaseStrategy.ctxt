@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=String\ getId()
+comment0.text=\nMetodo\ abstrato.\nEntrada\ de\ valores.\n\n
+comment1.params=numero
+comment1.target=int\ toDecimal(String)
+comment1.text=\nMetodo\ abstrato.\nConverte\ para\ decimal.\n\n
+comment2.params=valor
+comment2.target=String\ converterBase(int)
+comment2.text=\nMetodo\ abstrato.\nConversor\ de\ Base\ de\ Operacao.\n@param\ valor\ inteiro\ em\ base\ decimal\n@retorna\ uma\ string\ com\ o\ valor\ na\ base\ desejada\n\n
+numComments=3
