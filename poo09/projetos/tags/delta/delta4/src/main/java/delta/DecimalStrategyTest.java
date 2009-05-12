@@ -14,15 +14,15 @@ public class DecimalStrategyTest extends junit.framework.TestCase {
     }
 
     /**
-     * Prepara��o do caso de teste.
-     * Chamado antes de cada m�todo de caso de teste.
+     * Preparacao do caso de teste.
+     * Chamado antes de cada metodo de caso de teste.
      */
     protected void setUp() {
     }
 
     /**
      * Limpeza do caso de teste.
-     * Chamado ap�s cada m�todo de teste de caso.
+     * Chamado apos cada metodo de teste de caso.
      */
     protected void tearDown() {
     }

@@ -15,7 +15,7 @@ public class BinariaStrategyTest extends junit.framework.TestCase {
     }
 
     /**
-     * Prepara��o do caso de teste.
+     * Preparacao do caso de teste.
      * Chamado antes de cada m�todo de caso de teste.
      */
     protected void setUp() {
@@ -23,14 +23,14 @@ public class BinariaStrategyTest extends junit.framework.TestCase {
 
     /**
      * Limpeza do caso de teste.
-     * Chamado ap�s cada m�todo de teste de caso.
+     * Chamado apos cada metodo de teste de caso.
      */
     protected void tearDown() {
     }
 
     /**
      * Limpeza do caso de teste.
-     * Chamado ap�s cada m�todo de teste de caso.
+     * Chamado apos cada metodo de teste de caso.
      */
     public final void testConverte2() {
         delta.BinariaStrategy binariaS1 = new delta.BinariaStrategy();
