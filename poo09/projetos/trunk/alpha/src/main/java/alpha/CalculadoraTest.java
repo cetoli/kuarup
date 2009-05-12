@@ -420,4 +420,27 @@ public class CalculadoraTest extends junit.framework.TestCase {
         calculad1.modoHex();
         assertEquals("0x3N3I0xBN1", calculad1.comandoSoma());
     }
+    /**
+     * Testa a subtracao de 11 decimal por 1 decimal.
+     */
+    public final void testeSubtrai11Por1() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.entraUm();
+        assertEquals("10", calculad1.comandoSubtrai());
+    }
+    /**
+     * Testa a subtracao de 11 decimal por 1 hexadecimal.
+     */
+    public final void testeSubtrai11PorH1() {
+        alpha.Calculadora calculad1 = new alpha.Calculadora();
+        calculad1.entraUm();
+        calculad1.entraUm();
+        calculad1.comandoSoma();
+        calculad1.modoHex();
+        calculad1.entraUm();
+        assertEquals("0xA", calculad1.comandoSubtrai());
+    }
 }

@@ -45,6 +45,12 @@ public class Nulo implements INumero
     public void soma(INumero operando) {
     }
     /**
+     * Realiza a subtracao.
+     * @param operando conteudo do operando
+     */
+    public void subtrai(INumero operando) {
+    }
+    /**
      * Retorna o valor.
      * @return valor.
      */

@@ -6,7 +6,7 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package alpha;
-import labase.poo.ICalculadoraEngenharia;
+import labase.poo.ICalculadoraVetorial;
 
 /**
  * Esta é a classe principal da calculadora do time alpha.
@@ -16,7 +16,7 @@ import labase.poo.ICalculadoraEngenharia;
  * @version 4.0    $Revision$ 3.0      $Date$ 11/05/09
  * @since   3.0 Calculadora com numeros complexos
  */
-public class Calculadora implements ICalculadoraEngenharia {
+public class Calculadora implements ICalculadoraVetorial {
     // Estado da Caculadora
     private int valorDecimal;
     private String valorString;
@@ -122,5 +122,26 @@ public class Calculadora implements ICalculadoraEngenharia {
         valorString = "";
         adicionador.adicionaParteReal(acumulador.getParteReal().getParteExponencial().getValor(), acumulador, montador);
         adicionador.adicionaParteImaginaria(acumulador.getParteImaginaria().getParteExponencial().getValor(), acumulador, montador);
+    }
+    /**
+     * Habilita numeros vetoriais.
+     */
+    public void entraV() {
+    }
+    /**
+     * Comando subtrai.
+     */
+    public String comandoSubtrai() {
+        acumulador.subtrai(operando);
+        String res = acumulador.mostra(base);
+        display = acumulador;
+        valorDecimal = 0;
+        valorString = "";
+        adicionador = new ParteRealComposite();
+        montador = new MantissaComposite();
+        operando = new Complexo();
+        adicionador.adicionaParteReal(0, operando, montador);
+        adicionador.adicionaParteImaginaria(0, operando, montador);
+        return res;
     }
 }

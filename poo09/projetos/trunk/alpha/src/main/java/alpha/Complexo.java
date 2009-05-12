@@ -53,6 +53,14 @@ public class Complexo implements INumero
     public void soma(INumero operando) {
         this.real.soma(operando.getParteReal());
         this.imaginario.soma(operando.getParteImaginaria());
+    }
+    /**
+     * Realiza a subtracao.
+     * @param operando conteudo do operando
+     */
+    public void subtrai(INumero operando) {
+        this.real.subtrai(operando.getParteReal());
+        this.imaginario.subtrai(operando.getParteImaginaria());
     } 
     /**
      * Retorna o valor.
