@@ -24,19 +24,21 @@ public class VisitorNulo implements Visitor {
     public void setNext(Visitor visitor) {
     }
 
-    public Visitor getVisitorParaVetor() {
-        return this;
-    }
-
     public String mostra(Base base) {
         return "";
     }
 
-    public void somaComEscalar(Visitor visitor) {
+    public Visitor somaComEscalar(Visitor visitor) {
+        return new VisitorNulo();
+    }
+    
+    public Visitor somaComEscalarDeVerdade(Visitor visitor) {
+        return new VisitorNulo();
     }
 
     public Visitor soma(Visitor visitor) {
-        return visitor.getVisitorParaVetor();
+        return this;
+        //visitor.getVisitorParaVetor();
     }
     
     public Operando entraV(Vetor vetor) {

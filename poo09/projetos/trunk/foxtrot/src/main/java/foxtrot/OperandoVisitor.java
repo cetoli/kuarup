@@ -37,11 +37,12 @@ public class OperandoVisitor implements Visitor {
         proximo = visitor;
     }
 
-    public Visitor getVisitorParaVetor() {
-        return this;
+    public Visitor somaComEscalar(Visitor visitor) {
+        return soma(visitor);
     }
-
-    public void somaComEscalar(Visitor visitor) {
+    
+    public Visitor somaComEscalarDeVerdade(Visitor visitor) {
+        return soma(visitor);
     }
 
     public Visitor soma(Visitor visitor) {
