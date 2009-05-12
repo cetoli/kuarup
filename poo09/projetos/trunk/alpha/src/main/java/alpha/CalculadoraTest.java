@@ -4,6 +4,7 @@ package alpha;
  * The test class CalculadoraUnitTest.
  *
  * @author Diego Mury Gomes de Lima
+ * @author Leandro Oliveira Gomes
  * @version 3.0
  */
 public class CalculadoraTest extends junit.framework.TestCase {

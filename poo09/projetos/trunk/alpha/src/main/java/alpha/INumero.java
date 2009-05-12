@@ -3,7 +3,8 @@ package alpha;
 /**
  * Interface que define numero.
  * 
- * @author Diego Mury G. de Lima 
+ * @author Diego Mury G. de Lima
+ * @author Leandro Oliveira Gomes
  * @version 3.0
  */
 public interface INumero {

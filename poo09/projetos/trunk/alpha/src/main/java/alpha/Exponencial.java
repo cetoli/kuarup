@@ -3,7 +3,8 @@ package alpha;
 /**
  * Define a parte exponencial dos numeros.
  * 
- * @author Diego Mury G. de Lima 
+ * @author Diego Mury G. de Lima
+ * @author Leandro Oliveira Gomes
  * @version 1.0
  */
 public class Exponencial implements INumero

@@ -12,6 +12,7 @@ import labase.poo.ICalculadoraEngenharia;
  * Esta é a classe principal da calculadora do time alpha.
  *
  * @author  Diego Mury Gomes de Lima  $Author$
+ * @author  Leandro Oliveira Gomes  $Author$
  * @version 4.0    $Revision$ 3.0      $Date$ 11/05/09
  * @since   3.0 Calculadora com numeros complexos
  */

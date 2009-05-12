@@ -3,7 +3,8 @@ package alpha;
 /**
  * Classe que executa operações com numeros hexadecimais.
  * 
- * @author Diego Mury G. de Lima 
+ * @author Diego Mury G. de Lima
+ * @author Leandro Oliveira Gomes
  * @version 3.0
  */
 public class BaseHexadecimalStrategy implements BaseStrategy {

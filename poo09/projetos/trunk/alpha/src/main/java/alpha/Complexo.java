@@ -3,7 +3,8 @@ package alpha;
 /**
  * Define os numeros complexos.
  * 
- * @author Diego Mury G. de Lima 
+ * @author Diego Mury G. de Lima
+ * @author Leandro Oliveira Gomes
  * @version 1.0
  */
 public class Complexo implements INumero
