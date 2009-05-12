@@ -18,11 +18,11 @@ public interface Visitor {
 
     void setNext(Visitor visitor);
 
-    Visitor getVisitorParaVetor();
-
     String getPrefixo();
 
-    void somaComEscalar(Visitor visitor);
+    Visitor somaComEscalar(Visitor visitor);
+    
+    Visitor somaComEscalarDeVerdade(Visitor visitor);
 
     Visitor soma(Visitor visitor);
     
