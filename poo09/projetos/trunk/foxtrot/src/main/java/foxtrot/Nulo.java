@@ -57,6 +57,12 @@ public class Nulo implements Operando {
     /**
      * M�todo herdado de Operando.
      */
+    public void subtrai(Operando operando) {
+    }
+    
+    /**
+     * M�todo herdado de Operando.
+     */
     public int getValor() {
         return 0;
     }

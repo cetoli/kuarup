@@ -38,7 +38,18 @@ public class VisitorNulo implements Visitor {
 
     public Visitor soma(Visitor visitor) {
         return this;
-        //visitor.getVisitorParaVetor();
+    }
+    
+    public Visitor subtraiDeEscalar(Visitor visitor) {
+        return new VisitorNulo();
+    }
+    
+    public Visitor subtraiDeEscalarDeVerdade(Visitor visitor) {
+        return new VisitorNulo();
+    }
+    
+    public Visitor subtrai(Visitor visitor) {
+        return this;
     }
     
     public Operando entraV(Vetor vetor) {

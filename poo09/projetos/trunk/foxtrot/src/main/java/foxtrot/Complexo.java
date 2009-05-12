@@ -68,6 +68,14 @@ public class Complexo implements Operando {
     /**
      * M�todo herdado de Operando.
      */
+    public void subtrai(Operando operando) {
+        this.real.subtrai(operando.getParteReal());
+        this.imaginario.subtrai(operando.getParteImaginaria());
+    }
+
+    /**
+     * M�todo herdado de Operando.
+     */
     public int getValor() {
         return 0;
     }

@@ -26,6 +26,12 @@ public interface Visitor {
 
     Visitor soma(Visitor visitor);
     
+    Visitor subtraiDeEscalar(Visitor visitor);
+    
+    Visitor subtraiDeEscalarDeVerdade(Visitor visitor);
+
+    Visitor subtrai(Visitor visitor);
+    
     Operando entraV(Vetor vetor);
     
     Visitor descobreUltimo(Visitor visitor);

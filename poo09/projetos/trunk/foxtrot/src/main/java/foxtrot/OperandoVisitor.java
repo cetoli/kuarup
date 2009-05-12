@@ -51,6 +51,20 @@ public class OperandoVisitor implements Visitor {
         return this;
     }
     
+    public Visitor subtraiDeEscalar(Visitor visitor) {
+        return subtrai(visitor);
+    }
+    
+    public Visitor subtraiDeEscalarDeVerdade(Visitor visitor) {
+        return subtrai(visitor);
+    }
+    
+    public Visitor subtrai(Visitor visitor) {
+        operando.subtrai(visitor.getOperando());
+        proximo = proximo.subtrai(visitor.next());
+        return this;
+    }
+    
     public Operando entraV(Vetor vetor) {
         proximo = new OperandoVisitor(new Complexo());
         vetor.setUltimo(proximo);

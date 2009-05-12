@@ -1,6 +1,12 @@
 #BlueJ class context
 comment0.target=Operando\ getOperando()
 comment1.target=String\ getPrefixo()
+comment10.params=visitor
+comment10.target=Visitor\ subtrai(Visitor)
+comment11.params=vetor
+comment11.target=Operando\ entraV(Vetor)
+comment12.params=visitor
+comment12.target=Visitor\ descobreUltimo(Visitor)
 comment2.target=Visitor\ next()
 comment3.params=visitor
 comment3.target=void\ setNext(Visitor)
@@ -12,8 +18,8 @@ comment6.params=visitor
 comment6.target=Visitor\ somaComEscalarDeVerdade(Visitor)
 comment7.params=visitor
 comment7.target=Visitor\ soma(Visitor)
-comment8.params=vetor
-comment8.target=Operando\ entraV(Vetor)
+comment8.params=visitor
+comment8.target=Visitor\ subtraiDeEscalar(Visitor)
 comment9.params=visitor
-comment9.target=Visitor\ descobreUltimo(Visitor)
-numComments=10
+comment9.target=Visitor\ subtraiDeEscalarDeVerdade(Visitor)
+numComments=13

@@ -59,6 +59,12 @@ public class Exponencial implements Operando {
      */
     public void soma(Operando operando) {
     }
+    
+    /**
+     * M�todo herdado de Operando.
+     */
+    public void subtrai(Operando operando) {
+    }
 
     /**
      * M�todo herdado de Operando.
