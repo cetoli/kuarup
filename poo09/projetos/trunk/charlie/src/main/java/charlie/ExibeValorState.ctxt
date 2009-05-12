@@ -1,5 +1,0 @@
-#BlueJ class context
-comment0.params=acumuladorReal\ acumuladorImaginario\ modo
-comment0.target=String\ imprimeResultado(Integer,\ Integer,\ BaseStrategy)
-comment0.text=\nAssinatura\ do\ metodo\ imprimeResultados.\n\n
-numComments=1
