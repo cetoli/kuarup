@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=BaseBinariaStrategy()
+comment0.text=\nConstructor\ for\ objects\ of\ class\ BaseBinaria.\n\n
+comment1.target=String\ getId()
+comment1.text=\nMetodo\ que\ retorna\ o\ Id\ da\ base.\n@return\ id\ da\ base\ binaria.\n\n
+comment2.params=numero
+comment2.target=int\ toDecimal(String)
+comment2.text=\nMetodo\ conversor\ para\ a\ base\ decimal.\n@param\ numero\ na\ base\ binaria.\n@return\ numero\ na\ base\ decimal.\n\n
+comment3.params=valor
+comment3.target=String\ converterBase(int)
+comment3.text=\nMetodo\ conversor\ para\ base\ Binaria.\nUtiliza\ o\ metodo\ estatico\ toBinaryString\ da\ classe\ Integer.\n@param\ valor.\n@return\ String\ com\ a\ representacao\ na\ base\ binaria\ do\ valor.\n\n
+numComments=4
