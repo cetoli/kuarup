@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=BaseDecimal()
+comment0.text=\nConstructor\ for\ objects\ of\ class\ BaseDecimal.\n\n
+comment1.target=String\ getId()
+comment2.params=numero
+comment2.target=int\ toDecimal(String)
+comment3.params=valor
+comment3.target=String\ converterBase(int)
+comment3.text=\nMetodo\ conversor\ para\ base\ decimal.\nUtiliza\ o\ metodo\ estatico\ toBinaryString\ da\ classe\ Integer.\nRetornar\ a\ String.\n@param\ valor\n@return\ String\ com\ a\ representacao\ na\ base\ binaria\ do\ valor\n\n
+numComments=4
