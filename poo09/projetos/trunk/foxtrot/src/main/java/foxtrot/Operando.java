@@ -49,6 +49,12 @@ public interface Operando {
      * @param operando
      */
     public void soma(Operando operando);
+    
+    /**
+     * M�todo que subtrai um operando de outro operando.
+     * @param operando
+     */
+    public void subtrai(Operando operando);
 
     /**
      * M�todo que retorna o valor em decimal da parte real ou 

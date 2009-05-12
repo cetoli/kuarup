@@ -50,6 +50,11 @@ public class Vetor implements Operando {
         primeiro = primeiro.soma(operando.getVisitor());
         ultimo = primeiro.descobreUltimo(primeiro);
     }
+    
+    public void subtrai(Operando operando) {
+        primeiro = primeiro.subtrai(operando.getVisitor());
+        ultimo = primeiro.descobreUltimo(primeiro);
+    }
 
     public String mostra(Base base) {
         return primeiro.mostra(base);

@@ -35,7 +35,6 @@ public class OperandoEscalarVisitor implements Visitor {
     }
     
     public Visitor somaComEscalar(Visitor visitor) {
-        //operando.soma(visitor.getOperando());
         return visitor.somaComEscalarDeVerdade(this);
     }
     
@@ -46,6 +45,19 @@ public class OperandoEscalarVisitor implements Visitor {
 
     public Visitor soma(Visitor visitor) {
         return visitor.somaComEscalar(this);
+    }
+    
+    public Visitor subtraiDeEscalar(Visitor visitor) {
+        return visitor.subtraiDeEscalarDeVerdade(this);
+    }
+    
+    public Visitor subtraiDeEscalarDeVerdade(Visitor visitor) {
+        operando.subtrai(visitor.getOperando());
+        return this;
+    }
+    
+    public Visitor subtrai(Visitor visitor) {
+        return visitor.subtraiDeEscalar(this);
     }
     
     public Operando entraV(Vetor v) {

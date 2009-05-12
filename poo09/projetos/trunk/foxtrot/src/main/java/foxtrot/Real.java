@@ -72,6 +72,18 @@ public class Real implements Operando {
     /**
      * M�todo herdado de Operando.
      */
+    public void subtrai(Operando operando) {
+        int valorOutro = operando.getParteReal().getValor();
+        int maxExp = Math.max(this.exponencial.getValor(), operando.getParteReal().getParteExponencial().getValor());
+        this.valor = this.valor/((int)Math.pow(10, maxExp-this.exponencial.getValor()));
+        valorOutro = valorOutro/((int)Math.pow(10, maxExp-operando.getParteReal().getParteExponencial().getValor()));
+        this.valor -= valorOutro;
+        this.exponencial.setValor(maxExp);
+    }
+    
+    /**
+     * M�todo herdado de Operando.
+     */
     public int getValor() {
         return this.valor;
     }

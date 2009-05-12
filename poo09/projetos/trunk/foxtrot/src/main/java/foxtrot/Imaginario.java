@@ -72,6 +72,18 @@ public class Imaginario implements Operando {
     /**
      * M�todo herdado de Operando.
      */
+    public void subtrai(Operando operando) {
+        int valorOutro = operando.getParteImaginaria().getValor();
+        int maxExp = Math.max(this.exponencial.getValor(), operando.getParteImaginaria().getParteExponencial().getValor());
+        this.valor = this.valor/((int)Math.pow(10, maxExp-this.exponencial.getValor()));
+        valorOutro = valorOutro/((int)Math.pow(10, maxExp-operando.getParteImaginaria().getParteExponencial().getValor()));
+        this.valor -= valorOutro;
+        this.exponencial.setValor(maxExp);
+    }
+    
+    /**
+     * M�todo herdado de Operando.
+     */
     public int getValor() {
         return this.valor;
     }

@@ -98,7 +98,17 @@ public class Calculadora implements ICalculadoraVetorial {
      * @return conte�do do acumulador
      */
     public String comandoSubtrai() {
-        return "";
+        acumulador.subtrai(operando);
+        String res = acumulador.mostra(base);
+        display = acumulador;
+        opDecimal = 0;
+        opString = "";
+        adicionador = new ParteReal();
+        montador = new ParteMantissa();
+        operando = new Vetor(new Complexo());
+        adicionador.adicionaParteReal(0, operando, montador);
+        adicionador.adicionaParteImaginaria(0, operando, montador);
+        return res;
     }
     
     /**
@@ -154,5 +164,7 @@ public class Calculadora implements ICalculadoraVetorial {
         operando = operando.entraV();
         opDecimal = 0;
         opString = "";
+        adicionador = new ParteReal();
+        montador = new ParteMantissa();
     }
 }
