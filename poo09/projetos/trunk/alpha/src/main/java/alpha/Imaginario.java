@@ -59,6 +59,18 @@ public class Imaginario implements INumero
         this.exponencial.setValor(maxExp);
     }
     /**
+     * Realiza a subtracao.
+     * @param operando conteudo do operando
+     */
+    public void subtrai(INumero operando) {
+        int valorOutro = operando.getParteImaginaria().getValor();
+        int maxExp = Math.max(this.exponencial.getValor(), operando.getParteImaginaria().getParteExponencial().getValor());
+        this.valor = this.valor / ((int)Math.pow(10, maxExp - this.exponencial.getValor()));
+        valorOutro = valorOutro / ((int)Math.pow(10, maxExp - operando.getParteImaginaria().getParteExponencial().getValor()));
+        this.valor -= valorOutro;
+        this.exponencial.setValor(maxExp);
+    }
+    /**
      * Retorna o valor.
      * @return valor.
      */

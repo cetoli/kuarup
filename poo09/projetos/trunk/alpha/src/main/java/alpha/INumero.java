@@ -37,6 +37,11 @@ public interface INumero {
      * Metodo abstrato.
      * Retorna o valor.
      */
+    public void subtrai(INumero numero);
+    /**
+     * Metodo abstrato.
+     * Retorna o valor.
+     */
     public int getValor();
     /**
      * Metodo abstrato.

@@ -59,6 +59,18 @@ public class Real implements INumero
         this.exponencial.setValor(maxExp);
     }
     /**
+     * Realiza a subtracao.
+     * @param operando conteudo do operando
+     */
+    public void subtrai(INumero operando) {
+        int valorOutro = operando.getParteReal().getValor();
+        int maxExp = Math.max(this.exponencial.getValor(), operando.getParteReal().getParteExponencial().getValor());
+        this.valor = this.valor / ((int)Math.pow(10, maxExp - this.exponencial.getValor()));
+        valorOutro = valorOutro / ((int)Math.pow(10, maxExp - operando.getParteReal().getParteExponencial().getValor()));
+        this.valor -= valorOutro;
+        this.exponencial.setValor(maxExp);
+    }
+    /**
      * Retorna o valor.
      * @return valor.
      */
