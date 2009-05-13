@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ValorHexTest()
+comment0.text=\nDefault\ constructor\ for\ test\ class\ ValorHexTest.\n\n
+comment1.target=void\ setUp()
+comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
+comment2.target=void\ tearDown()
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
+comment3.target=void\ testConverterHex()
+comment3.text=\ntesta\ convers\u00E3o\ para\ hexadecimal.\n\n
+comment4.target=void\ testAdicionarDigito()
+comment4.text=\nTesta\ a\ adi\u00E7\u00E3o\ de\ d\u00EDgitos.\n\n
+numComments=5
