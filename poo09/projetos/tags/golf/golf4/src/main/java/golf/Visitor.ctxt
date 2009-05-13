@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=acumulador\ atual
+comment0.target=ValorBase\ visitar(Valor,\ Valor)
+comment1.params=acumulador\ atual
+comment1.target=ValorBase\ visitar(Complexo,\ Complexo)
+comment2.params=acumulador\ atual
+comment2.target=ValorBase\ visitar(Engenharia,\ Engenharia)
+comment3.params=ac\ op
+comment3.target=ValorBase\ visitar(Valor,\ Complexo)
+comment4.params=ac\ op
+comment4.target=ValorBase\ visitar(Complexo,\ Valor)
+comment5.params=ac\ op
+comment5.target=ValorBase\ visitar(Complexo,\ Engenharia)
+comment6.params=ac\ op
+comment6.target=ValorBase\ visitar(Engenharia,\ Complexo)
+comment7.params=ac\ op
+comment7.target=ValorBase\ visitar(Engenharia,\ Valor)
+comment8.params=ac\ op
+comment8.target=ValorBase\ visitar(Valor,\ Engenharia)
+numComments=9

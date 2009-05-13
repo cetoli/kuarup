@@ -1,282 +1,289 @@
 package golf;
 
+import golf.impressao.ImpressaoComplexoStrategy;
+import golf.impressao.ImpressaoStrategy;
+
 /**
  * Write a description of class Complexo here.
- *
+ * 
  * @author (your name)
  * @version (a version number or a date)
  */
 public class Complexo extends ValorBase {
-    private ValorBase[] valores;
+	private ValorBase[] valores;
 
-    private int indiceAtual;
+	private int indiceAtual;
 
-    private static final int INDICE_INT = 0;
+	private static final int INDICE_INT = 0;
 
-    private static final int INDICE_COMPLEXO = 1;
+	private static final int INDICE_COMPLEXO = 1;
 
-    private static final int TAM_VETOR = 2;
+	private static final int TAM_VETOR = 2;
 
-    /**
-         * Constructor for objects of class Complexo
-         */
-    public Complexo(ValorBase valorNovo) {
+	/**
+	 * Constructor for objects of class Complexo
+	 */
+	public Complexo(ValorBase valorNovo) {
 
-	valores = new ValorBase[TAM_VETOR];
-	valores[INDICE_INT] = valorNovo;
-	valores[INDICE_COMPLEXO] = new Valor();
+		valores = new ValorBase[TAM_VETOR];
+		valores[INDICE_INT] = valorNovo;
+		valores[INDICE_COMPLEXO] = new Valor();
 
-	indiceAtual = INDICE_COMPLEXO;
+		indiceAtual = INDICE_COMPLEXO;
 
-	impressao = new ImpressaoComplexoStrategy();
-    }
-
-    /**
-         * Valor atual.
-         *
-         * @return retorna o valor selecionado atualmente.
-         */
-    private ValorBase getValorAtual() {
-	return valores[indiceAtual];
-    }
-
-    /**
-         * Converte objeto em String.
-         */
-    public String toString() {
-	return valores[INDICE_INT].toString() + "I"
-		+ valores[INDICE_COMPLEXO].toString();
-    }
-
-    /**
-         * Gera String.
-         */
-    public String converterEmString() {
-	return impressao.imprimir(this);
-    }
-
-    /**
-         * Limpa o valor.
-         */
-    public String limparValor() {
-	ValorBase valorI = valores[INDICE_COMPLEXO];
-	valorI.limparValor();
-	valorI.valor = 0;
-
-	ValorBase valorInt = valores[INDICE_INT];
-	valorInt.limparValor();
-	valorInt.valor = 0;
-
-	return "0";
-    }
-
-    /**
-         * seleciona o Modo.
-         */
-    public ValorBase modoHexa() {
-	valores[INDICE_COMPLEXO].modoHexa();
-
-	return this;
-    }
-
-    /**
-         * seleciona o Modo.
-         */
-    public ValorBase modoDec() {
-	valores[INDICE_COMPLEXO].modoDec();
-
-	return this;
-    }
-
-    /**
-         * seleciona o Modo.
-         */
-    public ValorBase modoBin() {
-	valores[INDICE_COMPLEXO].modoBin();
-
-	return this;
-    }
-
-    public void impressaoBin() {
-	valores[INDICE_INT].impressaoBin();
-	valores[INDICE_COMPLEXO].impressaoBin();
-    }
-
-    public void impressaoDec() {
-	valores[INDICE_INT].impressaoDec();
-	valores[INDICE_COMPLEXO].impressaoDec();
-    }
-
-    public void impressaoHexa() {
-	valores[INDICE_INT].impressaoHexa();
-	valores[INDICE_COMPLEXO].impressaoHexa();
-    }
-
-    /**
-         * Adiciona um digito a direita do valor atual.
-         *
-         * @param d�gito
-         *                a ser acrescentado.
-         * @return retorna o valor armazenado no formato String.
-         */
-    public String adicionarDigito(String digito, ImpressaoStrategy modo, ImpressaoStrategy modoImpressao) {
-	valores[INDICE_COMPLEXO].adicionarDigito(digito, modo, modoImpressao);
-
-	return impressao.imprimir(this);
-    }
-
-    /**
-         * Funcao que clona o elemento.
-         *
-         * @return Retorna o objeto Valor clonado.
-         */
-    public Object clone() {
-	Complexo c = new Complexo(valores[INDICE_INT]);
-
-	c.valores[INDICE_COMPLEXO] = (ValorBase) valores[INDICE_COMPLEXO]
-		.clone();
-
-	try {
-	    c.impressao = (ImpressaoStrategy) this.impressao.clone();
-	    c.valores[INDICE_INT].impressao = valores[INDICE_INT].impressao;
-	    c.valores[INDICE_COMPLEXO].impressao = valores[INDICE_COMPLEXO].impressao;
-	} catch (CloneNotSupportedException er) {
-	    er.printStackTrace();
+		impressao = new ImpressaoComplexoStrategy();
 	}
 
-	return c;
-    }
+	/**
+	 * Valor atual.
+	 * 
+	 * @return retorna o valor selecionado atualmente.
+	 */
+	private ValorBase getValorAtual() {
+		return valores[indiceAtual];
+	}
 
-    /**
-         * Copia os valores do objeto.
-         */
-    public ValorBase copiar(ValorBase valor) {
-	Complexo c = (Complexo) valor.clone();
+	/**
+	 * Converte objeto em String.
+	 */
+	public String toString() {
+		return valores[INDICE_INT].toString() + "I"
+				+ valores[INDICE_COMPLEXO].toString();
+	}
 
-	int indice = (indiceAtual + 1) % TAM_VETOR;
-	c.valores[indice] = (ValorBase) valores[indice].clone();
+	/**
+	 * Gera String.
+	 */
+	public String converterEmString() {
+		return impressao.imprimir(this);
+	}
 
-	return c;
-    }
+	/**
+	 * Limpa o valor.
+	 */
+	public String limparValor() {
+		ValorBase valorI = valores[INDICE_COMPLEXO];
+		valorI.limparValor();
+		valorI.valor = 0;
 
-    /**
-         * Modo inteiro.
-         */
-    public void modoInteiro() {
-	indiceAtual = INDICE_INT;
-    }
+		ValorBase valorInt = valores[INDICE_INT];
+		valorInt.limparValor();
+		valorInt.valor = 0;
 
-    /**
-         * Modo complexo.
-         */
-    public void modoComplexo() {
-	indiceAtual = INDICE_COMPLEXO;
-    }
+		return "0";
+	}
 
-    /**
-         * Instancia objeto Complexo.
-         */
-    public Complexo instanciarComplexo() {
-	modoComplexo();
-	return this;
-    }
+	/**
+	 * seleciona o Modo.
+	 */
+	public ValorBase modoHexa() {
+		valores[INDICE_COMPLEXO].modoHexa();
 
-    public ValorBase instanciarEngenharia() {
-	valores[INDICE_COMPLEXO] = valores[INDICE_COMPLEXO]
-		.instanciarEngenharia();
+		return this;
+	}
 
-	return this;
-    }
+	/**
+	 * seleciona o Modo.
+	 */
+	public ValorBase modoDec() {
+		valores[INDICE_COMPLEXO].modoDec();
 
-    /**
-         * O operador chama o visitor.
-         *
-         * @param visitor
-         *                visitor.
-         * @param acumulador.
-         */
-    public ValorBase aceitarVisita(Visitor visitor, Valor acumulador) {
+		return this;
+	}
 
-	ValorBase v = this.getValorInteiro();
-	v.aceitarVisita(visitor, acumulador);
+	/**
+	 * seleciona o Modo.
+	 */
+	public ValorBase modoBin() {
+		valores[INDICE_COMPLEXO].modoBin();
 
-	return visitor.visitar(acumulador, this);
-    }
+		return this;
+	}
 
-    /**
-         * O operador chama o visitor.
-         *
-         * @param visitor
-         *                visitor.
-         * @param acumulador.
-         */
-    public ValorBase aceitarVisita(Visitor visitor, Complexo acumulador) {
+	public void impressaoBin() {
+		valores[INDICE_INT].impressaoBin();
+		valores[INDICE_COMPLEXO].impressaoBin();
+	}
 
-	return visitor.visitar(acumulador, this);
-    }
+	public void impressaoDec() {
+		valores[INDICE_INT].impressaoDec();
+		valores[INDICE_COMPLEXO].impressaoDec();
+	}
 
-    /**
-         * O operador chama o visitor.
-         *
-         * @param visitor
-         *                visitor.
-         * @param acumulador.
-         */
-    public ValorBase aceitarVisita(Visitor visitor, Engenharia acumulador) {
+	public void impressaoHexa() {
+		valores[INDICE_INT].impressaoHexa();
+		valores[INDICE_COMPLEXO].impressaoHexa();
+	}
 
-	ValorBase v = this.getValorInteiro();
-	ValorBase respInt = v.aceitarVisita(visitor, acumulador);
+	/**
+	 * Adiciona um digito a direita do valor atual.
+	 * 
+	 * @param d
+	 *            �gito a ser acrescentado.
+	 * @return retorna o valor armazenado no formato String.
+	 */
+	public String adicionarDigito(String digito, ImpressaoStrategy modo,
+			ImpressaoStrategy modoImpressao) {
+		valores[INDICE_COMPLEXO].adicionarDigito(digito, modo, modoImpressao);
 
-	Complexo c = new Complexo(respInt);
-	c.setValorComplexo((ValorBase) getValorComplexo().clone());
+		return impressao.imprimir(this);
+	}
 
-	return c;
-    }
+	/**
+	 * Funcao que clona o elemento.
+	 * 
+	 * @return Retorna o objeto Valor clonado.
+	 */
+	public Object clone() {
+		Complexo c = new Complexo(valores[INDICE_INT]);
 
-    /**
-         * Retorna o valor inteiro.
-         *
-         * @return valor inteiro.
-         */
-    public ValorBase getValorInteiro() {
-	return valores[INDICE_INT];
-    }
+		c.valores[INDICE_COMPLEXO] = (ValorBase) valores[INDICE_COMPLEXO]
+				.clone();
 
-    /**
-         * Retorna o valor complexo.
-         *
-         * @return valor complexo.
-         */
-    public ValorBase getValorComplexo() {
-	return valores[INDICE_COMPLEXO];
-    }
+		try {
+			c.impressao = (ImpressaoStrategy) this.impressao.clone();
+			c.valores[INDICE_INT].impressao = valores[INDICE_INT].impressao;
+			c.valores[INDICE_COMPLEXO].impressao = valores[INDICE_COMPLEXO].impressao;
+		} catch (CloneNotSupportedException er) {
+			er.printStackTrace();
+		}
 
-    /**
-         * Altera o valor inteiro.
-         *
-         * @param novo
-         *                valor inteiro.
-         */
-    public void setValorInteiro(ValorBase novo) {
-	valores[INDICE_INT] = novo;
-    }
+		return c;
+	}
 
-    /**
-         * Altera o valor complexo.
-         *
-         * @param novo
-         *                valor complexo.
-         */
-    public void setValorComplexo(ValorBase novo) {
-	valores[INDICE_COMPLEXO] = novo;
-    }
+	/**
+	 * Copia os valores do objeto.
+	 */
+	public ValorBase copiar(ValorBase valor) {
+		Complexo c = (Complexo) valor.clone();
 
-    public ValorBase somar(ValorBase obj) {
-	Visitor visitor = new VisitorSoma();
-	return obj.aceitarVisita(visitor, this);
-    }
+		int indice = (indiceAtual + 1) % TAM_VETOR;
+		c.valores[indice] = (ValorBase) valores[indice].clone();
 
-    public ImpressaoStrategy getModoImpressao() {
-	return valores[INDICE_COMPLEXO].getModoImpressao();
-    }
+		return c;
+	}
+
+	/**
+	 * Modo inteiro.
+	 */
+	public void modoInteiro() {
+		indiceAtual = INDICE_INT;
+	}
+
+	/**
+	 * Modo complexo.
+	 */
+	public void modoComplexo() {
+		indiceAtual = INDICE_COMPLEXO;
+	}
+
+	/**
+	 * Instancia objeto Complexo.
+	 */
+	public Complexo instanciarComplexo() {
+		modoComplexo();
+		return this;
+	}
+
+	public ValorBase instanciarEngenharia() {
+		valores[INDICE_COMPLEXO] = valores[INDICE_COMPLEXO]
+				.instanciarEngenharia();
+
+		return this;
+	}
+
+	/**
+	 * O operador chama o visitor.
+	 * 
+	 * @param visitor
+	 *            visitor.
+	 * @param acumulador
+	 *            .
+	 */
+	public ValorBase aceitarVisita(Visitor visitor, Valor acumulador) {
+
+		ValorBase v = this.getValorInteiro();
+		v.aceitarVisita(visitor, acumulador);
+
+		return visitor.visitar(acumulador, this);
+	}
+
+	/**
+	 * O operador chama o visitor.
+	 * 
+	 * @param visitor
+	 *            visitor.
+	 * @param acumulador
+	 *            .
+	 */
+	public ValorBase aceitarVisita(Visitor visitor, Complexo acumulador) {
+
+		return visitor.visitar(acumulador, this);
+	}
+
+	/**
+	 * O operador chama o visitor.
+	 * 
+	 * @param visitor
+	 *            visitor.
+	 * @param acumulador
+	 *            .
+	 */
+	public ValorBase aceitarVisita(Visitor visitor, Engenharia acumulador) {
+
+		ValorBase v = this.getValorInteiro();
+		ValorBase respInt = v.aceitarVisita(visitor, acumulador);
+
+		Complexo c = new Complexo(respInt);
+		c.setValorComplexo((ValorBase) getValorComplexo().clone());
+
+		return c;
+	}
+
+	/**
+	 * Retorna o valor inteiro.
+	 * 
+	 * @return valor inteiro.
+	 */
+	public ValorBase getValorInteiro() {
+		return valores[INDICE_INT];
+	}
+
+	/**
+	 * Retorna o valor complexo.
+	 * 
+	 * @return valor complexo.
+	 */
+	public ValorBase getValorComplexo() {
+		return valores[INDICE_COMPLEXO];
+	}
+
+	/**
+	 * Altera o valor inteiro.
+	 * 
+	 * @param novo
+	 *            valor inteiro.
+	 */
+	public void setValorInteiro(ValorBase novo) {
+		valores[INDICE_INT] = novo;
+	}
+
+	/**
+	 * Altera o valor complexo.
+	 * 
+	 * @param novo
+	 *            valor complexo.
+	 */
+	public void setValorComplexo(ValorBase novo) {
+		valores[INDICE_COMPLEXO] = novo;
+	}
+
+	public ValorBase somar(ValorBase obj) {
+		Visitor visitor = new VisitorSoma();
+		return obj.aceitarVisita(visitor, this);
+	}
+
+	public ImpressaoStrategy getModoImpressao() {
+		return valores[INDICE_COMPLEXO].getModoImpressao();
+	}
 }

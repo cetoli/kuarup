@@ -4,25 +4,25 @@ comment0.text=\nconstructor\ Padrao.\n\n
 comment1.target=void\ setUp()
 comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
 comment10.target=void\ testTest11E11Dec()
-comment10.text=\nBotao\ decimal\:\ Digita\ 11,\ soma.\ \nBotao\ decimal\:\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
+comment10.text=\nBotao\ decimal\:\ Digita\ 11,\ soma.\nBotao\ decimal\:\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
 comment11.target=void\ test11DecE11Bin()
-comment11.text=\nBotao\ decimal\:\ Digita\ 11,\ soma.\ \nBotao\ binario\:\ Digita\ 11,\ soma.\nResultado\=\ 1110.\n\n
+comment11.text=\nBotao\ decimal\:\ Digita\ 11,\ soma.\nBotao\ binario\:\ Digita\ 11,\ soma.\nResultado\=\ 1110.\n\n
 comment12.target=void\ test11BinE11Dec()
-comment12.text=\nBotao\ binario\:\ Digita\ 11,\ soma.\ \nBotao\ decimal\:\ Digita\ 11,\ soma.\nResultado\=\ 14.\n\n
+comment12.text=\nBotao\ binario\:\ Digita\ 11,\ soma.\nBotao\ decimal\:\ Digita\ 11,\ soma.\nResultado\=\ 14.\n\n
 comment13.target=void\ test11DecE11Hex()
-comment13.text=\nBotao\ decimal\:\ Digita\ 11,\ soma.\ \nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nResultado\=\ 1c.\n\n
+comment13.text=\nBotao\ decimal\:\ Digita\ 11,\ soma.\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nResultado\=\ 1c.\n\n
 comment14.target=void\ test11HexE11Dec()
-comment14.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\ \nBotao\ decimal\:\ Digita\ 11,\ soma.\nResultado\=\ 28.\n\n
+comment14.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nBotao\ decimal\:\ Digita\ 11,\ soma.\nResultado\=\ 28.\n\n
 comment15.target=void\ test11BinE11Hex()
-comment15.text=\nBotao\ binario\:\ Digita\ 11,\ soma.\ \nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nResultado\=\ 14.\n\n
+comment15.text=\nBotao\ binario\:\ Digita\ 11,\ soma.\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nResultado\=\ 14.\n\n
 comment16.target=void\ test11HexE11Bin()
-comment16.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\ \nBotao\ binario\:\ Digita\ 11,\ soma.\nResultado\=\ 10100.\n\n
+comment16.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nBotao\ binario\:\ Digita\ 11,\ soma.\nResultado\=\ 10100.\n\n
 comment17.target=void\ test11BinE11Bin()
-comment17.text=\nBotao\ binario\:\ Digita\ 11,\ soma.\ \nBotao\ binario\:\ Digita\ 11,\ soma.\nResultado\=\ 110.\n\n
+comment17.text=\nBotao\ binario\:\ Digita\ 11,\ soma.\nBotao\ binario\:\ Digita\ 11,\ soma.\nResultado\=\ 110.\n\n
 comment18.target=void\ test11BinE11()
 comment18.text=\nBotao\ binario\:\ Digita\ 11,\ soma,\ Digita\ 11,\ soma.\nResultado\=\ 110.\n\n
 comment19.target=void\ test11HexE11Hex()
-comment19.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\ \nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
+comment19.text=\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nBotao\ hexadecimal\:\ Digita\ 11,\ soma.\nResultado\=\ 22.\n\n
 comment2.target=void\ tearDown()
 comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
 comment20.target=void\ test11HexE11()
@@ -43,10 +43,34 @@ comment27.target=void\ testeSomaD1ID1eD1sai2I1()
 comment27.text=\nTeste\:\ somar\ 1i1+1+\ ->\ 2I1\n\n
 comment28.target=void\ testeSomaI0b11eI0x11sai0x0I0x14()
 comment28.text=\nTeste\:\ somar\ Ib11+Ih11\ ->\ 0x0I0x14\n\n
+comment29.target=void\ testeEntraD1N1IB11sai0b1N1I0b11()
+comment29.text=\nTeste\:\ entrar\ com\ o\ numero\ D1N1IB11\ (1e1+0b11i)\ ->\ 0b1N1I0b11.\n\n
 comment3.target=void\ testSomaUmApartirDoRepouso()
 comment3.text=\nDigita\ 1\ vez\ o\ numero\ 1\ e\ depois\ soma.\ Resultado\=\ 1.\n\n
+comment30.target=void\ testeEntraD1IB11N1sai0b1I0b11N1()
+comment30.text=\nTeste\:\ entrar\ com\ o\ n\uFFFDmero\ D1IB11N1\ (1+0b11e1)\ ->\ 0b1I0b11N0b1.\n\n
+comment31.target=void\ testeEntraD1N11IH11N1sai0x1NBI0x11N1()
+comment31.text=\nTeste\:\ entrar\ com\ o\ n\uFFFDmero\ D1N11IH11N1\ (1e11+\ 0x11e1i)\ ->\ 0x1N11I0x11N1.\n\n
+comment32.target=void\ testeEntraB1IB11sai1N3I3N1()
+comment32.text=\nTeste\:\ entrar\ com\ o\ n\uFFFDmero\ B1NB11IB11ND1\ (0b1e0b11\ +\ 0b11e1i)\ ->\ 1N3I3N1.\n\n
+comment33.target=void\ testeSoma1N1mais11N1sai12N1()
+comment33.text=\nTeste\:\ Somar\ 1N1\ mais\ 11N1\ (1e1\ +\ 11e1)\ ->\ 12N1.\n\n
+comment34.target=void\ testeSoma11NB11maisB1NB11sai0b1100N11()
+comment34.text=\nTeste\:\ Somar\ 11NB11\ mais\ B1NB11\ (11e0b11\ +\ 0b1e0b11)\ ->\ 0b1100N11.\n\n
+comment35.target=void\ testeSoma11N1mais1N11sai1N11()
+comment35.text=\nTeste\:\ Somar\ 11N1\ mais\ 1N11\ (11e1\ +\ 1e11)\ ->\ 1N11.\n\n
+comment36.target=void\ testeSomaH1N1ID11N1maisB11N11Hsai0x3N3I0xBN1()
+comment36.text=\nTeste\:\ Somar\ H1N1ID11N1\ mais\ B11N11H\n(0x1e0x1+11e1i\ +\ 0b11e0b11)\ ->\ 0x3N3I0xBN1.\n\n
+comment37.target=void\ testeEntraD1N1VB11sai0b1N1V0b11()
+comment37.text=\nTeste\:\ entrar\ com\ o\ vetor\ D1N1VB11\ (1e1,0b11i)\ ->\ 0b1N1V0b11.\n\n
+comment38.target=void\ testeSoma1aD1VB11I1sai0b10V0b100I1()
+comment38.text=\nTeste\:\ somar\ um\ ao\ vetor\ D1VB11I1\ (1+[1,0b11+1i])\ ->\ 0b10V0b100I1.\n\n
+comment39.target=void\ testeSubtrai11deB11N1V11VD1V1I1sai1N1Vm8V10Vm10I1()
+comment39.text=\nTeste\:\ B11N1V11VD1V1I1\ -\ 11\ ([0b11e1,0b11,1,1+1i]-11)\ ->\ 1N1V-8V10V-10I1.\n\n
 comment4.target=void\ testTesteOnze()
 comment4.text=\nDigita\ o\ numero\ 11\ e\ depois\ soma.\ \ Resultado\=\ 11.\n\n
+comment40.target=void\ testeSubtrai1N1deD11N1VH11N1sai10N1V16N1()
+comment40.text=\nTeste\:\ subtrair\ 1N1\ de\ D11N1VH11N1\ ([11e1+\ 0x11e1i]-1e1)\ ->\ 10N1V16N1.\n\n
 comment5.target=void\ testTest11E11()
 comment5.text=\nDigita\ 11,\ soma,\ 11\ e\ soma.\ Resultado\=\ 22.\n\n
 comment6.target=void\ testLimpa()
@@ -57,4 +81,4 @@ comment8.target=void\ testVariasEntradas()
 comment8.text=\nDigita\ 1,\ soma,\ 1,\ soma,\ 1\ e\ soma.\ Resultado\=\ 3.\n\n
 comment9.target=void\ testSomaUmApartirDoRepousoDec()
 comment9.text=\nBotao\ de\ cimal\:\ Digita\ 1,\ soma.\ Resultado\=\ 1.\n\n
-numComments=29
+numComments=41

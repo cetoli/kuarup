@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=ac\ op
+comment0.target=ValorBase\ visitar(Valor,\ Valor)
+comment1.params=modoInt\ modoCompl\ intAc\ complAc\ intOp\ complOp
+comment1.target=Complexo\ calcularSomaComplexo(ValorBase,\ ValorBase,\ int,\ int,\ int,\ int)
+comment10.params=ac\ op
+comment10.target=ValorBase\ visitar(Engenharia,\ Engenharia)
+comment2.params=ac\ op
+comment2.target=ValorBase\ visitar(Valor,\ Complexo)
+comment3.params=ac\ op
+comment3.target=ValorBase\ visitar(Complexo,\ Valor)
+comment4.params=ac\ op
+comment4.target=ValorBase\ visitar(Complexo,\ Complexo)
+comment5.params=modoMant\ modoExp\ intAc\ expAc\ intOp\ expOp
+comment5.target=Engenharia\ calcularSomaEngenharia(ValorBase,\ ValorBase,\ int,\ int,\ int,\ int)
+comment6.params=ac\ op
+comment6.target=ValorBase\ visitar(Complexo,\ Engenharia)
+comment7.params=ac\ op
+comment7.target=ValorBase\ visitar(Engenharia,\ Complexo)
+comment8.params=ac\ op
+comment8.target=ValorBase\ visitar(Engenharia,\ Valor)
+comment9.params=ac\ op
+comment9.target=ValorBase\ visitar(Valor,\ Engenharia)
+numComments=11
