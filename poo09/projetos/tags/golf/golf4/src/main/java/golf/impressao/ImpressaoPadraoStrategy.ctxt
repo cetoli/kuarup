@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=valor
+comment0.target=String\ imprimir(ValorBase)
+comment1.target=ImpressaoStrategy\ modoBinario()
+comment2.target=ImpressaoStrategy\ modoDecimal()
+comment3.target=ImpressaoStrategy\ modoHexadecimal()
+comment4.params=valor
+comment4.target=String\ impressaoValor(ValorBase)
+comment5.params=valor\ digito
+comment5.target=void\ adicionarDigito(ValorBase,\ String)
+comment6.target=Object\ clone()
+numComments=7
