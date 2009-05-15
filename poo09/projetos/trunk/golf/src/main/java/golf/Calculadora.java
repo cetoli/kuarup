@@ -1,163 +1,134 @@
 /*------------------------------------------------------------------------------
-    Copyright  2002-2009        Carlo E. T. Oliveira et all
+    Copyright © 2002-2006        Carlo E. T. Oliveira et all
     ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
+package foxtrot;
 
-package golf;
-
-import golf.num.*;
-import labase.poo.ICalculadoraEngenharia;
+import labase.poo.ICalculadoraVetorial;
 
 /**
  * Classe que implementa a calculadora.
- * @author  Gustavo Taveira
- * @version 2.0 28/04/2009 Gustavo Taveira
- * @since   2.0 Incluídas as funcionalidades: numeros binarios e
- * hexadecimais.
- * @version 1.0 31/03/2009 André Sion e Thiago Silva de Souza
- * @since   1.0 Incluídas as implementações dos métodos limpa(), entraUm() e
- * comandoSoma().
+ * @author  Gustavo Taveira e Thiago Silva de Souza
+ * @version 5.0
  */
-public class Calculadora implements ICalculadoraEngenharia {
-
-    // Estado da Caculadora
-    /**
-     * Constante real.
-     **/
-    private final int real = 0;
-    /**
-     * Constante complexo.
-     **/
-    private final int complexo = 1;
-    /**
-     * Atributo acumulador guarda os resultados da soma.
-     **/
-    private ComponentNum acumulador;
-    /**
-     * Atributo operando guarda o conteúdo do operando.
-     **/
-    private ComponentNum operando;
-    /**
-     * Atributo operando guarda o conteúdo do operando.
-     **/
-    private int tipo;
+public class Calculadora implements ICalculadoraVetorial{
 
     /**
-     * Construtor para objetos da classe Calculadora.
-     **/
+     * Atributos que guardam o acumulador, o operando e o display.
+     */
+    private Operando acumulador, operando;
+    private String display;
+    
+    /**
+     * Construtor para objetos da classe Calculadora
+     */
     public Calculadora() {
-        inicializa();
-        tipo = real;
+        limpa();
     }
-
+    
     /**
-     * Inicializa ambas as variáveis como reais de valor = 0.
-     **/
-    public void inicializa() {
-        // inicializa variáveis de inst‰ncia
-        acumulador = new Real(); //Default comeca apenas como real
-        operando = new Real(); //Default comeca apenas como real
-    }
-
-    /**
-     * Limpa o acumulador.
+     * Limpa o acumulador
      * @return conteúdo do acumulador
-     **/
-    public final String limpa() {
-        inicializa();
-        return "0";
+     */
+    public String limpa() {
+        acumulador = new Nulo();
+        operando = new Simples(0);
+        display = acumulador.mostra();
+        return display;
     }
 
     /**
-     * Entra a tecla um.
-     * @return conteúdo do operador
-     **/
+     * Entra a tecla um
+     * @return contéudo do operando na base especificada.
+     */
     public String entraUm() {
-        //operando.entraUm(tipo);
-        operando.entraUm();
-        return operando.writeNum();
+        display = operando.entraUm();
+        return display;
     }
-
+    
     /**
      * Entra o comando soma.
-     * @return conteúdo do acumulador
-     **/
-    public String comandoSoma() {
-        //PROBLEMA!!!!!
-        for(int i = 0; i < operando.getComponentCount(); i++){
-            acumulador.setValue(i, acumulador.getValue(i) + operando.getValue(i));
-        }
-        tipo = real;
-        operando = new Real();
+     * @return contéudo do acumulador na base especificada.
+     */
+    public String comandoSoma() { //throws CalculadoraException 
+        //try {
+        acumulador = acumulador.soma(operando);
+        operando = new Simples(0);
         operando.setBase(acumulador.getBase());
-        return acumulador.writeNum();
+        display = acumulador.mostra();
+        //} catch (CalculadoraException e){
+        //    display = e.getMessage();
+        //}
+        return display;
     }
-
+    
+    /**
+     * Entra o comando subtração.
+     * @return contéudo do acumulador na base especificada.
+     */
+    public String comandoSubtrai()  { //throws CalculadoraException
+        //try {
+        acumulador = acumulador.sub(operando);
+        operando = new Simples(0);
+        operando.setBase(acumulador.getBase());
+        display = acumulador.mostra();
+        //} catch (CalculadoraException e){
+        //    display = e.getMessage();
+        //}
+        return display;
+    }
+    
     /**
      * Entra a base decimal.
+     * @return contéudo do operando na base especificada.
      */
     public void modoDec() {
-        operando.modoDec();
-        acumulador.modoDec();
+        operando.setBase(new DecimalStrategy());
+        acumulador.setBase(new DecimalStrategy());
     }
-
+    
     /**
      * Entra a base binária.
+     * @return contéudo do operando na base especificada.
      */
     public void modoBin() {
-        operando.modoBin();
-        acumulador.modoBin();
+        operando.setBase(new BinariaStrategy());
+        acumulador.setBase(new BinariaStrategy());
     }
-
+    
     /**
      * Entra a base hexadecimal.
+     * @return contéudo do operando na base especificada.
      */
     public void modoHex() {
-        operando.modoHex();
-        acumulador.modoHex();
+        operando.setBase(new HexadecimalStrategy());
+        acumulador.setBase(new HexadecimalStrategy());
     }
-
+    
     /**
-     * Entra a base parte complexa do numero.
+     * Entra a parte imaginária do número complexo.
+     * @return contéudo do operando na base especificada.
      */
     public void entraI() {
-/*
-        ComponentNum aux1 = new CompositeNum(); //Default comeca apenas como real
-        aux1.initialize(operando.getBase());
-        for(int i = 0; i < operando.getComponentCount(); i++){
-            aux1.setValue(i, operando.getValue(i));
-        }
-        operando = aux1;
-
-        ComponentNum aux2 = new CompositeNum(); //Default comeca apenas como real
-        aux2.initialize(acumulador.getBase());
-        for(int i = 0; i < acumulador.getComponentCount(); i++){
-            aux2.setValue(i, acumulador.getValue(i));
-        }
-        acumulador = aux2;
-
-        tipo = complexo;
-*/
-
-        ComponentNum composite = new ComplexNum();
-        ComponentNum aux = new Imaginario();
-        composite.addComponent(operando);
-        composite.addComponent(aux);
-        operando = composite;
+        operando = operando.toComplexo();
     }
-
+    
     /**
-     * Entra a base parte complexa do numero.
+     * Entra a parte exponencial do número real ou imaginário.
+     * @return contéudo do operando na base especificada.
      */
     public void entraN() {
-        ComponentNum composite = new EngenhariaNum();
-        ComponentNum aux = new Exponent();
-        composite.addComponent(operando);
-        composite.addComponent(aux);
-        operando = composite;
+        operando = operando.toExponencial();
     }
-
+    
+    /**
+     * Entra um operando vetorial.
+     * @return contéudo do operando na base especificada.
+     */
+    public void entraV() {
+        operando = operando.toVetorial();
+    }
 }
