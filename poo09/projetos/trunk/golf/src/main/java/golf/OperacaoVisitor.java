@@ -5,7 +5,7 @@
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
-package foxtrot;
+package golf;
 
 /**
  * Interface que define os métodos do Visitor das operações.
