@@ -5,7 +5,7 @@
     This software is licensed as described in the file LICENSE.txt,
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
-package foxtrot;
+package golf;
 
 /**
  * Classe de teste da calculadora.
@@ -399,7 +399,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }  
 
     public void testEntraISoma() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.entraUm();
         b.entraI();
         b.entraUm();
@@ -409,7 +409,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaI() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.entraUm();
         b.entraI();
         b.entraUm();
@@ -421,7 +421,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaEntraI() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.entraI();
         b.entraUm();
         b.comandoSoma();
@@ -431,7 +431,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaBinario() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.modoBin();
         b.entraUm();
         b.entraI();
@@ -442,7 +442,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaIBinario() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.modoBin();
         b.entraUm();
         b.entraI();
@@ -455,7 +455,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaEntraIBinario() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.modoBin();
         b.entraI();
         b.entraUm();
@@ -466,7 +466,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaHexa() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.modoHex();
         b.entraUm();
         b.entraUm();
@@ -480,7 +480,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaIHexa() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.modoHex();
         b.entraUm();
         b.entraUm();
@@ -497,7 +497,7 @@ public class CalculadoraTest extends junit.framework.TestCase {
     }
 
     public void testEntraISomaEntraIHexa() {
-        Calculadora b = new foxtrot.Calculadora();
+        Calculadora b = new golf.Calculadora();
         b.modoHex();
         b.entraI();
         b.entraUm();
