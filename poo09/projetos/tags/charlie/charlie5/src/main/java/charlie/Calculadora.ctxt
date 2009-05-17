@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Calculadora()
+comment1.target=void\ entraV()
+comment10.target=String\ limpa()
+comment2.target=void\ entraN()
+comment3.target=void\ entraI()
+comment4.target=void\ modoBin()
+comment5.target=void\ modoDec()
+comment6.target=void\ modoHex()
+comment7.target=String\ comandoSoma()
+comment8.target=String\ comandoSubtrai()
+comment9.target=String\ entraUm()
+numComments=11

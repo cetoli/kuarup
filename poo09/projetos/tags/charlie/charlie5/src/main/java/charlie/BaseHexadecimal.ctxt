@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=BaseHexadecimal()
+comment1.target=String\ getId()
+comment2.params=numero
+comment2.target=int\ toDecimal(String)
+comment3.params=valor
+comment3.target=String\ converterBase(int)
+numComments=4
