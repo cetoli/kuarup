@@ -6,136 +6,78 @@
     which you should have received as part of this distribution.
 ------------------------------------------------------------------------------*/
 package charlie;
-import labase.poo.ICalculadoraEngenharia;
+import labase.poo.ICalculadoraVetorial;
 
 /**
  * A classe calculadora realiza operações matemáticas com números Imaginários.
- * @author  (Carlos Felippe) O papagaio
+ * @author  (Marcio Reis Teixeira) O papagaio
  * @author  (Helio Mendes Salmon) O pirata
- * @version (4.0) (04 de maio de 2009) 
- * Esta versão trabalha com exponencial
- * @since   (2.0) Esta versao trabalha nas bases decimal, hexadecimal e binária
+ * @version (5.0) (17 de maio de 2009) 
+ * Esta versão trabalha com vetor
+ * @since   (2.0) Esta versao trabalha om vetor
  */
-public class Calculadora implements ICalculadoraEngenharia{
 
-    // Estado da Caculadora
-    private int opDecimal;
-    private String opString;
-    private Numero operando;
-    private Numero acumulador;
-    private Adicionador adicionador;
-    private Adicionador montador;
-    private Numero display;
-    private StrategyBase base;
-  
-    /**
-     * Construtor para objetos da classe Calculadora
-     * Sempre inicializa como decimal
-     */
-    public Calculadora() {
-        // inicializa variáveis de instância
-        limpa();
-    }
+public class Calculadora implements ICalculadoraVetorial {
 
-    /**
-     * Entra a tecla um
-     * @return conteúdo do operando.
-     */
-    public String entraUm() {
-        opString = base.converterBase(opDecimal) + "1";
-        opDecimal = base.toDecimal(opString);
-        adicionador.adicionaParteReal(opDecimal, operando, montador);
-        adicionador.adicionaParteImaginaria(opDecimal, operando, montador);
-        display = operando;
-        return operando.mostra(base);
-    }
+	Numero operando;
+	Numero acumulador;
+	ICommand comando;
 
-    /**
-     * Limpa o acumulador
-     * @return conteúdo do acumulador
-     */
-    public String limpa() {
-        opDecimal = 0;
-        opString = "";
-        operando = new Complexo();
-        acumulador = new Complexo();
-        adicionador = new ParteReal();
-        montador = new Fixo();
-        adicionador.adicionaParteReal(0, operando, montador);
-        adicionador.adicionaParteImaginaria(0, operando, montador);
-        adicionador.adicionaParteReal(0, acumulador, montador);
-        adicionador.adicionaParteImaginaria(0, acumulador, montador);
-        display = new Complexo();
-        adicionador.adicionaParteReal(0, display, montador);
-        adicionador.adicionaParteImaginaria(0, display, montador);
-        base = new BaseDecimal();
-        //return acumulador.getValor() + "";
-        return "0";
-    }
+	public Calculadora() {
+		comando = new SomaCommand();
+		limpa();
+	}
 
-    /**
-     * Entra o comando soma.
-     * @return conteúdo do acumulador
-     */
-    public String comandoSoma() {
-        acumulador.soma(operando);
-        String res = acumulador.mostra(base);
-        display = acumulador;
-        opDecimal = 0;
-        opString = "";
-        adicionador = new ParteReal();
-        montador = new Fixo();
-        operando = new Complexo();
-        adicionador.adicionaParteReal(0, operando, montador);
-        adicionador.adicionaParteImaginaria(0, operando, montador);
-        return res;
-    }
-    
-    /**
-     * Entra a base hexadecimal.
-     */
-    public void modoHex() {
-        base = new BaseHexadecimal();
-        //return display.mostra(base);
-    }
-   
-    /**
-     * Entra a base binária.
-     */  
-    public void modoBin() {
-        base = new BaseBinaria();
-        //return display.mostra(base);
-    }
-    
-    /**
-     * Entra a base decimal.
-     */   
-    public void modoDec() {
-        base = new BaseDecimal();
-        //return display.mostra(base);
-    }
-    
-    /**
-     * Entra a parte imaginária do número complexo.
-     */
-    public void entraI() {
-        adicionador = new ParteImaginaria();
-        montador = new Fixo();
-        opDecimal = 0;
-        opString = "";
-        Numero exponencial = acumulador.getParteImaginaria().getParteExponencial();
-        adicionador.adicionaParteImaginaria(acumulador.getParteImaginaria().getValor(), acumulador, montador);
-        acumulador.getParteImaginaria().adicionaParteExponencial(exponencial);
-    }
-    
-    /**
-     * Entra a parte exponencial do número.
-     */
-    public void entraN() {
-        montador = new ParteExponencial();
-        opDecimal = 0;
-        opString = "";
-        adicionador.adicionaParteReal(acumulador.getParteReal().getParteExponencial().getValor(), acumulador, montador);
-        adicionador.adicionaParteImaginaria(acumulador.getParteImaginaria().getParteExponencial().getValor(), acumulador, montador);
-    }
+	public void entraV() {
+		operando = new Vetorial(operando);
+	}
+
+	public void entraN() {
+		operando = new Cientifico(operando);
+	}
+
+	public void entraI() {
+		operando = new Complexo(operando);
+	}
+
+	public void modoBin() {
+		operando.setBase(new BaseBinaria());
+		acumulador.setBase(new BaseBinaria());
+	}
+
+	public void modoDec() {
+		operando.setBase(new BaseDecimal());
+		acumulador.setBase(new BaseDecimal());
+	}
+
+	public void modoHex() {
+		operando.setBase(new BaseHexadecimal());
+		acumulador.setBase(new BaseHexadecimal());
+	}
+
+	public String comandoSoma() {
+		acumulador = comando.execute(acumulador, operando);
+		comando = new SomaCommand();
+		operando = new Real(0);
+		operando.setBase(acumulador.getBase());
+		return acumulador.mostrar();
+	}
+
+	public String comandoSubtrai() {
+		acumulador = comando.execute(acumulador, operando);
+		comando = new SubtracaoCommand();
+		operando = new Real(0);
+		operando.setBase(acumulador.getBase());
+		return acumulador.mostrar();
+	}
+
+	public String entraUm() {
+		return operando.entraUm();
+	}
+
+	public String limpa() {
+		acumulador = new Real(0);
+		operando = new Real(0);
+		return "0";
+	}
 }
