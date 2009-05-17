@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=String\ getId()
+comment1.params=numero
+comment1.target=int\ toDecimal(String)
+comment2.params=valor
+comment2.target=String\ converterBase(int)
+numComments=3
