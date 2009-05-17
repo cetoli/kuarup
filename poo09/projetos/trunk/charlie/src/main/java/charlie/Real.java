@@ -1,93 +1,83 @@
 package charlie;
 
-/**
- * @author  (Carlos Felippe) O papagaio
- * @author  (Helio Mendes Salmon) O pirata
- * @version (4.0) (04 de maio de 2009) 
- * Esta versão trabalha com exponencial
- */
-public class Real implements Numero
-{
-   private int valor;
-   private Numero exponencial;
-     
-   /**
-    * Método herdado de Operando.
-    */
-   public Real(int valor) {
-      this.valor = valor;
-      this.exponencial = new Nulo();
-   }
-     
-   /**
-    * Método herdado de Operando.
-    */
-   public void adicionaParteReal(Numero operando) {    
-   }
- 
-   /**
-    * Método herdado de Operando.
-    */
-   public void adicionaParteImaginaria(Numero operando) { 
-   }
-   
-   /**
-    * Método herdado de Operando.
-    */
-   public void adicionaParteExponencial(Numero operando) {
-       this.exponencial = operando;
-   }
-     
-   /**
-    * Método herdado de Operando.
-    */
-   public String mostra(StrategyBase base) {
-       return base.getId()+base.converterBase(this.valor)+this.exponencial.mostra(base);
-   }
- 
-   /**
-    * Método herdado de Operando.
-    */
-   public void soma(Numero operando) {
-       int valorOutro = operando.getParteReal().getValor();
-       int maxExp = Math.max(this.exponencial.getValor(), operando.getParteReal().getParteExponencial().getValor());
-       this.valor = this.valor/((int)Math.pow(10, maxExp-this.exponencial.getValor()));
-       valorOutro = valorOutro/((int)Math.pow(10, maxExp-operando.getParteReal().getParteExponencial().getValor()));
-       this.valor += valorOutro;
-       this.exponencial.setValor(maxExp);
-   }
-   /**
-    * Método herdado de Operando.
-    */
-   public int getValor() {
-       return this.valor;
-   }
-   
-   /**
-    * Método herdado de Operando.
-    */
-   public void setValor(int valor) {
-       this.valor = valor;
-   }
- 
-   /**
-    * Método herdado de Operando.
-    */
-   public Numero getParteReal() {
-       return this;
-   }
- 
-   /**
-    * Método herdado de Operando.
-    */
-   public Numero getParteImaginaria() {
-       return new Nulo();
-   }
-    
-   /**
-    * Método herdado de Operando.
-    */
-   public Numero getParteExponencial() {
-       return this.exponencial;
-   }
+import java.util.List;
+
+public class Real extends Numero {
+
+	public Real(Integer valor) {
+		this.setValor(valor);
+		this.setBase(new BaseDecimal());
+	}
+
+	protected void adicionaUm() {
+		this.valor = base.toDecimal(base.converterBase(this.valor) + "1");
+	}
+
+	public String mostrar() {
+		return base.getId() + base.converterBase(this.valor);
+	}
+
+	public Numero soma(Numero numero) {
+		return numero.accept(new SomaVisitor(numero), this);
+	}
+
+	public Numero subtrai(Numero numero) {
+		return numero.accept(new SubtracaoVisitor(numero), this);
+	}
+
+	protected Numero accept(IVisitor visitor, Real real) {
+		return visitor.visitReal(real);
+	}
+
+	protected Numero accept(IVisitor visitor, Complexo complexo) {
+		return visitor.visitReal(complexo);
+	}
+
+	protected Numero accept(IVisitor visitor, Cientifico cientifico) {
+		return visitor.visitReal(cientifico);
+	}
+
+	protected Numero accept(IVisitor visitor, Vetorial vetorial) {
+		return visitor.visitReal(vetorial);
+	}
+
+	public Numero getParteImaginaria() {
+		return null;
+	}
+
+	public Numero getParteReal() {
+		return null;
+	}
+
+	public void setParteImaginaria(Numero parteImaginaria) {
+
+	}
+
+	public void setParteReal(Numero parteReal) {
+
+	}
+
+	public List<Numero> getVetorNumeros() {
+		return null;
+	}
+
+	public void setVetorNumeros(List<Numero> vetor) {
+
+	}
+
+	public StrategyBase getBase() {
+		return base;
+	}
+
+	public void setBase(StrategyBase base) {
+		this.base = base;
+	}
+
+	public Numero getExpoente() {
+		return null;
+	}
+
+	public void setExpoente(Numero numero) {
+
+	}
 }
