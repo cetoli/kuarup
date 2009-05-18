@@ -1,5 +1,10 @@
 #!/usr/bin/python
 
+"""
+:Author: Andre Abrantes
+:Copyright: ©2009, `GPL <http://is.gd/3Udt>`
+"""
+
 import visual
 from peixe_xavante import *
 from tubarao import *
