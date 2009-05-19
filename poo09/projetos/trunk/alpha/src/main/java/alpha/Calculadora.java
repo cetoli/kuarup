@@ -1,147 +1,145 @@
-/*------------------------------------------------------------------------------
-    Copyright  2002-2009        Carlo E. T. Oliveira et all
-    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
-
-    This software is licensed as described in the file LICENSE.txt,
-    which you should have received as part of this distribution.
-------------------------------------------------------------------------------*/
 package alpha;
-import labase.poo.ICalculadoraVetorial;
+import java.util.ArrayList;
 
-/**
- * Esta é a classe principal da calculadora do time alpha.
+import labase.poo.ICalculadoraBase;
+
+/**.
+ * Descrição:
+ * Calculadora que exerce somente as funções de soma, limpa, tecla 1, números complexos e mudança de base
  *
- * @author  Diego Mury Gomes de Lima  $Author$
- * @author  Leandro Oliveira Gomes  $Author$
- * @version 4.0    $Revision$ 3.0      $Date$ 11/05/09
- * @since   3.0 Calculadora com numeros complexos
+ * @author Carlos Henrique Pinto Rodriguez
+ * @author Diego Mury G. de Lima
+ *
+ * @version 5     Data 19/05/2009
  */
-public class Calculadora implements ICalculadoraVetorial {
-    // Estado da Caculadora
-    private int valorDecimal;
-    private String valorString;
-    private INumero operando;
-    private INumero acumulador;
-    private Composite adicionador;
-    private Composite montador;
-    private INumero display;
-    private BaseStrategy base;
-    /**
-     * Construtor para objetos da classe Calculadora.
-     */
+
+
+public class Calculadora implements ICalculadoraBase {
+    /**. Acumulador da Caculadora. */
+    private Numero acumulador = new Numero(this);
+    /**. Operador da Caculadora. */
+    private Numero operador = new Numero(this);
+    /**. Estado da Calculadora (Binário, HexStrategy ou DecStrategy) */
+    private Strategy strategy = new DecStrategy();
+    /**. Armazena os componentes do vetor */
+    private ArrayList<Numero> operadorArray = new ArrayList<Numero>();
+    
+    /**.
+    * Construtor para objetos da classe Calculadora.
+    */
     public Calculadora() {
-        // inicializa variáveis de instância
-        limpa();
+        // inicializa variaveis de instância
     }
-    /**
-     * Entra a tecla um.
-     * @return conteúdo do operando.
-     */
-    public String entraUm() {
-        valorString = base.converterBase(valorDecimal) + "1";
-        valorDecimal = base.toDecimal(valorString);
-        adicionador.adicionaParteReal(valorDecimal, operando, montador);
-        adicionador.adicionaParteImaginaria(valorDecimal, operando, montador);
-        display = operando;
-        return operando.mostra(base);
+
+    /**.
+    * Entra a tecla um.
+    * @return  conteudo do operador
+    */
+    public final String entraUm() {
+        strategy.entraUm(this);
+        String retorno = "";
+        for(int i=0 ; i<operadorArray.size() ; i++)
+        	retorno += operadorArray.get(i).toString() + "V";
+        retorno += operador.toString();
+        return retorno;
     }
-    /**
-     * Limpa o acumulador.
-     * @return conteúdo do acumulador
-     */
-    public String limpa() {
-        valorDecimal = 0;
-        valorString = "";
-        operando = new Complexo();
-        acumulador = new Complexo();
-        adicionador = new ParteRealComposite();
-        montador = new MantissaComposite();
-        adicionador.adicionaParteReal(0, operando, montador);
-        adicionador.adicionaParteImaginaria(0, operando, montador);
-        adicionador.adicionaParteReal(0, acumulador, montador);
-        adicionador.adicionaParteImaginaria(0, acumulador, montador);
-        display = new Complexo();
-        adicionador.adicionaParteReal(0, display, montador);
-        adicionador.adicionaParteImaginaria(0, display, montador);
-        base = new BaseDecimalStrategy();
-        return "0";
+
+    /**.
+    * Limpa o acumulador.
+    * @return  conteudo do acumulador
+    */
+    public final String limpa() {
+        return strategy.limpa(this);
     }
-    /**
-     * Entra o comando soma.
-     * @return conteúdo do acumulador
-     */
-    public String comandoSoma() {
-        acumulador.soma(operando);
-        String res = acumulador.mostra(base);
-        display = acumulador;
-        valorDecimal = 0;
-        valorString = "";
-        adicionador = new ParteRealComposite();
-        montador = new MantissaComposite();
-        operando = new Complexo();
-        adicionador.adicionaParteReal(0, operando, montador);
-        adicionador.adicionaParteImaginaria(0, operando, montador);
-        return res;
+
+    /**.
+    * Entra o comando soma.
+    * @return  conteudo do acumulador
+    */
+    public final String comandoSoma() {
+        return strategy.comandoSoma(this);
     }
-    /**
-     * Opera na base hexadecimal.
-     */
-    public void modoHex() {
-        base = new BaseHexadecimalStrategy();
-    }
-    /**
-     * Opera na base binaria.
-     */  
+
+    /**.
+    * Muda pro strategy Binário
+    */
     public void modoBin() {
-        base = new BaseBinariaStrategy();
+        strategy = new BinStrategy();
     }
-    /**
-     * Opera na base decimal.
-     */   
+
+    /**.
+    * Muda pro strategy DecStrategy
+    */
     public void modoDec() {
-        base = new BaseDecimalStrategy();
+        strategy = new DecStrategy();
     }
-    /**
-     * Entra a parte imaginária do número complexo.
+
+    /**.
+    * Muda pro strategy HexStrategy
+    */
+    public void modoHex() {
+        strategy = new HexStrategy();
+    }
+
+    /**.
+     * Indica que os próximos valores entrados serão irreais
      */
-    public void entraI() {
-        adicionador = new ParteImaginariaComposite();
-        montador = new MantissaComposite();
-        valorDecimal = 0;
-        valorString = "";
-        INumero exponencial = acumulador.getParteImaginaria().getParteExponencial();
-        adicionador.adicionaParteImaginaria(acumulador.getParteImaginaria().getValor(), acumulador, montador);
-        acumulador.getParteImaginaria().adicionaParteExponencial(exponencial);
+     public void entraI() {
+         operador.entraI();
+         //acumulador.entraI();
+     }
+
+     /**.
+      * Indica que os próximos valores entrados serão irreais
+      */
+      public void entraN() {
+          operador.entraN();
+          //acumulador.entraN();
+      }
+      
+      /**.
+       * Indica que este componente do vetor já foi terminado
+       */
+      public void entraV() {
+      	operadorArray.add(operador);
+      	operador = new Numero(this);
+      }
+     
+
+    /**.
+    * @return acumulador
+    */
+    public Numero getAcumulador() {
+        return acumulador;
     }
-    /**
-     * Entra a parte exponencial do número.
+
+    /**.
+    * @return operador
+    */
+    public Numero getOperador() {
+        return operador;
+    }
+
+    /**.
+    * setOperador
+    * @param operador
+    */
+    public void setOperador(Numero op) {
+        this.operador = op;
+    }
+
+    /**.
+    * setAcumulador
+    * @param acumulador
+    */
+    public void setAcumulador(Numero ac) {
+        this.acumulador = ac;
+    }
+
+    /**.
+     * @return strategy
      */
-    public void entraN() {
-        montador = new ParteExponencialComposite();
-        valorDecimal = 0;
-        valorString = "";
-        adicionador.adicionaParteReal(acumulador.getParteReal().getParteExponencial().getValor(), acumulador, montador);
-        adicionador.adicionaParteImaginaria(acumulador.getParteImaginaria().getParteExponencial().getValor(), acumulador, montador);
-    }
-    /**
-     * Habilita numeros vetoriais.
-     */
-    public void entraV() {
-    }
-    /**
-     * Comando subtrai.
-     */
-    public String comandoSubtrai() {
-        acumulador.subtrai(operando);
-        String res = acumulador.mostra(base);
-        display = acumulador;
-        valorDecimal = 0;
-        valorString = "";
-        adicionador = new ParteRealComposite();
-        montador = new MantissaComposite();
-        operando = new Complexo();
-        adicionador.adicionaParteReal(0, operando, montador);
-        adicionador.adicionaParteImaginaria(0, operando, montador);
-        return res;
-    }
+	public Strategy getStrategy() {
+		return strategy;
+	}
 }
