@@ -1,33 +1,37 @@
+/*------------------------------------------------------------------------------
+    Copyright © 2002-2006        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
 package delta;
 
 /**
  * Classe da base decimal.
- * @author  Andre Sion
- * @author  Andre Abrantes
- * @version 0.3 07/04/2009 Andrï¿½ Sion e Thiago Silva de Souza
+ * @author  Carlos Felippe Cardoso e Andre Sion
+ * @version 5.0
  */
 public class DecimalStrategy implements BaseStrategy {
 
     /**
-     * Guarda o valor da base decimal.
+     * Método herdado de BaseStrategy.
      */
-    private final int valorBase = 10;
-
-    /**
-     * Retorna o valor da base decimal.
-     * @return Valor da base decimal.
-     */
-    public final int getValorBase() {
-        return valorBase;
+    public String getId() {
+        return "";
     }
 
     /**
-     * Converte um inteiro para string usando base decimal.
-     *
-     * @param integer Inteiro a ser convertido.
-     * @return String convertida.
+     * Método herdado de BaseStrategy.
      */
-    public final String toString(Integer integer) {
-        return Integer.toString(integer);
+    public int toDecimal(String n) {
+        return Integer.parseInt(n);
+    }
+
+    /**
+     * Método herdado de BaseStrategy.
+     */
+    public String toBase(int v) {
+        return String.valueOf(v);
     }
 }

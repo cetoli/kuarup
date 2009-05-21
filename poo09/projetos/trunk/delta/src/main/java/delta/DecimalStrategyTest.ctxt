@@ -1,8 +1,16 @@
 #BlueJ class context
 comment0.target=DecimalStrategyTest()
-comment0.text=\nConstrutor\ default\ para\ a\ classe\ de\ teste\ DecimalTeste.\n\n
+comment0.text=\nDefault\ constructor\ for\ test\ class\ TestDecimalStrategy\n\n
 comment1.target=void\ setUp()
-comment1.text=\nPreparacao\ do\ caso\ de\ teste.\nChamado\ antes\ de\ cada\ metodo\ de\ caso\ de\ teste.\n\n
+comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
 comment2.target=void\ tearDown()
-comment2.text=\nLimpeza\ do\ caso\ de\ teste.\nChamado\ apos\ cada\ metodo\ de\ teste\ de\ caso.\n\n
-numComments=3
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
+comment3.target=void\ testConversaoDecimalUm()
+comment3.text=\nTesta\ a\ convers\u00E3o\ de\ 1\ em\ decimal\ para\ decimal\ \nO\ retorno\ esperado\ \u00E9\ 1\n\n
+comment4.target=void\ testConversaoDecimalUmUm()
+comment4.text=\nTesta\ a\ convers\u00E3o\ de\ 1\ em\ decimal\ para\ decimal\ \nO\ retorno\ esperado\ \u00E9\ 11\n\n
+comment5.target=void\ testDesconversaoDecimal()
+comment5.text=\nTesta\ a\ visualiza\u00E7\u00E3o\ concatenando\ com\ D\ do\ valor\ 10\ \nO\ retorno\ esperado\ \u00E9\ D10\n\n
+comment6.target=void\ testDesconversaoParaBaseDecimal()
+comment6.text=\nTesta\ a\ convers\u00E3o\ para\ base\ decimal\ \nO\ retorno\ esperado\ \u00E9\ D10\n\n
+numComments=7

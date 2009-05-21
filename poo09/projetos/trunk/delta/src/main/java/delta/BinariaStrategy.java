@@ -1,38 +1,37 @@
+/*------------------------------------------------------------------------------
+    Copyright © 2002-2006        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
 package delta;
 
 /**
- * Classe da base binaria.
- * @author  Tiago Cruz de França
- * @author  Andre Sion
- * @version 4.0 03/05/2009
+ * Classe da base binária.
+ * @author  Carlos Felippe Cardoso e Andre Sion
+ * @version 5.0
  */
 public class BinariaStrategy implements BaseStrategy {
 
     /**
-     * Guarda o valor da base binaria.
+     * Método herdado de BaseStrategy.
      */
-    private final int valorBase = 2;
-
-    /**
-     * Guarda o prefixo a ser usado na impressao de um numero na base binaria.
-     */
-    private final String prefixoBase = "0b";
-
-    /**
-     * Retorna o valor da base binaria.
-     * @return Valor da base binaria.
-     */
-    public final int getValorBase() {
-        return valorBase;
+    public String getId() {
+        return "0b";
     }
 
     /**
-     * Converte um inteiro para string usando base binaria.
-     *
-     * @param integer Inteiro a ser convertido.
-     * @return String convertida.
+     * Método herdado de BaseStrategy.
      */
-    public final String toString(final Integer integer) {
-        return prefixoBase + Integer.toBinaryString(integer);
+    public int toDecimal(String n) {
+        return Integer.parseInt(n, 2);
+    }
+
+    /**
+     * Método herdado de BaseStrategy.
+     */
+    public String toBase(int v) {
+        return Integer.toBinaryString(v);
     }
 }
