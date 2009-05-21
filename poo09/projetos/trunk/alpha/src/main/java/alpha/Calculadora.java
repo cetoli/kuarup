@@ -1,145 +1,111 @@
+/*------------------------------------------------------------------------------
+    Copyright  2002-2009        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
 package alpha;
-import java.util.ArrayList;
+import labase.poo.ICalculadoraVetorial;
 
-import labase.poo.ICalculadoraBase;
-
-/**.
- * Descrição:
- * Calculadora que exerce somente as funções de soma, limpa, tecla 1, números complexos e mudança de base
+/**
+ * Esta é a classe principal da calculadora do time alpha.
  *
- * @author Carlos Henrique Pinto Rodriguez
- * @author Diego Mury G. de Lima
- *
- * @version 5     Data 19/05/2009
+ * @author  Diego Mury Gomes de Lima  $Author$
+ * @author  Carlos Henrique P. Rodriguez  $Author$
+ * @version 5.0    $Revision$ 2.0      $Date$ 20/05/09
+ * @since   4.0 Calculadora Exponencial
  */
-
-
-public class Calculadora implements ICalculadoraBase {
-    /**. Acumulador da Caculadora. */
-    private Numero acumulador = new Numero(this);
-    /**. Operador da Caculadora. */
-    private Numero operador = new Numero(this);
-    /**. Estado da Calculadora (Binário, HexStrategy ou DecStrategy) */
-    private Strategy strategy = new DecStrategy();
-    /**. Armazena os componentes do vetor */
-    private ArrayList<Numero> operadorArray = new ArrayList<Numero>();
-    
-    /**.
-    * Construtor para objetos da classe Calculadora.
-    */
+public class Calculadora implements ICalculadoraVetorial {
+    /**
+     * Atributos que guardam o acumulador, o operando e o display.
+     */
+    private INumero operando;
+    private INumero acumulador;
+    private String display;
+    /**
+     * Construtor para objetos da classe Calculadora.
+     */
     public Calculadora() {
-        // inicializa variaveis de instância
+        limpa();
     }
-
-    /**.
-    * Entra a tecla um.
-    * @return  conteudo do operador
-    */
-    public final String entraUm() {
-        strategy.entraUm(this);
-        String retorno = "";
-        for(int i=0 ; i<operadorArray.size() ; i++)
-        	retorno += operadorArray.get(i).toString() + "V";
-        retorno += operador.toString();
-        return retorno;
+    /**
+     * Limpa o acumulador.
+     * @return conteúdo do acumulador.
+     */
+    public String limpa() {
+        acumulador = new Nulo();
+        operando = new Real(0);
+        display = acumulador.mostra();
+        return display;
     }
-
-    /**.
-    * Limpa o acumulador.
-    * @return  conteudo do acumulador
-    */
-    public final String limpa() {
-        return strategy.limpa(this);
+    /**
+     * Entra a tecla um.
+     * @return contéudo do operando na base especificada.
+     */
+    public String entraUm() {
+        display = operando.entraUm();
+        return display;
     }
-
-    /**.
-    * Entra o comando soma.
-    * @return  conteudo do acumulador
-    */
-    public final String comandoSoma() {
-        return strategy.comandoSoma(this);
+    /**
+     * Entra o comando soma.
+     * @return contéudo do acumulador na base especificada.
+     */
+    public String comandoSoma() { 
+        acumulador = acumulador.soma(operando);
+        operando = new Real(0);
+        operando.setBase(acumulador.getBase());
+        display = acumulador.mostra();
+        return display;
     }
-
-    /**.
-    * Muda pro strategy Binário
-    */
-    public void modoBin() {
-        strategy = new BinStrategy();
+    /**
+     * Entra o comando subtração.
+     * @return contéudo do acumulador na base especificada.
+     */
+    public String comandoSubtrai()  { 
+        acumulador = acumulador.sub(operando);
+        operando = new Real(0);
+        operando.setBase(acumulador.getBase());
+        display = acumulador.mostra();
+        return display;
     }
-
-    /**.
-    * Muda pro strategy DecStrategy
-    */
+    /**
+     * Entra a base decimal.
+     */
     public void modoDec() {
-        strategy = new DecStrategy();
+        operando.setBase(new BaseDecimalStrategy());
+        acumulador.setBase(new BaseDecimalStrategy());
     }
-
-    /**.
-    * Muda pro strategy HexStrategy
-    */
+    /**
+     * Entra a base binária.
+     */
+    public void modoBin() {
+        operando.setBase(new BaseBinariaStrategy());
+        acumulador.setBase(new BaseBinariaStrategy());
+    }
+    /**
+     * Entra a base hexadecimal.
+     */
     public void modoHex() {
-        strategy = new HexStrategy();
+        operando.setBase(new BaseHexadecimalStrategy());
+        acumulador.setBase(new BaseHexadecimalStrategy());
     }
-
-    /**.
-     * Indica que os próximos valores entrados serão irreais
+    /**
+     * Entra a parte imaginária do número complexo.
      */
-     public void entraI() {
-         operador.entraI();
-         //acumulador.entraI();
-     }
-
-     /**.
-      * Indica que os próximos valores entrados serão irreais
-      */
-      public void entraN() {
-          operador.entraN();
-          //acumulador.entraN();
-      }
-      
-      /**.
-       * Indica que este componente do vetor já foi terminado
-       */
-      public void entraV() {
-      	operadorArray.add(operador);
-      	operador = new Numero(this);
-      }
-     
-
-    /**.
-    * @return acumulador
-    */
-    public Numero getAcumulador() {
-        return acumulador;
+    public void entraI() {
+        operando = operando.toComplexo();
     }
-
-    /**.
-    * @return operador
-    */
-    public Numero getOperador() {
-        return operador;
-    }
-
-    /**.
-    * setOperador
-    * @param operador
-    */
-    public void setOperador(Numero op) {
-        this.operador = op;
-    }
-
-    /**.
-    * setAcumulador
-    * @param acumulador
-    */
-    public void setAcumulador(Numero ac) {
-        this.acumulador = ac;
-    }
-
-    /**.
-     * @return strategy
+    /**
+     * Entra a parte exponencial do número real ou imaginário.
      */
-	public Strategy getStrategy() {
-		return strategy;
-	}
+    public void entraN() {
+        operando = operando.toExponencial();
+    }
+    /**
+     * Entra um operando vetorial.
+     */
+    public void entraV() {
+        operando = operando.toVetorial();
+    }
 }
