@@ -1,38 +1,37 @@
+/*------------------------------------------------------------------------------
+    Copyright © 2002-2006        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
 package delta;
 
 /**
  * Classe da base hexadecimal.
- * @author  Andre Sion
- * @author  Andre Abrantes
- * @version 0.3 24/04/2009 Andre Sion e Andre Abrantes
+ * @author  Carlos Felippe Cardoso e Andre Sion
+ * @version 5.0
  */
 public class HexadecimalStrategy implements BaseStrategy {
 
     /**
-     * Guarda o valor da base hexadecimal.
+     * Método herdado de BaseStrategy.
      */
-    private final int valorBase = 16;
-
-    /**
-     * Guarda o prefixo a ser usado na impressao de um numero na base hexadecimal.
-     */
-    private final String prefixoBase = "0x";
-
-    /**
-     * Retorna o valor da base hexadecimal.
-     * @return Valor da base hexadecimal.
-     */
-    public final int getValorBase() {
-        return valorBase;
+    public String getId() {
+        return "0x";
     }
 
     /**
-     * Converte um inteiro para string usando base hexadecimal.
-     *
-     * @param integer Inteiro a ser convertido.
-     * @return String convertida.
+     * Método herdado de BaseStrategy.
      */
-    public final String toString(Integer integer) {
-        return prefixoBase + Integer.toHexString(integer);
+    public int toDecimal(String n) {
+        return Integer.parseInt(n, 16);
+    }
+
+    /**
+     * Método herdado de BaseStrategy.
+     */
+    public String toBase(int v) {
+        return Integer.toHexString(v).toUpperCase();
     }
 }

@@ -1,25 +1,38 @@
+/*------------------------------------------------------------------------------
+    Copyright © 2002-2006        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
 package delta;
 
 /**
- * Interface que define os metodos das bases da calculadora.
- * @author  Andre Sion
- * @author  Andre Abrantes
- * @version 0.3 24/04/2009 Andre Sion e Andre Abrantes
- * @since   0.2 Retirado metodo getId() e acrescentado getValorBase()
+ * Interface que define os métodos das bases da calculadora.
+ * @author  Carlos Felippe Cardoso e Andre Sion
+ * @version 5.0
  */
 public interface BaseStrategy {
 
     /**
-     * Retorna o valor da base.
-     * @return Valor da base.
+     * Retorna o identificador da base decimal, binária ou hexadecimal.
+     * @return o identificador da respectiva base.
      */
-    int getValorBase();
+    public String getId();
 
     /**
-     * Converte um inteiro para string usando uma base.
-     *
-     * @param integer Inteiro a ser convertido.
-     * @return String convertida.
+     * Retorna o valor em decimal do número dado em base decimal, binária ou
+     * hexadecimal.
+     * @param n string do número dado na respectiva base.
+     * @return o valor em decimal do número dado.
      */
-    String toString(Integer integer);
+    public int toDecimal(String n);
+
+    /**
+     * Retorna um número em base decimal, binária ou hexadecimal de acordo com
+     * o valor em decimal dado.
+     * @param v valor em decimal do número dado.
+     * @return a string do número dado na respectiva base.
+     */
+    public String toBase(int v);
 }

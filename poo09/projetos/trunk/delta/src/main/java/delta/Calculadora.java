@@ -1,132 +1,127 @@
-/*-----------------------------------------------------------------------------
-  Copyright  2002-2009        Carlo E. T. Oliveira et all
-  ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
+/*------------------------------------------------------------------------------
+    Copyright © 2002-2006        Carlo E. T. Oliveira et all
+    ( see http://labase.nce.ufrj.br/curso/poo/team-list.html )
 
-  This software is licensed as described in the file LICENSE.txt,
-  which you should have received as part of this distribution.
-  ---------------------------------------------------------------------------*/
-
+    This software is licensed as described in the file LICENSE.txt,
+    which you should have received as part of this distribution.
+------------------------------------------------------------------------------*/
 package delta;
 
-import labase.poo.ICalculadoraEngenharia;
+import labase.poo.ICalculadoraVetorial;
 
 /**
  * Classe que implementa a calculadora.
- * @author  Tiago Cruz de França
- * @author  Andre Sion
- * @version 4.0 24/04/2009
- * @since   3.0 Incluido suporte a notacao de Engenharia.
+ * @author  Carlos Felippe Cardoso e Andre Sion
+ * @version 5.0
  */
-public class Calculadora implements ICalculadoraEngenharia {
-
-    /** Guarda os resultados da soma. */
-    private OperacaoComposite acumulador;
-
-    /** Guarda o conteudo do operando. */
-    private OperacaoComposite operando;
-
-    /** Guarda o conteudo do operando Real. */
-    private OperacaoComposite operandoReal;
-
-    /** Guarda o conteudo do operando complexo. */
-    private OperacaoComposite complexo;
-
-    /** Guarda o conteudo do operando Real. */
-    private OperacaoComposite engenhariaR;
-
-    /** Guarda o conteudo do operando Imaginario. */
-    private OperacaoComposite engenhariaI;
-
-    /** Guarda o conteudo do operando Imaginario. */
-    private OperacaoComposite engenharia;
-
-    /** Guarda a base atual. */
-    private BaseStrategy base;
+public class Calculadora implements ICalculadoraVetorial{
 
     /**
-     * Construtor para objetos da classe Calculadora.
-     **/
+     * Atributos que guardam o acumulador, o operador e o display.
+     */
+    private OperadorComposite acumulador, operador;
+    private String display;
+    
+    /**
+     * Construtor para objetos da classe Calculadora
+     */
     public Calculadora() {
-        base = new DecimalStrategy();        
-        operandoReal = new RealComposite();
-        complexo = new ComplexoComposite(operandoReal);
-        operando = operandoReal;
-        acumulador = operandoReal;
-        engenhariaR = new NotEngenRealComposite(operandoReal);
-        engenhariaI = new NotEngenImaginarioComposite(complexo);
-        engenharia = engenhariaR;
+        limpa();
+    }
+    
+    /**
+     * Limpa o acumulador
+     * @return conteúdo do acumulador
+     */
+    public String limpa() {
+        acumulador = new OperandoNaoPreenchido();
+        operador = new NumReal(0);
+        display = acumulador.mostra();
+        return display;
     }
 
     /**
-     * Limpa acumulador e operando.
-     * @return representacao de 0 na base atual.
-     **/
-    public final String limpa() {
-        base = new DecimalStrategy();        
-        operandoReal = new RealComposite();
-        complexo = new ComplexoComposite(operandoReal);
-        operando = operandoReal;
-        acumulador = operandoReal;
-        return operando.toString(base);
+     * Entra a tecla um
+     * @return contéudo do operador na base especificada.
+     */
+    public String entraUm() {
+        display = operador.entraUm();
+        return display;
     }
-
-    /**
-     * Entra a tecla um.
-     * @return conteudo do operando na base atual.
-     **/
-    public final String entraUm() {
-        operando.entraUm(base);
-        return acumulador.toStringOperando(base);
-    }
-
+    
     /**
      * Entra o comando soma.
-     * @return resultado da soma do acumulador e do operando.
-     **/
-    public final String comandoSoma() {
-        acumulador.soma();
-        operando = engenhariaR.getOperando();
-        return this.acumulador.toString(base);
-    }
-
-    /**
-     * Entra na base decimal.
+     * @return contéudo do acumulador na base especificada.
      */
-    public final void modoDec() {
-        base = new DecimalStrategy();
+    public String comandoSoma() { //throws CalculadoraException 
+        acumulador = acumulador.soma(operador);
+        operador = new NumReal(0);
+        operador.setBase(acumulador.getBase());
+        display = acumulador.mostra();
+        
+        return display;
     }
-
+    
     /**
-     * Entra na base binaria.
+     * Entra o comando subtração.
+     * @return contéudo do acumulador na base especificada.
      */
-    public final void modoBin() {
-        base = new BinariaStrategy();
+    public String comandoSubtrai()  { //throws CalculadoraException
+        acumulador = acumulador.sub(operador);
+        operador = new NumReal(0);
+        operador.setBase(acumulador.getBase());
+        display = acumulador.mostra();
+        return display;
     }
-
+    
     /**
-     * Entra na base hexadecimal.
+     * Entra a base decimal.
+     * @return contéudo do operador na base especificada.
      */
-    public final void modoHex() {
-        base = new HexadecimalStrategy();
+    public void modoDec() {
+        operador.setBase(new DecimalStrategy());
+        acumulador.setBase(new DecimalStrategy());
     }
-
+    
     /**
-     * Entra numero complexo.
+     * Entra a base binária.
+     * @return contéudo do operador na base especificada.
      */
-    public final void entraI() {
-        engenharia = engenhariaI;
-        acumulador = complexo;
-        operando = complexo.getOperando();//retorna imaginario
+    public void modoBin() {
+        operador.setBase(new BinariaStrategy());
+        acumulador.setBase(new BinariaStrategy());
     }
-
+    
     /**
-     * Entra numero notação de Engenharia.
+     * Entra a base hexadecimal.
+     * @return contéudo do operador na base especificada.
      */
-    public final void entraN() {
-        operandoReal = engenharia.getOperando(operandoReal);
-        ((ComplexoComposite)complexo).setReal(operandoReal);
-        acumulador = engenharia.getInstancia();
-        operando = engenharia.getExpoente();        
+    public void modoHex() {
+        operador.setBase(new HexadecimalStrategy());
+        acumulador.setBase(new HexadecimalStrategy());
     }
-
+    
+    /**
+     * Entra a parte imaginária do número complexo.
+     * @return contéudo do operador na base especificada.
+     */
+    public void entraI() {
+        operador = operador.toComplexo();
+    }
+    
+    /**
+     * Entra a parte exponencial do número real ou imaginário.
+     * @return contéudo do operador na base especificada.
+     */
+    public void entraN() {
+        operador = operador.toExponencial();
+    }
+    
+    /**
+     * Entra um operador vetorial.
+     * @return contéudo do operador na base especificada.
+     */
+    public void entraV() {
+        operador = operador.toVetorial();
+    }
 }
